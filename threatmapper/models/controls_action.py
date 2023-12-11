@@ -10,7 +10,7 @@ T = TypeVar("T", bound="ControlsAction")
 class ControlsAction:
     """
     Example:
-        {'id': 6, 'request_payload': 'request_payload'}
+        {'id': 0, 'request_payload': 'request_payload'}
 
     Attributes:
         id (int):

@@ -14,17 +14,20 @@ T = TypeVar("T", bound="ModelScanCompareResGithubComDeepfenceThreatMapperDeepfen
 class ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance:
     """
     Example:
-        {'new': [{'resource': 'resource', 'masked': True, 'description': 'description', 'resources': ['resources',
-            'resources'], 'test_category': 'test_category', 'remediation_ansible': 'remediation_ansible',
-            'compliance_check_type': 'compliance_check_type', 'test_rationale': 'test_rationale', 'test_severity':
-            'test_severity', 'node_type': 'node_type', 'updated_at': 0, 'remediation_puppet': 'remediation_puppet',
-            'remediation_script': 'remediation_script', 'node_id': 'node_id', 'status': 'status', 'test_desc': 'test_desc',
-            'test_number': 'test_number'}, {'resource': 'resource', 'masked': True, 'description': 'description',
-            'resources': ['resources', 'resources'], 'test_category': 'test_category', 'remediation_ansible':
-            'remediation_ansible', 'compliance_check_type': 'compliance_check_type', 'test_rationale': 'test_rationale',
-            'test_severity': 'test_severity', 'node_type': 'node_type', 'updated_at': 0, 'remediation_puppet':
-            'remediation_puppet', 'remediation_script': 'remediation_script', 'node_id': 'node_id', 'status': 'status',
-            'test_desc': 'test_desc', 'test_number': 'test_number'}]}
+        {'new': [{'resource': 'resource', 'masked': True, 'description': 'description', 'resources': [{'node_type':
+            'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name':
+            'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'test_category': 'test_category',
+            'remediation_ansible': 'remediation_ansible', 'compliance_check_type': 'compliance_check_type', 'rule_id':
+            'rule_id', 'test_rationale': 'test_rationale', 'test_severity': 'test_severity', 'node_type': 'node_type',
+            'updated_at': 0, 'remediation_puppet': 'remediation_puppet', 'remediation_script': 'remediation_script',
+            'node_id': 'node_id', 'status': 'status', 'test_desc': 'test_desc', 'test_number': 'test_number'}, {'resource':
+            'resource', 'masked': True, 'description': 'description', 'resources': [{'node_type': 'node_type', 'name':
+            'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name':
+            'host_name', 'node_id': 'node_id'}], 'test_category': 'test_category', 'remediation_ansible':
+            'remediation_ansible', 'compliance_check_type': 'compliance_check_type', 'rule_id': 'rule_id', 'test_rationale':
+            'test_rationale', 'test_severity': 'test_severity', 'node_type': 'node_type', 'updated_at': 0,
+            'remediation_puppet': 'remediation_puppet', 'remediation_script': 'remediation_script', 'node_id': 'node_id',
+            'status': 'status', 'test_desc': 'test_desc', 'test_number': 'test_number'}]}
 
     Attributes:
         new (Optional[List['ModelCompliance']]):

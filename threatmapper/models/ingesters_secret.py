@@ -18,10 +18,10 @@ T = TypeVar("T", bound="IngestersSecret")
 class IngestersSecret:
     """
     Example:
-        {'ImageLayerId': 'ImageLayerId', 'masked': True, 'Severity': {'score': 5.637376656633329, 'level': 'level'},
-            'Rule': {'part': 'part', 'name': 'name', 'signature_to_match': 'signature_to_match', 'id': 5}, 'scan_id':
-            'scan_id', 'Match': {'full_filename': 'full_filename', 'matched_content': 'matched_content',
-            'relative_ending_index': 0, 'starting_index': 1, 'relative_starting_index': 6}}
+        {'ImageLayerId': 'ImageLayerId', 'Severity': {'score': 5.637376656633329, 'level': 'level'}, 'Rule': {'part':
+            'part', 'name': 'name', 'signature_to_match': 'signature_to_match', 'id': 5}, 'scan_id': 'scan_id', 'Match':
+            {'full_filename': 'full_filename', 'matched_content': 'matched_content', 'relative_ending_index': 0,
+            'starting_index': 1, 'relative_starting_index': 6}}
 
     Attributes:
         image_layer_id (Union[Unset, str]):
@@ -30,7 +30,6 @@ class IngestersSecret:
         rule (Union[Unset, IngestersSecretRule]):  Example: {'part': 'part', 'name': 'name', 'signature_to_match':
             'signature_to_match', 'id': 5}.
         severity (Union[Unset, IngestersSecretSeverity]):  Example: {'score': 5.637376656633329, 'level': 'level'}.
-        masked (Union[Unset, bool]):
         scan_id (Union[Unset, str]):
     """
 
@@ -38,7 +37,6 @@ class IngestersSecret:
     match: Union[Unset, "IngestersSecretMatch"] = UNSET
     rule: Union[Unset, "IngestersSecretRule"] = UNSET
     severity: Union[Unset, "IngestersSecretSeverity"] = UNSET
-    masked: Union[Unset, bool] = UNSET
     scan_id: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -56,7 +54,6 @@ class IngestersSecret:
         if not isinstance(self.severity, Unset):
             severity = self.severity.to_dict()
 
-        masked = self.masked
         scan_id = self.scan_id
 
         field_dict: Dict[str, Any] = {}
@@ -70,8 +67,6 @@ class IngestersSecret:
             field_dict["Rule"] = rule
         if severity is not UNSET:
             field_dict["Severity"] = severity
-        if masked is not UNSET:
-            field_dict["masked"] = masked
         if scan_id is not UNSET:
             field_dict["scan_id"] = scan_id
 
@@ -107,8 +102,6 @@ class IngestersSecret:
         else:
             severity = IngestersSecretSeverity.from_dict(_severity)
 
-        masked = d.pop("masked", UNSET)
-
         scan_id = d.pop("scan_id", UNSET)
 
         ingesters_secret = cls(
@@ -116,7 +109,6 @@ class IngestersSecret:
             match=match,
             rule=rule,
             severity=severity,
-            masked=masked,
             scan_id=scan_id,
         )
 

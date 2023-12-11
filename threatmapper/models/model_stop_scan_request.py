@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Type, TypeVar
+from typing import Any, Dict, List, Optional, Type, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,27 +12,31 @@ T = TypeVar("T", bound="ModelStopScanRequest")
 class ModelStopScanRequest:
     """
     Example:
-        {'scan_type': 'SecretScan', 'scan_id': 'scan_id'}
+        {'scan_ids': ['scan_ids', 'scan_ids'], 'scan_type': 'SecretScan'}
 
     Attributes:
-        scan_id (str):
         scan_type (ModelStopScanRequestScanType):
+        scan_ids (Optional[List[str]]):
     """
 
-    scan_id: str
     scan_type: ModelStopScanRequestScanType
+    scan_ids: Optional[List[str]]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        scan_id = self.scan_id
         scan_type = self.scan_type.value
+
+        if self.scan_ids is None:
+            scan_ids = None
+        else:
+            scan_ids = self.scan_ids
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "scan_id": scan_id,
                 "scan_type": scan_type,
+                "scan_ids": scan_ids,
             }
         )
 
@@ -41,13 +45,13 @@ class ModelStopScanRequest:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        scan_id = d.pop("scan_id")
-
         scan_type = ModelStopScanRequestScanType(d.pop("scan_type"))
 
+        scan_ids = cast(List[str], d.pop("scan_ids"))
+
         model_stop_scan_request = cls(
-            scan_id=scan_id,
             scan_type=scan_type,
+            scan_ids=scan_ids,
         )
 
         model_stop_scan_request.additional_properties = d

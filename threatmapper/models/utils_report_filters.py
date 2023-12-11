@@ -19,9 +19,9 @@ T = TypeVar("T", bound="UtilsReportFilters")
 class UtilsReportFilters:
     """
     Example:
-        {'include_dead_nodes': True, 'node_type': 'host', 'advanced_report_filters': {'image_name': ['image_name',
-            'image_name'], 'account_id': ['account_id', 'account_id'], 'container_name': ['container_name',
-            'container_name'], 'scan_status': ['scan_status', 'scan_status'], 'kubernetes_cluster_name':
+        {'include_dead_nodes': True, 'node_type': 'host', 'most_exploitable_report': True, 'advanced_report_filters':
+            {'image_name': ['image_name', 'image_name'], 'account_id': ['account_id', 'account_id'], 'container_name':
+            ['container_name', 'container_name'], 'scan_status': ['scan_status', 'scan_status'], 'kubernetes_cluster_name':
             ['kubernetes_cluster_name', 'kubernetes_cluster_name'], 'masked': [True, True], 'host_name': ['host_name',
             'host_name'], 'pod_name': ['pod_name', 'pod_name']}, 'scan_type': 'vulnerability', 'scan_id': 'scan_id',
             'severity_or_check_type': ['severity_or_check_type', 'severity_or_check_type']}
@@ -35,6 +35,7 @@ class UtilsReportFilters:
             ['kubernetes_cluster_name', 'kubernetes_cluster_name'], 'masked': [True, True], 'host_name': ['host_name',
             'host_name'], 'pod_name': ['pod_name', 'pod_name']}.
         include_dead_nodes (Union[Unset, bool]):
+        most_exploitable_report (Union[Unset, bool]):
         scan_id (Union[Unset, str]):
         severity_or_check_type (Union[Unset, None, UtilsReportFiltersSeverityOrCheckType]):
     """
@@ -43,6 +44,7 @@ class UtilsReportFilters:
     scan_type: UtilsReportFiltersScanType
     advanced_report_filters: Union[Unset, "UtilsAdvancedReportFilters"] = UNSET
     include_dead_nodes: Union[Unset, bool] = UNSET
+    most_exploitable_report: Union[Unset, bool] = UNSET
     scan_id: Union[Unset, str] = UNSET
     severity_or_check_type: Union[Unset, None, UtilsReportFiltersSeverityOrCheckType] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -57,6 +59,7 @@ class UtilsReportFilters:
             advanced_report_filters = self.advanced_report_filters.to_dict()
 
         include_dead_nodes = self.include_dead_nodes
+        most_exploitable_report = self.most_exploitable_report
         scan_id = self.scan_id
         severity_or_check_type: Union[Unset, None, str] = UNSET
         if not isinstance(self.severity_or_check_type, Unset):
@@ -74,6 +77,8 @@ class UtilsReportFilters:
             field_dict["advanced_report_filters"] = advanced_report_filters
         if include_dead_nodes is not UNSET:
             field_dict["include_dead_nodes"] = include_dead_nodes
+        if most_exploitable_report is not UNSET:
+            field_dict["most_exploitable_report"] = most_exploitable_report
         if scan_id is not UNSET:
             field_dict["scan_id"] = scan_id
         if severity_or_check_type is not UNSET:
@@ -99,6 +104,8 @@ class UtilsReportFilters:
 
         include_dead_nodes = d.pop("include_dead_nodes", UNSET)
 
+        most_exploitable_report = d.pop("most_exploitable_report", UNSET)
+
         scan_id = d.pop("scan_id", UNSET)
 
         _severity_or_check_type = d.pop("severity_or_check_type", UNSET)
@@ -115,6 +122,7 @@ class UtilsReportFilters:
             scan_type=scan_type,
             advanced_report_filters=advanced_report_filters,
             include_dead_nodes=include_dead_nodes,
+            most_exploitable_report=most_exploitable_report,
             scan_id=scan_id,
             severity_or_check_type=severity_or_check_type,
         )

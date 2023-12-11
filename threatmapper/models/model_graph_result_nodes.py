@@ -7,11 +7,11 @@ if TYPE_CHECKING:
     from ..models.detailed_node_summary import DetailedNodeSummary
 
 
-T = TypeVar("T", bound="ApiDocsGraphResultNodes")
+T = TypeVar("T", bound="ModelGraphResultNodes")
 
 
 @_attrs_define
-class ApiDocsGraphResultNodes:
+class ModelGraphResultNodes:
     """ """
 
     additional_properties: Dict[str, "DetailedNodeSummary"] = _attrs_field(init=False, factory=dict)
@@ -32,7 +32,7 @@ class ApiDocsGraphResultNodes:
         from ..models.detailed_node_summary import DetailedNodeSummary
 
         d = src_dict.copy()
-        api_docs_graph_result_nodes = cls()
+        model_graph_result_nodes = cls()
 
         additional_properties = {}
         for prop_name, prop_dict in d.items():
@@ -40,8 +40,8 @@ class ApiDocsGraphResultNodes:
 
             additional_properties[prop_name] = additional_property
 
-        api_docs_graph_result_nodes.additional_properties = additional_properties
-        return api_docs_graph_result_nodes
+        model_graph_result_nodes.additional_properties = additional_properties
+        return model_graph_result_nodes
 
     @property
     def additional_keys(self) -> List[str]:

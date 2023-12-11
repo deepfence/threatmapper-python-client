@@ -16,21 +16,23 @@ T = TypeVar("T", bound="ModelCloudComplianceScanDetails")
 class ModelCloudComplianceScanDetails:
     """
     Example:
-        {'account_id': 'account_id', 'benchmarks': [{'controls': ['controls', 'controls'], 'compliance_type':
-            'compliance_type', 'id': 'id'}, {'controls': ['controls', 'controls'], 'compliance_type': 'compliance_type',
-            'id': 'id'}], 'scan_id': 'scan_id', 'scan_types': ['scan_types', 'scan_types']}
+        {'account_id': 'account_id', 'stop_requested': True, 'benchmarks': [{'controls': ['controls', 'controls'],
+            'compliance_type': 'compliance_type', 'id': 'id'}, {'controls': ['controls', 'controls'], 'compliance_type':
+            'compliance_type', 'id': 'id'}], 'scan_id': 'scan_id', 'scan_types': ['scan_types', 'scan_types']}
 
     Attributes:
         account_id (Union[Unset, str]):
         benchmarks (Union[Unset, None, List['ModelCloudComplianceBenchmark']]):
         scan_id (Union[Unset, str]):
         scan_types (Union[Unset, None, List[str]]):
+        stop_requested (Union[Unset, bool]):
     """
 
     account_id: Union[Unset, str] = UNSET
     benchmarks: Union[Unset, None, List["ModelCloudComplianceBenchmark"]] = UNSET
     scan_id: Union[Unset, str] = UNSET
     scan_types: Union[Unset, None, List[str]] = UNSET
+    stop_requested: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -54,6 +56,8 @@ class ModelCloudComplianceScanDetails:
             else:
                 scan_types = self.scan_types
 
+        stop_requested = self.stop_requested
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
@@ -65,6 +69,8 @@ class ModelCloudComplianceScanDetails:
             field_dict["scan_id"] = scan_id
         if scan_types is not UNSET:
             field_dict["scan_types"] = scan_types
+        if stop_requested is not UNSET:
+            field_dict["stop_requested"] = stop_requested
 
         return field_dict
 
@@ -86,11 +92,14 @@ class ModelCloudComplianceScanDetails:
 
         scan_types = cast(List[str], d.pop("scan_types", UNSET))
 
+        stop_requested = d.pop("stop_requested", UNSET)
+
         model_cloud_compliance_scan_details = cls(
             account_id=account_id,
             benchmarks=benchmarks,
             scan_id=scan_id,
             scan_types=scan_types,
+            stop_requested=stop_requested,
         )
 
         model_cloud_compliance_scan_details.additional_properties = d

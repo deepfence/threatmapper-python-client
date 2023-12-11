@@ -27,12 +27,13 @@ class DetailedNodeSummary:
             'pod_name': 'pod_name', 'ppid': 9, 'tags': ['tags', 'tags'], 'docker_container_ports': 'docker_container_ports',
             'kubernetes_is_in_host_network': True, 'instance_id': 'instance_id', 'kernel_id': 'kernel_id', 'copy_of':
             'copy_of', 'open_files': ['open_files', 'open_files'], 'docker_env': 'docker_env', 'connection_count': 0,
-            'docker_image_size': 'docker_image_size', 'cpu_usage': 1.4658129805029452, 'pod_id': 'pod_id', 'docker_label':
-            'docker_label', 'instance_type': 'instance_type', 'docker_image_name': 'docker_image_name', 'user_defined_tags':
-            ['user_defined_tags', 'user_defined_tags'], 'local_networks': ['local_networks', 'local_networks'],
-            'cloud_region': 'cloud_region', 'kubernetes_state': 'kubernetes_state', 'interface_names': ['interface_names',
-            'interface_names'], 'memory_usage': 5, 'open_files_count': 2, 'kubernetes_public_ip': 'kubernetes_public_ip',
-            'private_ip': ['private_ip', 'private_ip'], 'docker_container_network_mode': 'docker_container_network_mode',
+            'docker_image_size': 'docker_image_size', 'short_name': 'short_name', 'cpu_usage': 1.4658129805029452, 'pod_id':
+            'pod_id', 'docker_label': 'docker_label', 'instance_type': 'instance_type', 'docker_image_name':
+            'docker_image_name', 'user_defined_tags': ['user_defined_tags', 'user_defined_tags'], 'local_networks':
+            ['local_networks', 'local_networks'], 'cloud_region': 'cloud_region', 'kubernetes_state': 'kubernetes_state',
+            'interface_names': ['interface_names', 'interface_names'], 'memory_usage': 5, 'open_files_count': 2,
+            'kubernetes_public_ip': 'kubernetes_public_ip', 'private_ip': ['private_ip', 'private_ip'],
+            'docker_container_network_mode': 'docker_container_network_mode', 'cloud_account_id': 'cloud_account_id',
             'kubernetes_type': 'kubernetes_type', 'resource_group': 'resource_group', 'docker_image_tag':
             'docker_image_tag', 'kubernetes_labels': 'kubernetes_labels', 'docker_container_ips': ['docker_container_ips',
             'docker_container_ips'], 'docker_image_id': 'docker_image_id', 'timestamp': 'timestamp', 'interface_ips':
@@ -62,12 +63,13 @@ class DetailedNodeSummary:
             'ppid': 9, 'tags': ['tags', 'tags'], 'docker_container_ports': 'docker_container_ports',
             'kubernetes_is_in_host_network': True, 'instance_id': 'instance_id', 'kernel_id': 'kernel_id', 'copy_of':
             'copy_of', 'open_files': ['open_files', 'open_files'], 'docker_env': 'docker_env', 'connection_count': 0,
-            'docker_image_size': 'docker_image_size', 'cpu_usage': 1.4658129805029452, 'pod_id': 'pod_id', 'docker_label':
-            'docker_label', 'instance_type': 'instance_type', 'docker_image_name': 'docker_image_name', 'user_defined_tags':
-            ['user_defined_tags', 'user_defined_tags'], 'local_networks': ['local_networks', 'local_networks'],
-            'cloud_region': 'cloud_region', 'kubernetes_state': 'kubernetes_state', 'interface_names': ['interface_names',
-            'interface_names'], 'memory_usage': 5, 'open_files_count': 2, 'kubernetes_public_ip': 'kubernetes_public_ip',
-            'private_ip': ['private_ip', 'private_ip'], 'docker_container_network_mode': 'docker_container_network_mode',
+            'docker_image_size': 'docker_image_size', 'short_name': 'short_name', 'cpu_usage': 1.4658129805029452, 'pod_id':
+            'pod_id', 'docker_label': 'docker_label', 'instance_type': 'instance_type', 'docker_image_name':
+            'docker_image_name', 'user_defined_tags': ['user_defined_tags', 'user_defined_tags'], 'local_networks':
+            ['local_networks', 'local_networks'], 'cloud_region': 'cloud_region', 'kubernetes_state': 'kubernetes_state',
+            'interface_names': ['interface_names', 'interface_names'], 'memory_usage': 5, 'open_files_count': 2,
+            'kubernetes_public_ip': 'kubernetes_public_ip', 'private_ip': ['private_ip', 'private_ip'],
+            'docker_container_network_mode': 'docker_container_network_mode', 'cloud_account_id': 'cloud_account_id',
             'kubernetes_type': 'kubernetes_type', 'resource_group': 'resource_group', 'docker_image_tag':
             'docker_image_tag', 'kubernetes_labels': 'kubernetes_labels', 'docker_container_ips': ['docker_container_ips',
             'docker_container_ips'], 'docker_image_id': 'docker_image_id', 'timestamp': 'timestamp', 'interface_ips':

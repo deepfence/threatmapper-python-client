@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from typing import Any, Dict, List, Optional, Union, cast
+from typing import Any, Dict, Optional, Union, cast
 
 import httpx
 
@@ -7,31 +7,34 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
-from ...models.postgresql_db_get_audit_logs_row import PostgresqlDbGetAuditLogsRow
+from ...models.diagnosis_diagnostic_logs_status import DiagnosisDiagnosticLogsStatus
 from ...types import Response
 
 
-def _get_kwargs() -> Dict[str, Any]:
+def _get_kwargs(
+    node_id: str,
+    *,
+    json_body: DiagnosisDiagnosticLogsStatus,
+) -> Dict[str, Any]:
     pass
 
+    json_json_body = json_body.to_dict()
+
     return {
-        "method": "get",
-        "url": "/deepfence/settings/user-activity-log",
+        "method": "put",
+        "url": "/deepfence/diagnosis/cloud-scanner-logs/status/{node_id}".format(
+            node_id=node_id,
+        ),
+        "json": json_json_body,
     }
 
 
 def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["PostgresqlDbGetAuditLogsRow"]]]:
-    if response.status_code == HTTPStatus.OK:
-        response_200 = []
-        _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = PostgresqlDbGetAuditLogsRow.from_dict(response_200_item_data)
-
-            response_200.append(response_200_item)
-
-        return response_200
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
+    if response.status_code == HTTPStatus.NO_CONTENT:
+        response_204 = cast(Any, None)
+        return response_204
     if response.status_code == HTTPStatus.BAD_REQUEST:
         response_400 = ApiDocsBadRequestResponse.from_dict(response.json())
 
@@ -58,7 +61,7 @@ def _parse_response(
 
 def _build_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["PostgresqlDbGetAuditLogsRow"]]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -68,22 +71,32 @@ def _build_response(
 
 
 def sync_detailed(
+    node_id: str,
     *,
     client: AuthenticatedClient,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["PostgresqlDbGetAuditLogsRow"]]]:
-    """Get activity logs
+    json_body: DiagnosisDiagnosticLogsStatus,
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
+    """Update Cloud Scanner Diagnostic Logs Status
 
-     Get activity logs for all users
+     Update cloud scanner diagnostic logs status
+
+    Args:
+        node_id (str):
+        json_body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
+            'status'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['PostgresqlDbGetAuditLogsRow']]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]
     """
 
-    kwargs = _get_kwargs()
+    kwargs = _get_kwargs(
+        node_id=node_id,
+        json_body=json_body,
+    )
 
     response = client.get_httpx_client().request(
         **kwargs,
@@ -93,43 +106,62 @@ def sync_detailed(
 
 
 def sync(
+    node_id: str,
     *,
     client: AuthenticatedClient,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["PostgresqlDbGetAuditLogsRow"]]]:
-    """Get activity logs
+    json_body: DiagnosisDiagnosticLogsStatus,
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
+    """Update Cloud Scanner Diagnostic Logs Status
 
-     Get activity logs for all users
+     Update cloud scanner diagnostic logs status
+
+    Args:
+        node_id (str):
+        json_body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
+            'status'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['PostgresqlDbGetAuditLogsRow']]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]
     """
 
     return sync_detailed(
+        node_id=node_id,
         client=client,
+        json_body=json_body,
     ).parsed
 
 
 async def asyncio_detailed(
+    node_id: str,
     *,
     client: AuthenticatedClient,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["PostgresqlDbGetAuditLogsRow"]]]:
-    """Get activity logs
+    json_body: DiagnosisDiagnosticLogsStatus,
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
+    """Update Cloud Scanner Diagnostic Logs Status
 
-     Get activity logs for all users
+     Update cloud scanner diagnostic logs status
+
+    Args:
+        node_id (str):
+        json_body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
+            'status'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['PostgresqlDbGetAuditLogsRow']]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]
     """
 
-    kwargs = _get_kwargs()
+    kwargs = _get_kwargs(
+        node_id=node_id,
+        json_body=json_body,
+    )
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -137,23 +169,32 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    node_id: str,
     *,
     client: AuthenticatedClient,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["PostgresqlDbGetAuditLogsRow"]]]:
-    """Get activity logs
+    json_body: DiagnosisDiagnosticLogsStatus,
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
+    """Update Cloud Scanner Diagnostic Logs Status
 
-     Get activity logs for all users
+     Update cloud scanner diagnostic logs status
+
+    Args:
+        node_id (str):
+        json_body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
+            'status'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['PostgresqlDbGetAuditLogsRow']]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]
     """
 
     return (
         await asyncio_detailed(
+            node_id=node_id,
             client=client,
+            json_body=json_body,
         )
     ).parsed

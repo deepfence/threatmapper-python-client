@@ -7,8 +7,8 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
-from ...models.api_docs_graph_result import ApiDocsGraphResult
 from ...models.graph_topology_filters import GraphTopologyFilters
+from ...models.model_graph_result import ModelGraphResult
 from ...types import Response
 
 
@@ -29,9 +29,9 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ApiDocsGraphResult]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGraphResult]]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ApiDocsGraphResult.from_dict(response.json())
+        response_200 = ModelGraphResult.from_dict(response.json())
 
         return response_200
     if response.status_code == HTTPStatus.BAD_REQUEST:
@@ -60,7 +60,7 @@ def _parse_response(
 
 def _build_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ApiDocsGraphResult]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGraphResult]]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -73,7 +73,7 @@ def sync_detailed(
     *,
     client: AuthenticatedClient,
     json_body: GraphTopologyFilters,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ApiDocsGraphResult]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGraphResult]]:
     """Get Kubernetes Topology Graph
 
      Retrieve the full topology graph associated with the account from Kubernetes
@@ -97,7 +97,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ApiDocsGraphResult]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGraphResult]]
     """
 
     kwargs = _get_kwargs(
@@ -115,7 +115,7 @@ def sync(
     *,
     client: AuthenticatedClient,
     json_body: GraphTopologyFilters,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ApiDocsGraphResult]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGraphResult]]:
     """Get Kubernetes Topology Graph
 
      Retrieve the full topology graph associated with the account from Kubernetes
@@ -139,7 +139,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ApiDocsGraphResult]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGraphResult]
     """
 
     return sync_detailed(
@@ -152,7 +152,7 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
     json_body: GraphTopologyFilters,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ApiDocsGraphResult]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGraphResult]]:
     """Get Kubernetes Topology Graph
 
      Retrieve the full topology graph associated with the account from Kubernetes
@@ -176,7 +176,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ApiDocsGraphResult]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGraphResult]]
     """
 
     kwargs = _get_kwargs(
@@ -192,7 +192,7 @@ async def asyncio(
     *,
     client: AuthenticatedClient,
     json_body: GraphTopologyFilters,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ApiDocsGraphResult]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGraphResult]]:
     """Get Kubernetes Topology Graph
 
      Retrieve the full topology graph associated with the account from Kubernetes
@@ -216,7 +216,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ApiDocsGraphResult]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGraphResult]
     """
 
     return (

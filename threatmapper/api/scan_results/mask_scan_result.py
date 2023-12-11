@@ -77,7 +77,7 @@ def sync_detailed(
      Mask scan results
 
     Args:
-        json_body (ModelScanResultsMaskRequest):  Example: {'mask_across_hosts_and_images': True,
+        json_body (ModelScanResultsMaskRequest):  Example: {'mask_action': 'mask_global',
             'result_ids': ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id':
             'scan_id'}.
 
@@ -110,7 +110,7 @@ def sync(
      Mask scan results
 
     Args:
-        json_body (ModelScanResultsMaskRequest):  Example: {'mask_across_hosts_and_images': True,
+        json_body (ModelScanResultsMaskRequest):  Example: {'mask_action': 'mask_global',
             'result_ids': ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id':
             'scan_id'}.
 
@@ -138,7 +138,7 @@ async def asyncio_detailed(
      Mask scan results
 
     Args:
-        json_body (ModelScanResultsMaskRequest):  Example: {'mask_across_hosts_and_images': True,
+        json_body (ModelScanResultsMaskRequest):  Example: {'mask_action': 'mask_global',
             'result_ids': ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id':
             'scan_id'}.
 
@@ -169,7 +169,7 @@ async def asyncio(
      Mask scan results
 
     Args:
-        json_body (ModelScanResultsMaskRequest):  Example: {'mask_across_hosts_and_images': True,
+        json_body (ModelScanResultsMaskRequest):  Example: {'mask_action': 'mask_global',
             'result_ids': ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id':
             'scan_id'}.
 

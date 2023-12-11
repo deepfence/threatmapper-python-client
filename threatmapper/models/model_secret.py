@@ -1,9 +1,13 @@
-from typing import Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
+
+if TYPE_CHECKING:
+    from ..models.model_basic_node import ModelBasicNode
+
 
 T = TypeVar("T", bound="ModelSecret")
 
@@ -13,9 +17,11 @@ class ModelSecret:
     """
     Example:
         {'full_filename': 'full_filename', 'level': 'level', 'masked': True, 'part': 'part', 'relative_ending_index': 0,
-            'starting_index': 5, 'resources': ['resources', 'resources'], 'signature_to_match': 'signature_to_match',
-            'rule_id': 1, 'score': 5.962133916683182, 'matched_content': 'matched_content', 'updated_at': 2, 'name': 'name',
-            'relative_starting_index': 6, 'node_id': 'node_id'}
+            'starting_index': 5, 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name',
+            'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id':
+            'node_id'}], 'signature_to_match': 'signature_to_match', 'rule_id': 1, 'score': 5.962133916683182,
+            'matched_content': 'matched_content', 'updated_at': 2, 'name': 'name', 'relative_starting_index': 6, 'node_id':
+            'node_id'}
 
     Attributes:
         full_filename (str):
@@ -32,7 +38,7 @@ class ModelSecret:
         signature_to_match (str):
         starting_index (int):
         updated_at (int):
-        resources (Union[Unset, None, List[str]]):
+        resources (Union[Unset, None, List['ModelBasicNode']]):
     """
 
     full_filename: str
@@ -49,7 +55,7 @@ class ModelSecret:
     signature_to_match: str
     starting_index: int
     updated_at: int
-    resources: Union[Unset, None, List[str]] = UNSET
+    resources: Union[Unset, None, List["ModelBasicNode"]] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -67,12 +73,16 @@ class ModelSecret:
         signature_to_match = self.signature_to_match
         starting_index = self.starting_index
         updated_at = self.updated_at
-        resources: Union[Unset, None, List[str]] = UNSET
+        resources: Union[Unset, None, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.resources, Unset):
             if self.resources is None:
                 resources = None
             else:
-                resources = self.resources
+                resources = []
+                for resources_item_data in self.resources:
+                    resources_item = resources_item_data.to_dict()
+
+                    resources.append(resources_item)
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -101,6 +111,8 @@ class ModelSecret:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.model_basic_node import ModelBasicNode
+
         d = src_dict.copy()
         full_filename = d.pop("full_filename")
 
@@ -130,7 +142,12 @@ class ModelSecret:
 
         updated_at = d.pop("updated_at")
 
-        resources = cast(List[str], d.pop("resources", UNSET))
+        resources = []
+        _resources = d.pop("resources", UNSET)
+        for resources_item_data in _resources or []:
+            resources_item = ModelBasicNode.from_dict(resources_item_data)
+
+            resources.append(resources_item)
 
         model_secret = cls(
             full_filename=full_filename,

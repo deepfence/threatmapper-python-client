@@ -11,8 +11,8 @@ class ModelProcess:
     """
     Example:
         {'memory_max': 9, 'cmdline': 'cmdline', 'cpu_max': 2.3021358869347655, 'node_name': 'node_name', 'memory_usage':
-            3, 'open_files_count': 2, 'threads': 1, 'pid': 4, 'cpu_usage': 7.061401241503109, 'node_id': 'node_id', 'ppid':
-            7}
+            3, 'open_files_count': 2, 'threads': 1, 'pid': 4, 'short_name': 'short_name', 'cpu_usage': 7.061401241503109,
+            'node_id': 'node_id', 'ppid': 7}
 
     Attributes:
         cmdline (str):
@@ -25,6 +25,7 @@ class ModelProcess:
         open_files_count (int):
         pid (int):
         ppid (int):
+        short_name (str):
         threads (int):
     """
 
@@ -38,6 +39,7 @@ class ModelProcess:
     open_files_count: int
     pid: int
     ppid: int
+    short_name: str
     threads: int
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -52,6 +54,7 @@ class ModelProcess:
         open_files_count = self.open_files_count
         pid = self.pid
         ppid = self.ppid
+        short_name = self.short_name
         threads = self.threads
 
         field_dict: Dict[str, Any] = {}
@@ -68,6 +71,7 @@ class ModelProcess:
                 "open_files_count": open_files_count,
                 "pid": pid,
                 "ppid": ppid,
+                "short_name": short_name,
                 "threads": threads,
             }
         )
@@ -97,6 +101,8 @@ class ModelProcess:
 
         ppid = d.pop("ppid")
 
+        short_name = d.pop("short_name")
+
         threads = d.pop("threads")
 
         model_process = cls(
@@ -110,6 +116,7 @@ class ModelProcess:
             open_files_count=open_files_count,
             pid=pid,
             ppid=ppid,
+            short_name=short_name,
             threads=threads,
         )
 

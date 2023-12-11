@@ -1,9 +1,13 @@
-from typing import Any, Dict, List, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
+
+if TYPE_CHECKING:
+    from ..models.model_basic_node import ModelBasicNode
+
 
 T = TypeVar("T", bound="ModelCloudCompliance")
 
@@ -13,10 +17,11 @@ class ModelCloudCompliance:
     """
     Example:
         {'severity': 'severity', 'reason': 'reason', 'control_id': 'control_id', 'resource': 'resource', 'masked': True,
-            'count': 0, 'node_name': 'node_name', 'description': 'description', 'resources': ['resources', 'resources'],
-            'cloud_provider': 'cloud_provider', 'title': 'title', 'type': 'type', 'compliance_check_type':
-            'compliance_check_type', 'account_id': 'account_id', 'updated_at': 6, 'service': 'service', 'region': 'region',
-            'group': 'group', 'node_id': 'node_id', 'status': 'status'}
+            'count': 0, 'node_name': 'node_name', 'description': 'description', 'resources': [{'node_type': 'node_type',
+            'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name',
+            'host_name': 'host_name', 'node_id': 'node_id'}], 'cloud_provider': 'cloud_provider', 'title': 'title', 'type':
+            'type', 'compliance_check_type': 'compliance_check_type', 'account_id': 'account_id', 'updated_at': 6,
+            'service': 'service', 'region': 'region', 'group': 'group', 'node_id': 'node_id', 'status': 'status'}
 
     Attributes:
         account_id (str):
@@ -38,7 +43,7 @@ class ModelCloudCompliance:
         title (str):
         type (str):
         updated_at (int):
-        resources (Union[Unset, None, List[str]]):
+        resources (Union[Unset, None, List['ModelBasicNode']]):
     """
 
     account_id: str
@@ -60,7 +65,7 @@ class ModelCloudCompliance:
     title: str
     type: str
     updated_at: int
-    resources: Union[Unset, None, List[str]] = UNSET
+    resources: Union[Unset, None, List["ModelBasicNode"]] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -83,12 +88,16 @@ class ModelCloudCompliance:
         title = self.title
         type = self.type
         updated_at = self.updated_at
-        resources: Union[Unset, None, List[str]] = UNSET
+        resources: Union[Unset, None, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.resources, Unset):
             if self.resources is None:
                 resources = None
             else:
-                resources = self.resources
+                resources = []
+                for resources_item_data in self.resources:
+                    resources_item = resources_item_data.to_dict()
+
+                    resources.append(resources_item)
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -122,6 +131,8 @@ class ModelCloudCompliance:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.model_basic_node import ModelBasicNode
+
         d = src_dict.copy()
         account_id = d.pop("account_id")
 
@@ -161,7 +172,12 @@ class ModelCloudCompliance:
 
         updated_at = d.pop("updated_at")
 
-        resources = cast(List[str], d.pop("resources", UNSET))
+        resources = []
+        _resources = d.pop("resources", UNSET)
+        for resources_item_data in _resources or []:
+            resources_item = ModelBasicNode.from_dict(resources_item_data)
+
+            resources.append(resources_item)
 
         model_cloud_compliance = cls(
             account_id=account_id,

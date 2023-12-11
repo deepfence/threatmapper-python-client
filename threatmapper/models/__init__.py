@@ -4,9 +4,8 @@ from .api_docs_bad_request_response import ApiDocsBadRequestResponse
 from .api_docs_bad_request_response_error_fields import ApiDocsBadRequestResponseErrorFields
 from .api_docs_bad_request_response_error_index import ApiDocsBadRequestResponseErrorIndex
 from .api_docs_failure_response import ApiDocsFailureResponse
-from .api_docs_graph_result import ApiDocsGraphResult
-from .api_docs_graph_result_edges import ApiDocsGraphResultEdges
-from .api_docs_graph_result_nodes import ApiDocsGraphResultNodes
+from .completion_completion_node_field_req import CompletionCompletionNodeFieldReq
+from .completion_completion_node_field_res import CompletionCompletionNodeFieldRes
 from .controls_action import ControlsAction
 from .controls_agent_beat import ControlsAgentBeat
 from .controls_agent_controls import ControlsAgentControls
@@ -19,6 +18,7 @@ from .diagnosis_diagnostic_logs_link import DiagnosisDiagnosticLogsLink
 from .diagnosis_diagnostic_logs_status import DiagnosisDiagnosticLogsStatus
 from .diagnosis_diagnostic_notification import DiagnosisDiagnosticNotification
 from .diagnosis_generate_agent_diagnostic_logs_request import DiagnosisGenerateAgentDiagnosticLogsRequest
+from .diagnosis_generate_cloud_scanner_diagnostic_logs_request import DiagnosisGenerateCloudScannerDiagnosticLogsRequest
 from .diagnosis_generate_console_diagnostic_logs_request import DiagnosisGenerateConsoleDiagnosticLogsRequest
 from .diagnosis_get_diagnostic_logs_response import DiagnosisGetDiagnosticLogsResponse
 from .diagnosis_node_identifier import DiagnosisNodeIdentifier
@@ -148,6 +148,10 @@ from .model_generate_report_req import ModelGenerateReportReq
 from .model_generate_report_req_duration import ModelGenerateReportReqDuration
 from .model_generate_report_req_report_type import ModelGenerateReportReqReportType
 from .model_generate_report_resp import ModelGenerateReportResp
+from .model_get_audit_logs_request import ModelGetAuditLogsRequest
+from .model_graph_result import ModelGraphResult
+from .model_graph_result_edges import ModelGraphResultEdges
+from .model_graph_result_nodes import ModelGraphResultNodes
 from .model_host import ModelHost
 from .model_image_stub import ModelImageStub
 from .model_init_agent_req import ModelInitAgentReq
@@ -221,11 +225,13 @@ from .model_scan_info import ModelScanInfo
 from .model_scan_info_severity_counts import ModelScanInfoSeverityCounts
 from .model_scan_list_req import ModelScanListReq
 from .model_scan_list_resp import ModelScanListResp
+from .model_scan_report_fields_response import ModelScanReportFieldsResponse
 from .model_scan_result_basic_node import ModelScanResultBasicNode
 from .model_scan_results_action_request import ModelScanResultsActionRequest
 from .model_scan_results_action_request_scan_type import ModelScanResultsActionRequestScanType
 from .model_scan_results_common import ModelScanResultsCommon
 from .model_scan_results_mask_request import ModelScanResultsMaskRequest
+from .model_scan_results_mask_request_mask_action import ModelScanResultsMaskRequestMaskAction
 from .model_scan_results_mask_request_scan_type import ModelScanResultsMaskRequestScanType
 from .model_scan_results_req import ModelScanResultsReq
 from .model_scan_status_req import ModelScanStatusReq
@@ -244,6 +250,8 @@ from .model_settings_response import ModelSettingsResponse
 from .model_stop_scan_request import ModelStopScanRequest
 from .model_stop_scan_request_scan_type import ModelStopScanRequestScanType
 from .model_summary import ModelSummary
+from .model_topology_delta_req import ModelTopologyDeltaReq
+from .model_topology_delta_response import ModelTopologyDeltaResponse
 from .model_update_scheduled_task_request import ModelUpdateScheduledTaskRequest
 from .model_update_user_id_request import ModelUpdateUserIdRequest
 from .model_update_user_id_request_role import ModelUpdateUserIdRequestRole
@@ -296,9 +304,8 @@ __all__ = (
     "ApiDocsBadRequestResponseErrorFields",
     "ApiDocsBadRequestResponseErrorIndex",
     "ApiDocsFailureResponse",
-    "ApiDocsGraphResult",
-    "ApiDocsGraphResultEdges",
-    "ApiDocsGraphResultNodes",
+    "CompletionCompletionNodeFieldReq",
+    "CompletionCompletionNodeFieldRes",
     "ControlsAction",
     "ControlsAgentBeat",
     "ControlsAgentControls",
@@ -311,6 +318,7 @@ __all__ = (
     "DiagnosisDiagnosticLogsStatus",
     "DiagnosisDiagnosticNotification",
     "DiagnosisGenerateAgentDiagnosticLogsRequest",
+    "DiagnosisGenerateCloudScannerDiagnosticLogsRequest",
     "DiagnosisGenerateConsoleDiagnosticLogsRequest",
     "DiagnosisGetDiagnosticLogsResponse",
     "DiagnosisNodeIdentifier",
@@ -424,6 +432,10 @@ __all__ = (
     "ModelGenerateReportReqDuration",
     "ModelGenerateReportReqReportType",
     "ModelGenerateReportResp",
+    "ModelGetAuditLogsRequest",
+    "ModelGraphResult",
+    "ModelGraphResultEdges",
+    "ModelGraphResultNodes",
     "ModelHost",
     "ModelImageStub",
     "ModelInitAgentReq",
@@ -487,11 +499,13 @@ __all__ = (
     "ModelScanInfoSeverityCounts",
     "ModelScanListReq",
     "ModelScanListResp",
+    "ModelScanReportFieldsResponse",
     "ModelScanResultBasicNode",
     "ModelScanResultsActionRequest",
     "ModelScanResultsActionRequestScanType",
     "ModelScanResultsCommon",
     "ModelScanResultsMaskRequest",
+    "ModelScanResultsMaskRequestMaskAction",
     "ModelScanResultsMaskRequestScanType",
     "ModelScanResultsReq",
     "ModelScanStatusReq",
@@ -510,6 +524,8 @@ __all__ = (
     "ModelStopScanRequest",
     "ModelStopScanRequestScanType",
     "ModelSummary",
+    "ModelTopologyDeltaReq",
+    "ModelTopologyDeltaResponse",
     "ModelUpdateScheduledTaskRequest",
     "ModelUpdateUserIdRequest",
     "ModelUpdateUserIdRequestRole",

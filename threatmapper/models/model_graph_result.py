@@ -4,15 +4,15 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
-    from ..models.api_docs_graph_result_edges import ApiDocsGraphResultEdges
-    from ..models.api_docs_graph_result_nodes import ApiDocsGraphResultNodes
+    from ..models.model_graph_result_edges import ModelGraphResultEdges
+    from ..models.model_graph_result_nodes import ModelGraphResultNodes
 
 
-T = TypeVar("T", bound="ApiDocsGraphResult")
+T = TypeVar("T", bound="ModelGraphResult")
 
 
 @_attrs_define
-class ApiDocsGraphResult:
+class ModelGraphResult:
     """
     Example:
         {'nodes': {'key': {'immediate_parent_id': 'immediate_parent_id', 'metadata': {'docker_image_name_with_tag':
@@ -26,12 +26,13 @@ class ApiDocsGraphResult:
             'pod_name': 'pod_name', 'ppid': 9, 'tags': ['tags', 'tags'], 'docker_container_ports': 'docker_container_ports',
             'kubernetes_is_in_host_network': True, 'instance_id': 'instance_id', 'kernel_id': 'kernel_id', 'copy_of':
             'copy_of', 'open_files': ['open_files', 'open_files'], 'docker_env': 'docker_env', 'connection_count': 0,
-            'docker_image_size': 'docker_image_size', 'cpu_usage': 1.4658129805029452, 'pod_id': 'pod_id', 'docker_label':
-            'docker_label', 'instance_type': 'instance_type', 'docker_image_name': 'docker_image_name', 'user_defined_tags':
-            ['user_defined_tags', 'user_defined_tags'], 'local_networks': ['local_networks', 'local_networks'],
-            'cloud_region': 'cloud_region', 'kubernetes_state': 'kubernetes_state', 'interface_names': ['interface_names',
-            'interface_names'], 'memory_usage': 5, 'open_files_count': 2, 'kubernetes_public_ip': 'kubernetes_public_ip',
-            'private_ip': ['private_ip', 'private_ip'], 'docker_container_network_mode': 'docker_container_network_mode',
+            'docker_image_size': 'docker_image_size', 'short_name': 'short_name', 'cpu_usage': 1.4658129805029452, 'pod_id':
+            'pod_id', 'docker_label': 'docker_label', 'instance_type': 'instance_type', 'docker_image_name':
+            'docker_image_name', 'user_defined_tags': ['user_defined_tags', 'user_defined_tags'], 'local_networks':
+            ['local_networks', 'local_networks'], 'cloud_region': 'cloud_region', 'kubernetes_state': 'kubernetes_state',
+            'interface_names': ['interface_names', 'interface_names'], 'memory_usage': 5, 'open_files_count': 2,
+            'kubernetes_public_ip': 'kubernetes_public_ip', 'private_ip': ['private_ip', 'private_ip'],
+            'docker_container_network_mode': 'docker_container_network_mode', 'cloud_account_id': 'cloud_account_id',
             'kubernetes_type': 'kubernetes_type', 'resource_group': 'resource_group', 'docker_image_tag':
             'docker_image_tag', 'kubernetes_labels': 'kubernetes_labels', 'docker_container_ips': ['docker_container_ips',
             'docker_container_ips'], 'docker_image_id': 'docker_image_id', 'timestamp': 'timestamp', 'interface_ips':
@@ -45,12 +46,12 @@ class ApiDocsGraphResult:
             'id': 'id', 'label': 'label', 'type': 'type'}}, 'edges': {'key': {'source': 'source', 'target': 'target'}}}
 
     Attributes:
-        edges (ApiDocsGraphResultEdges):
-        nodes (ApiDocsGraphResultNodes):
+        edges (ModelGraphResultEdges):
+        nodes (ModelGraphResultNodes):
     """
 
-    edges: "ApiDocsGraphResultEdges"
-    nodes: "ApiDocsGraphResultNodes"
+    edges: "ModelGraphResultEdges"
+    nodes: "ModelGraphResultNodes"
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,21 +72,21 @@ class ApiDocsGraphResult:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_docs_graph_result_edges import ApiDocsGraphResultEdges
-        from ..models.api_docs_graph_result_nodes import ApiDocsGraphResultNodes
+        from ..models.model_graph_result_edges import ModelGraphResultEdges
+        from ..models.model_graph_result_nodes import ModelGraphResultNodes
 
         d = src_dict.copy()
-        edges = ApiDocsGraphResultEdges.from_dict(d.pop("edges"))
+        edges = ModelGraphResultEdges.from_dict(d.pop("edges"))
 
-        nodes = ApiDocsGraphResultNodes.from_dict(d.pop("nodes"))
+        nodes = ModelGraphResultNodes.from_dict(d.pop("nodes"))
 
-        api_docs_graph_result = cls(
+        model_graph_result = cls(
             edges=edges,
             nodes=nodes,
         )
 
-        api_docs_graph_result.additional_properties = d
-        return api_docs_graph_result
+        model_graph_result.additional_properties = d
+        return model_graph_result
 
     @property
     def additional_keys(self) -> List[str]:

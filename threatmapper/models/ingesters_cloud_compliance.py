@@ -12,9 +12,9 @@ T = TypeVar("T", bound="IngestersCloudCompliance")
 class IngestersCloudCompliance:
     """
     Example:
-        {'severity': 'severity', 'reason': 'reason', 'control_id': 'control_id', 'resource': 'resource', 'masked': True,
-            'count': 0, 'description': 'description', 'cloud_provider': 'cloud_provider', 'title': 'title', 'type': 'type',
-            'doc_id': 'doc_id', 'compliance_check_type': 'compliance_check_type', '@timestamp': '@timestamp', 'account_id':
+        {'severity': 'severity', 'reason': 'reason', 'control_id': 'control_id', 'resource': 'resource', 'count': 0,
+            'description': 'description', 'cloud_provider': 'cloud_provider', 'title': 'title', 'type': 'type', 'doc_id':
+            'doc_id', 'compliance_check_type': 'compliance_check_type', '@timestamp': '@timestamp', 'account_id':
             'account_id', 'service': 'service', 'scan_id': 'scan_id', 'region': 'region', 'group': 'group', 'status':
             'status'}
 
@@ -28,7 +28,6 @@ class IngestersCloudCompliance:
         description (Union[Unset, str]):
         doc_id (Union[Unset, str]):
         group (Union[Unset, str]):
-        masked (Union[Unset, bool]):
         reason (Union[Unset, str]):
         region (Union[Unset, str]):
         resource (Union[Unset, str]):
@@ -49,7 +48,6 @@ class IngestersCloudCompliance:
     description: Union[Unset, str] = UNSET
     doc_id: Union[Unset, str] = UNSET
     group: Union[Unset, str] = UNSET
-    masked: Union[Unset, bool] = UNSET
     reason: Union[Unset, str] = UNSET
     region: Union[Unset, str] = UNSET
     resource: Union[Unset, str] = UNSET
@@ -71,7 +69,6 @@ class IngestersCloudCompliance:
         description = self.description
         doc_id = self.doc_id
         group = self.group
-        masked = self.masked
         reason = self.reason
         region = self.region
         resource = self.resource
@@ -103,8 +100,6 @@ class IngestersCloudCompliance:
             field_dict["doc_id"] = doc_id
         if group is not UNSET:
             field_dict["group"] = group
-        if masked is not UNSET:
-            field_dict["masked"] = masked
         if reason is not UNSET:
             field_dict["reason"] = reason
         if region is not UNSET:
@@ -147,8 +142,6 @@ class IngestersCloudCompliance:
 
         group = d.pop("group", UNSET)
 
-        masked = d.pop("masked", UNSET)
-
         reason = d.pop("reason", UNSET)
 
         region = d.pop("region", UNSET)
@@ -177,7 +170,6 @@ class IngestersCloudCompliance:
             description=description,
             doc_id=doc_id,
             group=group,
-            masked=masked,
             reason=reason,
             region=region,
             resource=resource,

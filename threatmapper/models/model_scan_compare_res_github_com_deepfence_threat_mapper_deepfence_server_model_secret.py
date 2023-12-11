@@ -15,12 +15,15 @@ class ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecre
     """
     Example:
         {'new': [{'full_filename': 'full_filename', 'level': 'level', 'masked': True, 'part': 'part',
-            'relative_ending_index': 0, 'starting_index': 5, 'resources': ['resources', 'resources'], 'signature_to_match':
-            'signature_to_match', 'rule_id': 1, 'score': 5.962133916683182, 'matched_content': 'matched_content',
-            'updated_at': 2, 'name': 'name', 'relative_starting_index': 6, 'node_id': 'node_id'}, {'full_filename':
-            'full_filename', 'level': 'level', 'masked': True, 'part': 'part', 'relative_ending_index': 0, 'starting_index':
-            5, 'resources': ['resources', 'resources'], 'signature_to_match': 'signature_to_match', 'rule_id': 1, 'score':
+            'relative_ending_index': 0, 'starting_index': 5, 'resources': [{'node_type': 'node_type', 'name': 'name',
+            'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name':
+            'host_name', 'node_id': 'node_id'}], 'signature_to_match': 'signature_to_match', 'rule_id': 1, 'score':
             5.962133916683182, 'matched_content': 'matched_content', 'updated_at': 2, 'name': 'name',
+            'relative_starting_index': 6, 'node_id': 'node_id'}, {'full_filename': 'full_filename', 'level': 'level',
+            'masked': True, 'part': 'part', 'relative_ending_index': 0, 'starting_index': 5, 'resources': [{'node_type':
+            'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name':
+            'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'signature_to_match': 'signature_to_match', 'rule_id':
+            1, 'score': 5.962133916683182, 'matched_content': 'matched_content', 'updated_at': 2, 'name': 'name',
             'relative_starting_index': 6, 'node_id': 'node_id'}]}
 
     Attributes:

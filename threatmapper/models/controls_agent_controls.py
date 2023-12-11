@@ -14,7 +14,7 @@ T = TypeVar("T", bound="ControlsAgentControls")
 class ControlsAgentControls:
     """
     Example:
-        {'beatrate': 0, 'commands': [{'id': 6, 'request_payload': 'request_payload'}, {'id': 6, 'request_payload':
+        {'beatrate': 0, 'commands': [{'id': 0, 'request_payload': 'request_payload'}, {'id': 0, 'request_payload':
             'request_payload'}]}
 
     Attributes:

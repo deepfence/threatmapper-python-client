@@ -19,14 +19,18 @@ class DiagnosisGetDiagnosticLogsResponse:
         {'console_logs': [{'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'},
             {'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}], 'agent_logs':
             [{'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}, {'url_link':
+            'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}], 'cloud_scanner_logs':
+            [{'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}, {'url_link':
             'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}]}
 
     Attributes:
         agent_logs (Union[Unset, None, List['DiagnosisDiagnosticLogsLink']]):
+        cloud_scanner_logs (Union[Unset, None, List['DiagnosisDiagnosticLogsLink']]):
         console_logs (Union[Unset, None, List['DiagnosisDiagnosticLogsLink']]):
     """
 
     agent_logs: Union[Unset, None, List["DiagnosisDiagnosticLogsLink"]] = UNSET
+    cloud_scanner_logs: Union[Unset, None, List["DiagnosisDiagnosticLogsLink"]] = UNSET
     console_logs: Union[Unset, None, List["DiagnosisDiagnosticLogsLink"]] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -41,6 +45,17 @@ class DiagnosisGetDiagnosticLogsResponse:
                     agent_logs_item = agent_logs_item_data.to_dict()
 
                     agent_logs.append(agent_logs_item)
+
+        cloud_scanner_logs: Union[Unset, None, List[Dict[str, Any]]] = UNSET
+        if not isinstance(self.cloud_scanner_logs, Unset):
+            if self.cloud_scanner_logs is None:
+                cloud_scanner_logs = None
+            else:
+                cloud_scanner_logs = []
+                for cloud_scanner_logs_item_data in self.cloud_scanner_logs:
+                    cloud_scanner_logs_item = cloud_scanner_logs_item_data.to_dict()
+
+                    cloud_scanner_logs.append(cloud_scanner_logs_item)
 
         console_logs: Union[Unset, None, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.console_logs, Unset):
@@ -58,6 +73,8 @@ class DiagnosisGetDiagnosticLogsResponse:
         field_dict.update({})
         if agent_logs is not UNSET:
             field_dict["agent_logs"] = agent_logs
+        if cloud_scanner_logs is not UNSET:
+            field_dict["cloud_scanner_logs"] = cloud_scanner_logs
         if console_logs is not UNSET:
             field_dict["console_logs"] = console_logs
 
@@ -75,6 +92,13 @@ class DiagnosisGetDiagnosticLogsResponse:
 
             agent_logs.append(agent_logs_item)
 
+        cloud_scanner_logs = []
+        _cloud_scanner_logs = d.pop("cloud_scanner_logs", UNSET)
+        for cloud_scanner_logs_item_data in _cloud_scanner_logs or []:
+            cloud_scanner_logs_item = DiagnosisDiagnosticLogsLink.from_dict(cloud_scanner_logs_item_data)
+
+            cloud_scanner_logs.append(cloud_scanner_logs_item)
+
         console_logs = []
         _console_logs = d.pop("console_logs", UNSET)
         for console_logs_item_data in _console_logs or []:
@@ -84,6 +108,7 @@ class DiagnosisGetDiagnosticLogsResponse:
 
         diagnosis_get_diagnostic_logs_response = cls(
             agent_logs=agent_logs,
+            cloud_scanner_logs=cloud_scanner_logs,
             console_logs=console_logs,
         )
 

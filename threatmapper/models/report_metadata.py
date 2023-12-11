@@ -22,27 +22,29 @@ class ReportMetadata:
             'kubernetes_ports'], 'version': 'version', 'pod_name': 'pod_name', 'ppid': 9, 'tags': ['tags', 'tags'],
             'docker_container_ports': 'docker_container_ports', 'kubernetes_is_in_host_network': True, 'instance_id':
             'instance_id', 'kernel_id': 'kernel_id', 'copy_of': 'copy_of', 'open_files': ['open_files', 'open_files'],
-            'docker_env': 'docker_env', 'connection_count': 0, 'docker_image_size': 'docker_image_size', 'cpu_usage':
-            1.4658129805029452, 'pod_id': 'pod_id', 'docker_label': 'docker_label', 'instance_type': 'instance_type',
-            'docker_image_name': 'docker_image_name', 'user_defined_tags': ['user_defined_tags', 'user_defined_tags'],
-            'local_networks': ['local_networks', 'local_networks'], 'cloud_region': 'cloud_region', 'kubernetes_state':
-            'kubernetes_state', 'interface_names': ['interface_names', 'interface_names'], 'memory_usage': 5,
-            'open_files_count': 2, 'kubernetes_public_ip': 'kubernetes_public_ip', 'private_ip': ['private_ip',
-            'private_ip'], 'docker_container_network_mode': 'docker_container_network_mode', 'kubernetes_type':
-            'kubernetes_type', 'resource_group': 'resource_group', 'docker_image_tag': 'docker_image_tag',
-            'kubernetes_labels': 'kubernetes_labels', 'docker_container_ips': ['docker_container_ips',
-            'docker_container_ips'], 'docker_image_id': 'docker_image_id', 'timestamp': 'timestamp', 'interface_ips':
-            ['interface_ips', 'interface_ips'], 'availability_zone': 'availability_zone', 'is_console_vm': True, 'os': 'os',
-            'local_cidr': ['local_cidr', 'local_cidr'], 'node_name': 'node_name', 'threads': 3, 'cloud_provider':
-            'cloud_provider', 'docker_container_command': 'docker_container_command', 'agent_running': True, 'uptime': 2,
-            'memory_max': 5, 'docker_image_created_at': 'docker_image_created_at', 'kernel_version': 'kernel_version',
-            'docker_container_state_human': 'docker_container_state_human', 'docker_image_virtual_size':
-            'docker_image_virtual_size', 'kubernetes_ingress_ip': ['kubernetes_ingress_ip', 'kubernetes_ingress_ip'],
-            'host_name': 'host_name', 'node_id': 'node_id'}
+            'docker_env': 'docker_env', 'connection_count': 0, 'docker_image_size': 'docker_image_size', 'short_name':
+            'short_name', 'cpu_usage': 1.4658129805029452, 'pod_id': 'pod_id', 'docker_label': 'docker_label',
+            'instance_type': 'instance_type', 'docker_image_name': 'docker_image_name', 'user_defined_tags':
+            ['user_defined_tags', 'user_defined_tags'], 'local_networks': ['local_networks', 'local_networks'],
+            'cloud_region': 'cloud_region', 'kubernetes_state': 'kubernetes_state', 'interface_names': ['interface_names',
+            'interface_names'], 'memory_usage': 5, 'open_files_count': 2, 'kubernetes_public_ip': 'kubernetes_public_ip',
+            'private_ip': ['private_ip', 'private_ip'], 'docker_container_network_mode': 'docker_container_network_mode',
+            'cloud_account_id': 'cloud_account_id', 'kubernetes_type': 'kubernetes_type', 'resource_group':
+            'resource_group', 'docker_image_tag': 'docker_image_tag', 'kubernetes_labels': 'kubernetes_labels',
+            'docker_container_ips': ['docker_container_ips', 'docker_container_ips'], 'docker_image_id': 'docker_image_id',
+            'timestamp': 'timestamp', 'interface_ips': ['interface_ips', 'interface_ips'], 'availability_zone':
+            'availability_zone', 'is_console_vm': True, 'os': 'os', 'local_cidr': ['local_cidr', 'local_cidr'], 'node_name':
+            'node_name', 'threads': 3, 'cloud_provider': 'cloud_provider', 'docker_container_command':
+            'docker_container_command', 'agent_running': True, 'uptime': 2, 'memory_max': 5, 'docker_image_created_at':
+            'docker_image_created_at', 'kernel_version': 'kernel_version', 'docker_container_state_human':
+            'docker_container_state_human', 'docker_image_virtual_size': 'docker_image_virtual_size',
+            'kubernetes_ingress_ip': ['kubernetes_ingress_ip', 'kubernetes_ingress_ip'], 'host_name': 'host_name',
+            'node_id': 'node_id'}
 
     Attributes:
         agent_running (Union[Unset, bool]):
         availability_zone (Union[Unset, str]):
+        cloud_account_id (Union[Unset, str]):
         cloud_provider (Union[Unset, str]):
         cloud_region (Union[Unset, str]):
         cmdline (Union[Unset, str]):
@@ -107,6 +109,7 @@ class ReportMetadata:
         pseudo (Union[Unset, bool]):
         public_ip (Union[Unset, List[str]]):
         resource_group (Union[Unset, str]):
+        short_name (Union[Unset, str]):
         tags (Union[Unset, List[str]]):
         threads (Union[Unset, int]):
         timestamp (Union[Unset, str]):
@@ -117,6 +120,7 @@ class ReportMetadata:
 
     agent_running: Union[Unset, bool] = UNSET
     availability_zone: Union[Unset, str] = UNSET
+    cloud_account_id: Union[Unset, str] = UNSET
     cloud_provider: Union[Unset, str] = UNSET
     cloud_region: Union[Unset, str] = UNSET
     cmdline: Union[Unset, str] = UNSET
@@ -181,6 +185,7 @@ class ReportMetadata:
     pseudo: Union[Unset, bool] = UNSET
     public_ip: Union[Unset, List[str]] = UNSET
     resource_group: Union[Unset, str] = UNSET
+    short_name: Union[Unset, str] = UNSET
     tags: Union[Unset, List[str]] = UNSET
     threads: Union[Unset, int] = UNSET
     timestamp: Union[Unset, str] = UNSET
@@ -192,6 +197,7 @@ class ReportMetadata:
     def to_dict(self) -> Dict[str, Any]:
         agent_running = self.agent_running
         availability_zone = self.availability_zone
+        cloud_account_id = self.cloud_account_id
         cloud_provider = self.cloud_provider
         cloud_region = self.cloud_region
         cmdline = self.cmdline
@@ -286,6 +292,7 @@ class ReportMetadata:
             public_ip = self.public_ip
 
         resource_group = self.resource_group
+        short_name = self.short_name
         tags: Union[Unset, List[str]] = UNSET
         if not isinstance(self.tags, Unset):
             tags = self.tags
@@ -306,6 +313,8 @@ class ReportMetadata:
             field_dict["agent_running"] = agent_running
         if availability_zone is not UNSET:
             field_dict["availability_zone"] = availability_zone
+        if cloud_account_id is not UNSET:
+            field_dict["cloud_account_id"] = cloud_account_id
         if cloud_provider is not UNSET:
             field_dict["cloud_provider"] = cloud_provider
         if cloud_region is not UNSET:
@@ -434,6 +443,8 @@ class ReportMetadata:
             field_dict["public_ip"] = public_ip
         if resource_group is not UNSET:
             field_dict["resource_group"] = resource_group
+        if short_name is not UNSET:
+            field_dict["short_name"] = short_name
         if tags is not UNSET:
             field_dict["tags"] = tags
         if threads is not UNSET:
@@ -455,6 +466,8 @@ class ReportMetadata:
         agent_running = d.pop("agent_running", UNSET)
 
         availability_zone = d.pop("availability_zone", UNSET)
+
+        cloud_account_id = d.pop("cloud_account_id", UNSET)
 
         cloud_provider = d.pop("cloud_provider", UNSET)
 
@@ -584,6 +597,8 @@ class ReportMetadata:
 
         resource_group = d.pop("resource_group", UNSET)
 
+        short_name = d.pop("short_name", UNSET)
+
         tags = cast(List[str], d.pop("tags", UNSET))
 
         threads = d.pop("threads", UNSET)
@@ -599,6 +614,7 @@ class ReportMetadata:
         report_metadata = cls(
             agent_running=agent_running,
             availability_zone=availability_zone,
+            cloud_account_id=cloud_account_id,
             cloud_provider=cloud_provider,
             cloud_region=cloud_region,
             cmdline=cmdline,
@@ -663,6 +679,7 @@ class ReportMetadata:
             pseudo=pseudo,
             public_ip=public_ip,
             resource_group=resource_group,
+            short_name=short_name,
             tags=tags,
             threads=threads,
             timestamp=timestamp,

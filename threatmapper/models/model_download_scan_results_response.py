@@ -16,16 +16,16 @@ T = TypeVar("T", bound="ModelDownloadScanResultsResponse")
 class ModelDownloadScanResultsResponse:
     """
     Example:
-        {'scan_results': ['', ''], 'scan_info': {'node_type': 'node_type', 'docker_container_name':
-            'docker_container_name', 'updated_at': 6, 'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name':
-            'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'docker_image_name': 'docker_image_name', 'host_name':
-            'host_name', 'node_id': 'node_id'}}
+        {'scan_results': ['', ''], 'scan_info': {'cloud_account_id': 'cloud_account_id', 'node_type': 'node_type',
+            'docker_container_name': 'docker_container_name', 'updated_at': 6, 'kubernetes_cluster_name':
+            'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'docker_image_name':
+            'docker_image_name', 'host_name': 'host_name', 'node_id': 'node_id'}}
 
     Attributes:
-        scan_info (Union[Unset, ModelScanResultsCommon]):  Example: {'node_type': 'node_type', 'docker_container_name':
-            'docker_container_name', 'updated_at': 6, 'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name':
-            'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'docker_image_name': 'docker_image_name', 'host_name':
-            'host_name', 'node_id': 'node_id'}.
+        scan_info (Union[Unset, ModelScanResultsCommon]):  Example: {'cloud_account_id': 'cloud_account_id',
+            'node_type': 'node_type', 'docker_container_name': 'docker_container_name', 'updated_at': 6,
+            'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 0, 'scan_id':
+            'scan_id', 'docker_image_name': 'docker_image_name', 'host_name': 'host_name', 'node_id': 'node_id'}.
         scan_results (Union[Unset, None, List[Any]]):
     """
 

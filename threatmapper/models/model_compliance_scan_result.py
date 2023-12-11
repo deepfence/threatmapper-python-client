@@ -16,22 +16,27 @@ class ModelComplianceScanResult:
     """
     Example:
         {'benchmark_type': ['benchmark_type', 'benchmark_type'], 'docker_container_name': 'docker_container_name',
-            'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 6, 'compliances':
-            [{'resource': 'resource', 'masked': True, 'description': 'description', 'resources': ['resources', 'resources'],
+            'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 6,
+            'cloud_account_id': 'cloud_account_id', 'compliances': [{'resource': 'resource', 'masked': True, 'description':
+            'description', 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id':
+            'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}],
             'test_category': 'test_category', 'remediation_ansible': 'remediation_ansible', 'compliance_check_type':
-            'compliance_check_type', 'test_rationale': 'test_rationale', 'test_severity': 'test_severity', 'node_type':
-            'node_type', 'updated_at': 0, 'remediation_puppet': 'remediation_puppet', 'remediation_script':
-            'remediation_script', 'node_id': 'node_id', 'status': 'status', 'test_desc': 'test_desc', 'test_number':
-            'test_number'}, {'resource': 'resource', 'masked': True, 'description': 'description', 'resources':
-            ['resources', 'resources'], 'test_category': 'test_category', 'remediation_ansible': 'remediation_ansible',
-            'compliance_check_type': 'compliance_check_type', 'test_rationale': 'test_rationale', 'test_severity':
+            'compliance_check_type', 'rule_id': 'rule_id', 'test_rationale': 'test_rationale', 'test_severity':
             'test_severity', 'node_type': 'node_type', 'updated_at': 0, 'remediation_puppet': 'remediation_puppet',
             'remediation_script': 'remediation_script', 'node_id': 'node_id', 'status': 'status', 'test_desc': 'test_desc',
-            'test_number': 'test_number'}], 'compliance_percentage': 0.8008281904610115, 'node_type': 'node_type',
-            'updated_at': 5, 'scan_id': 'scan_id', 'status_counts': {'key': 1}, 'docker_image_name': 'docker_image_name',
-            'host_name': 'host_name', 'node_id': 'node_id'}
+            'test_number': 'test_number'}, {'resource': 'resource', 'masked': True, 'description': 'description',
+            'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'},
+            {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'test_category':
+            'test_category', 'remediation_ansible': 'remediation_ansible', 'compliance_check_type': 'compliance_check_type',
+            'rule_id': 'rule_id', 'test_rationale': 'test_rationale', 'test_severity': 'test_severity', 'node_type':
+            'node_type', 'updated_at': 0, 'remediation_puppet': 'remediation_puppet', 'remediation_script':
+            'remediation_script', 'node_id': 'node_id', 'status': 'status', 'test_desc': 'test_desc', 'test_number':
+            'test_number'}], 'compliance_percentage': 0.8008281904610115, 'node_type': 'node_type', 'updated_at': 5,
+            'scan_id': 'scan_id', 'status_counts': {'key': 1}, 'docker_image_name': 'docker_image_name', 'host_name':
+            'host_name', 'node_id': 'node_id'}
 
     Attributes:
+        cloud_account_id (str):
         compliance_percentage (float):
         created_at (int):
         docker_container_name (str):
@@ -48,6 +53,7 @@ class ModelComplianceScanResult:
         status_counts (Optional[ModelComplianceScanResultStatusCounts]):
     """
 
+    cloud_account_id: str
     compliance_percentage: float
     created_at: int
     docker_container_name: str
@@ -65,6 +71,7 @@ class ModelComplianceScanResult:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        cloud_account_id = self.cloud_account_id
         compliance_percentage = self.compliance_percentage
         created_at = self.created_at
         docker_container_name = self.docker_container_name
@@ -96,6 +103,7 @@ class ModelComplianceScanResult:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "cloud_account_id": cloud_account_id,
                 "compliance_percentage": compliance_percentage,
                 "created_at": created_at,
                 "docker_container_name": docker_container_name,
@@ -121,6 +129,8 @@ class ModelComplianceScanResult:
         from ..models.model_compliance_scan_result_status_counts import ModelComplianceScanResultStatusCounts
 
         d = src_dict.copy()
+        cloud_account_id = d.pop("cloud_account_id")
+
         compliance_percentage = d.pop("compliance_percentage")
 
         created_at = d.pop("created_at")
@@ -160,6 +170,7 @@ class ModelComplianceScanResult:
             status_counts = ModelComplianceScanResultStatusCounts.from_dict(_status_counts)
 
         model_compliance_scan_result = cls(
+            cloud_account_id=cloud_account_id,
             compliance_percentage=compliance_percentage,
             created_at=created_at,
             docker_container_name=docker_container_name,

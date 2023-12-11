@@ -7,11 +7,11 @@ if TYPE_CHECKING:
     from ..models.detailed_connection_summary import DetailedConnectionSummary
 
 
-T = TypeVar("T", bound="ApiDocsGraphResultEdges")
+T = TypeVar("T", bound="ModelGraphResultEdges")
 
 
 @_attrs_define
-class ApiDocsGraphResultEdges:
+class ModelGraphResultEdges:
     """ """
 
     additional_properties: Dict[str, "DetailedConnectionSummary"] = _attrs_field(init=False, factory=dict)
@@ -32,7 +32,7 @@ class ApiDocsGraphResultEdges:
         from ..models.detailed_connection_summary import DetailedConnectionSummary
 
         d = src_dict.copy()
-        api_docs_graph_result_edges = cls()
+        model_graph_result_edges = cls()
 
         additional_properties = {}
         for prop_name, prop_dict in d.items():
@@ -40,8 +40,8 @@ class ApiDocsGraphResultEdges:
 
             additional_properties[prop_name] = additional_property
 
-        api_docs_graph_result_edges.additional_properties = additional_properties
-        return api_docs_graph_result_edges
+        model_graph_result_edges.additional_properties = additional_properties
+        return model_graph_result_edges
 
     @property
     def additional_keys(self) -> List[str]:

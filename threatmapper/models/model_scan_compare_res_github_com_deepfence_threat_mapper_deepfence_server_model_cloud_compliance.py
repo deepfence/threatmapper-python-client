@@ -15,15 +15,17 @@ class ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCloud
     """
     Example:
         {'new': [{'severity': 'severity', 'reason': 'reason', 'control_id': 'control_id', 'resource': 'resource',
-            'masked': True, 'count': 0, 'node_name': 'node_name', 'description': 'description', 'resources': ['resources',
-            'resources'], 'cloud_provider': 'cloud_provider', 'title': 'title', 'type': 'type', 'compliance_check_type':
-            'compliance_check_type', 'account_id': 'account_id', 'updated_at': 6, 'service': 'service', 'region': 'region',
-            'group': 'group', 'node_id': 'node_id', 'status': 'status'}, {'severity': 'severity', 'reason': 'reason',
-            'control_id': 'control_id', 'resource': 'resource', 'masked': True, 'count': 0, 'node_name': 'node_name',
-            'description': 'description', 'resources': ['resources', 'resources'], 'cloud_provider': 'cloud_provider',
-            'title': 'title', 'type': 'type', 'compliance_check_type': 'compliance_check_type', 'account_id': 'account_id',
-            'updated_at': 6, 'service': 'service', 'region': 'region', 'group': 'group', 'node_id': 'node_id', 'status':
-            'status'}]}
+            'masked': True, 'count': 0, 'node_name': 'node_name', 'description': 'description', 'resources': [{'node_type':
+            'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name':
+            'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'cloud_provider': 'cloud_provider', 'title': 'title',
+            'type': 'type', 'compliance_check_type': 'compliance_check_type', 'account_id': 'account_id', 'updated_at': 6,
+            'service': 'service', 'region': 'region', 'group': 'group', 'node_id': 'node_id', 'status': 'status'},
+            {'severity': 'severity', 'reason': 'reason', 'control_id': 'control_id', 'resource': 'resource', 'masked': True,
+            'count': 0, 'node_name': 'node_name', 'description': 'description', 'resources': [{'node_type': 'node_type',
+            'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name',
+            'host_name': 'host_name', 'node_id': 'node_id'}], 'cloud_provider': 'cloud_provider', 'title': 'title', 'type':
+            'type', 'compliance_check_type': 'compliance_check_type', 'account_id': 'account_id', 'updated_at': 6,
+            'service': 'service', 'region': 'region', 'group': 'group', 'node_id': 'node_id', 'status': 'status'}]}
 
     Attributes:
         new (Optional[List['ModelCloudCompliance']]):

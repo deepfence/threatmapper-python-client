@@ -6,6 +6,7 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.controls_action import ControlsAction
     from ..models.model_cloud_node_account_register_resp_data_scans import ModelCloudNodeAccountRegisterRespDataScans
     from ..models.model_cloud_node_cloudtrail_trail import ModelCloudNodeCloudtrailTrail
 
@@ -18,18 +19,21 @@ class ModelCloudNodeAccountRegisterRespData:
     """
     Example:
         {'cloudtrail_trails': [{'account_id': 'account_id', 'trail_name': 'trail_name'}, {'account_id': 'account_id',
-            'trail_name': 'trail_name'}], 'scans': {'key': {'account_id': 'account_id', 'benchmarks': [{'controls':
-            ['controls', 'controls'], 'compliance_type': 'compliance_type', 'id': 'id'}, {'controls': ['controls',
-            'controls'], 'compliance_type': 'compliance_type', 'id': 'id'}], 'scan_id': 'scan_id', 'scan_types':
-            ['scan_types', 'scan_types']}}, 'refresh': 'refresh'}
+            'trail_name': 'trail_name'}], 'log_action': {'id': 0, 'request_payload': 'request_payload'}, 'scans': {'key':
+            {'account_id': 'account_id', 'stop_requested': True, 'benchmarks': [{'controls': ['controls', 'controls'],
+            'compliance_type': 'compliance_type', 'id': 'id'}, {'controls': ['controls', 'controls'], 'compliance_type':
+            'compliance_type', 'id': 'id'}], 'scan_id': 'scan_id', 'scan_types': ['scan_types', 'scan_types']}}, 'refresh':
+            'refresh'}
 
     Attributes:
         cloudtrail_trails (Union[Unset, None, List['ModelCloudNodeCloudtrailTrail']]):
+        log_action (Union[Unset, ControlsAction]):  Example: {'id': 0, 'request_payload': 'request_payload'}.
         refresh (Union[Unset, str]):
         scans (Union[Unset, None, ModelCloudNodeAccountRegisterRespDataScans]):
     """
 
     cloudtrail_trails: Union[Unset, None, List["ModelCloudNodeCloudtrailTrail"]] = UNSET
+    log_action: Union[Unset, "ControlsAction"] = UNSET
     refresh: Union[Unset, str] = UNSET
     scans: Union[Unset, None, "ModelCloudNodeAccountRegisterRespDataScans"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -46,6 +50,10 @@ class ModelCloudNodeAccountRegisterRespData:
 
                     cloudtrail_trails.append(cloudtrail_trails_item)
 
+        log_action: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.log_action, Unset):
+            log_action = self.log_action.to_dict()
+
         refresh = self.refresh
         scans: Union[Unset, None, Dict[str, Any]] = UNSET
         if not isinstance(self.scans, Unset):
@@ -56,6 +64,8 @@ class ModelCloudNodeAccountRegisterRespData:
         field_dict.update({})
         if cloudtrail_trails is not UNSET:
             field_dict["cloudtrail_trails"] = cloudtrail_trails
+        if log_action is not UNSET:
+            field_dict["log_action"] = log_action
         if refresh is not UNSET:
             field_dict["refresh"] = refresh
         if scans is not UNSET:
@@ -65,6 +75,7 @@ class ModelCloudNodeAccountRegisterRespData:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.controls_action import ControlsAction
         from ..models.model_cloud_node_account_register_resp_data_scans import (
             ModelCloudNodeAccountRegisterRespDataScans,
         )
@@ -77,6 +88,13 @@ class ModelCloudNodeAccountRegisterRespData:
             cloudtrail_trails_item = ModelCloudNodeCloudtrailTrail.from_dict(cloudtrail_trails_item_data)
 
             cloudtrail_trails.append(cloudtrail_trails_item)
+
+        _log_action = d.pop("log_action", UNSET)
+        log_action: Union[Unset, ControlsAction]
+        if isinstance(_log_action, Unset):
+            log_action = UNSET
+        else:
+            log_action = ControlsAction.from_dict(_log_action)
 
         refresh = d.pop("refresh", UNSET)
 
@@ -91,6 +109,7 @@ class ModelCloudNodeAccountRegisterRespData:
 
         model_cloud_node_account_register_resp_data = cls(
             cloudtrail_trails=cloudtrail_trails,
+            log_action=log_action,
             refresh=refresh,
             scans=scans,
         )

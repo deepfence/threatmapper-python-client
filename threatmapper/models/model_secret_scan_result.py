@@ -15,19 +15,23 @@ T = TypeVar("T", bound="ModelSecretScanResult")
 class ModelSecretScanResult:
     """
     Example:
-        {'severity_counts': {'key': 6}, 'node_type': 'node_type', 'docker_container_name': 'docker_container_name',
-            'updated_at': 1, 'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at':
-            0, 'scan_id': 'scan_id', 'secrets': [{'full_filename': 'full_filename', 'level': 'level', 'masked': True,
-            'part': 'part', 'relative_ending_index': 0, 'starting_index': 5, 'resources': ['resources', 'resources'],
+        {'severity_counts': {'key': 6}, 'docker_container_name': 'docker_container_name', 'kubernetes_cluster_name':
+            'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 0, 'secrets': [{'full_filename':
+            'full_filename', 'level': 'level', 'masked': True, 'part': 'part', 'relative_ending_index': 0, 'starting_index':
+            5, 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'},
+            {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}],
             'signature_to_match': 'signature_to_match', 'rule_id': 1, 'score': 5.962133916683182, 'matched_content':
             'matched_content', 'updated_at': 2, 'name': 'name', 'relative_starting_index': 6, 'node_id': 'node_id'},
             {'full_filename': 'full_filename', 'level': 'level', 'masked': True, 'part': 'part', 'relative_ending_index': 0,
-            'starting_index': 5, 'resources': ['resources', 'resources'], 'signature_to_match': 'signature_to_match',
-            'rule_id': 1, 'score': 5.962133916683182, 'matched_content': 'matched_content', 'updated_at': 2, 'name': 'name',
-            'relative_starting_index': 6, 'node_id': 'node_id'}], 'docker_image_name': 'docker_image_name', 'host_name':
-            'host_name', 'node_id': 'node_id'}
+            'starting_index': 5, 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name',
+            'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id':
+            'node_id'}], 'signature_to_match': 'signature_to_match', 'rule_id': 1, 'score': 5.962133916683182,
+            'matched_content': 'matched_content', 'updated_at': 2, 'name': 'name', 'relative_starting_index': 6, 'node_id':
+            'node_id'}], 'cloud_account_id': 'cloud_account_id', 'node_type': 'node_type', 'updated_at': 1, 'scan_id':
+            'scan_id', 'docker_image_name': 'docker_image_name', 'host_name': 'host_name', 'node_id': 'node_id'}
 
     Attributes:
+        cloud_account_id (str):
         created_at (int):
         docker_container_name (str):
         docker_image_name (str):
@@ -42,6 +46,7 @@ class ModelSecretScanResult:
         severity_counts (Optional[ModelSecretScanResultSeverityCounts]):
     """
 
+    cloud_account_id: str
     created_at: int
     docker_container_name: str
     docker_image_name: str
@@ -57,6 +62,7 @@ class ModelSecretScanResult:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        cloud_account_id = self.cloud_account_id
         created_at = self.created_at
         docker_container_name = self.docker_container_name
         docker_image_name = self.docker_image_name
@@ -82,6 +88,7 @@ class ModelSecretScanResult:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "cloud_account_id": cloud_account_id,
                 "created_at": created_at,
                 "docker_container_name": docker_container_name,
                 "docker_image_name": docker_image_name,
@@ -105,6 +112,8 @@ class ModelSecretScanResult:
         from ..models.model_secret_scan_result_severity_counts import ModelSecretScanResultSeverityCounts
 
         d = src_dict.copy()
+        cloud_account_id = d.pop("cloud_account_id")
+
         created_at = d.pop("created_at")
 
         docker_container_name = d.pop("docker_container_name")
@@ -140,6 +149,7 @@ class ModelSecretScanResult:
             severity_counts = ModelSecretScanResultSeverityCounts.from_dict(_severity_counts)
 
         model_secret_scan_result = cls(
+            cloud_account_id=cloud_account_id,
             created_at=created_at,
             docker_container_name=docker_container_name,
             docker_image_name=docker_image_name,
