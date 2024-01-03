@@ -1,7 +1,9 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.model_node_identifier import ModelNodeIdentifier
@@ -15,11 +17,11 @@ T = TypeVar("T", bound="ModelComplianceScanTriggerReq")
 class ModelComplianceScanTriggerReq:
     """
     Example:
-        {'benchmark_types': ['benchmark_types', 'benchmark_types'], 'filters': {'container_scan_filter': {'filter_in':
-            {'key': ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}},
-            'host_scan_filter': {'filter_in': {'key': ['', '']}}}, 'node_ids': [{'node_type': 'image', 'node_id':
-            'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}]}
+        {'is_priority': True, 'benchmark_types': ['benchmark_types', 'benchmark_types'], 'filters':
+            {'container_scan_filter': {'filter_in': {'key': ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key':
+            ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
+            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}}, 'node_ids':
+            [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}]}
 
     Attributes:
         filters (ModelScanFilter):  Example: {'container_scan_filter': {'filter_in': {'key': ['', '']}},
@@ -27,12 +29,14 @@ class ModelComplianceScanTriggerReq:
             '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in':
             {'key': ['', '']}}}.
         benchmark_types (Optional[List[str]]):
+        is_priority (Union[Unset, bool]):
         node_ids (Optional[List['ModelNodeIdentifier']]):
     """
 
     filters: "ModelScanFilter"
     benchmark_types: Optional[List[str]]
     node_ids: Optional[List["ModelNodeIdentifier"]]
+    is_priority: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -43,6 +47,7 @@ class ModelComplianceScanTriggerReq:
         else:
             benchmark_types = self.benchmark_types
 
+        is_priority = self.is_priority
         if self.node_ids is None:
             node_ids = None
         else:
@@ -61,6 +66,8 @@ class ModelComplianceScanTriggerReq:
                 "node_ids": node_ids,
             }
         )
+        if is_priority is not UNSET:
+            field_dict["is_priority"] = is_priority
 
         return field_dict
 
@@ -74,6 +81,8 @@ class ModelComplianceScanTriggerReq:
 
         benchmark_types = cast(List[str], d.pop("benchmark_types"))
 
+        is_priority = d.pop("is_priority", UNSET)
+
         node_ids = []
         _node_ids = d.pop("node_ids")
         for node_ids_item_data in _node_ids or []:
@@ -84,6 +93,7 @@ class ModelComplianceScanTriggerReq:
         model_compliance_scan_trigger_req = cls(
             filters=filters,
             benchmark_types=benchmark_types,
+            is_priority=is_priority,
             node_ids=node_ids,
         )
 

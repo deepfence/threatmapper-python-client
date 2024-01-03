@@ -3,14 +3,14 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.model_update_user_id_request_role import ModelUpdateUserIdRequestRole
+from ..models.model_update_user_id_request_role import ModelUpdateUserIDRequestRole
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="ModelUpdateUserIdRequest")
+T = TypeVar("T", bound="ModelUpdateUserIDRequest")
 
 
 @_attrs_define
-class ModelUpdateUserIdRequest:
+class ModelUpdateUserIDRequest:
     """
     Example:
         {'is_active': True, 'role': 'admin', 'last_name': 'last_name', 'first_name': 'first_name'}
@@ -19,13 +19,13 @@ class ModelUpdateUserIdRequest:
         first_name (Union[Unset, str]):
         is_active (Union[Unset, bool]):
         last_name (Union[Unset, str]):
-        role (Union[Unset, ModelUpdateUserIdRequestRole]):
+        role (Union[Unset, ModelUpdateUserIDRequestRole]):
     """
 
     first_name: Union[Unset, str] = UNSET
     is_active: Union[Unset, bool] = UNSET
     last_name: Union[Unset, str] = UNSET
-    role: Union[Unset, ModelUpdateUserIdRequestRole] = UNSET
+    role: Union[Unset, ModelUpdateUserIDRequestRole] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -60,11 +60,11 @@ class ModelUpdateUserIdRequest:
         last_name = d.pop("last_name", UNSET)
 
         _role = d.pop("role", UNSET)
-        role: Union[Unset, ModelUpdateUserIdRequestRole]
+        role: Union[Unset, ModelUpdateUserIDRequestRole]
         if isinstance(_role, Unset):
             role = UNSET
         else:
-            role = ModelUpdateUserIdRequestRole(_role)
+            role = ModelUpdateUserIDRequestRole(_role)
 
         model_update_user_id_request = cls(
             first_name=first_name,

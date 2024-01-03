@@ -7,11 +7,11 @@ from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="ModelApiTokenResponse")
+T = TypeVar("T", bound="ModelAPITokenResponse")
 
 
 @_attrs_define
-class ModelApiTokenResponse:
+class ModelAPITokenResponse:
     """
     Example:
         {'company_id': 0, 'api_token': 'api_token', 'name': 'name', 'created_at': datetime.datetime(2000, 1, 23, 4, 56,

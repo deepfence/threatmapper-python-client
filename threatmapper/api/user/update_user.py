@@ -7,7 +7,7 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
-from ...models.model_update_user_id_request import ModelUpdateUserIdRequest
+from ...models.model_update_user_id_request import ModelUpdateUserIDRequest
 from ...models.model_user import ModelUser
 from ...types import Response
 
@@ -15,7 +15,7 @@ from ...types import Response
 def _get_kwargs(
     id: int,
     *,
-    json_body: ModelUpdateUserIdRequest,
+    json_body: ModelUpdateUserIDRequest,
 ) -> Dict[str, Any]:
     pass
 
@@ -76,7 +76,7 @@ def sync_detailed(
     id: int,
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserIdRequest,
+    json_body: ModelUpdateUserIDRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelUser]]:
     """Update User by User ID
 
@@ -84,7 +84,7 @@ def sync_detailed(
 
     Args:
         id (int):
-        json_body (ModelUpdateUserIdRequest):  Example: {'is_active': True, 'role': 'admin',
+        json_body (ModelUpdateUserIDRequest):  Example: {'is_active': True, 'role': 'admin',
             'last_name': 'last_name', 'first_name': 'first_name'}.
 
     Raises:
@@ -111,7 +111,7 @@ def sync(
     id: int,
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserIdRequest,
+    json_body: ModelUpdateUserIDRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelUser]]:
     """Update User by User ID
 
@@ -119,7 +119,7 @@ def sync(
 
     Args:
         id (int):
-        json_body (ModelUpdateUserIdRequest):  Example: {'is_active': True, 'role': 'admin',
+        json_body (ModelUpdateUserIDRequest):  Example: {'is_active': True, 'role': 'admin',
             'last_name': 'last_name', 'first_name': 'first_name'}.
 
     Raises:
@@ -141,7 +141,7 @@ async def asyncio_detailed(
     id: int,
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserIdRequest,
+    json_body: ModelUpdateUserIDRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelUser]]:
     """Update User by User ID
 
@@ -149,7 +149,7 @@ async def asyncio_detailed(
 
     Args:
         id (int):
-        json_body (ModelUpdateUserIdRequest):  Example: {'is_active': True, 'role': 'admin',
+        json_body (ModelUpdateUserIDRequest):  Example: {'is_active': True, 'role': 'admin',
             'last_name': 'last_name', 'first_name': 'first_name'}.
 
     Raises:
@@ -174,7 +174,7 @@ async def asyncio(
     id: int,
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserIdRequest,
+    json_body: ModelUpdateUserIDRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelUser]]:
     """Update User by User ID
 
@@ -182,7 +182,7 @@ async def asyncio(
 
     Args:
         id (int):
-        json_body (ModelUpdateUserIdRequest):  Example: {'is_active': True, 'role': 'admin',
+        json_body (ModelUpdateUserIDRequest):  Example: {'is_active': True, 'role': 'admin',
             'last_name': 'last_name', 'first_name': 'first_name'}.
 
     Raises:

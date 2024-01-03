@@ -3,11 +3,11 @@ from typing import Any, Dict, List, Type, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-T = TypeVar("T", bound="ModelApiAuthRequest")
+T = TypeVar("T", bound="ModelAPIAuthRequest")
 
 
 @_attrs_define
-class ModelApiAuthRequest:
+class ModelAPIAuthRequest:
     """
     Example:
         {'api_token': 'api_token'}

@@ -3,11 +3,11 @@ from typing import Any, Dict, List, Type, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-T = TypeVar("T", bound="ModelAgentId")
+T = TypeVar("T", bound="ModelAgentID")
 
 
 @_attrs_define
-class ModelAgentId:
+class ModelAgentID:
     """
     Example:
         {'available_workload': 0, 'node_id': 'node_id'}

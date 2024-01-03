@@ -13,10 +13,11 @@ class ModelSbomResponse:
     """
     Example:
         {'severity': 'severity', 'licenses': ['licenses', 'licenses'], 'cve_id': 'cve_id', 'package_name':
-            'package_name', 'locations': ['locations', 'locations'], 'version': 'version'}
+            'package_name', 'cve_node_id': 'cve_node_id', 'locations': ['locations', 'locations'], 'version': 'version'}
 
     Attributes:
         cve_id (Union[Unset, str]):
+        cve_node_id (Union[Unset, str]):
         licenses (Union[Unset, List[str]]):
         locations (Union[Unset, List[str]]):
         package_name (Union[Unset, str]):
@@ -25,6 +26,7 @@ class ModelSbomResponse:
     """
 
     cve_id: Union[Unset, str] = UNSET
+    cve_node_id: Union[Unset, str] = UNSET
     licenses: Union[Unset, List[str]] = UNSET
     locations: Union[Unset, List[str]] = UNSET
     package_name: Union[Unset, str] = UNSET
@@ -34,6 +36,7 @@ class ModelSbomResponse:
 
     def to_dict(self) -> Dict[str, Any]:
         cve_id = self.cve_id
+        cve_node_id = self.cve_node_id
         licenses: Union[Unset, List[str]] = UNSET
         if not isinstance(self.licenses, Unset):
             licenses = self.licenses
@@ -51,6 +54,8 @@ class ModelSbomResponse:
         field_dict.update({})
         if cve_id is not UNSET:
             field_dict["cve_id"] = cve_id
+        if cve_node_id is not UNSET:
+            field_dict["cve_node_id"] = cve_node_id
         if licenses is not UNSET:
             field_dict["licenses"] = licenses
         if locations is not UNSET:
@@ -69,6 +74,8 @@ class ModelSbomResponse:
         d = src_dict.copy()
         cve_id = d.pop("cve_id", UNSET)
 
+        cve_node_id = d.pop("cve_node_id", UNSET)
+
         licenses = cast(List[str], d.pop("licenses", UNSET))
 
         locations = cast(List[str], d.pop("locations", UNSET))
@@ -81,6 +88,7 @@ class ModelSbomResponse:
 
         model_sbom_response = cls(
             cve_id=cve_id,
+            cve_node_id=cve_node_id,
             licenses=licenses,
             locations=locations,
             package_name=package_name,

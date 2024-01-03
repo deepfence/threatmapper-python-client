@@ -79,13 +79,13 @@ def sync_detailed(
      Start Compliance Scan on agent or registry
 
     Args:
-        json_body (ModelComplianceScanTriggerReq):  Example: {'benchmark_types':
-            ['benchmark_types', 'benchmark_types'], 'filters': {'container_scan_filter': {'filter_in':
-            {'key': ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}},
-            'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}},
-            'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image',
-            'node_id': 'node_id'}]}.
+        json_body (ModelComplianceScanTriggerReq):  Example: {'is_priority': True,
+            'benchmark_types': ['benchmark_types', 'benchmark_types'], 'filters':
+            {'container_scan_filter': {'filter_in': {'key': ['', '']}}, 'cloud_account_scan_filter':
+            {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['', '']}},
+            'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter':
+            {'filter_in': {'key': ['', '']}}}, 'node_ids': [{'node_type': 'image', 'node_id':
+            'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -116,13 +116,13 @@ def sync(
      Start Compliance Scan on agent or registry
 
     Args:
-        json_body (ModelComplianceScanTriggerReq):  Example: {'benchmark_types':
-            ['benchmark_types', 'benchmark_types'], 'filters': {'container_scan_filter': {'filter_in':
-            {'key': ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}},
-            'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}},
-            'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image',
-            'node_id': 'node_id'}]}.
+        json_body (ModelComplianceScanTriggerReq):  Example: {'is_priority': True,
+            'benchmark_types': ['benchmark_types', 'benchmark_types'], 'filters':
+            {'container_scan_filter': {'filter_in': {'key': ['', '']}}, 'cloud_account_scan_filter':
+            {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['', '']}},
+            'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter':
+            {'filter_in': {'key': ['', '']}}}, 'node_ids': [{'node_type': 'image', 'node_id':
+            'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -148,13 +148,13 @@ async def asyncio_detailed(
      Start Compliance Scan on agent or registry
 
     Args:
-        json_body (ModelComplianceScanTriggerReq):  Example: {'benchmark_types':
-            ['benchmark_types', 'benchmark_types'], 'filters': {'container_scan_filter': {'filter_in':
-            {'key': ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}},
-            'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}},
-            'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image',
-            'node_id': 'node_id'}]}.
+        json_body (ModelComplianceScanTriggerReq):  Example: {'is_priority': True,
+            'benchmark_types': ['benchmark_types', 'benchmark_types'], 'filters':
+            {'container_scan_filter': {'filter_in': {'key': ['', '']}}, 'cloud_account_scan_filter':
+            {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['', '']}},
+            'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter':
+            {'filter_in': {'key': ['', '']}}}, 'node_ids': [{'node_type': 'image', 'node_id':
+            'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -183,13 +183,13 @@ async def asyncio(
      Start Compliance Scan on agent or registry
 
     Args:
-        json_body (ModelComplianceScanTriggerReq):  Example: {'benchmark_types':
-            ['benchmark_types', 'benchmark_types'], 'filters': {'container_scan_filter': {'filter_in':
-            {'key': ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}},
-            'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}},
-            'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image',
-            'node_id': 'node_id'}]}.
+        json_body (ModelComplianceScanTriggerReq):  Example: {'is_priority': True,
+            'benchmark_types': ['benchmark_types', 'benchmark_types'], 'filters':
+            {'container_scan_filter': {'filter_in': {'key': ['', '']}}, 'cloud_account_scan_filter':
+            {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['', '']}},
+            'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter':
+            {'filter_in': {'key': ['', '']}}}, 'node_ids': [{'node_type': 'image', 'node_id':
+            'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

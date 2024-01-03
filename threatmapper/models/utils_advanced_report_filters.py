@@ -12,37 +12,33 @@ T = TypeVar("T", bound="UtilsAdvancedReportFilters")
 class UtilsAdvancedReportFilters:
     """
     Example:
-        {'image_name': ['image_name', 'image_name'], 'account_id': ['account_id', 'account_id'], 'container_name':
-            ['container_name', 'container_name'], 'scan_status': ['scan_status', 'scan_status'], 'kubernetes_cluster_name':
-            ['kubernetes_cluster_name', 'kubernetes_cluster_name'], 'masked': [True, True], 'host_name': ['host_name',
-            'host_name'], 'pod_name': ['pod_name', 'pod_name']}
+        {'image_name': ['image_name', 'image_name'], 'container_name': ['container_name', 'container_name'],
+            'scan_status': ['scan_status', 'scan_status'], 'kubernetes_cluster_name': ['kubernetes_cluster_name',
+            'kubernetes_cluster_name'], 'masked': [True, True], 'host_name': ['host_name', 'host_name'], 'node_id':
+            ['node_id', 'node_id'], 'pod_name': ['pod_name', 'pod_name']}
 
     Attributes:
-        account_id (Union[Unset, List[str]]):
         container_name (Union[Unset, List[str]]):
         host_name (Union[Unset, List[str]]):
         image_name (Union[Unset, List[str]]):
         kubernetes_cluster_name (Union[Unset, List[str]]):
         masked (Union[Unset, List[bool]]):
+        node_id (Union[Unset, List[str]]):
         pod_name (Union[Unset, List[str]]):
         scan_status (Union[Unset, List[str]]):
     """
 
-    account_id: Union[Unset, List[str]] = UNSET
     container_name: Union[Unset, List[str]] = UNSET
     host_name: Union[Unset, List[str]] = UNSET
     image_name: Union[Unset, List[str]] = UNSET
     kubernetes_cluster_name: Union[Unset, List[str]] = UNSET
     masked: Union[Unset, List[bool]] = UNSET
+    node_id: Union[Unset, List[str]] = UNSET
     pod_name: Union[Unset, List[str]] = UNSET
     scan_status: Union[Unset, List[str]] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        account_id: Union[Unset, List[str]] = UNSET
-        if not isinstance(self.account_id, Unset):
-            account_id = self.account_id
-
         container_name: Union[Unset, List[str]] = UNSET
         if not isinstance(self.container_name, Unset):
             container_name = self.container_name
@@ -63,6 +59,10 @@ class UtilsAdvancedReportFilters:
         if not isinstance(self.masked, Unset):
             masked = self.masked
 
+        node_id: Union[Unset, List[str]] = UNSET
+        if not isinstance(self.node_id, Unset):
+            node_id = self.node_id
+
         pod_name: Union[Unset, List[str]] = UNSET
         if not isinstance(self.pod_name, Unset):
             pod_name = self.pod_name
@@ -74,8 +74,6 @@ class UtilsAdvancedReportFilters:
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if account_id is not UNSET:
-            field_dict["account_id"] = account_id
         if container_name is not UNSET:
             field_dict["container_name"] = container_name
         if host_name is not UNSET:
@@ -86,6 +84,8 @@ class UtilsAdvancedReportFilters:
             field_dict["kubernetes_cluster_name"] = kubernetes_cluster_name
         if masked is not UNSET:
             field_dict["masked"] = masked
+        if node_id is not UNSET:
+            field_dict["node_id"] = node_id
         if pod_name is not UNSET:
             field_dict["pod_name"] = pod_name
         if scan_status is not UNSET:
@@ -96,8 +96,6 @@ class UtilsAdvancedReportFilters:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        account_id = cast(List[str], d.pop("account_id", UNSET))
-
         container_name = cast(List[str], d.pop("container_name", UNSET))
 
         host_name = cast(List[str], d.pop("host_name", UNSET))
@@ -108,17 +106,19 @@ class UtilsAdvancedReportFilters:
 
         masked = cast(List[bool], d.pop("masked", UNSET))
 
+        node_id = cast(List[str], d.pop("node_id", UNSET))
+
         pod_name = cast(List[str], d.pop("pod_name", UNSET))
 
         scan_status = cast(List[str], d.pop("scan_status", UNSET))
 
         utils_advanced_report_filters = cls(
-            account_id=account_id,
             container_name=container_name,
             host_name=host_name,
             image_name=image_name,
             kubernetes_cluster_name=kubernetes_cluster_name,
             masked=masked,
+            node_id=node_id,
             pod_name=pod_name,
             scan_status=scan_status,
         )

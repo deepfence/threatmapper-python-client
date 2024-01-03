@@ -7,14 +7,14 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
-from ...models.model_api_auth_request import ModelApiAuthRequest
+from ...models.model_api_auth_request import ModelAPIAuthRequest
 from ...models.model_response_access_token import ModelResponseAccessToken
 from ...types import Response
 
 
 def _get_kwargs(
     *,
-    json_body: ModelApiAuthRequest,
+    json_body: ModelAPIAuthRequest,
 ) -> Dict[str, Any]:
     pass
 
@@ -72,14 +72,14 @@ def _build_response(
 def sync_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
-    json_body: ModelApiAuthRequest,
+    json_body: ModelAPIAuthRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelResponseAccessToken]]:
     """Get Access Token for API Token
 
      Get access token for programmatic API access, by providing API Token
 
     Args:
-        json_body (ModelApiAuthRequest):  Example: {'api_token': 'api_token'}.
+        json_body (ModelAPIAuthRequest):  Example: {'api_token': 'api_token'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -103,14 +103,14 @@ def sync_detailed(
 def sync(
     *,
     client: Union[AuthenticatedClient, Client],
-    json_body: ModelApiAuthRequest,
+    json_body: ModelAPIAuthRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelResponseAccessToken]]:
     """Get Access Token for API Token
 
      Get access token for programmatic API access, by providing API Token
 
     Args:
-        json_body (ModelApiAuthRequest):  Example: {'api_token': 'api_token'}.
+        json_body (ModelAPIAuthRequest):  Example: {'api_token': 'api_token'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -129,14 +129,14 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
-    json_body: ModelApiAuthRequest,
+    json_body: ModelAPIAuthRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelResponseAccessToken]]:
     """Get Access Token for API Token
 
      Get access token for programmatic API access, by providing API Token
 
     Args:
-        json_body (ModelApiAuthRequest):  Example: {'api_token': 'api_token'}.
+        json_body (ModelAPIAuthRequest):  Example: {'api_token': 'api_token'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -158,14 +158,14 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Union[AuthenticatedClient, Client],
-    json_body: ModelApiAuthRequest,
+    json_body: ModelAPIAuthRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelResponseAccessToken]]:
     """Get Access Token for API Token
 
      Get access token for programmatic API access, by providing API Token
 
     Args:
-        json_body (ModelApiAuthRequest):  Example: {'api_token': 'api_token'}.
+        json_body (ModelAPIAuthRequest):  Example: {'api_token': 'api_token'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

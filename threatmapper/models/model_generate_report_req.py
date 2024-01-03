@@ -19,10 +19,10 @@ class ModelGenerateReportReq:
     """
     Example:
         {'duration': 0, 'filters': {'include_dead_nodes': True, 'node_type': 'host', 'most_exploitable_report': True,
-            'advanced_report_filters': {'image_name': ['image_name', 'image_name'], 'account_id': ['account_id',
-            'account_id'], 'container_name': ['container_name', 'container_name'], 'scan_status': ['scan_status',
-            'scan_status'], 'kubernetes_cluster_name': ['kubernetes_cluster_name', 'kubernetes_cluster_name'], 'masked':
-            [True, True], 'host_name': ['host_name', 'host_name'], 'pod_name': ['pod_name', 'pod_name']}, 'scan_type':
+            'advanced_report_filters': {'image_name': ['image_name', 'image_name'], 'container_name': ['container_name',
+            'container_name'], 'scan_status': ['scan_status', 'scan_status'], 'kubernetes_cluster_name':
+            ['kubernetes_cluster_name', 'kubernetes_cluster_name'], 'masked': [True, True], 'host_name': ['host_name',
+            'host_name'], 'node_id': ['node_id', 'node_id'], 'pod_name': ['pod_name', 'pod_name']}, 'scan_type':
             'vulnerability', 'scan_id': 'scan_id', 'severity_or_check_type': ['severity_or_check_type',
             'severity_or_check_type']}, 'report_type': 'pdf'}
 
@@ -31,10 +31,10 @@ class ModelGenerateReportReq:
         duration (Union[Unset, ModelGenerateReportReqDuration]):
         filters (Union[Unset, UtilsReportFilters]):  Example: {'include_dead_nodes': True, 'node_type': 'host',
             'most_exploitable_report': True, 'advanced_report_filters': {'image_name': ['image_name', 'image_name'],
-            'account_id': ['account_id', 'account_id'], 'container_name': ['container_name', 'container_name'],
-            'scan_status': ['scan_status', 'scan_status'], 'kubernetes_cluster_name': ['kubernetes_cluster_name',
-            'kubernetes_cluster_name'], 'masked': [True, True], 'host_name': ['host_name', 'host_name'], 'pod_name':
-            ['pod_name', 'pod_name']}, 'scan_type': 'vulnerability', 'scan_id': 'scan_id', 'severity_or_check_type':
+            'container_name': ['container_name', 'container_name'], 'scan_status': ['scan_status', 'scan_status'],
+            'kubernetes_cluster_name': ['kubernetes_cluster_name', 'kubernetes_cluster_name'], 'masked': [True, True],
+            'host_name': ['host_name', 'host_name'], 'node_id': ['node_id', 'node_id'], 'pod_name': ['pod_name',
+            'pod_name']}, 'scan_type': 'vulnerability', 'scan_id': 'scan_id', 'severity_or_check_type':
             ['severity_or_check_type', 'severity_or_check_type']}.
     """
 

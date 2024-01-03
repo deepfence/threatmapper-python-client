@@ -85,14 +85,21 @@ from .ingesters_secret_scan_status import IngestersSecretScanStatus
 from .ingesters_secret_severity import IngestersSecretSeverity
 from .ingesters_vulnerability import IngestersVulnerability
 from .ingesters_vulnerability_scan_status import IngestersVulnerabilityScanStatus
+from .list_generative_ai_integration_integration_type import ListGenerativeAiIntegrationIntegrationType
 from .lookup_lookup_filter import LookupLookupFilter
+from .model_add_generative_ai_bedrock_integration import ModelAddGenerativeAiBedrockIntegration
+from .model_add_generative_ai_bedrock_integration_aws_region import ModelAddGenerativeAiBedrockIntegrationAwsRegion
+from .model_add_generative_ai_bedrock_integration_model_id import ModelAddGenerativeAiBedrockIntegrationModelId
+from .model_add_generative_ai_open_ai_integration import ModelAddGenerativeAiOpenAIIntegration
+from .model_add_generative_ai_open_ai_integration_model_id import ModelAddGenerativeAiOpenAIIntegrationModelId
 from .model_add_scheduled_task_request import ModelAddScheduledTaskRequest
-from .model_agent_id import ModelAgentId
+from .model_add_scheduled_task_request_action import ModelAddScheduledTaskRequestAction
+from .model_agent_id import ModelAgentID
 from .model_agent_plugin_disable import ModelAgentPluginDisable
 from .model_agent_plugin_enable import ModelAgentPluginEnable
 from .model_agent_upgrade import ModelAgentUpgrade
-from .model_api_auth_request import ModelApiAuthRequest
-from .model_api_token_response import ModelApiTokenResponse
+from .model_api_auth_request import ModelAPIAuthRequest
+from .model_api_token_response import ModelAPITokenResponse
 from .model_basic_node import ModelBasicNode
 from .model_bulk_delete_scans_request import ModelBulkDeleteScansRequest
 from .model_bulk_delete_scans_request_scan_type import ModelBulkDeleteScansRequestScanType
@@ -134,6 +141,7 @@ from .model_container import ModelContainer
 from .model_container_docker_labels import ModelContainerDockerLabels
 from .model_container_image import ModelContainerImage
 from .model_container_image_metadata import ModelContainerImageMetadata
+from .model_delete_registry_bulk_req import ModelDeleteRegistryBulkReq
 from .model_download_report_response import ModelDownloadReportResponse
 from .model_download_scan_results_response import ModelDownloadScanResultsResponse
 from .model_email_configuration_add import ModelEmailConfigurationAdd
@@ -148,6 +156,45 @@ from .model_generate_report_req import ModelGenerateReportReq
 from .model_generate_report_req_duration import ModelGenerateReportReqDuration
 from .model_generate_report_req_report_type import ModelGenerateReportReqReportType
 from .model_generate_report_resp import ModelGenerateReportResp
+from .model_generative_ai_integration_cloud_posture_request import ModelGenerativeAiIntegrationCloudPostureRequest
+from .model_generative_ai_integration_cloud_posture_request_query_type import (
+    ModelGenerativeAiIntegrationCloudPostureRequestQueryType,
+)
+from .model_generative_ai_integration_cloud_posture_request_remediation_format import (
+    ModelGenerativeAiIntegrationCloudPostureRequestRemediationFormat,
+)
+from .model_generative_ai_integration_kubernetes_posture_request import (
+    ModelGenerativeAiIntegrationKubernetesPostureRequest,
+)
+from .model_generative_ai_integration_kubernetes_posture_request_query_type import (
+    ModelGenerativeAiIntegrationKubernetesPostureRequestQueryType,
+)
+from .model_generative_ai_integration_kubernetes_posture_request_remediation_format import (
+    ModelGenerativeAiIntegrationKubernetesPostureRequestRemediationFormat,
+)
+from .model_generative_ai_integration_linux_posture_request import ModelGenerativeAiIntegrationLinuxPostureRequest
+from .model_generative_ai_integration_linux_posture_request_query_type import (
+    ModelGenerativeAiIntegrationLinuxPostureRequestQueryType,
+)
+from .model_generative_ai_integration_linux_posture_request_remediation_format import (
+    ModelGenerativeAiIntegrationLinuxPostureRequestRemediationFormat,
+)
+from .model_generative_ai_integration_list_response import ModelGenerativeAiIntegrationListResponse
+from .model_generative_ai_integration_malware_request import ModelGenerativeAiIntegrationMalwareRequest
+from .model_generative_ai_integration_malware_request_query_type import (
+    ModelGenerativeAiIntegrationMalwareRequestQueryType,
+)
+from .model_generative_ai_integration_secret_request import ModelGenerativeAiIntegrationSecretRequest
+from .model_generative_ai_integration_secret_request_query_type import (
+    ModelGenerativeAiIntegrationSecretRequestQueryType,
+)
+from .model_generative_ai_integration_vulnerability_request import ModelGenerativeAiIntegrationVulnerabilityRequest
+from .model_generative_ai_integration_vulnerability_request_query_type import (
+    ModelGenerativeAiIntegrationVulnerabilityRequestQueryType,
+)
+from .model_generative_ai_integration_vulnerability_request_remediation_format import (
+    ModelGenerativeAiIntegrationVulnerabilityRequestRemediationFormat,
+)
 from .model_get_audit_logs_request import ModelGetAuditLogsRequest
 from .model_graph_result import ModelGraphResult
 from .model_graph_result_edges import ModelGraphResultEdges
@@ -165,6 +212,7 @@ from .model_invite_user_request_action import ModelInviteUserRequestAction
 from .model_invite_user_request_role import ModelInviteUserRequestRole
 from .model_invite_user_response import ModelInviteUserResponse
 from .model_kubernetes_cluster import ModelKubernetesCluster
+from .model_list_agent_version_resp import ModelListAgentVersionResp
 from .model_login_request import ModelLoginRequest
 from .model_login_response import ModelLoginResponse
 from .model_malware import ModelMalware
@@ -175,7 +223,6 @@ from .model_malware_scan_result_rules import ModelMalwareScanResultRules
 from .model_malware_scan_result_severity_counts import ModelMalwareScanResultSeverityCounts
 from .model_malware_scan_trigger_req import ModelMalwareScanTriggerReq
 from .model_message_response import ModelMessageResponse
-from .model_metadata import ModelMetadata
 from .model_node_identifier import ModelNodeIdentifier
 from .model_node_identifier_node_type import ModelNodeIdentifierNodeType
 from .model_nodes_in_scan_result_request import ModelNodesInScanResultRequest
@@ -253,8 +300,8 @@ from .model_summary import ModelSummary
 from .model_topology_delta_req import ModelTopologyDeltaReq
 from .model_topology_delta_response import ModelTopologyDeltaResponse
 from .model_update_scheduled_task_request import ModelUpdateScheduledTaskRequest
-from .model_update_user_id_request import ModelUpdateUserIdRequest
-from .model_update_user_id_request_role import ModelUpdateUserIdRequestRole
+from .model_update_user_id_request import ModelUpdateUserIDRequest
+from .model_update_user_id_request_role import ModelUpdateUserIDRequestRole
 from .model_update_user_password_request import ModelUpdateUserPasswordRequest
 from .model_update_user_request import ModelUpdateUserRequest
 from .model_update_user_request_role import ModelUpdateUserRequestRole
@@ -371,14 +418,21 @@ __all__ = (
     "IngestersSecretSeverity",
     "IngestersVulnerability",
     "IngestersVulnerabilityScanStatus",
+    "ListGenerativeAiIntegrationIntegrationType",
     "LookupLookupFilter",
+    "ModelAddGenerativeAiBedrockIntegration",
+    "ModelAddGenerativeAiBedrockIntegrationAwsRegion",
+    "ModelAddGenerativeAiBedrockIntegrationModelId",
+    "ModelAddGenerativeAiOpenAIIntegration",
+    "ModelAddGenerativeAiOpenAIIntegrationModelId",
     "ModelAddScheduledTaskRequest",
-    "ModelAgentId",
+    "ModelAddScheduledTaskRequestAction",
+    "ModelAgentID",
     "ModelAgentPluginDisable",
     "ModelAgentPluginEnable",
     "ModelAgentUpgrade",
-    "ModelApiAuthRequest",
-    "ModelApiTokenResponse",
+    "ModelAPIAuthRequest",
+    "ModelAPITokenResponse",
     "ModelBasicNode",
     "ModelBulkDeleteScansRequest",
     "ModelBulkDeleteScansRequestScanType",
@@ -418,6 +472,7 @@ __all__ = (
     "ModelContainerDockerLabels",
     "ModelContainerImage",
     "ModelContainerImageMetadata",
+    "ModelDeleteRegistryBulkReq",
     "ModelDownloadReportResponse",
     "ModelDownloadScanResultsResponse",
     "ModelEmailConfigurationAdd",
@@ -432,6 +487,23 @@ __all__ = (
     "ModelGenerateReportReqDuration",
     "ModelGenerateReportReqReportType",
     "ModelGenerateReportResp",
+    "ModelGenerativeAiIntegrationCloudPostureRequest",
+    "ModelGenerativeAiIntegrationCloudPostureRequestQueryType",
+    "ModelGenerativeAiIntegrationCloudPostureRequestRemediationFormat",
+    "ModelGenerativeAiIntegrationKubernetesPostureRequest",
+    "ModelGenerativeAiIntegrationKubernetesPostureRequestQueryType",
+    "ModelGenerativeAiIntegrationKubernetesPostureRequestRemediationFormat",
+    "ModelGenerativeAiIntegrationLinuxPostureRequest",
+    "ModelGenerativeAiIntegrationLinuxPostureRequestQueryType",
+    "ModelGenerativeAiIntegrationLinuxPostureRequestRemediationFormat",
+    "ModelGenerativeAiIntegrationListResponse",
+    "ModelGenerativeAiIntegrationMalwareRequest",
+    "ModelGenerativeAiIntegrationMalwareRequestQueryType",
+    "ModelGenerativeAiIntegrationSecretRequest",
+    "ModelGenerativeAiIntegrationSecretRequestQueryType",
+    "ModelGenerativeAiIntegrationVulnerabilityRequest",
+    "ModelGenerativeAiIntegrationVulnerabilityRequestQueryType",
+    "ModelGenerativeAiIntegrationVulnerabilityRequestRemediationFormat",
     "ModelGetAuditLogsRequest",
     "ModelGraphResult",
     "ModelGraphResultEdges",
@@ -449,6 +521,7 @@ __all__ = (
     "ModelInviteUserRequestRole",
     "ModelInviteUserResponse",
     "ModelKubernetesCluster",
+    "ModelListAgentVersionResp",
     "ModelLoginRequest",
     "ModelLoginResponse",
     "ModelMalware",
@@ -459,7 +532,6 @@ __all__ = (
     "ModelMalwareScanResultSeverityCounts",
     "ModelMalwareScanTriggerReq",
     "ModelMessageResponse",
-    "ModelMetadata",
     "ModelNodeIdentifier",
     "ModelNodeIdentifierNodeType",
     "ModelNodesInScanResultRequest",
@@ -527,8 +599,8 @@ __all__ = (
     "ModelTopologyDeltaReq",
     "ModelTopologyDeltaResponse",
     "ModelUpdateScheduledTaskRequest",
-    "ModelUpdateUserIdRequest",
-    "ModelUpdateUserIdRequestRole",
+    "ModelUpdateUserIDRequest",
+    "ModelUpdateUserIDRequestRole",
     "ModelUpdateUserPasswordRequest",
     "ModelUpdateUserRequest",
     "ModelUpdateUserRequestRole",

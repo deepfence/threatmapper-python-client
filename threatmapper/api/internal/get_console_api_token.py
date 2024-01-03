@@ -7,7 +7,7 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
-from ...models.model_api_auth_request import ModelApiAuthRequest
+from ...models.model_api_auth_request import ModelAPIAuthRequest
 from ...types import Response
 
 
@@ -22,9 +22,9 @@ def _get_kwargs() -> Dict[str, Any]:
 
 def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelApiAuthRequest]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelAPIAuthRequest]]:
     if response.status_code == HTTPStatus.OK:
-        response_200 = ModelApiAuthRequest.from_dict(response.json())
+        response_200 = ModelAPIAuthRequest.from_dict(response.json())
 
         return response_200
     if response.status_code == HTTPStatus.BAD_REQUEST:
@@ -53,7 +53,7 @@ def _parse_response(
 
 def _build_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelApiAuthRequest]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelAPIAuthRequest]]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -65,7 +65,7 @@ def _build_response(
 def sync_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelApiAuthRequest]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelAPIAuthRequest]]:
     """Get api-token for console agent
 
      Get api-token for console agent
@@ -75,7 +75,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelApiAuthRequest]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelAPIAuthRequest]]
     """
 
     kwargs = _get_kwargs()
@@ -90,7 +90,7 @@ def sync_detailed(
 def sync(
     *,
     client: Union[AuthenticatedClient, Client],
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelApiAuthRequest]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelAPIAuthRequest]]:
     """Get api-token for console agent
 
      Get api-token for console agent
@@ -100,7 +100,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelApiAuthRequest]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelAPIAuthRequest]
     """
 
     return sync_detailed(
@@ -111,7 +111,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelApiAuthRequest]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelAPIAuthRequest]]:
     """Get api-token for console agent
 
      Get api-token for console agent
@@ -121,7 +121,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelApiAuthRequest]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelAPIAuthRequest]]
     """
 
     kwargs = _get_kwargs()
@@ -134,7 +134,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Union[AuthenticatedClient, Client],
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelApiAuthRequest]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelAPIAuthRequest]]:
     """Get api-token for console agent
 
      Get api-token for console agent
@@ -144,7 +144,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelApiAuthRequest]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelAPIAuthRequest]
     """
 
     return (

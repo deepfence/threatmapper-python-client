@@ -79,7 +79,7 @@ class ModelContainerImage:
         vulnerability_scan_status (str):
         containers (Optional[List['ModelContainer']]):
         docker_image_tag_list (Optional[List[str]]):
-        metadata (Union[Unset, ModelContainerImageMetadata]):
+        metadata (Union[Unset, None, ModelContainerImageMetadata]):
     """
 
     docker_image_created_at: str
@@ -102,7 +102,7 @@ class ModelContainerImage:
     vulnerability_scan_status: str
     containers: Optional[List["ModelContainer"]]
     docker_image_tag_list: Optional[List[str]]
-    metadata: Union[Unset, "ModelContainerImageMetadata"] = UNSET
+    metadata: Union[Unset, None, "ModelContainerImageMetadata"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -138,9 +138,9 @@ class ModelContainerImage:
         else:
             docker_image_tag_list = self.docker_image_tag_list
 
-        metadata: Union[Unset, Dict[str, Any]] = UNSET
+        metadata: Union[Unset, None, Dict[str, Any]] = UNSET
         if not isinstance(self.metadata, Unset):
-            metadata = self.metadata.to_dict()
+            metadata = self.metadata.to_dict() if self.metadata else None
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -225,8 +225,10 @@ class ModelContainerImage:
         docker_image_tag_list = cast(List[str], d.pop("docker_image_tag_list"))
 
         _metadata = d.pop("metadata", UNSET)
-        metadata: Union[Unset, ModelContainerImageMetadata]
-        if isinstance(_metadata, Unset):
+        metadata: Union[Unset, None, ModelContainerImageMetadata]
+        if _metadata is None:
+            metadata = None
+        elif isinstance(_metadata, Unset):
             metadata = UNSET
         else:
             metadata = ModelContainerImageMetadata.from_dict(_metadata)

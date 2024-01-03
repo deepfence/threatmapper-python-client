@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class ModelUpdateUserIdRequestRole(str, Enum):
+class ModelUpdateUserIDRequestRole(str, Enum):
     ADMIN = "admin"
     READ_ONLY_USER = "read-only-user"
     STANDARD_USER = "standard-user"
