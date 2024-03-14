@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -13,37 +13,34 @@ T = TypeVar("T", bound="ModelScanResultBasicNode")
 @_attrs_define
 class ModelScanResultBasicNode:
     """
-    Example:
-        {'basic_nodes': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'},
-            {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'result_id':
-            'result_id'}
-
     Attributes:
+        basic_nodes (Union[List['ModelBasicNode'], None]):
         result_id (str):
-        basic_nodes (Optional[List['ModelBasicNode']]):
     """
 
+    basic_nodes: Union[List["ModelBasicNode"], None]
     result_id: str
-    basic_nodes: Optional[List["ModelBasicNode"]]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        result_id = self.result_id
-        if self.basic_nodes is None:
-            basic_nodes = None
-        else:
+        basic_nodes: Union[List[Dict[str, Any]], None]
+        if isinstance(self.basic_nodes, list):
             basic_nodes = []
-            for basic_nodes_item_data in self.basic_nodes:
-                basic_nodes_item = basic_nodes_item_data.to_dict()
+            for basic_nodes_type_0_item_data in self.basic_nodes:
+                basic_nodes_type_0_item = basic_nodes_type_0_item_data.to_dict()
+                basic_nodes.append(basic_nodes_type_0_item)
 
-                basic_nodes.append(basic_nodes_item)
+        else:
+            basic_nodes = self.basic_nodes
+
+        result_id = self.result_id
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "result_id": result_id,
                 "basic_nodes": basic_nodes,
+                "result_id": result_id,
             }
         )
 
@@ -54,18 +51,32 @@ class ModelScanResultBasicNode:
         from ..models.model_basic_node import ModelBasicNode
 
         d = src_dict.copy()
+
+        def _parse_basic_nodes(data: object) -> Union[List["ModelBasicNode"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                basic_nodes_type_0 = []
+                _basic_nodes_type_0 = data
+                for basic_nodes_type_0_item_data in _basic_nodes_type_0:
+                    basic_nodes_type_0_item = ModelBasicNode.from_dict(basic_nodes_type_0_item_data)
+
+                    basic_nodes_type_0.append(basic_nodes_type_0_item)
+
+                return basic_nodes_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelBasicNode"], None], data)
+
+        basic_nodes = _parse_basic_nodes(d.pop("basic_nodes"))
+
         result_id = d.pop("result_id")
 
-        basic_nodes = []
-        _basic_nodes = d.pop("basic_nodes")
-        for basic_nodes_item_data in _basic_nodes or []:
-            basic_nodes_item = ModelBasicNode.from_dict(basic_nodes_item_data)
-
-            basic_nodes.append(basic_nodes_item)
-
         model_scan_result_basic_node = cls(
-            result_id=result_id,
             basic_nodes=basic_nodes,
+            result_id=result_id,
         )
 
         model_scan_result_basic_node.additional_properties = d

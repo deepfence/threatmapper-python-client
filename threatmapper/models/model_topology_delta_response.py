@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -15,48 +15,47 @@ T = TypeVar("T", bound="ModelTopologyDeltaResponse")
 @_attrs_define
 class ModelTopologyDeltaResponse:
     """
-    Example:
-        {'deletions': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}],
-            'additons': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}],
-            'deletion_timestamp': 6, 'addition_timestamp': 0}
-
     Attributes:
         addition_timestamp (Union[Unset, int]):
-        additons (Union[Unset, None, List['ModelNodeIdentifier']]):
+        additons (Union[List['ModelNodeIdentifier'], None, Unset]):
         deletion_timestamp (Union[Unset, int]):
-        deletions (Union[Unset, None, List['ModelNodeIdentifier']]):
+        deletions (Union[List['ModelNodeIdentifier'], None, Unset]):
     """
 
     addition_timestamp: Union[Unset, int] = UNSET
-    additons: Union[Unset, None, List["ModelNodeIdentifier"]] = UNSET
+    additons: Union[List["ModelNodeIdentifier"], None, Unset] = UNSET
     deletion_timestamp: Union[Unset, int] = UNSET
-    deletions: Union[Unset, None, List["ModelNodeIdentifier"]] = UNSET
+    deletions: Union[List["ModelNodeIdentifier"], None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         addition_timestamp = self.addition_timestamp
-        additons: Union[Unset, None, List[Dict[str, Any]]] = UNSET
-        if not isinstance(self.additons, Unset):
-            if self.additons is None:
-                additons = None
-            else:
-                additons = []
-                for additons_item_data in self.additons:
-                    additons_item = additons_item_data.to_dict()
 
-                    additons.append(additons_item)
+        additons: Union[List[Dict[str, Any]], None, Unset]
+        if isinstance(self.additons, Unset):
+            additons = UNSET
+        elif isinstance(self.additons, list):
+            additons = []
+            for additons_type_0_item_data in self.additons:
+                additons_type_0_item = additons_type_0_item_data.to_dict()
+                additons.append(additons_type_0_item)
+
+        else:
+            additons = self.additons
 
         deletion_timestamp = self.deletion_timestamp
-        deletions: Union[Unset, None, List[Dict[str, Any]]] = UNSET
-        if not isinstance(self.deletions, Unset):
-            if self.deletions is None:
-                deletions = None
-            else:
-                deletions = []
-                for deletions_item_data in self.deletions:
-                    deletions_item = deletions_item_data.to_dict()
 
-                    deletions.append(deletions_item)
+        deletions: Union[List[Dict[str, Any]], None, Unset]
+        if isinstance(self.deletions, Unset):
+            deletions = UNSET
+        elif isinstance(self.deletions, list):
+            deletions = []
+            for deletions_type_0_item_data in self.deletions:
+                deletions_type_0_item = deletions_type_0_item_data.to_dict()
+                deletions.append(deletions_type_0_item)
+
+        else:
+            deletions = self.deletions
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -79,21 +78,51 @@ class ModelTopologyDeltaResponse:
         d = src_dict.copy()
         addition_timestamp = d.pop("addition_timestamp", UNSET)
 
-        additons = []
-        _additons = d.pop("additons", UNSET)
-        for additons_item_data in _additons or []:
-            additons_item = ModelNodeIdentifier.from_dict(additons_item_data)
+        def _parse_additons(data: object) -> Union[List["ModelNodeIdentifier"], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                additons_type_0 = []
+                _additons_type_0 = data
+                for additons_type_0_item_data in _additons_type_0:
+                    additons_type_0_item = ModelNodeIdentifier.from_dict(additons_type_0_item_data)
 
-            additons.append(additons_item)
+                    additons_type_0.append(additons_type_0_item)
+
+                return additons_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelNodeIdentifier"], None, Unset], data)
+
+        additons = _parse_additons(d.pop("additons", UNSET))
 
         deletion_timestamp = d.pop("deletion_timestamp", UNSET)
 
-        deletions = []
-        _deletions = d.pop("deletions", UNSET)
-        for deletions_item_data in _deletions or []:
-            deletions_item = ModelNodeIdentifier.from_dict(deletions_item_data)
+        def _parse_deletions(data: object) -> Union[List["ModelNodeIdentifier"], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                deletions_type_0 = []
+                _deletions_type_0 = data
+                for deletions_type_0_item_data in _deletions_type_0:
+                    deletions_type_0_item = ModelNodeIdentifier.from_dict(deletions_type_0_item_data)
 
-            deletions.append(deletions_item)
+                    deletions_type_0.append(deletions_type_0_item)
+
+                return deletions_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelNodeIdentifier"], None, Unset], data)
+
+        deletions = _parse_deletions(d.pop("deletions", UNSET))
 
         model_topology_delta_response = cls(
             addition_timestamp=addition_timestamp,

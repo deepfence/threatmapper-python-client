@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ReportersOrderSpec")
 @_attrs_define
 class ReportersOrderSpec:
     """
-    Example:
-        {'size': 0, 'descending': True, 'field_name': 'field_name'}
-
     Attributes:
         descending (bool):
         field_name (str):
@@ -27,7 +24,9 @@ class ReportersOrderSpec:
 
     def to_dict(self) -> Dict[str, Any]:
         descending = self.descending
+
         field_name = self.field_name
+
         size = self.size
 
         field_dict: Dict[str, Any] = {}

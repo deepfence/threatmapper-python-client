@@ -1,10 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
-    from ..models.model_scan_status_resp_statuses import ModelScanStatusRespStatuses
+    from ..models.model_scan_status_resp_statuses_type_0 import ModelScanStatusRespStatusesType0
 
 
 T = TypeVar("T", bound="ModelScanStatusResp")
@@ -13,20 +13,21 @@ T = TypeVar("T", bound="ModelScanStatusResp")
 @_attrs_define
 class ModelScanStatusResp:
     """
-    Example:
-        {'statuses': {'key': {'severity_counts': {'key': 6}, 'status_message': 'status_message', 'node_type':
-            'node_type', 'updated_at': 1, 'node_name': 'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'node_id':
-            'node_id', 'status': 'status'}}}
-
     Attributes:
-        statuses (Optional[ModelScanStatusRespStatuses]):
+        statuses (Union['ModelScanStatusRespStatusesType0', None]):
     """
 
-    statuses: Optional["ModelScanStatusRespStatuses"]
+    statuses: Union["ModelScanStatusRespStatusesType0", None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        statuses = self.statuses.to_dict() if self.statuses else None
+        from ..models.model_scan_status_resp_statuses_type_0 import ModelScanStatusRespStatusesType0
+
+        statuses: Union[Dict[str, Any], None]
+        if isinstance(self.statuses, ModelScanStatusRespStatusesType0):
+            statuses = self.statuses.to_dict()
+        else:
+            statuses = self.statuses
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -40,15 +41,24 @@ class ModelScanStatusResp:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.model_scan_status_resp_statuses import ModelScanStatusRespStatuses
+        from ..models.model_scan_status_resp_statuses_type_0 import ModelScanStatusRespStatusesType0
 
         d = src_dict.copy()
-        _statuses = d.pop("statuses")
-        statuses: Optional[ModelScanStatusRespStatuses]
-        if _statuses is None:
-            statuses = None
-        else:
-            statuses = ModelScanStatusRespStatuses.from_dict(_statuses)
+
+        def _parse_statuses(data: object) -> Union["ModelScanStatusRespStatusesType0", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                statuses_type_0 = ModelScanStatusRespStatusesType0.from_dict(data)
+
+                return statuses_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelScanStatusRespStatusesType0", None], data)
+
+        statuses = _parse_statuses(d.pop("statuses"))
 
         model_scan_status_resp = cls(
             statuses=statuses,

@@ -9,12 +9,6 @@ T = TypeVar("T", bound="ModelCloudResource")
 @_attrs_define
 class ModelCloudResource:
     """
-    Example:
-        {'cloud_compliances_count': 0, 'account_id': 'account_id', 'cloud_compliance_latest_scan_id':
-            'cloud_compliance_latest_scan_id', 'node_type': 'node_type', 'cloud_compliance_scan_status':
-            'cloud_compliance_scan_status', 'cloud_region': 'cloud_region', 'node_name': 'node_name', 'cloud_provider':
-            'cloud_provider', 'type_label': 'type_label', 'node_id': 'node_id'}
-
     Attributes:
         account_id (str):
         cloud_compliance_latest_scan_id (str):
@@ -42,14 +36,23 @@ class ModelCloudResource:
 
     def to_dict(self) -> Dict[str, Any]:
         account_id = self.account_id
+
         cloud_compliance_latest_scan_id = self.cloud_compliance_latest_scan_id
+
         cloud_compliance_scan_status = self.cloud_compliance_scan_status
+
         cloud_compliances_count = self.cloud_compliances_count
+
         cloud_provider = self.cloud_provider
+
         cloud_region = self.cloud_region
+
         node_id = self.node_id
+
         node_name = self.node_name
+
         node_type = self.node_type
+
         type_label = self.type_label
 
         field_dict: Dict[str, Any] = {}

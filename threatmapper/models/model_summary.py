@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelSummary")
 @_attrs_define
 class ModelSummary:
     """
-    Example:
-        {'images': 0, 'scans_total': 5, 'registries': 6, 'scans_complete': 1, 'scans_in_progress': 5, 'tags': 2}
-
     Attributes:
         images (Union[Unset, int]):
         registries (Union[Unset, int]):
@@ -33,10 +30,15 @@ class ModelSummary:
 
     def to_dict(self) -> Dict[str, Any]:
         images = self.images
+
         registries = self.registries
+
         scans_complete = self.scans_complete
+
         scans_in_progress = self.scans_in_progress
+
         scans_total = self.scans_total
+
         tags = self.tags
 
         field_dict: Dict[str, Any] = {}

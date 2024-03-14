@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelCloudNodeCloudtrailTrail")
 @_attrs_define
 class ModelCloudNodeCloudtrailTrail:
     """
-    Example:
-        {'account_id': 'account_id', 'trail_name': 'trail_name'}
-
     Attributes:
         account_id (Union[Unset, str]):
         trail_name (Union[Unset, str]):
@@ -25,6 +22,7 @@ class ModelCloudNodeCloudtrailTrail:
 
     def to_dict(self) -> Dict[str, Any]:
         account_id = self.account_id
+
         trail_name = self.trail_name
 
         field_dict: Dict[str, Any] = {}

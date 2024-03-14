@@ -13,17 +13,12 @@ T = TypeVar("T", bound="ModelScanFilter")
 @_attrs_define
 class ModelScanFilter:
     """
-    Example:
-        {'container_scan_filter': {'filter_in': {'key': ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key':
-            ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}}
-
     Attributes:
-        cloud_account_scan_filter (ReportersContainsFilter):  Example: {'filter_in': {'key': ['', '']}}.
-        container_scan_filter (ReportersContainsFilter):  Example: {'filter_in': {'key': ['', '']}}.
-        host_scan_filter (ReportersContainsFilter):  Example: {'filter_in': {'key': ['', '']}}.
-        image_scan_filter (ReportersContainsFilter):  Example: {'filter_in': {'key': ['', '']}}.
-        kubernetes_cluster_scan_filter (ReportersContainsFilter):  Example: {'filter_in': {'key': ['', '']}}.
+        cloud_account_scan_filter (ReportersContainsFilter):
+        container_scan_filter (ReportersContainsFilter):
+        host_scan_filter (ReportersContainsFilter):
+        image_scan_filter (ReportersContainsFilter):
+        kubernetes_cluster_scan_filter (ReportersContainsFilter):
     """
 
     cloud_account_scan_filter: "ReportersContainsFilter"

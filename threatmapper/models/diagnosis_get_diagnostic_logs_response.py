@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -15,58 +15,53 @@ T = TypeVar("T", bound="DiagnosisGetDiagnosticLogsResponse")
 @_attrs_define
 class DiagnosisGetDiagnosticLogsResponse:
     """
-    Example:
-        {'console_logs': [{'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'},
-            {'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}], 'agent_logs':
-            [{'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}, {'url_link':
-            'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}], 'cloud_scanner_logs':
-            [{'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}, {'url_link':
-            'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}]}
-
     Attributes:
-        agent_logs (Union[Unset, None, List['DiagnosisDiagnosticLogsLink']]):
-        cloud_scanner_logs (Union[Unset, None, List['DiagnosisDiagnosticLogsLink']]):
-        console_logs (Union[Unset, None, List['DiagnosisDiagnosticLogsLink']]):
+        agent_logs (Union[List['DiagnosisDiagnosticLogsLink'], None, Unset]):
+        cloud_scanner_logs (Union[List['DiagnosisDiagnosticLogsLink'], None, Unset]):
+        console_logs (Union[List['DiagnosisDiagnosticLogsLink'], None, Unset]):
     """
 
-    agent_logs: Union[Unset, None, List["DiagnosisDiagnosticLogsLink"]] = UNSET
-    cloud_scanner_logs: Union[Unset, None, List["DiagnosisDiagnosticLogsLink"]] = UNSET
-    console_logs: Union[Unset, None, List["DiagnosisDiagnosticLogsLink"]] = UNSET
+    agent_logs: Union[List["DiagnosisDiagnosticLogsLink"], None, Unset] = UNSET
+    cloud_scanner_logs: Union[List["DiagnosisDiagnosticLogsLink"], None, Unset] = UNSET
+    console_logs: Union[List["DiagnosisDiagnosticLogsLink"], None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        agent_logs: Union[Unset, None, List[Dict[str, Any]]] = UNSET
-        if not isinstance(self.agent_logs, Unset):
-            if self.agent_logs is None:
-                agent_logs = None
-            else:
-                agent_logs = []
-                for agent_logs_item_data in self.agent_logs:
-                    agent_logs_item = agent_logs_item_data.to_dict()
+        agent_logs: Union[List[Dict[str, Any]], None, Unset]
+        if isinstance(self.agent_logs, Unset):
+            agent_logs = UNSET
+        elif isinstance(self.agent_logs, list):
+            agent_logs = []
+            for agent_logs_type_0_item_data in self.agent_logs:
+                agent_logs_type_0_item = agent_logs_type_0_item_data.to_dict()
+                agent_logs.append(agent_logs_type_0_item)
 
-                    agent_logs.append(agent_logs_item)
+        else:
+            agent_logs = self.agent_logs
 
-        cloud_scanner_logs: Union[Unset, None, List[Dict[str, Any]]] = UNSET
-        if not isinstance(self.cloud_scanner_logs, Unset):
-            if self.cloud_scanner_logs is None:
-                cloud_scanner_logs = None
-            else:
-                cloud_scanner_logs = []
-                for cloud_scanner_logs_item_data in self.cloud_scanner_logs:
-                    cloud_scanner_logs_item = cloud_scanner_logs_item_data.to_dict()
+        cloud_scanner_logs: Union[List[Dict[str, Any]], None, Unset]
+        if isinstance(self.cloud_scanner_logs, Unset):
+            cloud_scanner_logs = UNSET
+        elif isinstance(self.cloud_scanner_logs, list):
+            cloud_scanner_logs = []
+            for cloud_scanner_logs_type_0_item_data in self.cloud_scanner_logs:
+                cloud_scanner_logs_type_0_item = cloud_scanner_logs_type_0_item_data.to_dict()
+                cloud_scanner_logs.append(cloud_scanner_logs_type_0_item)
 
-                    cloud_scanner_logs.append(cloud_scanner_logs_item)
+        else:
+            cloud_scanner_logs = self.cloud_scanner_logs
 
-        console_logs: Union[Unset, None, List[Dict[str, Any]]] = UNSET
-        if not isinstance(self.console_logs, Unset):
-            if self.console_logs is None:
-                console_logs = None
-            else:
-                console_logs = []
-                for console_logs_item_data in self.console_logs:
-                    console_logs_item = console_logs_item_data.to_dict()
+        console_logs: Union[List[Dict[str, Any]], None, Unset]
+        if isinstance(self.console_logs, Unset):
+            console_logs = UNSET
+        elif isinstance(self.console_logs, list):
+            console_logs = []
+            for console_logs_type_0_item_data in self.console_logs:
+                console_logs_type_0_item = console_logs_type_0_item_data.to_dict()
+                console_logs.append(console_logs_type_0_item)
 
-                    console_logs.append(console_logs_item)
+        else:
+            console_logs = self.console_logs
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -85,26 +80,74 @@ class DiagnosisGetDiagnosticLogsResponse:
         from ..models.diagnosis_diagnostic_logs_link import DiagnosisDiagnosticLogsLink
 
         d = src_dict.copy()
-        agent_logs = []
-        _agent_logs = d.pop("agent_logs", UNSET)
-        for agent_logs_item_data in _agent_logs or []:
-            agent_logs_item = DiagnosisDiagnosticLogsLink.from_dict(agent_logs_item_data)
 
-            agent_logs.append(agent_logs_item)
+        def _parse_agent_logs(data: object) -> Union[List["DiagnosisDiagnosticLogsLink"], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                agent_logs_type_0 = []
+                _agent_logs_type_0 = data
+                for agent_logs_type_0_item_data in _agent_logs_type_0:
+                    agent_logs_type_0_item = DiagnosisDiagnosticLogsLink.from_dict(agent_logs_type_0_item_data)
 
-        cloud_scanner_logs = []
-        _cloud_scanner_logs = d.pop("cloud_scanner_logs", UNSET)
-        for cloud_scanner_logs_item_data in _cloud_scanner_logs or []:
-            cloud_scanner_logs_item = DiagnosisDiagnosticLogsLink.from_dict(cloud_scanner_logs_item_data)
+                    agent_logs_type_0.append(agent_logs_type_0_item)
 
-            cloud_scanner_logs.append(cloud_scanner_logs_item)
+                return agent_logs_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["DiagnosisDiagnosticLogsLink"], None, Unset], data)
 
-        console_logs = []
-        _console_logs = d.pop("console_logs", UNSET)
-        for console_logs_item_data in _console_logs or []:
-            console_logs_item = DiagnosisDiagnosticLogsLink.from_dict(console_logs_item_data)
+        agent_logs = _parse_agent_logs(d.pop("agent_logs", UNSET))
 
-            console_logs.append(console_logs_item)
+        def _parse_cloud_scanner_logs(data: object) -> Union[List["DiagnosisDiagnosticLogsLink"], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                cloud_scanner_logs_type_0 = []
+                _cloud_scanner_logs_type_0 = data
+                for cloud_scanner_logs_type_0_item_data in _cloud_scanner_logs_type_0:
+                    cloud_scanner_logs_type_0_item = DiagnosisDiagnosticLogsLink.from_dict(
+                        cloud_scanner_logs_type_0_item_data
+                    )
+
+                    cloud_scanner_logs_type_0.append(cloud_scanner_logs_type_0_item)
+
+                return cloud_scanner_logs_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["DiagnosisDiagnosticLogsLink"], None, Unset], data)
+
+        cloud_scanner_logs = _parse_cloud_scanner_logs(d.pop("cloud_scanner_logs", UNSET))
+
+        def _parse_console_logs(data: object) -> Union[List["DiagnosisDiagnosticLogsLink"], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                console_logs_type_0 = []
+                _console_logs_type_0 = data
+                for console_logs_type_0_item_data in _console_logs_type_0:
+                    console_logs_type_0_item = DiagnosisDiagnosticLogsLink.from_dict(console_logs_type_0_item_data)
+
+                    console_logs_type_0.append(console_logs_type_0_item)
+
+                return console_logs_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["DiagnosisDiagnosticLogsLink"], None, Unset], data)
+
+        console_logs = _parse_console_logs(d.pop("console_logs", UNSET))
 
         diagnosis_get_diagnostic_logs_response = cls(
             agent_logs=agent_logs,

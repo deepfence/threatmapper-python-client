@@ -9,11 +9,6 @@ T = TypeVar("T", bound="ModelProcess")
 @_attrs_define
 class ModelProcess:
     """
-    Example:
-        {'memory_max': 9, 'cmdline': 'cmdline', 'cpu_max': 2.3021358869347655, 'node_name': 'node_name', 'memory_usage':
-            3, 'open_files_count': 2, 'threads': 1, 'pid': 4, 'short_name': 'short_name', 'cpu_usage': 7.061401241503109,
-            'node_id': 'node_id', 'ppid': 7}
-
     Attributes:
         cmdline (str):
         cpu_max (float):
@@ -45,16 +40,27 @@ class ModelProcess:
 
     def to_dict(self) -> Dict[str, Any]:
         cmdline = self.cmdline
+
         cpu_max = self.cpu_max
+
         cpu_usage = self.cpu_usage
+
         memory_max = self.memory_max
+
         memory_usage = self.memory_usage
+
         node_id = self.node_id
+
         node_name = self.node_name
+
         open_files_count = self.open_files_count
+
         pid = self.pid
+
         ppid = self.ppid
+
         short_name = self.short_name
+
         threads = self.threads
 
         field_dict: Dict[str, Any] = {}

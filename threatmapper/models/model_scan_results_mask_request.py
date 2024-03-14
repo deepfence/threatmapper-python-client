@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,42 +12,41 @@ T = TypeVar("T", bound="ModelScanResultsMaskRequest")
 @_attrs_define
 class ModelScanResultsMaskRequest:
     """
-    Example:
-        {'mask_action': 'mask_global', 'result_ids': ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id':
-            'scan_id'}
-
     Attributes:
         mask_action (ModelScanResultsMaskRequestMaskAction):
+        result_ids (Union[List[str], None]):
         scan_id (str):
         scan_type (ModelScanResultsMaskRequestScanType):
-        result_ids (Optional[List[str]]):
     """
 
     mask_action: ModelScanResultsMaskRequestMaskAction
+    result_ids: Union[List[str], None]
     scan_id: str
     scan_type: ModelScanResultsMaskRequestScanType
-    result_ids: Optional[List[str]]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         mask_action = self.mask_action.value
 
-        scan_id = self.scan_id
-        scan_type = self.scan_type.value
+        result_ids: Union[List[str], None]
+        if isinstance(self.result_ids, list):
+            result_ids = self.result_ids
 
-        if self.result_ids is None:
-            result_ids = None
         else:
             result_ids = self.result_ids
+
+        scan_id = self.scan_id
+
+        scan_type = self.scan_type.value
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "mask_action": mask_action,
+                "result_ids": result_ids,
                 "scan_id": scan_id,
                 "scan_type": scan_type,
-                "result_ids": result_ids,
             }
         )
 
@@ -58,17 +57,30 @@ class ModelScanResultsMaskRequest:
         d = src_dict.copy()
         mask_action = ModelScanResultsMaskRequestMaskAction(d.pop("mask_action"))
 
+        def _parse_result_ids(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                result_ids_type_0 = cast(List[str], data)
+
+                return result_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        result_ids = _parse_result_ids(d.pop("result_ids"))
+
         scan_id = d.pop("scan_id")
 
         scan_type = ModelScanResultsMaskRequestScanType(d.pop("scan_type"))
 
-        result_ids = cast(List[str], d.pop("result_ids"))
-
         model_scan_results_mask_request = cls(
             mask_action=mask_action,
+            result_ids=result_ids,
             scan_id=scan_id,
             scan_type=scan_type,
-            result_ids=result_ids,
         )
 
         model_scan_results_mask_request.additional_properties = d

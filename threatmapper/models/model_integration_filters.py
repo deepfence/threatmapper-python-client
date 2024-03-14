@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -16,43 +16,40 @@ T = TypeVar("T", bound="ModelIntegrationFilters")
 @_attrs_define
 class ModelIntegrationFilters:
     """
-    Example:
-        {'fields_filters': {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'},
-            {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True, 'field_name':
-            'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in':
-            {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['', '']}}}, 'node_ids': [{'node_type':
-            'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}]}
-
     Attributes:
-        fields_filters (Union[Unset, ReportersFieldsFilters]):  Example: {'compare_filter': [{'greater_than': True,
-            'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
-            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields':
-            [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
-            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in':
-            {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
-            {'key': ['', '']}}}.
-        node_ids (Optional[List['ModelNodeIdentifier']]):
+        node_ids (Union[List['ModelNodeIdentifier'], None]):
+        container_names (Union[List[str], None, Unset]):
+        fields_filters (Union[Unset, ReportersFieldsFilters]):
     """
 
-    node_ids: Optional[List["ModelNodeIdentifier"]]
+    node_ids: Union[List["ModelNodeIdentifier"], None]
+    container_names: Union[List[str], None, Unset] = UNSET
     fields_filters: Union[Unset, "ReportersFieldsFilters"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        node_ids: Union[List[Dict[str, Any]], None]
+        if isinstance(self.node_ids, list):
+            node_ids = []
+            for node_ids_type_0_item_data in self.node_ids:
+                node_ids_type_0_item = node_ids_type_0_item_data.to_dict()
+                node_ids.append(node_ids_type_0_item)
+
+        else:
+            node_ids = self.node_ids
+
+        container_names: Union[List[str], None, Unset]
+        if isinstance(self.container_names, Unset):
+            container_names = UNSET
+        elif isinstance(self.container_names, list):
+            container_names = self.container_names
+
+        else:
+            container_names = self.container_names
+
         fields_filters: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.fields_filters, Unset):
             fields_filters = self.fields_filters.to_dict()
-
-        if self.node_ids is None:
-            node_ids = None
-        else:
-            node_ids = []
-            for node_ids_item_data in self.node_ids:
-                node_ids_item = node_ids_item_data.to_dict()
-
-                node_ids.append(node_ids_item)
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -61,6 +58,8 @@ class ModelIntegrationFilters:
                 "node_ids": node_ids,
             }
         )
+        if container_names is not UNSET:
+            field_dict["container_names"] = container_names
         if fields_filters is not UNSET:
             field_dict["fields_filters"] = fields_filters
 
@@ -72,6 +71,44 @@ class ModelIntegrationFilters:
         from ..models.reporters_fields_filters import ReportersFieldsFilters
 
         d = src_dict.copy()
+
+        def _parse_node_ids(data: object) -> Union[List["ModelNodeIdentifier"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                node_ids_type_0 = []
+                _node_ids_type_0 = data
+                for node_ids_type_0_item_data in _node_ids_type_0:
+                    node_ids_type_0_item = ModelNodeIdentifier.from_dict(node_ids_type_0_item_data)
+
+                    node_ids_type_0.append(node_ids_type_0_item)
+
+                return node_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelNodeIdentifier"], None], data)
+
+        node_ids = _parse_node_ids(d.pop("node_ids"))
+
+        def _parse_container_names(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                container_names_type_0 = cast(List[str], data)
+
+                return container_names_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
+
+        container_names = _parse_container_names(d.pop("container_names", UNSET))
+
         _fields_filters = d.pop("fields_filters", UNSET)
         fields_filters: Union[Unset, ReportersFieldsFilters]
         if isinstance(_fields_filters, Unset):
@@ -79,16 +116,10 @@ class ModelIntegrationFilters:
         else:
             fields_filters = ReportersFieldsFilters.from_dict(_fields_filters)
 
-        node_ids = []
-        _node_ids = d.pop("node_ids")
-        for node_ids_item_data in _node_ids or []:
-            node_ids_item = ModelNodeIdentifier.from_dict(node_ids_item_data)
-
-            node_ids.append(node_ids_item)
-
         model_integration_filters = cls(
-            fields_filters=fields_filters,
             node_ids=node_ids,
+            container_names=container_names,
+            fields_filters=fields_filters,
         )
 
         model_integration_filters.additional_properties = d

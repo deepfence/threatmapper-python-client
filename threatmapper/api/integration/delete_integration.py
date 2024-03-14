@@ -13,14 +13,12 @@ from ...types import Response
 def _get_kwargs(
     integration_id: str,
 ) -> Dict[str, Any]:
-    pass
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "delete",
-        "url": "/deepfence/integration/{integration_id}".format(
-            integration_id=integration_id,
-        ),
+        "url": f"/deepfence/integration/{integration_id}",
     }
+
+    return _kwargs
 
 
 def _parse_response(
@@ -69,9 +67,9 @@ def sync_detailed(
     *,
     client: AuthenticatedClient,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
-    """Delete Integration
+    """Delete Single Integration
 
-     Delete integration
+     Delete single integration
 
     Args:
         integration_id (str):
@@ -100,9 +98,9 @@ def sync(
     *,
     client: AuthenticatedClient,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
-    """Delete Integration
+    """Delete Single Integration
 
-     Delete integration
+     Delete single integration
 
     Args:
         integration_id (str):
@@ -126,9 +124,9 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
-    """Delete Integration
+    """Delete Single Integration
 
-     Delete integration
+     Delete single integration
 
     Args:
         integration_id (str):
@@ -155,9 +153,9 @@ async def asyncio(
     *,
     client: AuthenticatedClient,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
-    """Delete Integration
+    """Delete Single Integration
 
-     Delete integration
+     Delete single integration
 
     Args:
         integration_id (str):

@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -9,19 +9,18 @@ T = TypeVar("T", bound="GraphCloudProviderFilter")
 @_attrs_define
 class GraphCloudProviderFilter:
     """
-    Example:
-        {'account_ids': ['account_ids', 'account_ids']}
-
     Attributes:
-        account_ids (Optional[List[str]]):
+        account_ids (Union[List[str], None]):
     """
 
-    account_ids: Optional[List[str]]
+    account_ids: Union[List[str], None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        if self.account_ids is None:
-            account_ids = None
+        account_ids: Union[List[str], None]
+        if isinstance(self.account_ids, list):
+            account_ids = self.account_ids
+
         else:
             account_ids = self.account_ids
 
@@ -38,7 +37,21 @@ class GraphCloudProviderFilter:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        account_ids = cast(List[str], d.pop("account_ids"))
+
+        def _parse_account_ids(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                account_ids_type_0 = cast(List[str], data)
+
+                return account_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        account_ids = _parse_account_ids(d.pop("account_ids"))
 
         graph_cloud_provider_filter = cls(
             account_ids=account_ids,

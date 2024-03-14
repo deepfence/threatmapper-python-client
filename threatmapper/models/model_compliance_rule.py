@@ -9,11 +9,6 @@ T = TypeVar("T", bound="ModelComplianceRule")
 @_attrs_define
 class ModelComplianceRule:
     """
-    Example:
-        {'test_rationale': 'test_rationale', 'test_severity': 'test_severity', 'updated_at': 0, 'masked': True,
-            'description': 'description', 'test_category': 'test_category', 'test_desc': 'test_desc', 'test_number':
-            'test_number'}
-
     Attributes:
         description (str):
         masked (bool):
@@ -37,12 +32,19 @@ class ModelComplianceRule:
 
     def to_dict(self) -> Dict[str, Any]:
         description = self.description
+
         masked = self.masked
+
         test_category = self.test_category
+
         test_desc = self.test_desc
+
         test_number = self.test_number
+
         test_rationale = self.test_rationale
+
         test_severity = self.test_severity
+
         updated_at = self.updated_at
 
         field_dict: Dict[str, Any] = {}

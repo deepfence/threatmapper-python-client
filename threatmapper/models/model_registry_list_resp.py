@@ -11,10 +11,6 @@ T = TypeVar("T", bound="ModelRegistryListResp")
 @_attrs_define
 class ModelRegistryListResp:
     """
-    Example:
-        {'is_syncing': True, 'updated_at': 1, 'non_secret': '', 'registry_type': 'registry_type', 'name': 'name',
-            'created_at': 0, 'id': 6, 'node_id': 'node_id'}
-
     Attributes:
         created_at (Union[Unset, int]):
         id (Union[Unset, int]):
@@ -38,12 +34,19 @@ class ModelRegistryListResp:
 
     def to_dict(self) -> Dict[str, Any]:
         created_at = self.created_at
+
         id = self.id
+
         is_syncing = self.is_syncing
+
         name = self.name
+
         node_id = self.node_id
+
         non_secret = self.non_secret
+
         registry_type = self.registry_type
+
         updated_at = self.updated_at
 
         field_dict: Dict[str, Any] = {}

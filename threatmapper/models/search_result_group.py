@@ -11,9 +11,6 @@ T = TypeVar("T", bound="SearchResultGroup")
 @_attrs_define
 class SearchResultGroup:
     """
-    Example:
-        {'severity': 'severity', 'count': 0, 'name': 'name'}
-
     Attributes:
         count (Union[Unset, int]):
         name (Union[Unset, str]):
@@ -27,7 +24,9 @@ class SearchResultGroup:
 
     def to_dict(self) -> Dict[str, Any]:
         count = self.count
+
         name = self.name
+
         severity = self.severity
 
         field_dict: Dict[str, Any] = {}

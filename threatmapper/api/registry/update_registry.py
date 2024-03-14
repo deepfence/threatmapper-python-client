@@ -15,19 +15,22 @@ from ...types import Response
 def _get_kwargs(
     registry_id: str,
     *,
-    json_body: ModelRegistryUpdateReq,
+    body: ModelRegistryUpdateReq,
 ) -> Dict[str, Any]:
-    pass
+    headers: Dict[str, Any] = {}
 
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "put",
-        "url": "/deepfence/registryaccount/{registry_id}".format(
-            registry_id=registry_id,
-        ),
-        "json": json_json_body,
+        "url": f"/deepfence/registryaccount/{registry_id}",
     }
+
+    _body = body.to_dict()
+
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
 
 
 def _parse_response(
@@ -76,7 +79,7 @@ def sync_detailed(
     registry_id: str,
     *,
     client: AuthenticatedClient,
-    json_body: ModelRegistryUpdateReq,
+    body: ModelRegistryUpdateReq,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelMessageResponse]]:
     """Update Registry
 
@@ -84,8 +87,7 @@ def sync_detailed(
 
     Args:
         registry_id (str):
-        json_body (ModelRegistryUpdateReq):  Example: {'non_secret': {'key': ''}, 'registry_type':
-            'registry_type', 'name': 'name', 'extras': {'key': ''}, 'secret': {'key': ''}}.
+        body (ModelRegistryUpdateReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -97,7 +99,7 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         registry_id=registry_id,
-        json_body=json_body,
+        body=body,
     )
 
     response = client.get_httpx_client().request(
@@ -111,7 +113,7 @@ def sync(
     registry_id: str,
     *,
     client: AuthenticatedClient,
-    json_body: ModelRegistryUpdateReq,
+    body: ModelRegistryUpdateReq,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelMessageResponse]]:
     """Update Registry
 
@@ -119,8 +121,7 @@ def sync(
 
     Args:
         registry_id (str):
-        json_body (ModelRegistryUpdateReq):  Example: {'non_secret': {'key': ''}, 'registry_type':
-            'registry_type', 'name': 'name', 'extras': {'key': ''}, 'secret': {'key': ''}}.
+        body (ModelRegistryUpdateReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -133,7 +134,7 @@ def sync(
     return sync_detailed(
         registry_id=registry_id,
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
@@ -141,7 +142,7 @@ async def asyncio_detailed(
     registry_id: str,
     *,
     client: AuthenticatedClient,
-    json_body: ModelRegistryUpdateReq,
+    body: ModelRegistryUpdateReq,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelMessageResponse]]:
     """Update Registry
 
@@ -149,8 +150,7 @@ async def asyncio_detailed(
 
     Args:
         registry_id (str):
-        json_body (ModelRegistryUpdateReq):  Example: {'non_secret': {'key': ''}, 'registry_type':
-            'registry_type', 'name': 'name', 'extras': {'key': ''}, 'secret': {'key': ''}}.
+        body (ModelRegistryUpdateReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -162,7 +162,7 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         registry_id=registry_id,
-        json_body=json_body,
+        body=body,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -174,7 +174,7 @@ async def asyncio(
     registry_id: str,
     *,
     client: AuthenticatedClient,
-    json_body: ModelRegistryUpdateReq,
+    body: ModelRegistryUpdateReq,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelMessageResponse]]:
     """Update Registry
 
@@ -182,8 +182,7 @@ async def asyncio(
 
     Args:
         registry_id (str):
-        json_body (ModelRegistryUpdateReq):  Example: {'non_secret': {'key': ''}, 'registry_type':
-            'registry_type', 'name': 'name', 'extras': {'key': ''}, 'secret': {'key': ''}}.
+        body (ModelRegistryUpdateReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -197,6 +196,6 @@ async def asyncio(
         await asyncio_detailed(
             registry_id=registry_id,
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

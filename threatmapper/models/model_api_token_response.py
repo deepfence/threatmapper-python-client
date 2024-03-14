@@ -13,10 +13,6 @@ T = TypeVar("T", bound="ModelAPITokenResponse")
 @_attrs_define
 class ModelAPITokenResponse:
     """
-    Example:
-        {'company_id': 0, 'api_token': 'api_token', 'name': 'name', 'created_at': datetime.datetime(2000, 1, 23, 4, 56,
-            7, tzinfo=datetime.timezone.utc), 'id': 1, 'created_by_user_id': 6}
-
     Attributes:
         api_token (Union[Unset, str]):
         company_id (Union[Unset, int]):
@@ -36,13 +32,17 @@ class ModelAPITokenResponse:
 
     def to_dict(self) -> Dict[str, Any]:
         api_token = self.api_token
+
         company_id = self.company_id
+
         created_at: Union[Unset, str] = UNSET
         if not isinstance(self.created_at, Unset):
             created_at = self.created_at.isoformat()
 
         created_by_user_id = self.created_by_user_id
+
         id = self.id
+
         name = self.name
 
         field_dict: Dict[str, Any] = {}

@@ -1,10 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
-    from ..models.search_search_count_resp_categories import SearchSearchCountRespCategories
+    from ..models.search_search_count_resp_categories_type_0 import SearchSearchCountRespCategoriesType0
 
 
 T = TypeVar("T", bound="SearchSearchCountResp")
@@ -13,28 +13,32 @@ T = TypeVar("T", bound="SearchSearchCountResp")
 @_attrs_define
 class SearchSearchCountResp:
     """
-    Example:
-        {'count': 6, 'categories': {'key': 0}}
-
     Attributes:
+        categories (Union['SearchSearchCountRespCategoriesType0', None]):
         count (int):
-        categories (Optional[SearchSearchCountRespCategories]):
     """
 
+    categories: Union["SearchSearchCountRespCategoriesType0", None]
     count: int
-    categories: Optional["SearchSearchCountRespCategories"]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.search_search_count_resp_categories_type_0 import SearchSearchCountRespCategoriesType0
+
+        categories: Union[Dict[str, Any], None]
+        if isinstance(self.categories, SearchSearchCountRespCategoriesType0):
+            categories = self.categories.to_dict()
+        else:
+            categories = self.categories
+
         count = self.count
-        categories = self.categories.to_dict() if self.categories else None
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "count": count,
                 "categories": categories,
+                "count": count,
             }
         )
 
@@ -42,21 +46,30 @@ class SearchSearchCountResp:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.search_search_count_resp_categories import SearchSearchCountRespCategories
+        from ..models.search_search_count_resp_categories_type_0 import SearchSearchCountRespCategoriesType0
 
         d = src_dict.copy()
+
+        def _parse_categories(data: object) -> Union["SearchSearchCountRespCategoriesType0", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                categories_type_0 = SearchSearchCountRespCategoriesType0.from_dict(data)
+
+                return categories_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["SearchSearchCountRespCategoriesType0", None], data)
+
+        categories = _parse_categories(d.pop("categories"))
+
         count = d.pop("count")
 
-        _categories = d.pop("categories")
-        categories: Optional[SearchSearchCountRespCategories]
-        if _categories is None:
-            categories = None
-        else:
-            categories = SearchSearchCountRespCategories.from_dict(_categories)
-
         search_search_count_resp = cls(
-            count=count,
             categories=categories,
+            count=count,
         )
 
         search_search_count_resp.additional_properties = d

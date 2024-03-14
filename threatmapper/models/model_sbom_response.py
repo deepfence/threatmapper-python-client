@@ -11,10 +11,6 @@ T = TypeVar("T", bound="ModelSbomResponse")
 @_attrs_define
 class ModelSbomResponse:
     """
-    Example:
-        {'severity': 'severity', 'licenses': ['licenses', 'licenses'], 'cve_id': 'cve_id', 'package_name':
-            'package_name', 'cve_node_id': 'cve_node_id', 'locations': ['locations', 'locations'], 'version': 'version'}
-
     Attributes:
         cve_id (Union[Unset, str]):
         cve_node_id (Union[Unset, str]):
@@ -36,7 +32,9 @@ class ModelSbomResponse:
 
     def to_dict(self) -> Dict[str, Any]:
         cve_id = self.cve_id
+
         cve_node_id = self.cve_node_id
+
         licenses: Union[Unset, List[str]] = UNSET
         if not isinstance(self.licenses, Unset):
             licenses = self.licenses
@@ -46,7 +44,9 @@ class ModelSbomResponse:
             locations = self.locations
 
         package_name = self.package_name
+
         severity = self.severity
+
         version = self.version
 
         field_dict: Dict[str, Any] = {}

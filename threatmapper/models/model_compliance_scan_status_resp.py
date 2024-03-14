@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -13,30 +13,23 @@ T = TypeVar("T", bound="ModelComplianceScanStatusResp")
 @_attrs_define
 class ModelComplianceScanStatusResp:
     """
-    Example:
-        {'statuses': [{'severity_counts': {'key': 6}, 'status_message': 'status_message', 'node_type': 'node_type',
-            'benchmark_types': ['benchmark_types', 'benchmark_types'], 'updated_at': 1, 'node_name': 'node_name',
-            'created_at': 0, 'scan_id': 'scan_id', 'node_id': 'node_id', 'status': 'status'}, {'severity_counts': {'key':
-            6}, 'status_message': 'status_message', 'node_type': 'node_type', 'benchmark_types': ['benchmark_types',
-            'benchmark_types'], 'updated_at': 1, 'node_name': 'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'node_id':
-            'node_id', 'status': 'status'}]}
-
     Attributes:
-        statuses (Optional[List['ModelComplianceScanInfo']]):
+        statuses (Union[List['ModelComplianceScanInfo'], None]):
     """
 
-    statuses: Optional[List["ModelComplianceScanInfo"]]
+    statuses: Union[List["ModelComplianceScanInfo"], None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        if self.statuses is None:
-            statuses = None
-        else:
+        statuses: Union[List[Dict[str, Any]], None]
+        if isinstance(self.statuses, list):
             statuses = []
-            for statuses_item_data in self.statuses:
-                statuses_item = statuses_item_data.to_dict()
+            for statuses_type_0_item_data in self.statuses:
+                statuses_type_0_item = statuses_type_0_item_data.to_dict()
+                statuses.append(statuses_type_0_item)
 
-                statuses.append(statuses_item)
+        else:
+            statuses = self.statuses
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -53,12 +46,26 @@ class ModelComplianceScanStatusResp:
         from ..models.model_compliance_scan_info import ModelComplianceScanInfo
 
         d = src_dict.copy()
-        statuses = []
-        _statuses = d.pop("statuses")
-        for statuses_item_data in _statuses or []:
-            statuses_item = ModelComplianceScanInfo.from_dict(statuses_item_data)
 
-            statuses.append(statuses_item)
+        def _parse_statuses(data: object) -> Union[List["ModelComplianceScanInfo"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                statuses_type_0 = []
+                _statuses_type_0 = data
+                for statuses_type_0_item_data in _statuses_type_0:
+                    statuses_type_0_item = ModelComplianceScanInfo.from_dict(statuses_type_0_item_data)
+
+                    statuses_type_0.append(statuses_type_0_item)
+
+                return statuses_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelComplianceScanInfo"], None], data)
+
+        statuses = _parse_statuses(d.pop("statuses"))
 
         model_compliance_scan_status_resp = cls(
             statuses=statuses,

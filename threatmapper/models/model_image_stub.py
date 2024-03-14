@@ -11,29 +11,30 @@ T = TypeVar("T", bound="ModelImageStub")
 @_attrs_define
 class ModelImageStub:
     """
-    Example:
-        {'name': 'name', 'id': 'id', 'tags': ['tags', 'tags']}
-
     Attributes:
         id (Union[Unset, str]):
         name (Union[Unset, str]):
-        tags (Union[Unset, None, List[str]]):
+        tags (Union[List[str], None, Unset]):
     """
 
     id: Union[Unset, str] = UNSET
     name: Union[Unset, str] = UNSET
-    tags: Union[Unset, None, List[str]] = UNSET
+    tags: Union[List[str], None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         id = self.id
+
         name = self.name
-        tags: Union[Unset, None, List[str]] = UNSET
-        if not isinstance(self.tags, Unset):
-            if self.tags is None:
-                tags = None
-            else:
-                tags = self.tags
+
+        tags: Union[List[str], None, Unset]
+        if isinstance(self.tags, Unset):
+            tags = UNSET
+        elif isinstance(self.tags, list):
+            tags = self.tags
+
+        else:
+            tags = self.tags
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -54,7 +55,22 @@ class ModelImageStub:
 
         name = d.pop("name", UNSET)
 
-        tags = cast(List[str], d.pop("tags", UNSET))
+        def _parse_tags(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                tags_type_0 = cast(List[str], data)
+
+                return tags_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
+
+        tags = _parse_tags(d.pop("tags", UNSET))
 
         model_image_stub = cls(
             id=id,

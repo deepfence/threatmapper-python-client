@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -15,14 +15,6 @@ T = TypeVar("T", bound="ModelSecret")
 @_attrs_define
 class ModelSecret:
     """
-    Example:
-        {'full_filename': 'full_filename', 'level': 'level', 'masked': True, 'part': 'part', 'relative_ending_index': 0,
-            'starting_index': 5, 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name',
-            'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id':
-            'node_id'}], 'signature_to_match': 'signature_to_match', 'rule_id': 1, 'score': 5.962133916683182,
-            'matched_content': 'matched_content', 'updated_at': 2, 'name': 'name', 'relative_starting_index': 6, 'node_id':
-            'node_id'}
-
     Attributes:
         full_filename (str):
         level (str):
@@ -38,7 +30,7 @@ class ModelSecret:
         signature_to_match (str):
         starting_index (int):
         updated_at (int):
-        resources (Union[Unset, None, List['ModelBasicNode']]):
+        resources (Union[List['ModelBasicNode'], None, Unset]):
     """
 
     full_filename: str
@@ -55,34 +47,49 @@ class ModelSecret:
     signature_to_match: str
     starting_index: int
     updated_at: int
-    resources: Union[Unset, None, List["ModelBasicNode"]] = UNSET
+    resources: Union[List["ModelBasicNode"], None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         full_filename = self.full_filename
-        level = self.level
-        masked = self.masked
-        matched_content = self.matched_content
-        name = self.name
-        node_id = self.node_id
-        part = self.part
-        relative_ending_index = self.relative_ending_index
-        relative_starting_index = self.relative_starting_index
-        rule_id = self.rule_id
-        score = self.score
-        signature_to_match = self.signature_to_match
-        starting_index = self.starting_index
-        updated_at = self.updated_at
-        resources: Union[Unset, None, List[Dict[str, Any]]] = UNSET
-        if not isinstance(self.resources, Unset):
-            if self.resources is None:
-                resources = None
-            else:
-                resources = []
-                for resources_item_data in self.resources:
-                    resources_item = resources_item_data.to_dict()
 
-                    resources.append(resources_item)
+        level = self.level
+
+        masked = self.masked
+
+        matched_content = self.matched_content
+
+        name = self.name
+
+        node_id = self.node_id
+
+        part = self.part
+
+        relative_ending_index = self.relative_ending_index
+
+        relative_starting_index = self.relative_starting_index
+
+        rule_id = self.rule_id
+
+        score = self.score
+
+        signature_to_match = self.signature_to_match
+
+        starting_index = self.starting_index
+
+        updated_at = self.updated_at
+
+        resources: Union[List[Dict[str, Any]], None, Unset]
+        if isinstance(self.resources, Unset):
+            resources = UNSET
+        elif isinstance(self.resources, list):
+            resources = []
+            for resources_type_0_item_data in self.resources:
+                resources_type_0_item = resources_type_0_item_data.to_dict()
+                resources.append(resources_type_0_item)
+
+        else:
+            resources = self.resources
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -142,12 +149,27 @@ class ModelSecret:
 
         updated_at = d.pop("updated_at")
 
-        resources = []
-        _resources = d.pop("resources", UNSET)
-        for resources_item_data in _resources or []:
-            resources_item = ModelBasicNode.from_dict(resources_item_data)
+        def _parse_resources(data: object) -> Union[List["ModelBasicNode"], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                resources_type_0 = []
+                _resources_type_0 = data
+                for resources_type_0_item_data in _resources_type_0:
+                    resources_type_0_item = ModelBasicNode.from_dict(resources_type_0_item_data)
 
-            resources.append(resources_item)
+                    resources_type_0.append(resources_type_0_item)
+
+                return resources_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelBasicNode"], None, Unset], data)
+
+        resources = _parse_resources(d.pop("resources", UNSET))
 
         model_secret = cls(
             full_filename=full_filename,

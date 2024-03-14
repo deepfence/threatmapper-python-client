@@ -11,28 +11,28 @@ T = TypeVar("T", bound="ModelCloudComplianceBenchmark")
 @_attrs_define
 class ModelCloudComplianceBenchmark:
     """
-    Example:
-        {'controls': ['controls', 'controls'], 'compliance_type': 'compliance_type', 'id': 'id'}
-
     Attributes:
         compliance_type (Union[Unset, str]):
-        controls (Union[Unset, None, List[str]]):
+        controls (Union[List[str], None, Unset]):
         id (Union[Unset, str]):
     """
 
     compliance_type: Union[Unset, str] = UNSET
-    controls: Union[Unset, None, List[str]] = UNSET
+    controls: Union[List[str], None, Unset] = UNSET
     id: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         compliance_type = self.compliance_type
-        controls: Union[Unset, None, List[str]] = UNSET
-        if not isinstance(self.controls, Unset):
-            if self.controls is None:
-                controls = None
-            else:
-                controls = self.controls
+
+        controls: Union[List[str], None, Unset]
+        if isinstance(self.controls, Unset):
+            controls = UNSET
+        elif isinstance(self.controls, list):
+            controls = self.controls
+
+        else:
+            controls = self.controls
 
         id = self.id
 
@@ -53,7 +53,22 @@ class ModelCloudComplianceBenchmark:
         d = src_dict.copy()
         compliance_type = d.pop("compliance_type", UNSET)
 
-        controls = cast(List[str], d.pop("controls", UNSET))
+        def _parse_controls(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                controls_type_0 = cast(List[str], data)
+
+                return controls_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
+
+        controls = _parse_controls(d.pop("controls", UNSET))
 
         id = d.pop("id", UNSET)
 

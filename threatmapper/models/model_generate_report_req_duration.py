@@ -1,14 +1,14 @@
-from enum import IntEnum
+from enum import Enum
 
 
-class ModelGenerateReportReqDuration(IntEnum):
-    VALUE_0 = 0
-    VALUE_1 = 1
-    VALUE_7 = 7
-    VALUE_30 = 30
-    VALUE_60 = 60
-    VALUE_90 = 90
-    VALUE_180 = 180
+class ModelGenerateReportReqDuration(str, Enum):
+    VALUE_0 = "0"
+    VALUE_1 = "1"
+    VALUE_2 = "7"
+    VALUE_3 = "30"
+    VALUE_4 = "60"
+    VALUE_5 = "90"
+    VALUE_6 = "180"
 
     def __str__(self) -> str:
         return str(self.value)

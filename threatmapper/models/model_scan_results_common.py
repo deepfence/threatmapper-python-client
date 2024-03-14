@@ -9,12 +9,6 @@ T = TypeVar("T", bound="ModelScanResultsCommon")
 @_attrs_define
 class ModelScanResultsCommon:
     """
-    Example:
-        {'cloud_account_id': 'cloud_account_id', 'node_type': 'node_type', 'docker_container_name':
-            'docker_container_name', 'updated_at': 6, 'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name':
-            'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'docker_image_name': 'docker_image_name', 'host_name':
-            'host_name', 'node_id': 'node_id'}
-
     Attributes:
         cloud_account_id (str):
         created_at (int):
@@ -44,15 +38,25 @@ class ModelScanResultsCommon:
 
     def to_dict(self) -> Dict[str, Any]:
         cloud_account_id = self.cloud_account_id
+
         created_at = self.created_at
+
         docker_container_name = self.docker_container_name
+
         docker_image_name = self.docker_image_name
+
         host_name = self.host_name
+
         kubernetes_cluster_name = self.kubernetes_cluster_name
+
         node_id = self.node_id
+
         node_name = self.node_name
+
         node_type = self.node_type
+
         scan_id = self.scan_id
+
         updated_at = self.updated_at
 
         field_dict: Dict[str, Any] = {}

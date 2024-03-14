@@ -13,10 +13,6 @@ T = TypeVar("T", bound="PostgresqlDbGetAuditLogsRow")
 @_attrs_define
 class PostgresqlDbGetAuditLogsRow:
     """
-    Example:
-        {'role': 'role', 'success': True, 'action': 'action', 'created_at': datetime.datetime(2000, 1, 23, 4, 56, 7,
-            tzinfo=datetime.timezone.utc), 'resources': 'resources', 'event': 'event', 'email': 'email'}
-
     Attributes:
         action (Union[Unset, str]):
         created_at (Union[Unset, datetime.datetime]):
@@ -38,14 +34,19 @@ class PostgresqlDbGetAuditLogsRow:
 
     def to_dict(self) -> Dict[str, Any]:
         action = self.action
+
         created_at: Union[Unset, str] = UNSET
         if not isinstance(self.created_at, Unset):
             created_at = self.created_at.isoformat()
 
         email = self.email
+
         event = self.event
+
         resources = self.resources
+
         role = self.role
+
         success = self.success
 
         field_dict: Dict[str, Any] = {}

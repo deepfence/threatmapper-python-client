@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -15,14 +15,6 @@ T = TypeVar("T", bound="ModelCloudCompliance")
 @_attrs_define
 class ModelCloudCompliance:
     """
-    Example:
-        {'severity': 'severity', 'reason': 'reason', 'control_id': 'control_id', 'resource': 'resource', 'masked': True,
-            'count': 0, 'node_name': 'node_name', 'description': 'description', 'resources': [{'node_type': 'node_type',
-            'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name',
-            'host_name': 'host_name', 'node_id': 'node_id'}], 'cloud_provider': 'cloud_provider', 'title': 'title', 'type':
-            'type', 'compliance_check_type': 'compliance_check_type', 'account_id': 'account_id', 'updated_at': 6,
-            'service': 'service', 'region': 'region', 'group': 'group', 'node_id': 'node_id', 'status': 'status'}
-
     Attributes:
         account_id (str):
         cloud_provider (str):
@@ -43,7 +35,7 @@ class ModelCloudCompliance:
         title (str):
         type (str):
         updated_at (int):
-        resources (Union[Unset, None, List['ModelBasicNode']]):
+        resources (Union[List['ModelBasicNode'], None, Unset]):
     """
 
     account_id: str
@@ -65,39 +57,59 @@ class ModelCloudCompliance:
     title: str
     type: str
     updated_at: int
-    resources: Union[Unset, None, List["ModelBasicNode"]] = UNSET
+    resources: Union[List["ModelBasicNode"], None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         account_id = self.account_id
-        cloud_provider = self.cloud_provider
-        compliance_check_type = self.compliance_check_type
-        control_id = self.control_id
-        count = self.count
-        description = self.description
-        group = self.group
-        masked = self.masked
-        node_id = self.node_id
-        node_name = self.node_name
-        reason = self.reason
-        region = self.region
-        resource = self.resource
-        service = self.service
-        severity = self.severity
-        status = self.status
-        title = self.title
-        type = self.type
-        updated_at = self.updated_at
-        resources: Union[Unset, None, List[Dict[str, Any]]] = UNSET
-        if not isinstance(self.resources, Unset):
-            if self.resources is None:
-                resources = None
-            else:
-                resources = []
-                for resources_item_data in self.resources:
-                    resources_item = resources_item_data.to_dict()
 
-                    resources.append(resources_item)
+        cloud_provider = self.cloud_provider
+
+        compliance_check_type = self.compliance_check_type
+
+        control_id = self.control_id
+
+        count = self.count
+
+        description = self.description
+
+        group = self.group
+
+        masked = self.masked
+
+        node_id = self.node_id
+
+        node_name = self.node_name
+
+        reason = self.reason
+
+        region = self.region
+
+        resource = self.resource
+
+        service = self.service
+
+        severity = self.severity
+
+        status = self.status
+
+        title = self.title
+
+        type = self.type
+
+        updated_at = self.updated_at
+
+        resources: Union[List[Dict[str, Any]], None, Unset]
+        if isinstance(self.resources, Unset):
+            resources = UNSET
+        elif isinstance(self.resources, list):
+            resources = []
+            for resources_type_0_item_data in self.resources:
+                resources_type_0_item = resources_type_0_item_data.to_dict()
+                resources.append(resources_type_0_item)
+
+        else:
+            resources = self.resources
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -172,12 +184,27 @@ class ModelCloudCompliance:
 
         updated_at = d.pop("updated_at")
 
-        resources = []
-        _resources = d.pop("resources", UNSET)
-        for resources_item_data in _resources or []:
-            resources_item = ModelBasicNode.from_dict(resources_item_data)
+        def _parse_resources(data: object) -> Union[List["ModelBasicNode"], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                resources_type_0 = []
+                _resources_type_0 = data
+                for resources_type_0_item_data in _resources_type_0:
+                    resources_type_0_item = ModelBasicNode.from_dict(resources_type_0_item_data)
 
-            resources.append(resources_item)
+                    resources_type_0.append(resources_type_0_item)
+
+                return resources_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelBasicNode"], None, Unset], data)
+
+        resources = _parse_resources(d.pop("resources", UNSET))
 
         model_cloud_compliance = cls(
             account_id=account_id,

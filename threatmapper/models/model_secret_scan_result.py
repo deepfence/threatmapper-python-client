@@ -1,11 +1,11 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
     from ..models.model_secret import ModelSecret
-    from ..models.model_secret_scan_result_severity_counts import ModelSecretScanResultSeverityCounts
+    from ..models.model_secret_scan_result_severity_counts_type_0 import ModelSecretScanResultSeverityCountsType0
 
 
 T = TypeVar("T", bound="ModelSecretScanResult")
@@ -14,22 +14,6 @@ T = TypeVar("T", bound="ModelSecretScanResult")
 @_attrs_define
 class ModelSecretScanResult:
     """
-    Example:
-        {'severity_counts': {'key': 6}, 'docker_container_name': 'docker_container_name', 'kubernetes_cluster_name':
-            'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 0, 'secrets': [{'full_filename':
-            'full_filename', 'level': 'level', 'masked': True, 'part': 'part', 'relative_ending_index': 0, 'starting_index':
-            5, 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'},
-            {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}],
-            'signature_to_match': 'signature_to_match', 'rule_id': 1, 'score': 5.962133916683182, 'matched_content':
-            'matched_content', 'updated_at': 2, 'name': 'name', 'relative_starting_index': 6, 'node_id': 'node_id'},
-            {'full_filename': 'full_filename', 'level': 'level', 'masked': True, 'part': 'part', 'relative_ending_index': 0,
-            'starting_index': 5, 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name',
-            'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id':
-            'node_id'}], 'signature_to_match': 'signature_to_match', 'rule_id': 1, 'score': 5.962133916683182,
-            'matched_content': 'matched_content', 'updated_at': 2, 'name': 'name', 'relative_starting_index': 6, 'node_id':
-            'node_id'}], 'cloud_account_id': 'cloud_account_id', 'node_type': 'node_type', 'updated_at': 1, 'scan_id':
-            'scan_id', 'docker_image_name': 'docker_image_name', 'host_name': 'host_name', 'node_id': 'node_id'}
-
     Attributes:
         cloud_account_id (str):
         created_at (int):
@@ -41,9 +25,9 @@ class ModelSecretScanResult:
         node_name (str):
         node_type (str):
         scan_id (str):
+        secrets (Union[List['ModelSecret'], None]):
+        severity_counts (Union['ModelSecretScanResultSeverityCountsType0', None]):
         updated_at (int):
-        secrets (Optional[List['ModelSecret']]):
-        severity_counts (Optional[ModelSecretScanResultSeverityCounts]):
     """
 
     cloud_account_id: str
@@ -56,33 +40,51 @@ class ModelSecretScanResult:
     node_name: str
     node_type: str
     scan_id: str
+    secrets: Union[List["ModelSecret"], None]
+    severity_counts: Union["ModelSecretScanResultSeverityCountsType0", None]
     updated_at: int
-    secrets: Optional[List["ModelSecret"]]
-    severity_counts: Optional["ModelSecretScanResultSeverityCounts"]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.model_secret_scan_result_severity_counts_type_0 import ModelSecretScanResultSeverityCountsType0
+
         cloud_account_id = self.cloud_account_id
+
         created_at = self.created_at
+
         docker_container_name = self.docker_container_name
+
         docker_image_name = self.docker_image_name
+
         host_name = self.host_name
+
         kubernetes_cluster_name = self.kubernetes_cluster_name
+
         node_id = self.node_id
+
         node_name = self.node_name
+
         node_type = self.node_type
+
         scan_id = self.scan_id
-        updated_at = self.updated_at
-        if self.secrets is None:
-            secrets = None
-        else:
+
+        secrets: Union[List[Dict[str, Any]], None]
+        if isinstance(self.secrets, list):
             secrets = []
-            for secrets_item_data in self.secrets:
-                secrets_item = secrets_item_data.to_dict()
+            for secrets_type_0_item_data in self.secrets:
+                secrets_type_0_item = secrets_type_0_item_data.to_dict()
+                secrets.append(secrets_type_0_item)
 
-                secrets.append(secrets_item)
+        else:
+            secrets = self.secrets
 
-        severity_counts = self.severity_counts.to_dict() if self.severity_counts else None
+        severity_counts: Union[Dict[str, Any], None]
+        if isinstance(self.severity_counts, ModelSecretScanResultSeverityCountsType0):
+            severity_counts = self.severity_counts.to_dict()
+        else:
+            severity_counts = self.severity_counts
+
+        updated_at = self.updated_at
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -98,9 +100,9 @@ class ModelSecretScanResult:
                 "node_name": node_name,
                 "node_type": node_type,
                 "scan_id": scan_id,
-                "updated_at": updated_at,
                 "secrets": secrets,
                 "severity_counts": severity_counts,
+                "updated_at": updated_at,
             }
         )
 
@@ -109,7 +111,7 @@ class ModelSecretScanResult:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.model_secret import ModelSecret
-        from ..models.model_secret_scan_result_severity_counts import ModelSecretScanResultSeverityCounts
+        from ..models.model_secret_scan_result_severity_counts_type_0 import ModelSecretScanResultSeverityCountsType0
 
         d = src_dict.copy()
         cloud_account_id = d.pop("cloud_account_id")
@@ -132,21 +134,42 @@ class ModelSecretScanResult:
 
         scan_id = d.pop("scan_id")
 
+        def _parse_secrets(data: object) -> Union[List["ModelSecret"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                secrets_type_0 = []
+                _secrets_type_0 = data
+                for secrets_type_0_item_data in _secrets_type_0:
+                    secrets_type_0_item = ModelSecret.from_dict(secrets_type_0_item_data)
+
+                    secrets_type_0.append(secrets_type_0_item)
+
+                return secrets_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelSecret"], None], data)
+
+        secrets = _parse_secrets(d.pop("secrets"))
+
+        def _parse_severity_counts(data: object) -> Union["ModelSecretScanResultSeverityCountsType0", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                severity_counts_type_0 = ModelSecretScanResultSeverityCountsType0.from_dict(data)
+
+                return severity_counts_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelSecretScanResultSeverityCountsType0", None], data)
+
+        severity_counts = _parse_severity_counts(d.pop("severity_counts"))
+
         updated_at = d.pop("updated_at")
-
-        secrets = []
-        _secrets = d.pop("secrets")
-        for secrets_item_data in _secrets or []:
-            secrets_item = ModelSecret.from_dict(secrets_item_data)
-
-            secrets.append(secrets_item)
-
-        _severity_counts = d.pop("severity_counts")
-        severity_counts: Optional[ModelSecretScanResultSeverityCounts]
-        if _severity_counts is None:
-            severity_counts = None
-        else:
-            severity_counts = ModelSecretScanResultSeverityCounts.from_dict(_severity_counts)
 
         model_secret_scan_result = cls(
             cloud_account_id=cloud_account_id,
@@ -159,9 +182,9 @@ class ModelSecretScanResult:
             node_name=node_name,
             node_type=node_type,
             scan_id=scan_id,
-            updated_at=updated_at,
             secrets=secrets,
             severity_counts=severity_counts,
+            updated_at=updated_at,
         )
 
         model_secret_scan_result.additional_properties = d

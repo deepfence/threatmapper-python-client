@@ -11,9 +11,6 @@ T = TypeVar("T", bound="DiagnosisNodeIdentifier")
 @_attrs_define
 class DiagnosisNodeIdentifier:
     """
-    Example:
-        {'node_type': 'host', 'node_id': 'node_id'}
-
     Attributes:
         node_id (str):
         node_type (DiagnosisNodeIdentifierNodeType):
@@ -25,6 +22,7 @@ class DiagnosisNodeIdentifier:
 
     def to_dict(self) -> Dict[str, Any]:
         node_id = self.node_id
+
         node_type = self.node_type.value
 
         field_dict: Dict[str, Any] = {}

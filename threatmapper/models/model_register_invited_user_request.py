@@ -11,10 +11,6 @@ T = TypeVar("T", bound="ModelRegisterInvitedUserRequest")
 @_attrs_define
 class ModelRegisterInvitedUserRequest:
     """
-    Example:
-        {'password': 'password', 'code': 'code', 'namespace': 'namespace', 'last_name': 'last_name', 'first_name':
-            'first_name', 'is_temporary_password': True}
-
     Attributes:
         code (str):
         first_name (str):
@@ -34,10 +30,15 @@ class ModelRegisterInvitedUserRequest:
 
     def to_dict(self) -> Dict[str, Any]:
         code = self.code
+
         first_name = self.first_name
+
         last_name = self.last_name
+
         namespace = self.namespace
+
         password = self.password
+
         is_temporary_password = self.is_temporary_password
 
         field_dict: Dict[str, Any] = {}

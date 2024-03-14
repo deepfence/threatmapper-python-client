@@ -12,9 +12,6 @@ T = TypeVar("T", bound="ModelUpdateUserRequest")
 @_attrs_define
 class ModelUpdateUserRequest:
     """
-    Example:
-        {'is_active': True, 'role': 'admin', 'last_name': 'last_name', 'first_name': 'first_name'}
-
     Attributes:
         first_name (Union[Unset, str]):
         is_active (Union[Unset, bool]):
@@ -30,8 +27,11 @@ class ModelUpdateUserRequest:
 
     def to_dict(self) -> Dict[str, Any]:
         first_name = self.first_name
+
         is_active = self.is_active
+
         last_name = self.last_name
+
         role: Union[Unset, str] = UNSET
         if not isinstance(self.role, Unset):
             role = self.role.value

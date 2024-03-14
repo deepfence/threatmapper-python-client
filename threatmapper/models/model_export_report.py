@@ -11,10 +11,6 @@ T = TypeVar("T", bound="ModelExportReport")
 @_attrs_define
 class ModelExportReport:
     """
-    Example:
-        {'duration': 6, 'updated_at': 1, 'storage_path': 'storage_path', 'report_id': 'report_id', 'created_at': 0,
-            'filters': 'filters', 'type': 'type', 'url': 'url', 'status': 'status'}
-
     Attributes:
         created_at (Union[Unset, int]):
         duration (Union[Unset, int]):
@@ -40,13 +36,21 @@ class ModelExportReport:
 
     def to_dict(self) -> Dict[str, Any]:
         created_at = self.created_at
+
         duration = self.duration
+
         filters = self.filters
+
         report_id = self.report_id
+
         status = self.status
+
         storage_path = self.storage_path
+
         type = self.type
+
         updated_at = self.updated_at
+
         url = self.url
 
         field_dict: Dict[str, Any] = {}

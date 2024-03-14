@@ -15,22 +15,13 @@ T = TypeVar("T", bound="ModelDownloadScanResultsResponse")
 @_attrs_define
 class ModelDownloadScanResultsResponse:
     """
-    Example:
-        {'scan_results': ['', ''], 'scan_info': {'cloud_account_id': 'cloud_account_id', 'node_type': 'node_type',
-            'docker_container_name': 'docker_container_name', 'updated_at': 6, 'kubernetes_cluster_name':
-            'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'docker_image_name':
-            'docker_image_name', 'host_name': 'host_name', 'node_id': 'node_id'}}
-
     Attributes:
-        scan_info (Union[Unset, ModelScanResultsCommon]):  Example: {'cloud_account_id': 'cloud_account_id',
-            'node_type': 'node_type', 'docker_container_name': 'docker_container_name', 'updated_at': 6,
-            'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 0, 'scan_id':
-            'scan_id', 'docker_image_name': 'docker_image_name', 'host_name': 'host_name', 'node_id': 'node_id'}.
-        scan_results (Union[Unset, None, List[Any]]):
+        scan_info (Union[Unset, ModelScanResultsCommon]):
+        scan_results (Union[List[Any], None, Unset]):
     """
 
     scan_info: Union[Unset, "ModelScanResultsCommon"] = UNSET
-    scan_results: Union[Unset, None, List[Any]] = UNSET
+    scan_results: Union[List[Any], None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -38,12 +29,14 @@ class ModelDownloadScanResultsResponse:
         if not isinstance(self.scan_info, Unset):
             scan_info = self.scan_info.to_dict()
 
-        scan_results: Union[Unset, None, List[Any]] = UNSET
-        if not isinstance(self.scan_results, Unset):
-            if self.scan_results is None:
-                scan_results = None
-            else:
-                scan_results = self.scan_results
+        scan_results: Union[List[Any], None, Unset]
+        if isinstance(self.scan_results, Unset):
+            scan_results = UNSET
+        elif isinstance(self.scan_results, list):
+            scan_results = self.scan_results
+
+        else:
+            scan_results = self.scan_results
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -67,7 +60,22 @@ class ModelDownloadScanResultsResponse:
         else:
             scan_info = ModelScanResultsCommon.from_dict(_scan_info)
 
-        scan_results = cast(List[Any], d.pop("scan_results", UNSET))
+        def _parse_scan_results(data: object) -> Union[List[Any], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                scan_results_type_0 = cast(List[Any], data)
+
+                return scan_results_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[Any], None, Unset], data)
+
+        scan_results = _parse_scan_results(d.pop("scan_results", UNSET))
 
         model_download_scan_results_response = cls(
             scan_info=scan_info,

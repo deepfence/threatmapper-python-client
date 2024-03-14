@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -13,41 +13,41 @@ T = TypeVar("T", bound="LookupLookupFilter")
 @_attrs_define
 class LookupLookupFilter:
     """
-    Example:
-        {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'window': {'offset': 0, 'size': 6}, 'node_ids':
-            ['node_ids', 'node_ids']}
-
     Attributes:
-        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
-        in_field_filter (Optional[List[str]]):
-        node_ids (Optional[List[str]]):
+        in_field_filter (Union[List[str], None]):
+        node_ids (Union[List[str], None]):
+        window (ModelFetchWindow):
     """
 
+    in_field_filter: Union[List[str], None]
+    node_ids: Union[List[str], None]
     window: "ModelFetchWindow"
-    in_field_filter: Optional[List[str]]
-    node_ids: Optional[List[str]]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        window = self.window.to_dict()
+        in_field_filter: Union[List[str], None]
+        if isinstance(self.in_field_filter, list):
+            in_field_filter = self.in_field_filter
 
-        if self.in_field_filter is None:
-            in_field_filter = None
         else:
             in_field_filter = self.in_field_filter
 
-        if self.node_ids is None:
-            node_ids = None
+        node_ids: Union[List[str], None]
+        if isinstance(self.node_ids, list):
+            node_ids = self.node_ids
+
         else:
             node_ids = self.node_ids
+
+        window = self.window.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "window": window,
                 "in_field_filter": in_field_filter,
                 "node_ids": node_ids,
+                "window": window,
             }
         )
 
@@ -58,16 +58,43 @@ class LookupLookupFilter:
         from ..models.model_fetch_window import ModelFetchWindow
 
         d = src_dict.copy()
+
+        def _parse_in_field_filter(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                in_field_filter_type_0 = cast(List[str], data)
+
+                return in_field_filter_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        in_field_filter = _parse_in_field_filter(d.pop("in_field_filter"))
+
+        def _parse_node_ids(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                node_ids_type_0 = cast(List[str], data)
+
+                return node_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        node_ids = _parse_node_ids(d.pop("node_ids"))
+
         window = ModelFetchWindow.from_dict(d.pop("window"))
 
-        in_field_filter = cast(List[str], d.pop("in_field_filter"))
-
-        node_ids = cast(List[str], d.pop("node_ids"))
-
         lookup_lookup_filter = cls(
-            window=window,
             in_field_filter=in_field_filter,
             node_ids=node_ids,
+            window=window,
         )
 
         lookup_lookup_filter.additional_properties = d

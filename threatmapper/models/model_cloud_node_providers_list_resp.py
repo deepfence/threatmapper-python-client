@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -13,28 +13,23 @@ T = TypeVar("T", bound="ModelCloudNodeProvidersListResp")
 @_attrs_define
 class ModelCloudNodeProvidersListResp:
     """
-    Example:
-        {'providers': [{'node_count_inactive': 1, 'compliance_percentage': 0.8008281904610115, 'node_label':
-            'node_label', 'name': 'name', 'scan_count': 5, 'node_count': 6, 'resource_count': 5}, {'node_count_inactive': 1,
-            'compliance_percentage': 0.8008281904610115, 'node_label': 'node_label', 'name': 'name', 'scan_count': 5,
-            'node_count': 6, 'resource_count': 5}]}
-
     Attributes:
-        providers (Optional[List['ModelPostureProvider']]):
+        providers (Union[List['ModelPostureProvider'], None]):
     """
 
-    providers: Optional[List["ModelPostureProvider"]]
+    providers: Union[List["ModelPostureProvider"], None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        if self.providers is None:
-            providers = None
-        else:
+        providers: Union[List[Dict[str, Any]], None]
+        if isinstance(self.providers, list):
             providers = []
-            for providers_item_data in self.providers:
-                providers_item = providers_item_data.to_dict()
+            for providers_type_0_item_data in self.providers:
+                providers_type_0_item = providers_type_0_item_data.to_dict()
+                providers.append(providers_type_0_item)
 
-                providers.append(providers_item)
+        else:
+            providers = self.providers
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -51,12 +46,26 @@ class ModelCloudNodeProvidersListResp:
         from ..models.model_posture_provider import ModelPostureProvider
 
         d = src_dict.copy()
-        providers = []
-        _providers = d.pop("providers")
-        for providers_item_data in _providers or []:
-            providers_item = ModelPostureProvider.from_dict(providers_item_data)
 
-            providers.append(providers_item)
+        def _parse_providers(data: object) -> Union[List["ModelPostureProvider"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                providers_type_0 = []
+                _providers_type_0 = data
+                for providers_type_0_item_data in _providers_type_0:
+                    providers_type_0_item = ModelPostureProvider.from_dict(providers_type_0_item_data)
+
+                    providers_type_0.append(providers_type_0_item)
+
+                return providers_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelPostureProvider"], None], data)
+
+        providers = _parse_providers(d.pop("providers"))
 
         model_cloud_node_providers_list_resp = cls(
             providers=providers,

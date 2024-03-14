@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -11,32 +11,31 @@ T = TypeVar("T", bound="ModelStopScanRequest")
 @_attrs_define
 class ModelStopScanRequest:
     """
-    Example:
-        {'scan_ids': ['scan_ids', 'scan_ids'], 'scan_type': 'SecretScan'}
-
     Attributes:
+        scan_ids (Union[List[str], None]):
         scan_type (ModelStopScanRequestScanType):
-        scan_ids (Optional[List[str]]):
     """
 
+    scan_ids: Union[List[str], None]
     scan_type: ModelStopScanRequestScanType
-    scan_ids: Optional[List[str]]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        scan_type = self.scan_type.value
+        scan_ids: Union[List[str], None]
+        if isinstance(self.scan_ids, list):
+            scan_ids = self.scan_ids
 
-        if self.scan_ids is None:
-            scan_ids = None
         else:
             scan_ids = self.scan_ids
+
+        scan_type = self.scan_type.value
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "scan_type": scan_type,
                 "scan_ids": scan_ids,
+                "scan_type": scan_type,
             }
         )
 
@@ -45,13 +44,27 @@ class ModelStopScanRequest:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
+
+        def _parse_scan_ids(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                scan_ids_type_0 = cast(List[str], data)
+
+                return scan_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        scan_ids = _parse_scan_ids(d.pop("scan_ids"))
+
         scan_type = ModelStopScanRequestScanType(d.pop("scan_type"))
 
-        scan_ids = cast(List[str], d.pop("scan_ids"))
-
         model_stop_scan_request = cls(
-            scan_type=scan_type,
             scan_ids=scan_ids,
+            scan_type=scan_type,
         )
 
         model_stop_scan_request.additional_properties = d

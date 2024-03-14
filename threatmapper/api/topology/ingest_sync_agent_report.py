@@ -13,17 +13,22 @@ from ...types import Response
 
 def _get_kwargs(
     *,
-    json_body: IngestersReportIngestionData,
+    body: IngestersReportIngestionData,
 ) -> Dict[str, Any]:
-    pass
+    headers: Dict[str, Any] = {}
 
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "post",
         "url": "/deepfence/ingest/sync-report",
-        "json": json_json_body,
     }
+
+    _body = body.to_dict()
+
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
 
 
 def _parse_response(
@@ -70,23 +75,14 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: IngestersReportIngestionData,
+    body: IngestersReportIngestionData,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Ingest Topology Data
 
      Ingest data reported by one Agent
 
     Args:
-        json_body (IngestersReportIngestionData):  Example: {'hosts': [{'key': ''}, {'key': ''}],
-            'host_batch': [{'key': ''}, {'key': ''}], 'kubernetes_cluster_edge_batch': [{'key': ''},
-            {'key': ''}], 'process_batch': [{'key': ''}, {'key': ''}], 'container_image_edge_batch':
-            [{'key': ''}, {'key': ''}], 'num_merged': 0, 'container_process_edge_batch': [{'key': ''},
-            {'key': ''}], 'pod_batch': [{'key': ''}, {'key': ''}], 'process_edges_batch': [{'key':
-            ''}, {'key': ''}], 'container_edges_batch': [{'key': ''}, {'key': ''}], 'container_batch':
-            [{'key': ''}, {'key': ''}], 'container_image_batch': [{'key': ''}, {'key': ''}],
-            'kubernetes_cluster_batch': [{'key': ''}, {'key': ''}], 'pod_edges_batch': [{'key': ''},
-            {'key': ''}], 'endpoint_edges_batch': [{'key': ''}, {'key': ''}], 'pod_host_edges_batch':
-            [{'key': ''}, {'key': ''}]}.
+        body (IngestersReportIngestionData):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -97,7 +93,7 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = client.get_httpx_client().request(
@@ -110,23 +106,14 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    json_body: IngestersReportIngestionData,
+    body: IngestersReportIngestionData,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Ingest Topology Data
 
      Ingest data reported by one Agent
 
     Args:
-        json_body (IngestersReportIngestionData):  Example: {'hosts': [{'key': ''}, {'key': ''}],
-            'host_batch': [{'key': ''}, {'key': ''}], 'kubernetes_cluster_edge_batch': [{'key': ''},
-            {'key': ''}], 'process_batch': [{'key': ''}, {'key': ''}], 'container_image_edge_batch':
-            [{'key': ''}, {'key': ''}], 'num_merged': 0, 'container_process_edge_batch': [{'key': ''},
-            {'key': ''}], 'pod_batch': [{'key': ''}, {'key': ''}], 'process_edges_batch': [{'key':
-            ''}, {'key': ''}], 'container_edges_batch': [{'key': ''}, {'key': ''}], 'container_batch':
-            [{'key': ''}, {'key': ''}], 'container_image_batch': [{'key': ''}, {'key': ''}],
-            'kubernetes_cluster_batch': [{'key': ''}, {'key': ''}], 'pod_edges_batch': [{'key': ''},
-            {'key': ''}], 'endpoint_edges_batch': [{'key': ''}, {'key': ''}], 'pod_host_edges_batch':
-            [{'key': ''}, {'key': ''}]}.
+        body (IngestersReportIngestionData):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -138,30 +125,21 @@ def sync(
 
     return sync_detailed(
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: IngestersReportIngestionData,
+    body: IngestersReportIngestionData,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Ingest Topology Data
 
      Ingest data reported by one Agent
 
     Args:
-        json_body (IngestersReportIngestionData):  Example: {'hosts': [{'key': ''}, {'key': ''}],
-            'host_batch': [{'key': ''}, {'key': ''}], 'kubernetes_cluster_edge_batch': [{'key': ''},
-            {'key': ''}], 'process_batch': [{'key': ''}, {'key': ''}], 'container_image_edge_batch':
-            [{'key': ''}, {'key': ''}], 'num_merged': 0, 'container_process_edge_batch': [{'key': ''},
-            {'key': ''}], 'pod_batch': [{'key': ''}, {'key': ''}], 'process_edges_batch': [{'key':
-            ''}, {'key': ''}], 'container_edges_batch': [{'key': ''}, {'key': ''}], 'container_batch':
-            [{'key': ''}, {'key': ''}], 'container_image_batch': [{'key': ''}, {'key': ''}],
-            'kubernetes_cluster_batch': [{'key': ''}, {'key': ''}], 'pod_edges_batch': [{'key': ''},
-            {'key': ''}], 'endpoint_edges_batch': [{'key': ''}, {'key': ''}], 'pod_host_edges_batch':
-            [{'key': ''}, {'key': ''}]}.
+        body (IngestersReportIngestionData):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -172,7 +150,7 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -183,23 +161,14 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    json_body: IngestersReportIngestionData,
+    body: IngestersReportIngestionData,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Ingest Topology Data
 
      Ingest data reported by one Agent
 
     Args:
-        json_body (IngestersReportIngestionData):  Example: {'hosts': [{'key': ''}, {'key': ''}],
-            'host_batch': [{'key': ''}, {'key': ''}], 'kubernetes_cluster_edge_batch': [{'key': ''},
-            {'key': ''}], 'process_batch': [{'key': ''}, {'key': ''}], 'container_image_edge_batch':
-            [{'key': ''}, {'key': ''}], 'num_merged': 0, 'container_process_edge_batch': [{'key': ''},
-            {'key': ''}], 'pod_batch': [{'key': ''}, {'key': ''}], 'process_edges_batch': [{'key':
-            ''}, {'key': ''}], 'container_edges_batch': [{'key': ''}, {'key': ''}], 'container_batch':
-            [{'key': ''}, {'key': ''}], 'container_image_batch': [{'key': ''}, {'key': ''}],
-            'kubernetes_cluster_batch': [{'key': ''}, {'key': ''}], 'pod_edges_batch': [{'key': ''},
-            {'key': ''}], 'endpoint_edges_batch': [{'key': ''}, {'key': ''}], 'pod_host_edges_batch':
-            [{'key': ''}, {'key': ''}]}.
+        body (IngestersReportIngestionData):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -212,6 +181,6 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

@@ -12,9 +12,6 @@ T = TypeVar("T", bound="ModelCloudNodeControlReq")
 @_attrs_define
 class ModelCloudNodeControlReq:
     """
-    Example:
-        {'cloud_provider': 'aws', 'compliance_type': 'compliance_type', 'node_id': 'node_id'}
-
     Attributes:
         cloud_provider (ModelCloudNodeControlReqCloudProvider):
         compliance_type (str):
@@ -30,6 +27,7 @@ class ModelCloudNodeControlReq:
         cloud_provider = self.cloud_provider.value
 
         compliance_type = self.compliance_type
+
         node_id = self.node_id
 
         field_dict: Dict[str, Any] = {}

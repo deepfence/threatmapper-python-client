@@ -14,17 +14,22 @@ from ...types import Response
 
 def _get_kwargs(
     *,
-    json_body: ModelGetAuditLogsRequest,
+    body: ModelGetAuditLogsRequest,
 ) -> Dict[str, Any]:
-    pass
+    headers: Dict[str, Any] = {}
 
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "post",
         "url": "/deepfence/settings/user-audit-log",
-        "json": json_json_body,
     }
+
+    _body = body.to_dict()
+
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
 
 
 def _parse_response(
@@ -77,14 +82,14 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: ModelGetAuditLogsRequest,
+    body: ModelGetAuditLogsRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["PostgresqlDbGetAuditLogsRow"]]]:
     """Get user audit logs
 
      Get audit logs for all users
 
     Args:
-        json_body (ModelGetAuditLogsRequest):  Example: {'window': {'offset': 0, 'size': 6}}.
+        body (ModelGetAuditLogsRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -95,7 +100,7 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = client.get_httpx_client().request(
@@ -108,14 +113,14 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    json_body: ModelGetAuditLogsRequest,
+    body: ModelGetAuditLogsRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["PostgresqlDbGetAuditLogsRow"]]]:
     """Get user audit logs
 
      Get audit logs for all users
 
     Args:
-        json_body (ModelGetAuditLogsRequest):  Example: {'window': {'offset': 0, 'size': 6}}.
+        body (ModelGetAuditLogsRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -127,21 +132,21 @@ def sync(
 
     return sync_detailed(
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: ModelGetAuditLogsRequest,
+    body: ModelGetAuditLogsRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["PostgresqlDbGetAuditLogsRow"]]]:
     """Get user audit logs
 
      Get audit logs for all users
 
     Args:
-        json_body (ModelGetAuditLogsRequest):  Example: {'window': {'offset': 0, 'size': 6}}.
+        body (ModelGetAuditLogsRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -152,7 +157,7 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -163,14 +168,14 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    json_body: ModelGetAuditLogsRequest,
+    body: ModelGetAuditLogsRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["PostgresqlDbGetAuditLogsRow"]]]:
     """Get user audit logs
 
      Get audit logs for all users
 
     Args:
-        json_body (ModelGetAuditLogsRequest):  Example: {'window': {'offset': 0, 'size': 6}}.
+        body (ModelGetAuditLogsRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -183,6 +188,6 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

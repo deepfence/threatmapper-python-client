@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -18,34 +18,22 @@ T = TypeVar("T", bound="ModelAddScheduledTaskRequest")
 @_attrs_define
 class ModelAddScheduledTaskRequest:
     """
-    Example:
-        {'is_priority': True, 'benchmark_types': ['benchmark_types', 'benchmark_types'], 'scan_config': [{'language':
-            'base'}, {'language': 'base'}], 'cron_expr': 'cron_expr', 'action': 'SecretScan', 'description': 'description',
-            'filters': {'container_scan_filter': {'filter_in': {'key': ['', '']}}, 'cloud_account_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['', '']}},
-            'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key':
-            ['', '']}}}, 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id':
-            'node_id'}]}
-
     Attributes:
         action (ModelAddScheduledTaskRequestAction):
-        filters (ModelScanFilter):  Example: {'container_scan_filter': {'filter_in': {'key': ['', '']}},
-            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['',
-            '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in':
-            {'key': ['', '']}}}.
-        benchmark_types (Optional[List[str]]):
+        benchmark_types (Union[List[str], None]):
+        filters (ModelScanFilter):
+        node_ids (Union[List['ModelNodeIdentifier'], None]):
+        scan_config (Union[List['ModelVulnerabilityScanConfigLanguage'], None]):
         cron_expr (Union[Unset, str]):
         description (Union[Unset, str]):
         is_priority (Union[Unset, bool]):
-        node_ids (Optional[List['ModelNodeIdentifier']]):
-        scan_config (Optional[List['ModelVulnerabilityScanConfigLanguage']]):
     """
 
     action: ModelAddScheduledTaskRequestAction
+    benchmark_types: Union[List[str], None]
     filters: "ModelScanFilter"
-    benchmark_types: Optional[List[str]]
-    node_ids: Optional[List["ModelNodeIdentifier"]]
-    scan_config: Optional[List["ModelVulnerabilityScanConfigLanguage"]]
+    node_ids: Union[List["ModelNodeIdentifier"], None]
+    scan_config: Union[List["ModelVulnerabilityScanConfigLanguage"], None]
     cron_expr: Union[Unset, str] = UNSET
     description: Union[Unset, str] = UNSET
     is_priority: Union[Unset, bool] = UNSET
@@ -54,41 +42,48 @@ class ModelAddScheduledTaskRequest:
     def to_dict(self) -> Dict[str, Any]:
         action = self.action.value
 
-        filters = self.filters.to_dict()
+        benchmark_types: Union[List[str], None]
+        if isinstance(self.benchmark_types, list):
+            benchmark_types = self.benchmark_types
 
-        if self.benchmark_types is None:
-            benchmark_types = None
         else:
             benchmark_types = self.benchmark_types
 
-        cron_expr = self.cron_expr
-        description = self.description
-        is_priority = self.is_priority
-        if self.node_ids is None:
-            node_ids = None
-        else:
+        filters = self.filters.to_dict()
+
+        node_ids: Union[List[Dict[str, Any]], None]
+        if isinstance(self.node_ids, list):
             node_ids = []
-            for node_ids_item_data in self.node_ids:
-                node_ids_item = node_ids_item_data.to_dict()
+            for node_ids_type_0_item_data in self.node_ids:
+                node_ids_type_0_item = node_ids_type_0_item_data.to_dict()
+                node_ids.append(node_ids_type_0_item)
 
-                node_ids.append(node_ids_item)
-
-        if self.scan_config is None:
-            scan_config = None
         else:
-            scan_config = []
-            for scan_config_item_data in self.scan_config:
-                scan_config_item = scan_config_item_data.to_dict()
+            node_ids = self.node_ids
 
-                scan_config.append(scan_config_item)
+        scan_config: Union[List[Dict[str, Any]], None]
+        if isinstance(self.scan_config, list):
+            scan_config = []
+            for scan_config_type_0_item_data in self.scan_config:
+                scan_config_type_0_item = scan_config_type_0_item_data.to_dict()
+                scan_config.append(scan_config_type_0_item)
+
+        else:
+            scan_config = self.scan_config
+
+        cron_expr = self.cron_expr
+
+        description = self.description
+
+        is_priority = self.is_priority
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "action": action,
-                "filters": filters,
                 "benchmark_types": benchmark_types,
+                "filters": filters,
                 "node_ids": node_ids,
                 "scan_config": scan_config,
             }
@@ -111,9 +106,64 @@ class ModelAddScheduledTaskRequest:
         d = src_dict.copy()
         action = ModelAddScheduledTaskRequestAction(d.pop("action"))
 
+        def _parse_benchmark_types(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                benchmark_types_type_0 = cast(List[str], data)
+
+                return benchmark_types_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        benchmark_types = _parse_benchmark_types(d.pop("benchmark_types"))
+
         filters = ModelScanFilter.from_dict(d.pop("filters"))
 
-        benchmark_types = cast(List[str], d.pop("benchmark_types"))
+        def _parse_node_ids(data: object) -> Union[List["ModelNodeIdentifier"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                node_ids_type_0 = []
+                _node_ids_type_0 = data
+                for node_ids_type_0_item_data in _node_ids_type_0:
+                    node_ids_type_0_item = ModelNodeIdentifier.from_dict(node_ids_type_0_item_data)
+
+                    node_ids_type_0.append(node_ids_type_0_item)
+
+                return node_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelNodeIdentifier"], None], data)
+
+        node_ids = _parse_node_ids(d.pop("node_ids"))
+
+        def _parse_scan_config(data: object) -> Union[List["ModelVulnerabilityScanConfigLanguage"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                scan_config_type_0 = []
+                _scan_config_type_0 = data
+                for scan_config_type_0_item_data in _scan_config_type_0:
+                    scan_config_type_0_item = ModelVulnerabilityScanConfigLanguage.from_dict(
+                        scan_config_type_0_item_data
+                    )
+
+                    scan_config_type_0.append(scan_config_type_0_item)
+
+                return scan_config_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelVulnerabilityScanConfigLanguage"], None], data)
+
+        scan_config = _parse_scan_config(d.pop("scan_config"))
 
         cron_expr = d.pop("cron_expr", UNSET)
 
@@ -121,29 +171,15 @@ class ModelAddScheduledTaskRequest:
 
         is_priority = d.pop("is_priority", UNSET)
 
-        node_ids = []
-        _node_ids = d.pop("node_ids")
-        for node_ids_item_data in _node_ids or []:
-            node_ids_item = ModelNodeIdentifier.from_dict(node_ids_item_data)
-
-            node_ids.append(node_ids_item)
-
-        scan_config = []
-        _scan_config = d.pop("scan_config")
-        for scan_config_item_data in _scan_config or []:
-            scan_config_item = ModelVulnerabilityScanConfigLanguage.from_dict(scan_config_item_data)
-
-            scan_config.append(scan_config_item)
-
         model_add_scheduled_task_request = cls(
             action=action,
-            filters=filters,
             benchmark_types=benchmark_types,
+            filters=filters,
+            node_ids=node_ids,
+            scan_config=scan_config,
             cron_expr=cron_expr,
             description=description,
             is_priority=is_priority,
-            node_ids=node_ids,
-            scan_config=scan_config,
         )
 
         model_add_scheduled_task_request.additional_properties = d

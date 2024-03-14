@@ -11,9 +11,6 @@ T = TypeVar("T", bound="IngestersSecretSeverity")
 @_attrs_define
 class IngestersSecretSeverity:
     """
-    Example:
-        {'score': 5.637376656633329, 'level': 'level'}
-
     Attributes:
         level (Union[Unset, str]):
         score (Union[Unset, float]):
@@ -25,6 +22,7 @@ class IngestersSecretSeverity:
 
     def to_dict(self) -> Dict[str, Any]:
         level = self.level
+
         score = self.score
 
         field_dict: Dict[str, Any] = {}

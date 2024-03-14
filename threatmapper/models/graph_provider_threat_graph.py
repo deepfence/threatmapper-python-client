@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -15,42 +15,67 @@ class GraphProviderThreatGraph:
     """
     Attributes:
         cloud_compliance_count (int):
+        cloud_warn_alarm_count (int):
         compliance_count (int):
+        exploitable_secrets_count (int):
+        exploitable_vulnerabilities_count (int):
+        resources (Union[List['GraphThreatNodeInfo'], None]):
         secrets_count (int):
         vulnerability_count (int):
-        resources (Optional[List['GraphThreatNodeInfo']]):
+        warn_alarm_count (int):
     """
 
     cloud_compliance_count: int
+    cloud_warn_alarm_count: int
     compliance_count: int
+    exploitable_secrets_count: int
+    exploitable_vulnerabilities_count: int
+    resources: Union[List["GraphThreatNodeInfo"], None]
     secrets_count: int
     vulnerability_count: int
-    resources: Optional[List["GraphThreatNodeInfo"]]
+    warn_alarm_count: int
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         cloud_compliance_count = self.cloud_compliance_count
-        compliance_count = self.compliance_count
-        secrets_count = self.secrets_count
-        vulnerability_count = self.vulnerability_count
-        if self.resources is None:
-            resources = None
-        else:
-            resources = []
-            for resources_item_data in self.resources:
-                resources_item = resources_item_data.to_dict()
 
-                resources.append(resources_item)
+        cloud_warn_alarm_count = self.cloud_warn_alarm_count
+
+        compliance_count = self.compliance_count
+
+        exploitable_secrets_count = self.exploitable_secrets_count
+
+        exploitable_vulnerabilities_count = self.exploitable_vulnerabilities_count
+
+        resources: Union[List[Dict[str, Any]], None]
+        if isinstance(self.resources, list):
+            resources = []
+            for resources_type_0_item_data in self.resources:
+                resources_type_0_item = resources_type_0_item_data.to_dict()
+                resources.append(resources_type_0_item)
+
+        else:
+            resources = self.resources
+
+        secrets_count = self.secrets_count
+
+        vulnerability_count = self.vulnerability_count
+
+        warn_alarm_count = self.warn_alarm_count
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "cloud_compliance_count": cloud_compliance_count,
+                "cloud_warn_alarm_count": cloud_warn_alarm_count,
                 "compliance_count": compliance_count,
+                "exploitable_secrets_count": exploitable_secrets_count,
+                "exploitable_vulnerabilities_count": exploitable_vulnerabilities_count,
+                "resources": resources,
                 "secrets_count": secrets_count,
                 "vulnerability_count": vulnerability_count,
-                "resources": resources,
+                "warn_alarm_count": warn_alarm_count,
             }
         )
 
@@ -63,25 +88,50 @@ class GraphProviderThreatGraph:
         d = src_dict.copy()
         cloud_compliance_count = d.pop("cloud_compliance_count")
 
+        cloud_warn_alarm_count = d.pop("cloud_warn_alarm_count")
+
         compliance_count = d.pop("compliance_count")
+
+        exploitable_secrets_count = d.pop("exploitable_secrets_count")
+
+        exploitable_vulnerabilities_count = d.pop("exploitable_vulnerabilities_count")
+
+        def _parse_resources(data: object) -> Union[List["GraphThreatNodeInfo"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                resources_type_0 = []
+                _resources_type_0 = data
+                for resources_type_0_item_data in _resources_type_0:
+                    resources_type_0_item = GraphThreatNodeInfo.from_dict(resources_type_0_item_data)
+
+                    resources_type_0.append(resources_type_0_item)
+
+                return resources_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["GraphThreatNodeInfo"], None], data)
+
+        resources = _parse_resources(d.pop("resources"))
 
         secrets_count = d.pop("secrets_count")
 
         vulnerability_count = d.pop("vulnerability_count")
 
-        resources = []
-        _resources = d.pop("resources")
-        for resources_item_data in _resources or []:
-            resources_item = GraphThreatNodeInfo.from_dict(resources_item_data)
-
-            resources.append(resources_item)
+        warn_alarm_count = d.pop("warn_alarm_count")
 
         graph_provider_threat_graph = cls(
             cloud_compliance_count=cloud_compliance_count,
+            cloud_warn_alarm_count=cloud_warn_alarm_count,
             compliance_count=compliance_count,
+            exploitable_secrets_count=exploitable_secrets_count,
+            exploitable_vulnerabilities_count=exploitable_vulnerabilities_count,
+            resources=resources,
             secrets_count=secrets_count,
             vulnerability_count=vulnerability_count,
-            resources=resources,
+            warn_alarm_count=warn_alarm_count,
         )
 
         graph_provider_threat_graph.additional_properties = d

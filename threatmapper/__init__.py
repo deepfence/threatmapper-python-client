@@ -1,4 +1,5 @@
-""" A client library for accessing Deepfence ThreatMapper """
+"""A client library for accessing Deepfence ThreatMapper"""
+
 from .client import AuthenticatedClient, Client
 
 __all__ = (

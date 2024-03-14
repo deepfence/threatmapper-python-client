@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelAgentPluginEnable")
 @_attrs_define
 class ModelAgentPluginEnable:
     """
-    Example:
-        {'plugin_name': 'plugin_name', 'version': 'version', 'node_id': 'node_id'}
-
     Attributes:
         node_id (str):
         plugin_name (str):
@@ -25,7 +22,9 @@ class ModelAgentPluginEnable:
 
     def to_dict(self) -> Dict[str, Any]:
         node_id = self.node_id
+
         plugin_name = self.plugin_name
+
         version = self.version
 
         field_dict: Dict[str, Any] = {}

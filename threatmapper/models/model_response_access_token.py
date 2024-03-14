@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelResponseAccessToken")
 @_attrs_define
 class ModelResponseAccessToken:
     """
-    Example:
-        {'access_token': 'access_token', 'refresh_token': 'refresh_token'}
-
     Attributes:
         access_token (str):
         refresh_token (str):
@@ -23,6 +20,7 @@ class ModelResponseAccessToken:
 
     def to_dict(self) -> Dict[str, Any]:
         access_token = self.access_token
+
         refresh_token = self.refresh_token
 
         field_dict: Dict[str, Any] = {}

@@ -14,26 +14,11 @@ T = TypeVar("T", bound="ModelScanCompareReq")
 @_attrs_define
 class ModelScanCompareReq:
     """
-    Example:
-        {'to_scan_id': 'to_scan_id', 'base_scan_id': 'base_scan_id', 'window': {'offset': 0, 'size': 6},
-            'fields_filter': {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'},
-            {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True, 'field_name':
-            'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in':
-            {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['', '']}}}}
-
     Attributes:
         base_scan_id (str):
-        fields_filter (ReportersFieldsFilters):  Example: {'compare_filter': [{'greater_than': True, 'field_value': '',
-            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}],
-            'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
-            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]},
-            'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['',
-            '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
-            '']}}}.
+        fields_filter (ReportersFieldsFilters):
         to_scan_id (str):
-        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
+        window (ModelFetchWindow):
     """
 
     base_scan_id: str
@@ -44,9 +29,11 @@ class ModelScanCompareReq:
 
     def to_dict(self) -> Dict[str, Any]:
         base_scan_id = self.base_scan_id
+
         fields_filter = self.fields_filter.to_dict()
 
         to_scan_id = self.to_scan_id
+
         window = self.window.to_dict()
 
         field_dict: Dict[str, Any] = {}

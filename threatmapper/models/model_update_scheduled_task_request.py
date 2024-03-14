@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelUpdateScheduledTaskRequest")
 @_attrs_define
 class ModelUpdateScheduledTaskRequest:
     """
-    Example:
-        {'is_enabled': True}
-
     Attributes:
         is_enabled (bool):
     """

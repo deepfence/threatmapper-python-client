@@ -11,25 +11,24 @@ T = TypeVar("T", bound="ModelCloudNodeEnableDisableReq")
 @_attrs_define
 class ModelCloudNodeEnableDisableReq:
     """
-    Example:
-        {'control_ids': ['control_ids', 'control_ids'], 'node_id': 'node_id'}
-
     Attributes:
-        control_ids (Union[Unset, None, List[str]]):
+        control_ids (Union[List[str], None, Unset]):
         node_id (Union[Unset, str]):
     """
 
-    control_ids: Union[Unset, None, List[str]] = UNSET
+    control_ids: Union[List[str], None, Unset] = UNSET
     node_id: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        control_ids: Union[Unset, None, List[str]] = UNSET
-        if not isinstance(self.control_ids, Unset):
-            if self.control_ids is None:
-                control_ids = None
-            else:
-                control_ids = self.control_ids
+        control_ids: Union[List[str], None, Unset]
+        if isinstance(self.control_ids, Unset):
+            control_ids = UNSET
+        elif isinstance(self.control_ids, list):
+            control_ids = self.control_ids
+
+        else:
+            control_ids = self.control_ids
 
         node_id = self.node_id
 
@@ -46,7 +45,23 @@ class ModelCloudNodeEnableDisableReq:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        control_ids = cast(List[str], d.pop("control_ids", UNSET))
+
+        def _parse_control_ids(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                control_ids_type_0 = cast(List[str], data)
+
+                return control_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
+
+        control_ids = _parse_control_ids(d.pop("control_ids", UNSET))
 
         node_id = d.pop("node_id", UNSET)
 

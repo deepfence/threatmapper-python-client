@@ -13,14 +13,12 @@ from ...types import Response
 def _get_kwargs(
     integration_id: str,
 ) -> Dict[str, Any]:
-    pass
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "delete",
-        "url": "/deepfence/generative-ai-integration/{integration_id}".format(
-            integration_id=integration_id,
-        ),
+        "url": f"/deepfence/generative-ai-integration/{integration_id}",
     }
+
+    return _kwargs
 
 
 def _parse_response(

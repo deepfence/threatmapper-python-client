@@ -17,10 +17,6 @@ T = TypeVar("T", bound="ModelGenerativeAiIntegrationLinuxPostureRequest")
 @_attrs_define
 class ModelGenerativeAiIntegrationLinuxPostureRequest:
     """
-    Example:
-        {'integration_id': 0, 'remediation_format': 'all', 'description': 'description', 'query_type': 'remediation',
-            'compliance_check_type': 'compliance_check_type', 'test_number': 'test_number'}
-
     Attributes:
         compliance_check_type (str):
         description (str):
@@ -40,12 +36,15 @@ class ModelGenerativeAiIntegrationLinuxPostureRequest:
 
     def to_dict(self) -> Dict[str, Any]:
         compliance_check_type = self.compliance_check_type
+
         description = self.description
+
         query_type = self.query_type.value
 
         remediation_format = self.remediation_format.value
 
         test_number = self.test_number
+
         integration_id = self.integration_id
 
         field_dict: Dict[str, Any] = {}

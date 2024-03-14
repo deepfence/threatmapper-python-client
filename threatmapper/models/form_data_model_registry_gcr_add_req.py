@@ -1,5 +1,5 @@
 from io import BytesIO
-from typing import Any, Dict, List, Optional, Type, TypeVar
+from typing import Any, Dict, List, Type, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -15,18 +15,20 @@ class FormDataModelRegistryGCRAddReq:
     Attributes:
         name (str):
         registry_url (str):
-        service_account_json (Optional[File]):
+        service_account_json (File):
     """
 
     name: str
     registry_url: str
-    service_account_json: Optional[File]
+    service_account_json: File
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
+
         registry_url = self.registry_url
-        service_account_json = self.service_account_json.to_tuple() if self.service_account_json else None
+
+        service_account_json = self.service_account_json.to_tuple()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -42,12 +44,14 @@ class FormDataModelRegistryGCRAddReq:
 
     def to_multipart(self) -> Dict[str, Any]:
         name = self.name if isinstance(self.name, Unset) else (None, str(self.name).encode(), "text/plain")
+
         registry_url = (
             self.registry_url
             if isinstance(self.registry_url, Unset)
             else (None, str(self.registry_url).encode(), "text/plain")
         )
-        service_account_json = self.service_account_json.to_tuple() if self.service_account_json else None
+
+        service_account_json = self.service_account_json.to_tuple()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(
@@ -70,12 +74,7 @@ class FormDataModelRegistryGCRAddReq:
 
         registry_url = d.pop("registry_url")
 
-        _service_account_json = d.pop("service_account_json")
-        service_account_json: Optional[File]
-        if _service_account_json is None:
-            service_account_json = None
-        else:
-            service_account_json = File(payload=BytesIO(_service_account_json))
+        service_account_json = File(payload=BytesIO(d.pop("service_account_json")))
 
         form_data_model_registry_gcr_add_req = cls(
             name=name,

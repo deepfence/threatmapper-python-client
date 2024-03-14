@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ControlsAction")
 @_attrs_define
 class ControlsAction:
     """
-    Example:
-        {'id': 0, 'request_payload': 'request_payload'}
-
     Attributes:
         id (int):
         request_payload (str):
@@ -23,6 +20,7 @@ class ControlsAction:
 
     def to_dict(self) -> Dict[str, Any]:
         id = self.id
+
         request_payload = self.request_payload
 
         field_dict: Dict[str, Any] = {}

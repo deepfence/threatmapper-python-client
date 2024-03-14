@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Type, TypeVar
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -9,27 +9,30 @@ T = TypeVar("T", bound="ModelAgentUpgrade")
 @_attrs_define
 class ModelAgentUpgrade:
     """
-    Example:
-        {'version': 'version', 'node_id': 'node_id'}
-
     Attributes:
-        node_id (str):
+        node_ids (Union[List[str], None]):
         version (str):
     """
 
-    node_id: str
+    node_ids: Union[List[str], None]
     version: str
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        node_id = self.node_id
+        node_ids: Union[List[str], None]
+        if isinstance(self.node_ids, list):
+            node_ids = self.node_ids
+
+        else:
+            node_ids = self.node_ids
+
         version = self.version
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "node_id": node_id,
+                "node_ids": node_ids,
                 "version": version,
             }
         )
@@ -39,12 +42,26 @@ class ModelAgentUpgrade:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        node_id = d.pop("node_id")
+
+        def _parse_node_ids(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                node_ids_type_0 = cast(List[str], data)
+
+                return node_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        node_ids = _parse_node_ids(d.pop("node_ids"))
 
         version = d.pop("version")
 
         model_agent_upgrade = cls(
-            node_id=node_id,
+            node_ids=node_ids,
             version=version,
         )
 

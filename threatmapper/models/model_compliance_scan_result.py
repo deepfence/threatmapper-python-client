@@ -1,11 +1,11 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
     from ..models.model_compliance import ModelCompliance
-    from ..models.model_compliance_scan_result_status_counts import ModelComplianceScanResultStatusCounts
+    from ..models.model_compliance_scan_result_status_counts_type_0 import ModelComplianceScanResultStatusCountsType0
 
 
 T = TypeVar("T", bound="ModelComplianceScanResult")
@@ -14,30 +14,11 @@ T = TypeVar("T", bound="ModelComplianceScanResult")
 @_attrs_define
 class ModelComplianceScanResult:
     """
-    Example:
-        {'benchmark_type': ['benchmark_type', 'benchmark_type'], 'docker_container_name': 'docker_container_name',
-            'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 6,
-            'cloud_account_id': 'cloud_account_id', 'compliances': [{'resource': 'resource', 'masked': True, 'description':
-            'description', 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id':
-            'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}],
-            'test_category': 'test_category', 'remediation_ansible': 'remediation_ansible', 'compliance_check_type':
-            'compliance_check_type', 'rule_id': 'rule_id', 'test_rationale': 'test_rationale', 'test_severity':
-            'test_severity', 'node_type': 'node_type', 'updated_at': 0, 'remediation_puppet': 'remediation_puppet',
-            'remediation_script': 'remediation_script', 'node_id': 'node_id', 'status': 'status', 'test_desc': 'test_desc',
-            'test_number': 'test_number'}, {'resource': 'resource', 'masked': True, 'description': 'description',
-            'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'},
-            {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'test_category':
-            'test_category', 'remediation_ansible': 'remediation_ansible', 'compliance_check_type': 'compliance_check_type',
-            'rule_id': 'rule_id', 'test_rationale': 'test_rationale', 'test_severity': 'test_severity', 'node_type':
-            'node_type', 'updated_at': 0, 'remediation_puppet': 'remediation_puppet', 'remediation_script':
-            'remediation_script', 'node_id': 'node_id', 'status': 'status', 'test_desc': 'test_desc', 'test_number':
-            'test_number'}], 'compliance_percentage': 0.8008281904610115, 'node_type': 'node_type', 'updated_at': 5,
-            'scan_id': 'scan_id', 'status_counts': {'key': 1}, 'docker_image_name': 'docker_image_name', 'host_name':
-            'host_name', 'node_id': 'node_id'}
-
     Attributes:
+        benchmark_type (Union[List[str], None]):
         cloud_account_id (str):
         compliance_percentage (float):
+        compliances (Union[List['ModelCompliance'], None]):
         created_at (int):
         docker_container_name (str):
         docker_image_name (str):
@@ -47,14 +28,14 @@ class ModelComplianceScanResult:
         node_name (str):
         node_type (str):
         scan_id (str):
+        status_counts (Union['ModelComplianceScanResultStatusCountsType0', None]):
         updated_at (int):
-        benchmark_type (Optional[List[str]]):
-        compliances (Optional[List['ModelCompliance']]):
-        status_counts (Optional[ModelComplianceScanResultStatusCounts]):
     """
 
+    benchmark_type: Union[List[str], None]
     cloud_account_id: str
     compliance_percentage: float
+    compliances: Union[List["ModelCompliance"], None]
     created_at: int
     docker_container_name: str
     docker_image_name: str
@@ -64,47 +45,70 @@ class ModelComplianceScanResult:
     node_name: str
     node_type: str
     scan_id: str
+    status_counts: Union["ModelComplianceScanResultStatusCountsType0", None]
     updated_at: int
-    benchmark_type: Optional[List[str]]
-    compliances: Optional[List["ModelCompliance"]]
-    status_counts: Optional["ModelComplianceScanResultStatusCounts"]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        cloud_account_id = self.cloud_account_id
-        compliance_percentage = self.compliance_percentage
-        created_at = self.created_at
-        docker_container_name = self.docker_container_name
-        docker_image_name = self.docker_image_name
-        host_name = self.host_name
-        kubernetes_cluster_name = self.kubernetes_cluster_name
-        node_id = self.node_id
-        node_name = self.node_name
-        node_type = self.node_type
-        scan_id = self.scan_id
-        updated_at = self.updated_at
-        if self.benchmark_type is None:
-            benchmark_type = None
+        from ..models.model_compliance_scan_result_status_counts_type_0 import (
+            ModelComplianceScanResultStatusCountsType0,
+        )
+
+        benchmark_type: Union[List[str], None]
+        if isinstance(self.benchmark_type, list):
+            benchmark_type = self.benchmark_type
+
         else:
             benchmark_type = self.benchmark_type
 
-        if self.compliances is None:
-            compliances = None
-        else:
+        cloud_account_id = self.cloud_account_id
+
+        compliance_percentage = self.compliance_percentage
+
+        compliances: Union[List[Dict[str, Any]], None]
+        if isinstance(self.compliances, list):
             compliances = []
-            for compliances_item_data in self.compliances:
-                compliances_item = compliances_item_data.to_dict()
+            for compliances_type_0_item_data in self.compliances:
+                compliances_type_0_item = compliances_type_0_item_data.to_dict()
+                compliances.append(compliances_type_0_item)
 
-                compliances.append(compliances_item)
+        else:
+            compliances = self.compliances
 
-        status_counts = self.status_counts.to_dict() if self.status_counts else None
+        created_at = self.created_at
+
+        docker_container_name = self.docker_container_name
+
+        docker_image_name = self.docker_image_name
+
+        host_name = self.host_name
+
+        kubernetes_cluster_name = self.kubernetes_cluster_name
+
+        node_id = self.node_id
+
+        node_name = self.node_name
+
+        node_type = self.node_type
+
+        scan_id = self.scan_id
+
+        status_counts: Union[Dict[str, Any], None]
+        if isinstance(self.status_counts, ModelComplianceScanResultStatusCountsType0):
+            status_counts = self.status_counts.to_dict()
+        else:
+            status_counts = self.status_counts
+
+        updated_at = self.updated_at
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "benchmark_type": benchmark_type,
                 "cloud_account_id": cloud_account_id,
                 "compliance_percentage": compliance_percentage,
+                "compliances": compliances,
                 "created_at": created_at,
                 "docker_container_name": docker_container_name,
                 "docker_image_name": docker_image_name,
@@ -114,10 +118,8 @@ class ModelComplianceScanResult:
                 "node_name": node_name,
                 "node_type": node_type,
                 "scan_id": scan_id,
-                "updated_at": updated_at,
-                "benchmark_type": benchmark_type,
-                "compliances": compliances,
                 "status_counts": status_counts,
+                "updated_at": updated_at,
             }
         )
 
@@ -126,12 +128,50 @@ class ModelComplianceScanResult:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.model_compliance import ModelCompliance
-        from ..models.model_compliance_scan_result_status_counts import ModelComplianceScanResultStatusCounts
+        from ..models.model_compliance_scan_result_status_counts_type_0 import (
+            ModelComplianceScanResultStatusCountsType0,
+        )
 
         d = src_dict.copy()
+
+        def _parse_benchmark_type(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                benchmark_type_type_0 = cast(List[str], data)
+
+                return benchmark_type_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        benchmark_type = _parse_benchmark_type(d.pop("benchmark_type"))
+
         cloud_account_id = d.pop("cloud_account_id")
 
         compliance_percentage = d.pop("compliance_percentage")
+
+        def _parse_compliances(data: object) -> Union[List["ModelCompliance"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                compliances_type_0 = []
+                _compliances_type_0 = data
+                for compliances_type_0_item_data in _compliances_type_0:
+                    compliances_type_0_item = ModelCompliance.from_dict(compliances_type_0_item_data)
+
+                    compliances_type_0.append(compliances_type_0_item)
+
+                return compliances_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelCompliance"], None], data)
+
+        compliances = _parse_compliances(d.pop("compliances"))
 
         created_at = d.pop("created_at")
 
@@ -151,27 +191,28 @@ class ModelComplianceScanResult:
 
         scan_id = d.pop("scan_id")
 
+        def _parse_status_counts(data: object) -> Union["ModelComplianceScanResultStatusCountsType0", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                status_counts_type_0 = ModelComplianceScanResultStatusCountsType0.from_dict(data)
+
+                return status_counts_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelComplianceScanResultStatusCountsType0", None], data)
+
+        status_counts = _parse_status_counts(d.pop("status_counts"))
+
         updated_at = d.pop("updated_at")
 
-        benchmark_type = cast(List[str], d.pop("benchmark_type"))
-
-        compliances = []
-        _compliances = d.pop("compliances")
-        for compliances_item_data in _compliances or []:
-            compliances_item = ModelCompliance.from_dict(compliances_item_data)
-
-            compliances.append(compliances_item)
-
-        _status_counts = d.pop("status_counts")
-        status_counts: Optional[ModelComplianceScanResultStatusCounts]
-        if _status_counts is None:
-            status_counts = None
-        else:
-            status_counts = ModelComplianceScanResultStatusCounts.from_dict(_status_counts)
-
         model_compliance_scan_result = cls(
+            benchmark_type=benchmark_type,
             cloud_account_id=cloud_account_id,
             compliance_percentage=compliance_percentage,
+            compliances=compliances,
             created_at=created_at,
             docker_container_name=docker_container_name,
             docker_image_name=docker_image_name,
@@ -181,10 +222,8 @@ class ModelComplianceScanResult:
             node_name=node_name,
             node_type=node_type,
             scan_id=scan_id,
-            updated_at=updated_at,
-            benchmark_type=benchmark_type,
-            compliances=compliances,
             status_counts=status_counts,
+            updated_at=updated_at,
         )
 
         model_compliance_scan_result.additional_properties = d

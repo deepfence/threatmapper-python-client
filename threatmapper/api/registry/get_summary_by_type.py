@@ -14,14 +14,12 @@ from ...types import Response
 def _get_kwargs(
     registry_type: str,
 ) -> Dict[str, Any]:
-    pass
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": "/deepfence/registryaccount/{registry_type}/summary-by-type".format(
-            registry_type=registry_type,
-        ),
+        "url": f"/deepfence/registryaccount/{registry_type}/summary-by-type",
     }
+
+    return _kwargs
 
 
 def _parse_response(

@@ -15,21 +15,8 @@ T = TypeVar("T", bound="ModelCloudNodeAccountRegisterResp")
 @_attrs_define
 class ModelCloudNodeAccountRegisterResp:
     """
-    Example:
-        {'data': {'cloudtrail_trails': [{'account_id': 'account_id', 'trail_name': 'trail_name'}, {'account_id':
-            'account_id', 'trail_name': 'trail_name'}], 'log_action': {'id': 0, 'request_payload': 'request_payload'},
-            'scans': {'key': {'account_id': 'account_id', 'stop_requested': True, 'benchmarks': [{'controls': ['controls',
-            'controls'], 'compliance_type': 'compliance_type', 'id': 'id'}, {'controls': ['controls', 'controls'],
-            'compliance_type': 'compliance_type', 'id': 'id'}], 'scan_id': 'scan_id', 'scan_types': ['scan_types',
-            'scan_types']}}, 'refresh': 'refresh'}}
-
     Attributes:
-        data (Union[Unset, ModelCloudNodeAccountRegisterRespData]):  Example: {'cloudtrail_trails': [{'account_id':
-            'account_id', 'trail_name': 'trail_name'}, {'account_id': 'account_id', 'trail_name': 'trail_name'}],
-            'log_action': {'id': 0, 'request_payload': 'request_payload'}, 'scans': {'key': {'account_id': 'account_id',
-            'stop_requested': True, 'benchmarks': [{'controls': ['controls', 'controls'], 'compliance_type':
-            'compliance_type', 'id': 'id'}, {'controls': ['controls', 'controls'], 'compliance_type': 'compliance_type',
-            'id': 'id'}], 'scan_id': 'scan_id', 'scan_types': ['scan_types', 'scan_types']}}, 'refresh': 'refresh'}.
+        data (Union[Unset, ModelCloudNodeAccountRegisterRespData]):
     """
 
     data: Union[Unset, "ModelCloudNodeAccountRegisterRespData"] = UNSET

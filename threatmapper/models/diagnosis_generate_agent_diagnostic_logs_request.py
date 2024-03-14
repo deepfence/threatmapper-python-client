@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -13,36 +13,34 @@ T = TypeVar("T", bound="DiagnosisGenerateAgentDiagnosticLogsRequest")
 @_attrs_define
 class DiagnosisGenerateAgentDiagnosticLogsRequest:
     """
-    Example:
-        {'tail': 0, 'node_ids': [{'node_type': 'host', 'node_id': 'node_id'}, {'node_type': 'host', 'node_id':
-            'node_id'}]}
-
     Attributes:
+        node_ids (Union[List['DiagnosisNodeIdentifier'], None]):
         tail (int):
-        node_ids (Optional[List['DiagnosisNodeIdentifier']]):
     """
 
+    node_ids: Union[List["DiagnosisNodeIdentifier"], None]
     tail: int
-    node_ids: Optional[List["DiagnosisNodeIdentifier"]]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        tail = self.tail
-        if self.node_ids is None:
-            node_ids = None
-        else:
+        node_ids: Union[List[Dict[str, Any]], None]
+        if isinstance(self.node_ids, list):
             node_ids = []
-            for node_ids_item_data in self.node_ids:
-                node_ids_item = node_ids_item_data.to_dict()
+            for node_ids_type_0_item_data in self.node_ids:
+                node_ids_type_0_item = node_ids_type_0_item_data.to_dict()
+                node_ids.append(node_ids_type_0_item)
 
-                node_ids.append(node_ids_item)
+        else:
+            node_ids = self.node_ids
+
+        tail = self.tail
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "tail": tail,
                 "node_ids": node_ids,
+                "tail": tail,
             }
         )
 
@@ -53,18 +51,32 @@ class DiagnosisGenerateAgentDiagnosticLogsRequest:
         from ..models.diagnosis_node_identifier import DiagnosisNodeIdentifier
 
         d = src_dict.copy()
+
+        def _parse_node_ids(data: object) -> Union[List["DiagnosisNodeIdentifier"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                node_ids_type_0 = []
+                _node_ids_type_0 = data
+                for node_ids_type_0_item_data in _node_ids_type_0:
+                    node_ids_type_0_item = DiagnosisNodeIdentifier.from_dict(node_ids_type_0_item_data)
+
+                    node_ids_type_0.append(node_ids_type_0_item)
+
+                return node_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["DiagnosisNodeIdentifier"], None], data)
+
+        node_ids = _parse_node_ids(d.pop("node_ids"))
+
         tail = d.pop("tail")
 
-        node_ids = []
-        _node_ids = d.pop("node_ids")
-        for node_ids_item_data in _node_ids or []:
-            node_ids_item = DiagnosisNodeIdentifier.from_dict(node_ids_item_data)
-
-            node_ids.append(node_ids_item)
-
         diagnosis_generate_agent_diagnostic_logs_request = cls(
-            tail=tail,
             node_ids=node_ids,
+            tail=tail,
         )
 
         diagnosis_generate_agent_diagnostic_logs_request.additional_properties = d

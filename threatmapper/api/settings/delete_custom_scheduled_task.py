@@ -13,14 +13,12 @@ from ...types import Response
 def _get_kwargs(
     id: int,
 ) -> Dict[str, Any]:
-    pass
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "delete",
-        "url": "/deepfence/scheduled-task/{id}".format(
-            id=id,
-        ),
+        "url": f"/deepfence/scheduled-task/{id}",
     }
+
+    return _kwargs
 
 
 def _parse_response(

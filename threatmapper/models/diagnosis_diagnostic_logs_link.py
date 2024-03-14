@@ -11,26 +11,30 @@ T = TypeVar("T", bound="DiagnosisDiagnosticLogsLink")
 @_attrs_define
 class DiagnosisDiagnosticLogsLink:
     """
-    Example:
-        {'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message'}
-
     Attributes:
         created_at (Union[Unset, str]):
         label (Union[Unset, str]):
         message (Union[Unset, str]):
+        type (Union[Unset, str]):
         url_link (Union[Unset, str]):
     """
 
     created_at: Union[Unset, str] = UNSET
     label: Union[Unset, str] = UNSET
     message: Union[Unset, str] = UNSET
+    type: Union[Unset, str] = UNSET
     url_link: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         created_at = self.created_at
+
         label = self.label
+
         message = self.message
+
+        type = self.type
+
         url_link = self.url_link
 
         field_dict: Dict[str, Any] = {}
@@ -42,6 +46,8 @@ class DiagnosisDiagnosticLogsLink:
             field_dict["label"] = label
         if message is not UNSET:
             field_dict["message"] = message
+        if type is not UNSET:
+            field_dict["type"] = type
         if url_link is not UNSET:
             field_dict["url_link"] = url_link
 
@@ -56,12 +62,15 @@ class DiagnosisDiagnosticLogsLink:
 
         message = d.pop("message", UNSET)
 
+        type = d.pop("type", UNSET)
+
         url_link = d.pop("url_link", UNSET)
 
         diagnosis_diagnostic_logs_link = cls(
             created_at=created_at,
             label=label,
             message=message,
+            type=type,
             url_link=url_link,
         )
 

@@ -13,17 +13,22 @@ from ...types import Response
 
 def _get_kwargs(
     *,
-    json_body: ModelUpdateUserPasswordRequest,
+    body: ModelUpdateUserPasswordRequest,
 ) -> Dict[str, Any]:
-    pass
+    headers: Dict[str, Any] = {}
 
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "put",
         "url": "/deepfence/user/password",
-        "json": json_json_body,
     }
+
+    _body = body.to_dict()
+
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
 
 
 def _parse_response(
@@ -70,15 +75,14 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserPasswordRequest,
+    body: ModelUpdateUserPasswordRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update Password
 
      Update current user's password
 
     Args:
-        json_body (ModelUpdateUserPasswordRequest):  Example: {'old_password': 'old_password',
-            'new_password': 'new_password'}.
+        body (ModelUpdateUserPasswordRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -89,7 +93,7 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = client.get_httpx_client().request(
@@ -102,15 +106,14 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserPasswordRequest,
+    body: ModelUpdateUserPasswordRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update Password
 
      Update current user's password
 
     Args:
-        json_body (ModelUpdateUserPasswordRequest):  Example: {'old_password': 'old_password',
-            'new_password': 'new_password'}.
+        body (ModelUpdateUserPasswordRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -122,22 +125,21 @@ def sync(
 
     return sync_detailed(
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserPasswordRequest,
+    body: ModelUpdateUserPasswordRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update Password
 
      Update current user's password
 
     Args:
-        json_body (ModelUpdateUserPasswordRequest):  Example: {'old_password': 'old_password',
-            'new_password': 'new_password'}.
+        body (ModelUpdateUserPasswordRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -148,7 +150,7 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -159,15 +161,14 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserPasswordRequest,
+    body: ModelUpdateUserPasswordRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update Password
 
      Update current user's password
 
     Args:
-        json_body (ModelUpdateUserPasswordRequest):  Example: {'old_password': 'old_password',
-            'new_password': 'new_password'}.
+        body (ModelUpdateUserPasswordRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -180,6 +181,6 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

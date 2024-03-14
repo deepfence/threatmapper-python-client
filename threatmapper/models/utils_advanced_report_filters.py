@@ -11,12 +11,6 @@ T = TypeVar("T", bound="UtilsAdvancedReportFilters")
 @_attrs_define
 class UtilsAdvancedReportFilters:
     """
-    Example:
-        {'image_name': ['image_name', 'image_name'], 'container_name': ['container_name', 'container_name'],
-            'scan_status': ['scan_status', 'scan_status'], 'kubernetes_cluster_name': ['kubernetes_cluster_name',
-            'kubernetes_cluster_name'], 'masked': [True, True], 'host_name': ['host_name', 'host_name'], 'node_id':
-            ['node_id', 'node_id'], 'pod_name': ['pod_name', 'pod_name']}
-
     Attributes:
         container_name (Union[Unset, List[str]]):
         host_name (Union[Unset, List[str]]):

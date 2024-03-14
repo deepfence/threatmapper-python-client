@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -13,40 +13,34 @@ T = TypeVar("T", bound="ModelCloudNodeAccountsListResp")
 @_attrs_define
 class ModelCloudNodeAccountsListResp:
     """
-    Example:
-        {'total': 1, 'cloud_node_accounts_info': [{'last_scan_status': 'last_scan_status', 'compliance_percentage':
-            0.8008281904610115, 'last_scan_id': 'last_scan_id', 'node_name': 'node_name', 'active': True, 'cloud_provider':
-            'cloud_provider', 'scan_status_map': {'key': 6}, 'version': 'version', 'node_id': 'node_id'},
-            {'last_scan_status': 'last_scan_status', 'compliance_percentage': 0.8008281904610115, 'last_scan_id':
-            'last_scan_id', 'node_name': 'node_name', 'active': True, 'cloud_provider': 'cloud_provider', 'scan_status_map':
-            {'key': 6}, 'version': 'version', 'node_id': 'node_id'}]}
-
     Attributes:
+        cloud_node_accounts_info (Union[List['ModelCloudNodeAccountInfo'], None]):
         total (int):
-        cloud_node_accounts_info (Optional[List['ModelCloudNodeAccountInfo']]):
     """
 
+    cloud_node_accounts_info: Union[List["ModelCloudNodeAccountInfo"], None]
     total: int
-    cloud_node_accounts_info: Optional[List["ModelCloudNodeAccountInfo"]]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        total = self.total
-        if self.cloud_node_accounts_info is None:
-            cloud_node_accounts_info = None
-        else:
+        cloud_node_accounts_info: Union[List[Dict[str, Any]], None]
+        if isinstance(self.cloud_node_accounts_info, list):
             cloud_node_accounts_info = []
-            for cloud_node_accounts_info_item_data in self.cloud_node_accounts_info:
-                cloud_node_accounts_info_item = cloud_node_accounts_info_item_data.to_dict()
+            for cloud_node_accounts_info_type_0_item_data in self.cloud_node_accounts_info:
+                cloud_node_accounts_info_type_0_item = cloud_node_accounts_info_type_0_item_data.to_dict()
+                cloud_node_accounts_info.append(cloud_node_accounts_info_type_0_item)
 
-                cloud_node_accounts_info.append(cloud_node_accounts_info_item)
+        else:
+            cloud_node_accounts_info = self.cloud_node_accounts_info
+
+        total = self.total
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "total": total,
                 "cloud_node_accounts_info": cloud_node_accounts_info,
+                "total": total,
             }
         )
 
@@ -57,18 +51,34 @@ class ModelCloudNodeAccountsListResp:
         from ..models.model_cloud_node_account_info import ModelCloudNodeAccountInfo
 
         d = src_dict.copy()
+
+        def _parse_cloud_node_accounts_info(data: object) -> Union[List["ModelCloudNodeAccountInfo"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                cloud_node_accounts_info_type_0 = []
+                _cloud_node_accounts_info_type_0 = data
+                for cloud_node_accounts_info_type_0_item_data in _cloud_node_accounts_info_type_0:
+                    cloud_node_accounts_info_type_0_item = ModelCloudNodeAccountInfo.from_dict(
+                        cloud_node_accounts_info_type_0_item_data
+                    )
+
+                    cloud_node_accounts_info_type_0.append(cloud_node_accounts_info_type_0_item)
+
+                return cloud_node_accounts_info_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelCloudNodeAccountInfo"], None], data)
+
+        cloud_node_accounts_info = _parse_cloud_node_accounts_info(d.pop("cloud_node_accounts_info"))
+
         total = d.pop("total")
 
-        cloud_node_accounts_info = []
-        _cloud_node_accounts_info = d.pop("cloud_node_accounts_info")
-        for cloud_node_accounts_info_item_data in _cloud_node_accounts_info or []:
-            cloud_node_accounts_info_item = ModelCloudNodeAccountInfo.from_dict(cloud_node_accounts_info_item_data)
-
-            cloud_node_accounts_info.append(cloud_node_accounts_info_item)
-
         model_cloud_node_accounts_list_resp = cls(
-            total=total,
             cloud_node_accounts_info=cloud_node_accounts_info,
+            total=total,
         )
 
         model_cloud_node_accounts_list_resp.additional_properties = d

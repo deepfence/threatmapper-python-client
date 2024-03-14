@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -15,15 +15,6 @@ T = TypeVar("T", bound="ModelCompliance")
 @_attrs_define
 class ModelCompliance:
     """
-    Example:
-        {'resource': 'resource', 'masked': True, 'description': 'description', 'resources': [{'node_type': 'node_type',
-            'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name',
-            'host_name': 'host_name', 'node_id': 'node_id'}], 'test_category': 'test_category', 'remediation_ansible':
-            'remediation_ansible', 'compliance_check_type': 'compliance_check_type', 'rule_id': 'rule_id', 'test_rationale':
-            'test_rationale', 'test_severity': 'test_severity', 'node_type': 'node_type', 'updated_at': 0,
-            'remediation_puppet': 'remediation_puppet', 'remediation_script': 'remediation_script', 'node_id': 'node_id',
-            'status': 'status', 'test_desc': 'test_desc', 'test_number': 'test_number'}
-
     Attributes:
         compliance_check_type (str):
         description (str):
@@ -42,7 +33,7 @@ class ModelCompliance:
         test_rationale (str):
         test_severity (str):
         updated_at (int):
-        resources (Union[Unset, None, List['ModelBasicNode']]):
+        resources (Union[List['ModelBasicNode'], None, Unset]):
     """
 
     compliance_check_type: str
@@ -62,37 +53,55 @@ class ModelCompliance:
     test_rationale: str
     test_severity: str
     updated_at: int
-    resources: Union[Unset, None, List["ModelBasicNode"]] = UNSET
+    resources: Union[List["ModelBasicNode"], None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         compliance_check_type = self.compliance_check_type
-        description = self.description
-        masked = self.masked
-        node_id = self.node_id
-        node_type = self.node_type
-        remediation_ansible = self.remediation_ansible
-        remediation_puppet = self.remediation_puppet
-        remediation_script = self.remediation_script
-        resource = self.resource
-        rule_id = self.rule_id
-        status = self.status
-        test_category = self.test_category
-        test_desc = self.test_desc
-        test_number = self.test_number
-        test_rationale = self.test_rationale
-        test_severity = self.test_severity
-        updated_at = self.updated_at
-        resources: Union[Unset, None, List[Dict[str, Any]]] = UNSET
-        if not isinstance(self.resources, Unset):
-            if self.resources is None:
-                resources = None
-            else:
-                resources = []
-                for resources_item_data in self.resources:
-                    resources_item = resources_item_data.to_dict()
 
-                    resources.append(resources_item)
+        description = self.description
+
+        masked = self.masked
+
+        node_id = self.node_id
+
+        node_type = self.node_type
+
+        remediation_ansible = self.remediation_ansible
+
+        remediation_puppet = self.remediation_puppet
+
+        remediation_script = self.remediation_script
+
+        resource = self.resource
+
+        rule_id = self.rule_id
+
+        status = self.status
+
+        test_category = self.test_category
+
+        test_desc = self.test_desc
+
+        test_number = self.test_number
+
+        test_rationale = self.test_rationale
+
+        test_severity = self.test_severity
+
+        updated_at = self.updated_at
+
+        resources: Union[List[Dict[str, Any]], None, Unset]
+        if isinstance(self.resources, Unset):
+            resources = UNSET
+        elif isinstance(self.resources, list):
+            resources = []
+            for resources_type_0_item_data in self.resources:
+                resources_type_0_item = resources_type_0_item_data.to_dict()
+                resources.append(resources_type_0_item)
+
+        else:
+            resources = self.resources
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -161,12 +170,27 @@ class ModelCompliance:
 
         updated_at = d.pop("updated_at")
 
-        resources = []
-        _resources = d.pop("resources", UNSET)
-        for resources_item_data in _resources or []:
-            resources_item = ModelBasicNode.from_dict(resources_item_data)
+        def _parse_resources(data: object) -> Union[List["ModelBasicNode"], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                resources_type_0 = []
+                _resources_type_0 = data
+                for resources_type_0_item_data in _resources_type_0:
+                    resources_type_0_item = ModelBasicNode.from_dict(resources_type_0_item_data)
 
-            resources.append(resources_item)
+                    resources_type_0.append(resources_type_0_item)
+
+                return resources_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelBasicNode"], None, Unset], data)
+
+        resources = _parse_resources(d.pop("resources", UNSET))
 
         model_compliance = cls(
             compliance_check_type=compliance_check_type,

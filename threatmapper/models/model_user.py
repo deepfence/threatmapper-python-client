@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -7,7 +7,7 @@ from ..models.model_user_role import ModelUserRole
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.model_user_groups import ModelUserGroups
+    from ..models.model_user_groups_type_0 import ModelUserGroupsType0
 
 
 T = TypeVar("T", bound="ModelUser")
@@ -16,19 +16,14 @@ T = TypeVar("T", bound="ModelUser")
 @_attrs_define
 class ModelUser:
     """
-    Example:
-        {'is_active': True, 'role': 'admin', 'company_id': 0, 'role_id': 1, 'groups': {'key': 'groups'}, 'last_name':
-            'last_name', 'company': 'company', 'id': 6, 'password_invalidated': True, 'first_name': 'first_name', 'email':
-            'email', 'current_user': True}
-
     Attributes:
         company (str):
         email (str):
         first_name (str):
         last_name (str):
         company_id (Union[Unset, int]):
-        current_user (Union[Unset, None, bool]):
-        groups (Union[Unset, None, ModelUserGroups]):
+        current_user (Union[None, Unset, bool]):
+        groups (Union['ModelUserGroupsType0', None, Unset]):
         id (Union[Unset, int]):
         is_active (Union[Unset, bool]):
         password_invalidated (Union[Unset, bool]):
@@ -41,8 +36,8 @@ class ModelUser:
     first_name: str
     last_name: str
     company_id: Union[Unset, int] = UNSET
-    current_user: Union[Unset, None, bool] = UNSET
-    groups: Union[Unset, None, "ModelUserGroups"] = UNSET
+    current_user: Union[None, Unset, bool] = UNSET
+    groups: Union["ModelUserGroupsType0", None, Unset] = UNSET
     id: Union[Unset, int] = UNSET
     is_active: Union[Unset, bool] = UNSET
     password_invalidated: Union[Unset, bool] = UNSET
@@ -51,19 +46,38 @@ class ModelUser:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.model_user_groups_type_0 import ModelUserGroupsType0
+
         company = self.company
+
         email = self.email
+
         first_name = self.first_name
+
         last_name = self.last_name
+
         company_id = self.company_id
-        current_user = self.current_user
-        groups: Union[Unset, None, Dict[str, Any]] = UNSET
-        if not isinstance(self.groups, Unset):
-            groups = self.groups.to_dict() if self.groups else None
+
+        current_user: Union[None, Unset, bool]
+        if isinstance(self.current_user, Unset):
+            current_user = UNSET
+        else:
+            current_user = self.current_user
+
+        groups: Union[Dict[str, Any], None, Unset]
+        if isinstance(self.groups, Unset):
+            groups = UNSET
+        elif isinstance(self.groups, ModelUserGroupsType0):
+            groups = self.groups.to_dict()
+        else:
+            groups = self.groups
 
         id = self.id
+
         is_active = self.is_active
+
         password_invalidated = self.password_invalidated
+
         role: Union[Unset, str] = UNSET
         if not isinstance(self.role, Unset):
             role = self.role.value
@@ -101,7 +115,7 @@ class ModelUser:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.model_user_groups import ModelUserGroups
+        from ..models.model_user_groups_type_0 import ModelUserGroupsType0
 
         d = src_dict.copy()
         company = d.pop("company")
@@ -114,16 +128,31 @@ class ModelUser:
 
         company_id = d.pop("company_id", UNSET)
 
-        current_user = d.pop("current_user", UNSET)
+        def _parse_current_user(data: object) -> Union[None, Unset, bool]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(Union[None, Unset, bool], data)
 
-        _groups = d.pop("groups", UNSET)
-        groups: Union[Unset, None, ModelUserGroups]
-        if _groups is None:
-            groups = None
-        elif isinstance(_groups, Unset):
-            groups = UNSET
-        else:
-            groups = ModelUserGroups.from_dict(_groups)
+        current_user = _parse_current_user(d.pop("current_user", UNSET))
+
+        def _parse_groups(data: object) -> Union["ModelUserGroupsType0", None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                groups_type_0 = ModelUserGroupsType0.from_dict(data)
+
+                return groups_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelUserGroupsType0", None, Unset], data)
+
+        groups = _parse_groups(d.pop("groups", UNSET))
 
         id = d.pop("id", UNSET)
 

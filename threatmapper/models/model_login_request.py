@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelLoginRequest")
 @_attrs_define
 class ModelLoginRequest:
     """
-    Example:
-        {'password': 'password', 'email': 'email'}
-
     Attributes:
         email (str):
         password (str):
@@ -23,6 +20,7 @@ class ModelLoginRequest:
 
     def to_dict(self) -> Dict[str, Any]:
         email = self.email
+
         password = self.password
 
         field_dict: Dict[str, Any] = {}

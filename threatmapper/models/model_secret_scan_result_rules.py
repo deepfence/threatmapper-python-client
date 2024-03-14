@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -9,19 +9,18 @@ T = TypeVar("T", bound="ModelSecretScanResultRules")
 @_attrs_define
 class ModelSecretScanResultRules:
     """
-    Example:
-        {'rules': ['rules', 'rules']}
-
     Attributes:
-        rules (Optional[List[str]]):
+        rules (Union[List[str], None]):
     """
 
-    rules: Optional[List[str]]
+    rules: Union[List[str], None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        if self.rules is None:
-            rules = None
+        rules: Union[List[str], None]
+        if isinstance(self.rules, list):
+            rules = self.rules
+
         else:
             rules = self.rules
 
@@ -38,7 +37,21 @@ class ModelSecretScanResultRules:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        rules = cast(List[str], d.pop("rules"))
+
+        def _parse_rules(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                rules_type_0 = cast(List[str], data)
+
+                return rules_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        rules = _parse_rules(d.pop("rules"))
 
         model_secret_scan_result_rules = cls(
             rules=rules,

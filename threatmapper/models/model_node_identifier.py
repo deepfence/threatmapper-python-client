@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelNodeIdentifier")
 @_attrs_define
 class ModelNodeIdentifier:
     """
-    Example:
-        {'node_type': 'image', 'node_id': 'node_id'}
-
     Attributes:
         node_id (str):
         node_type (ModelNodeIdentifierNodeType):
@@ -25,6 +22,7 @@ class ModelNodeIdentifier:
 
     def to_dict(self) -> Dict[str, Any]:
         node_id = self.node_id
+
         node_type = self.node_type.value
 
         field_dict: Dict[str, Any] = {}

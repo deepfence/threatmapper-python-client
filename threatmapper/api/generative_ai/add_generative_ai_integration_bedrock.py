@@ -14,17 +14,22 @@ from ...types import Response
 
 def _get_kwargs(
     *,
-    json_body: ModelAddGenerativeAiBedrockIntegration,
+    body: ModelAddGenerativeAiBedrockIntegration,
 ) -> Dict[str, Any]:
-    pass
+    headers: Dict[str, Any] = {}
 
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "post",
         "url": "/deepfence/generative-ai-integration/bedrock",
-        "json": json_json_body,
     }
+
+    _body = body.to_dict()
+
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
 
 
 def _parse_response(
@@ -72,16 +77,14 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: ModelAddGenerativeAiBedrockIntegration,
+    body: ModelAddGenerativeAiBedrockIntegration,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelMessageResponse]]:
     """Add AWS Bedrock Generative AI Integration
 
      Add a new AWS Bedrock Generative AI Integration
 
     Args:
-        json_body (ModelAddGenerativeAiBedrockIntegration):  Example: {'aws_region': 'us-east-1',
-            'aws_access_key': 'aws_access_key', 'model_id': 'anthropic.claude-v2', 'aws_secret_key':
-            'aws_secret_key', 'use_iam_role': True}.
+        body (ModelAddGenerativeAiBedrockIntegration):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -92,7 +95,7 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = client.get_httpx_client().request(
@@ -105,16 +108,14 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    json_body: ModelAddGenerativeAiBedrockIntegration,
+    body: ModelAddGenerativeAiBedrockIntegration,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelMessageResponse]]:
     """Add AWS Bedrock Generative AI Integration
 
      Add a new AWS Bedrock Generative AI Integration
 
     Args:
-        json_body (ModelAddGenerativeAiBedrockIntegration):  Example: {'aws_region': 'us-east-1',
-            'aws_access_key': 'aws_access_key', 'model_id': 'anthropic.claude-v2', 'aws_secret_key':
-            'aws_secret_key', 'use_iam_role': True}.
+        body (ModelAddGenerativeAiBedrockIntegration):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -126,23 +127,21 @@ def sync(
 
     return sync_detailed(
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: ModelAddGenerativeAiBedrockIntegration,
+    body: ModelAddGenerativeAiBedrockIntegration,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelMessageResponse]]:
     """Add AWS Bedrock Generative AI Integration
 
      Add a new AWS Bedrock Generative AI Integration
 
     Args:
-        json_body (ModelAddGenerativeAiBedrockIntegration):  Example: {'aws_region': 'us-east-1',
-            'aws_access_key': 'aws_access_key', 'model_id': 'anthropic.claude-v2', 'aws_secret_key':
-            'aws_secret_key', 'use_iam_role': True}.
+        body (ModelAddGenerativeAiBedrockIntegration):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -153,7 +152,7 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -164,16 +163,14 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    json_body: ModelAddGenerativeAiBedrockIntegration,
+    body: ModelAddGenerativeAiBedrockIntegration,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelMessageResponse]]:
     """Add AWS Bedrock Generative AI Integration
 
      Add a new AWS Bedrock Generative AI Integration
 
     Args:
-        json_body (ModelAddGenerativeAiBedrockIntegration):  Example: {'aws_region': 'us-east-1',
-            'aws_access_key': 'aws_access_key', 'model_id': 'anthropic.claude-v2', 'aws_secret_key':
-            'aws_secret_key', 'use_iam_role': True}.
+        body (ModelAddGenerativeAiBedrockIntegration):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -186,6 +183,6 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

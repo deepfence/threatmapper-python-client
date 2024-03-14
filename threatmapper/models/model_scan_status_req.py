@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -9,22 +9,22 @@ T = TypeVar("T", bound="ModelScanStatusReq")
 @_attrs_define
 class ModelScanStatusReq:
     """
-    Example:
-        {'bulk_scan_id': 'bulk_scan_id', 'scan_ids': ['scan_ids', 'scan_ids']}
-
     Attributes:
         bulk_scan_id (str):
-        scan_ids (Optional[List[str]]):
+        scan_ids (Union[List[str], None]):
     """
 
     bulk_scan_id: str
-    scan_ids: Optional[List[str]]
+    scan_ids: Union[List[str], None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         bulk_scan_id = self.bulk_scan_id
-        if self.scan_ids is None:
-            scan_ids = None
+
+        scan_ids: Union[List[str], None]
+        if isinstance(self.scan_ids, list):
+            scan_ids = self.scan_ids
+
         else:
             scan_ids = self.scan_ids
 
@@ -44,7 +44,20 @@ class ModelScanStatusReq:
         d = src_dict.copy()
         bulk_scan_id = d.pop("bulk_scan_id")
 
-        scan_ids = cast(List[str], d.pop("scan_ids"))
+        def _parse_scan_ids(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                scan_ids_type_0 = cast(List[str], data)
+
+                return scan_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        scan_ids = _parse_scan_ids(d.pop("scan_ids"))
 
         model_scan_status_req = cls(
             bulk_scan_id=bulk_scan_id,

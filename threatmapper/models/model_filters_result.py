@@ -1,10 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
-    from ..models.model_filters_result_filters import ModelFiltersResultFilters
+    from ..models.model_filters_result_filters_type_0 import ModelFiltersResultFiltersType0
 
 
 T = TypeVar("T", bound="ModelFiltersResult")
@@ -13,18 +13,21 @@ T = TypeVar("T", bound="ModelFiltersResult")
 @_attrs_define
 class ModelFiltersResult:
     """
-    Example:
-        {'filters': {'key': ['filters', 'filters']}}
-
     Attributes:
-        filters (Optional[ModelFiltersResultFilters]):
+        filters (Union['ModelFiltersResultFiltersType0', None]):
     """
 
-    filters: Optional["ModelFiltersResultFilters"]
+    filters: Union["ModelFiltersResultFiltersType0", None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        filters = self.filters.to_dict() if self.filters else None
+        from ..models.model_filters_result_filters_type_0 import ModelFiltersResultFiltersType0
+
+        filters: Union[Dict[str, Any], None]
+        if isinstance(self.filters, ModelFiltersResultFiltersType0):
+            filters = self.filters.to_dict()
+        else:
+            filters = self.filters
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -38,15 +41,24 @@ class ModelFiltersResult:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.model_filters_result_filters import ModelFiltersResultFilters
+        from ..models.model_filters_result_filters_type_0 import ModelFiltersResultFiltersType0
 
         d = src_dict.copy()
-        _filters = d.pop("filters")
-        filters: Optional[ModelFiltersResultFilters]
-        if _filters is None:
-            filters = None
-        else:
-            filters = ModelFiltersResultFilters.from_dict(_filters)
+
+        def _parse_filters(data: object) -> Union["ModelFiltersResultFiltersType0", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                filters_type_0 = ModelFiltersResultFiltersType0.from_dict(data)
+
+                return filters_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelFiltersResultFiltersType0", None], data)
+
+        filters = _parse_filters(d.pop("filters"))
 
         model_filters_result = cls(
             filters=filters,

@@ -9,9 +9,6 @@ T = TypeVar("T", bound="DiagnosisGenerateConsoleDiagnosticLogsRequest")
 @_attrs_define
 class DiagnosisGenerateConsoleDiagnosticLogsRequest:
     """
-    Example:
-        {'tail': 0}
-
     Attributes:
         tail (int):
     """

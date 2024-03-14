@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -6,8 +6,8 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.model_integration_list_resp_config import ModelIntegrationListRespConfig
-    from ..models.reporters_fields_filters import ReportersFieldsFilters
+    from ..models.model_integration_filters import ModelIntegrationFilters
+    from ..models.model_integration_list_resp_config_type_0 import ModelIntegrationListRespConfigType0
 
 
 T = TypeVar("T", bound="ModelIntegrationListResp")
@@ -16,33 +16,17 @@ T = TypeVar("T", bound="ModelIntegrationListResp")
 @_attrs_define
 class ModelIntegrationListResp:
     """
-    Example:
-        {'notification_type': 'notification_type', 'filters': {'compare_filter': [{'greater_than': True, 'field_value':
-            '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}],
-            'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
-            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]},
-            'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['',
-            '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
-            '']}}}, 'id': 0, 'integration_type': 'integration_type', 'config': {'key': ''}, 'last_error_msg':
-            'last_error_msg'}
-
     Attributes:
-        config (Union[Unset, None, ModelIntegrationListRespConfig]):
-        filters (Union[Unset, ReportersFieldsFilters]):  Example: {'compare_filter': [{'greater_than': True,
-            'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
-            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields':
-            [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
-            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in':
-            {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
-            {'key': ['', '']}}}.
+        config (Union['ModelIntegrationListRespConfigType0', None, Unset]):
+        filters (Union[Unset, ModelIntegrationFilters]):
         id (Union[Unset, int]):
         integration_type (Union[Unset, str]):
         last_error_msg (Union[Unset, str]):
         notification_type (Union[Unset, str]):
     """
 
-    config: Union[Unset, None, "ModelIntegrationListRespConfig"] = UNSET
-    filters: Union[Unset, "ReportersFieldsFilters"] = UNSET
+    config: Union["ModelIntegrationListRespConfigType0", None, Unset] = UNSET
+    filters: Union[Unset, "ModelIntegrationFilters"] = UNSET
     id: Union[Unset, int] = UNSET
     integration_type: Union[Unset, str] = UNSET
     last_error_msg: Union[Unset, str] = UNSET
@@ -50,17 +34,26 @@ class ModelIntegrationListResp:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        config: Union[Unset, None, Dict[str, Any]] = UNSET
-        if not isinstance(self.config, Unset):
-            config = self.config.to_dict() if self.config else None
+        from ..models.model_integration_list_resp_config_type_0 import ModelIntegrationListRespConfigType0
+
+        config: Union[Dict[str, Any], None, Unset]
+        if isinstance(self.config, Unset):
+            config = UNSET
+        elif isinstance(self.config, ModelIntegrationListRespConfigType0):
+            config = self.config.to_dict()
+        else:
+            config = self.config
 
         filters: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.filters, Unset):
             filters = self.filters.to_dict()
 
         id = self.id
+
         integration_type = self.integration_type
+
         last_error_msg = self.last_error_msg
+
         notification_type = self.notification_type
 
         field_dict: Dict[str, Any] = {}
@@ -83,25 +76,34 @@ class ModelIntegrationListResp:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.model_integration_list_resp_config import ModelIntegrationListRespConfig
-        from ..models.reporters_fields_filters import ReportersFieldsFilters
+        from ..models.model_integration_filters import ModelIntegrationFilters
+        from ..models.model_integration_list_resp_config_type_0 import ModelIntegrationListRespConfigType0
 
         d = src_dict.copy()
-        _config = d.pop("config", UNSET)
-        config: Union[Unset, None, ModelIntegrationListRespConfig]
-        if _config is None:
-            config = None
-        elif isinstance(_config, Unset):
-            config = UNSET
-        else:
-            config = ModelIntegrationListRespConfig.from_dict(_config)
+
+        def _parse_config(data: object) -> Union["ModelIntegrationListRespConfigType0", None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                config_type_0 = ModelIntegrationListRespConfigType0.from_dict(data)
+
+                return config_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelIntegrationListRespConfigType0", None, Unset], data)
+
+        config = _parse_config(d.pop("config", UNSET))
 
         _filters = d.pop("filters", UNSET)
-        filters: Union[Unset, ReportersFieldsFilters]
+        filters: Union[Unset, ModelIntegrationFilters]
         if isinstance(_filters, Unset):
             filters = UNSET
         else:
-            filters = ReportersFieldsFilters.from_dict(_filters)
+            filters = ModelIntegrationFilters.from_dict(_filters)
 
         id = d.pop("id", UNSET)
 

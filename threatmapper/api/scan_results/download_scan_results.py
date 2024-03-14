@@ -16,15 +16,12 @@ def _get_kwargs(
     scan_type: DownloadScanResultsScanType,
     scan_id: str,
 ) -> Dict[str, Any]:
-    pass
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": "/deepfence/scan/{scan_type}/{scan_id}/download".format(
-            scan_type=scan_type,
-            scan_id=scan_id,
-        ),
+        "url": f"/deepfence/scan/{scan_type}/{scan_id}/download",
     }
+
+    return _kwargs
 
 
 def _parse_response(

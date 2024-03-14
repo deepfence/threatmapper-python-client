@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelSettingUpdateRequest")
 @_attrs_define
 class ModelSettingUpdateRequest:
     """
-    Example:
-        {'value': 'value', 'key': 'console_url'}
-
     Attributes:
         key (ModelSettingUpdateRequestKey):
         value (str):

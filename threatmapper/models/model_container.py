@@ -1,10 +1,10 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
-    from ..models.model_container_docker_labels import ModelContainerDockerLabels
+    from ..models.model_container_docker_labels_type_0 import ModelContainerDockerLabelsType0
     from ..models.model_container_image import ModelContainerImage
     from ..models.model_process import ModelProcess
 
@@ -15,77 +15,21 @@ T = TypeVar("T", bound="ModelContainer")
 @_attrs_define
 class ModelContainer:
     """
-    Example:
-        {'vulnerabilities_count': 6, 'secrets_count': 1, 'docker_container_state': 'docker_container_state', 'cpu_max':
-            0.8008281904610115, 'memory_usage': 5, 'secret_latest_scan_id': 'secret_latest_scan_id',
-            'docker_container_network_mode': 'docker_container_network_mode', 'vulnerability_latest_scan_id':
-            'vulnerability_latest_scan_id', 'malware_scan_status': 'malware_scan_status', 'docker_container_ips': ['', ''],
-            'docker_labels': {'key': ''}, 'image': None, 'processes': [{'memory_max': 9, 'cmdline': 'cmdline', 'cpu_max':
-            2.3021358869347655, 'node_name': 'node_name', 'memory_usage': 3, 'open_files_count': 2, 'threads': 1, 'pid': 4,
-            'short_name': 'short_name', 'cpu_usage': 7.061401241503109, 'node_id': 'node_id', 'ppid': 7}, {'memory_max': 9,
-            'cmdline': 'cmdline', 'cpu_max': 2.3021358869347655, 'node_name': 'node_name', 'memory_usage': 3,
-            'open_files_count': 2, 'threads': 1, 'pid': 4, 'short_name': 'short_name', 'cpu_usage': 7.061401241503109,
-            'node_id': 'node_id', 'ppid': 7}], 'secret_scan_status': 'secret_scan_status', 'docker_container_name':
-            'docker_container_name', 'docker_container_created': 'docker_container_created', 'malware_latest_scan_id':
-            'malware_latest_scan_id', 'malwares_count': 1, 'node_name': 'node_name', 'docker_container_networks':
-            'docker_container_networks', 'docker_container_command': 'docker_container_command', 'uptime': 1, 'memory_max':
-            5, 'docker_container_ports': 'docker_container_ports', 'docker_container_state_human':
-            'docker_container_state_human', 'cpu_usage': 6.027456183070403, 'vulnerability_scan_status':
-            'vulnerability_scan_status', 'host_name': 'host_name', 'node_id': 'node_id'}
-
     Attributes:
         cpu_max (float):
         cpu_usage (float):
         docker_container_command (str):
         docker_container_created (str):
+        docker_container_ips (Union[List[Any], None]):
         docker_container_name (str):
         docker_container_network_mode (str):
         docker_container_networks (str):
         docker_container_ports (str):
         docker_container_state (str):
         docker_container_state_human (str):
+        docker_labels (Union['ModelContainerDockerLabelsType0', None]):
         host_name (str):
-        image (ModelContainerImage):  Example: {'metadata': {'key': ''}, 'secret_scan_status': 'secret_scan_status',
-            'vulnerabilities_count': 4, 'secrets_count': 1, 'malware_latest_scan_id': 'malware_latest_scan_id',
-            'malwares_count': 7, 'node_name': 'node_name', 'secret_latest_scan_id': 'secret_latest_scan_id',
-            'vulnerability_latest_scan_id': 'vulnerability_latest_scan_id', 'docker_image_created_at':
-            'docker_image_created_at', 'docker_image_tag': 'docker_image_tag', 'malware_scan_status': 'malware_scan_status',
-            'docker_image_size': 'docker_image_size', 'image_node_id': 'image_node_id', 'docker_image_virtual_size':
-            'docker_image_virtual_size', 'containers': [{'vulnerabilities_count': 6, 'secrets_count': 1,
-            'docker_container_state': 'docker_container_state', 'cpu_max': 0.8008281904610115, 'memory_usage': 5,
-            'secret_latest_scan_id': 'secret_latest_scan_id', 'docker_container_network_mode':
-            'docker_container_network_mode', 'vulnerability_latest_scan_id': 'vulnerability_latest_scan_id',
-            'malware_scan_status': 'malware_scan_status', 'docker_container_ips': ['', ''], 'docker_labels': {'key': ''},
-            'image': None, 'processes': [{'memory_max': 9, 'cmdline': 'cmdline', 'cpu_max': 2.3021358869347655, 'node_name':
-            'node_name', 'memory_usage': 3, 'open_files_count': 2, 'threads': 1, 'pid': 4, 'short_name': 'short_name',
-            'cpu_usage': 7.061401241503109, 'node_id': 'node_id', 'ppid': 7}, {'memory_max': 9, 'cmdline': 'cmdline',
-            'cpu_max': 2.3021358869347655, 'node_name': 'node_name', 'memory_usage': 3, 'open_files_count': 2, 'threads': 1,
-            'pid': 4, 'short_name': 'short_name', 'cpu_usage': 7.061401241503109, 'node_id': 'node_id', 'ppid': 7}],
-            'secret_scan_status': 'secret_scan_status', 'docker_container_name': 'docker_container_name',
-            'docker_container_created': 'docker_container_created', 'malware_latest_scan_id': 'malware_latest_scan_id',
-            'malwares_count': 1, 'node_name': 'node_name', 'docker_container_networks': 'docker_container_networks',
-            'docker_container_command': 'docker_container_command', 'uptime': 1, 'memory_max': 5, 'docker_container_ports':
-            'docker_container_ports', 'docker_container_state_human': 'docker_container_state_human', 'cpu_usage':
-            6.027456183070403, 'vulnerability_scan_status': 'vulnerability_scan_status', 'host_name': 'host_name',
-            'node_id': 'node_id'}, {'vulnerabilities_count': 6, 'secrets_count': 1, 'docker_container_state':
-            'docker_container_state', 'cpu_max': 0.8008281904610115, 'memory_usage': 5, 'secret_latest_scan_id':
-            'secret_latest_scan_id', 'docker_container_network_mode': 'docker_container_network_mode',
-            'vulnerability_latest_scan_id': 'vulnerability_latest_scan_id', 'malware_scan_status': 'malware_scan_status',
-            'docker_container_ips': ['', ''], 'docker_labels': {'key': ''}, 'image': None, 'processes': [{'memory_max': 9,
-            'cmdline': 'cmdline', 'cpu_max': 2.3021358869347655, 'node_name': 'node_name', 'memory_usage': 3,
-            'open_files_count': 2, 'threads': 1, 'pid': 4, 'short_name': 'short_name', 'cpu_usage': 7.061401241503109,
-            'node_id': 'node_id', 'ppid': 7}, {'memory_max': 9, 'cmdline': 'cmdline', 'cpu_max': 2.3021358869347655,
-            'node_name': 'node_name', 'memory_usage': 3, 'open_files_count': 2, 'threads': 1, 'pid': 4, 'short_name':
-            'short_name', 'cpu_usage': 7.061401241503109, 'node_id': 'node_id', 'ppid': 7}], 'secret_scan_status':
-            'secret_scan_status', 'docker_container_name': 'docker_container_name', 'docker_container_created':
-            'docker_container_created', 'malware_latest_scan_id': 'malware_latest_scan_id', 'malwares_count': 1,
-            'node_name': 'node_name', 'docker_container_networks': 'docker_container_networks', 'docker_container_command':
-            'docker_container_command', 'uptime': 1, 'memory_max': 5, 'docker_container_ports': 'docker_container_ports',
-            'docker_container_state_human': 'docker_container_state_human', 'cpu_usage': 6.027456183070403,
-            'vulnerability_scan_status': 'vulnerability_scan_status', 'host_name': 'host_name', 'node_id': 'node_id'}],
-            'docker_image_id': 'docker_image_id', 'vulnerability_scan_status': 'vulnerability_scan_status',
-            'docker_image_name': 'docker_image_name', 'docker_image_tag_list': ['docker_image_tag_list',
-            'docker_image_tag_list'], 'node_id': 'node_id'}.
+        image (ModelContainerImage):
         malware_latest_scan_id (str):
         malware_scan_status (str):
         malwares_count (int):
@@ -93,6 +37,7 @@ class ModelContainer:
         memory_usage (int):
         node_id (str):
         node_name (str):
+        processes (Union[List['ModelProcess'], None]):
         secret_latest_scan_id (str):
         secret_scan_status (str):
         secrets_count (int):
@@ -100,21 +45,20 @@ class ModelContainer:
         vulnerabilities_count (int):
         vulnerability_latest_scan_id (str):
         vulnerability_scan_status (str):
-        docker_container_ips (Optional[List[Any]]):
-        docker_labels (Optional[ModelContainerDockerLabels]):
-        processes (Optional[List['ModelProcess']]):
     """
 
     cpu_max: float
     cpu_usage: float
     docker_container_command: str
     docker_container_created: str
+    docker_container_ips: Union[List[Any], None]
     docker_container_name: str
     docker_container_network_mode: str
     docker_container_networks: str
     docker_container_ports: str
     docker_container_state: str
     docker_container_state_human: str
+    docker_labels: Union["ModelContainerDockerLabelsType0", None]
     host_name: str
     image: "ModelContainerImage"
     malware_latest_scan_id: str
@@ -124,6 +68,7 @@ class ModelContainer:
     memory_usage: int
     node_id: str
     node_name: str
+    processes: Union[List["ModelProcess"], None]
     secret_latest_scan_id: str
     secret_scan_status: str
     secrets_count: int
@@ -131,54 +76,85 @@ class ModelContainer:
     vulnerabilities_count: int
     vulnerability_latest_scan_id: str
     vulnerability_scan_status: str
-    docker_container_ips: Optional[List[Any]]
-    docker_labels: Optional["ModelContainerDockerLabels"]
-    processes: Optional[List["ModelProcess"]]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        cpu_max = self.cpu_max
-        cpu_usage = self.cpu_usage
-        docker_container_command = self.docker_container_command
-        docker_container_created = self.docker_container_created
-        docker_container_name = self.docker_container_name
-        docker_container_network_mode = self.docker_container_network_mode
-        docker_container_networks = self.docker_container_networks
-        docker_container_ports = self.docker_container_ports
-        docker_container_state = self.docker_container_state
-        docker_container_state_human = self.docker_container_state_human
-        host_name = self.host_name
-        image = self.image.to_dict()
+        from ..models.model_container_docker_labels_type_0 import ModelContainerDockerLabelsType0
 
-        malware_latest_scan_id = self.malware_latest_scan_id
-        malware_scan_status = self.malware_scan_status
-        malwares_count = self.malwares_count
-        memory_max = self.memory_max
-        memory_usage = self.memory_usage
-        node_id = self.node_id
-        node_name = self.node_name
-        secret_latest_scan_id = self.secret_latest_scan_id
-        secret_scan_status = self.secret_scan_status
-        secrets_count = self.secrets_count
-        uptime = self.uptime
-        vulnerabilities_count = self.vulnerabilities_count
-        vulnerability_latest_scan_id = self.vulnerability_latest_scan_id
-        vulnerability_scan_status = self.vulnerability_scan_status
-        if self.docker_container_ips is None:
-            docker_container_ips = None
+        cpu_max = self.cpu_max
+
+        cpu_usage = self.cpu_usage
+
+        docker_container_command = self.docker_container_command
+
+        docker_container_created = self.docker_container_created
+
+        docker_container_ips: Union[List[Any], None]
+        if isinstance(self.docker_container_ips, list):
+            docker_container_ips = self.docker_container_ips
+
         else:
             docker_container_ips = self.docker_container_ips
 
-        docker_labels = self.docker_labels.to_dict() if self.docker_labels else None
+        docker_container_name = self.docker_container_name
 
-        if self.processes is None:
-            processes = None
+        docker_container_network_mode = self.docker_container_network_mode
+
+        docker_container_networks = self.docker_container_networks
+
+        docker_container_ports = self.docker_container_ports
+
+        docker_container_state = self.docker_container_state
+
+        docker_container_state_human = self.docker_container_state_human
+
+        docker_labels: Union[Dict[str, Any], None]
+        if isinstance(self.docker_labels, ModelContainerDockerLabelsType0):
+            docker_labels = self.docker_labels.to_dict()
         else:
-            processes = []
-            for processes_item_data in self.processes:
-                processes_item = processes_item_data.to_dict()
+            docker_labels = self.docker_labels
 
-                processes.append(processes_item)
+        host_name = self.host_name
+
+        image = self.image.to_dict()
+
+        malware_latest_scan_id = self.malware_latest_scan_id
+
+        malware_scan_status = self.malware_scan_status
+
+        malwares_count = self.malwares_count
+
+        memory_max = self.memory_max
+
+        memory_usage = self.memory_usage
+
+        node_id = self.node_id
+
+        node_name = self.node_name
+
+        processes: Union[List[Dict[str, Any]], None]
+        if isinstance(self.processes, list):
+            processes = []
+            for processes_type_0_item_data in self.processes:
+                processes_type_0_item = processes_type_0_item_data.to_dict()
+                processes.append(processes_type_0_item)
+
+        else:
+            processes = self.processes
+
+        secret_latest_scan_id = self.secret_latest_scan_id
+
+        secret_scan_status = self.secret_scan_status
+
+        secrets_count = self.secrets_count
+
+        uptime = self.uptime
+
+        vulnerabilities_count = self.vulnerabilities_count
+
+        vulnerability_latest_scan_id = self.vulnerability_latest_scan_id
+
+        vulnerability_scan_status = self.vulnerability_scan_status
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -188,12 +164,14 @@ class ModelContainer:
                 "cpu_usage": cpu_usage,
                 "docker_container_command": docker_container_command,
                 "docker_container_created": docker_container_created,
+                "docker_container_ips": docker_container_ips,
                 "docker_container_name": docker_container_name,
                 "docker_container_network_mode": docker_container_network_mode,
                 "docker_container_networks": docker_container_networks,
                 "docker_container_ports": docker_container_ports,
                 "docker_container_state": docker_container_state,
                 "docker_container_state_human": docker_container_state_human,
+                "docker_labels": docker_labels,
                 "host_name": host_name,
                 "image": image,
                 "malware_latest_scan_id": malware_latest_scan_id,
@@ -203,6 +181,7 @@ class ModelContainer:
                 "memory_usage": memory_usage,
                 "node_id": node_id,
                 "node_name": node_name,
+                "processes": processes,
                 "secret_latest_scan_id": secret_latest_scan_id,
                 "secret_scan_status": secret_scan_status,
                 "secrets_count": secrets_count,
@@ -210,9 +189,6 @@ class ModelContainer:
                 "vulnerabilities_count": vulnerabilities_count,
                 "vulnerability_latest_scan_id": vulnerability_latest_scan_id,
                 "vulnerability_scan_status": vulnerability_scan_status,
-                "docker_container_ips": docker_container_ips,
-                "docker_labels": docker_labels,
-                "processes": processes,
             }
         )
 
@@ -220,7 +196,7 @@ class ModelContainer:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.model_container_docker_labels import ModelContainerDockerLabels
+        from ..models.model_container_docker_labels_type_0 import ModelContainerDockerLabelsType0
         from ..models.model_container_image import ModelContainerImage
         from ..models.model_process import ModelProcess
 
@@ -233,6 +209,21 @@ class ModelContainer:
 
         docker_container_created = d.pop("docker_container_created")
 
+        def _parse_docker_container_ips(data: object) -> Union[List[Any], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                docker_container_ips_type_0 = cast(List[Any], data)
+
+                return docker_container_ips_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[Any], None], data)
+
+        docker_container_ips = _parse_docker_container_ips(d.pop("docker_container_ips"))
+
         docker_container_name = d.pop("docker_container_name")
 
         docker_container_network_mode = d.pop("docker_container_network_mode")
@@ -244,6 +235,21 @@ class ModelContainer:
         docker_container_state = d.pop("docker_container_state")
 
         docker_container_state_human = d.pop("docker_container_state_human")
+
+        def _parse_docker_labels(data: object) -> Union["ModelContainerDockerLabelsType0", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                docker_labels_type_0 = ModelContainerDockerLabelsType0.from_dict(data)
+
+                return docker_labels_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelContainerDockerLabelsType0", None], data)
+
+        docker_labels = _parse_docker_labels(d.pop("docker_labels"))
 
         host_name = d.pop("host_name")
 
@@ -263,6 +269,26 @@ class ModelContainer:
 
         node_name = d.pop("node_name")
 
+        def _parse_processes(data: object) -> Union[List["ModelProcess"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                processes_type_0 = []
+                _processes_type_0 = data
+                for processes_type_0_item_data in _processes_type_0:
+                    processes_type_0_item = ModelProcess.from_dict(processes_type_0_item_data)
+
+                    processes_type_0.append(processes_type_0_item)
+
+                return processes_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelProcess"], None], data)
+
+        processes = _parse_processes(d.pop("processes"))
+
         secret_latest_scan_id = d.pop("secret_latest_scan_id")
 
         secret_scan_status = d.pop("secret_scan_status")
@@ -277,33 +303,19 @@ class ModelContainer:
 
         vulnerability_scan_status = d.pop("vulnerability_scan_status")
 
-        docker_container_ips = cast(List[Any], d.pop("docker_container_ips"))
-
-        _docker_labels = d.pop("docker_labels")
-        docker_labels: Optional[ModelContainerDockerLabels]
-        if _docker_labels is None:
-            docker_labels = None
-        else:
-            docker_labels = ModelContainerDockerLabels.from_dict(_docker_labels)
-
-        processes = []
-        _processes = d.pop("processes")
-        for processes_item_data in _processes or []:
-            processes_item = ModelProcess.from_dict(processes_item_data)
-
-            processes.append(processes_item)
-
         model_container = cls(
             cpu_max=cpu_max,
             cpu_usage=cpu_usage,
             docker_container_command=docker_container_command,
             docker_container_created=docker_container_created,
+            docker_container_ips=docker_container_ips,
             docker_container_name=docker_container_name,
             docker_container_network_mode=docker_container_network_mode,
             docker_container_networks=docker_container_networks,
             docker_container_ports=docker_container_ports,
             docker_container_state=docker_container_state,
             docker_container_state_human=docker_container_state_human,
+            docker_labels=docker_labels,
             host_name=host_name,
             image=image,
             malware_latest_scan_id=malware_latest_scan_id,
@@ -313,6 +325,7 @@ class ModelContainer:
             memory_usage=memory_usage,
             node_id=node_id,
             node_name=node_name,
+            processes=processes,
             secret_latest_scan_id=secret_latest_scan_id,
             secret_scan_status=secret_scan_status,
             secrets_count=secrets_count,
@@ -320,9 +333,6 @@ class ModelContainer:
             vulnerabilities_count=vulnerabilities_count,
             vulnerability_latest_scan_id=vulnerability_latest_scan_id,
             vulnerability_scan_status=vulnerability_scan_status,
-            docker_container_ips=docker_container_ips,
-            docker_labels=docker_labels,
-            processes=processes,
         )
 
         model_container.additional_properties = d

@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelBasicNode")
 @_attrs_define
 class ModelBasicNode:
     """
-    Example:
-        {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}
-
     Attributes:
         host_name (str):
         name (str):
@@ -27,8 +24,11 @@ class ModelBasicNode:
 
     def to_dict(self) -> Dict[str, Any]:
         host_name = self.host_name
+
         name = self.name
+
         node_id = self.node_id
+
         node_type = self.node_type
 
         field_dict: Dict[str, Any] = {}

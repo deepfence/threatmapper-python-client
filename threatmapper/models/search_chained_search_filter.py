@@ -15,39 +15,25 @@ T = TypeVar("T", bound="SearchChainedSearchFilter")
 @_attrs_define
 class SearchChainedSearchFilter:
     """
-    Example:
-        {'node_filter': {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter':
-            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value':
-            '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter':
-            {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
-            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter':
-            {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter':
-            {'filter_in': {'key': ['', '']}}}, 'window': {'offset': 0, 'size': 6}}, 'next_filter': '', 'relation_ship':
-            'relation_ship'}
-
     Attributes:
-        node_filter (SearchSearchFilter):  Example: {'in_field_filter': ['in_field_filter', 'in_field_filter'],
-            'filters': {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'},
-            {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True, 'field_name':
-            'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in':
-            {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['', '']}}}, 'window': {'offset': 0, 'size':
-            6}}.
+        node_filter (SearchSearchFilter):
         relation_ship (str):
-        next_filter (Union[Unset, Any]):
+        next_filter (Union[Unset, SearchChainedSearchFilter]):
     """
 
     node_filter: "SearchSearchFilter"
     relation_ship: str
-    next_filter: Union[Unset, Any] = UNSET
+    next_filter: Union[Unset, "SearchChainedSearchFilter"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         node_filter = self.node_filter.to_dict()
 
         relation_ship = self.relation_ship
-        next_filter = self.next_filter
+
+        next_filter: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.next_filter, Unset):
+            next_filter = self.next_filter.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -71,7 +57,12 @@ class SearchChainedSearchFilter:
 
         relation_ship = d.pop("relation_ship")
 
-        next_filter = d.pop("next_filter", UNSET)
+        _next_filter = d.pop("next_filter", UNSET)
+        next_filter: Union[Unset, SearchChainedSearchFilter]
+        if isinstance(_next_filter, Unset):
+            next_filter = UNSET
+        else:
+            next_filter = SearchChainedSearchFilter.from_dict(_next_filter)
 
         search_chained_search_filter = cls(
             node_filter=node_filter,

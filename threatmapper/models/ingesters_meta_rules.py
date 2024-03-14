@@ -11,11 +11,6 @@ T = TypeVar("T", bound="IngestersMetaRules")
 @_attrs_define
 class IngestersMetaRules:
     """
-    Example:
-        {'date': 'date', 'reference': 'reference', 'rule_id': 'rule_id', 'filetype': 'filetype', 'rule_name':
-            'rule_name', 'author': 'author', 'file_severity': 'file_severity', 'description': 'description', 'version':
-            'version', 'info': 'info'}
-
     Attributes:
         author (Union[Unset, str]):
         date (Union[Unset, str]):
@@ -43,14 +38,23 @@ class IngestersMetaRules:
 
     def to_dict(self) -> Dict[str, Any]:
         author = self.author
+
         date = self.date
+
         description = self.description
+
         file_severity = self.file_severity
+
         filetype = self.filetype
+
         info = self.info
+
         reference = self.reference
+
         rule_id = self.rule_id
+
         rule_name = self.rule_name
+
         version = self.version
 
         field_dict: Dict[str, Any] = {}

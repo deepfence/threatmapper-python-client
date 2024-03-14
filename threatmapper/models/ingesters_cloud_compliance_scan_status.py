@@ -17,17 +17,10 @@ T = TypeVar("T", bound="IngestersCloudComplianceScanStatus")
 @_attrs_define
 class IngestersCloudComplianceScanStatus:
     """
-    Example:
-        {'result': {'compliance_percentage': 6.027456183070403, 'alarm': 0, 'skip': 2, 'error': 1, 'ok': 5, 'info': 5},
-            'scan_message': 'scan_message', '@timestamp': datetime.datetime(2000, 1, 23, 4, 56, 7,
-            tzinfo=datetime.timezone.utc), 'total_checks': 7, 'scan_status': 'scan_status', 'scan_id': 'scan_id', 'type':
-            'type', 'compliance_check_types': ['compliance_check_types', 'compliance_check_types']}
-
     Attributes:
         timestamp (Union[Unset, datetime.datetime]):
-        compliance_check_types (Union[Unset, None, List[str]]):
-        result (Union[Unset, IngestersComplianceStats]):  Example: {'compliance_percentage': 6.027456183070403, 'alarm':
-            0, 'skip': 2, 'error': 1, 'ok': 5, 'info': 5}.
+        compliance_check_types (Union[List[str], None, Unset]):
+        result (Union[Unset, IngestersComplianceStats]):
         scan_id (Union[Unset, str]):
         scan_message (Union[Unset, str]):
         scan_status (Union[Unset, str]):
@@ -36,7 +29,7 @@ class IngestersCloudComplianceScanStatus:
     """
 
     timestamp: Union[Unset, datetime.datetime] = UNSET
-    compliance_check_types: Union[Unset, None, List[str]] = UNSET
+    compliance_check_types: Union[List[str], None, Unset] = UNSET
     result: Union[Unset, "IngestersComplianceStats"] = UNSET
     scan_id: Union[Unset, str] = UNSET
     scan_message: Union[Unset, str] = UNSET
@@ -50,21 +43,27 @@ class IngestersCloudComplianceScanStatus:
         if not isinstance(self.timestamp, Unset):
             timestamp = self.timestamp.isoformat()
 
-        compliance_check_types: Union[Unset, None, List[str]] = UNSET
-        if not isinstance(self.compliance_check_types, Unset):
-            if self.compliance_check_types is None:
-                compliance_check_types = None
-            else:
-                compliance_check_types = self.compliance_check_types
+        compliance_check_types: Union[List[str], None, Unset]
+        if isinstance(self.compliance_check_types, Unset):
+            compliance_check_types = UNSET
+        elif isinstance(self.compliance_check_types, list):
+            compliance_check_types = self.compliance_check_types
+
+        else:
+            compliance_check_types = self.compliance_check_types
 
         result: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.result, Unset):
             result = self.result.to_dict()
 
         scan_id = self.scan_id
+
         scan_message = self.scan_message
+
         scan_status = self.scan_status
+
         total_checks = self.total_checks
+
         type = self.type
 
         field_dict: Dict[str, Any] = {}
@@ -101,7 +100,22 @@ class IngestersCloudComplianceScanStatus:
         else:
             timestamp = isoparse(_timestamp)
 
-        compliance_check_types = cast(List[str], d.pop("compliance_check_types", UNSET))
+        def _parse_compliance_check_types(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                compliance_check_types_type_0 = cast(List[str], data)
+
+                return compliance_check_types_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
+
+        compliance_check_types = _parse_compliance_check_types(d.pop("compliance_check_types", UNSET))
 
         _result = d.pop("result", UNSET)
         result: Union[Unset, IngestersComplianceStats]

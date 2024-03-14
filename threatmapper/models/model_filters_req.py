@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -6,7 +6,7 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.model_filters_req_having import ModelFiltersReqHaving
+    from ..models.model_filters_req_having_type_0 import ModelFiltersReqHavingType0
 
 
 T = TypeVar("T", bound="ModelFiltersReq")
@@ -15,27 +15,32 @@ T = TypeVar("T", bound="ModelFiltersReq")
 @_attrs_define
 class ModelFiltersReq:
     """
-    Example:
-        {'having': {'key': ''}, 'filters': ['filters', 'filters']}
-
     Attributes:
-        filters (Optional[List[str]]):
-        having (Union[Unset, None, ModelFiltersReqHaving]):
+        filters (Union[List[str], None]):
+        having (Union['ModelFiltersReqHavingType0', None, Unset]):
     """
 
-    filters: Optional[List[str]]
-    having: Union[Unset, None, "ModelFiltersReqHaving"] = UNSET
+    filters: Union[List[str], None]
+    having: Union["ModelFiltersReqHavingType0", None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        if self.filters is None:
-            filters = None
+        from ..models.model_filters_req_having_type_0 import ModelFiltersReqHavingType0
+
+        filters: Union[List[str], None]
+        if isinstance(self.filters, list):
+            filters = self.filters
+
         else:
             filters = self.filters
 
-        having: Union[Unset, None, Dict[str, Any]] = UNSET
-        if not isinstance(self.having, Unset):
-            having = self.having.to_dict() if self.having else None
+        having: Union[Dict[str, Any], None, Unset]
+        if isinstance(self.having, Unset):
+            having = UNSET
+        elif isinstance(self.having, ModelFiltersReqHavingType0):
+            having = self.having.to_dict()
+        else:
+            having = self.having
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -51,19 +56,41 @@ class ModelFiltersReq:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.model_filters_req_having import ModelFiltersReqHaving
+        from ..models.model_filters_req_having_type_0 import ModelFiltersReqHavingType0
 
         d = src_dict.copy()
-        filters = cast(List[str], d.pop("filters"))
 
-        _having = d.pop("having", UNSET)
-        having: Union[Unset, None, ModelFiltersReqHaving]
-        if _having is None:
-            having = None
-        elif isinstance(_having, Unset):
-            having = UNSET
-        else:
-            having = ModelFiltersReqHaving.from_dict(_having)
+        def _parse_filters(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                filters_type_0 = cast(List[str], data)
+
+                return filters_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        filters = _parse_filters(d.pop("filters"))
+
+        def _parse_having(data: object) -> Union["ModelFiltersReqHavingType0", None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                having_type_0 = ModelFiltersReqHavingType0.from_dict(data)
+
+                return having_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelFiltersReqHavingType0", None, Unset], data)
+
+        having = _parse_having(d.pop("having", UNSET))
 
         model_filters_req = cls(
             filters=filters,

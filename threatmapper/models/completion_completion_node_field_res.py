@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -9,19 +9,18 @@ T = TypeVar("T", bound="CompletionCompletionNodeFieldRes")
 @_attrs_define
 class CompletionCompletionNodeFieldRes:
     """
-    Example:
-        {'possible_values': ['possible_values', 'possible_values']}
-
     Attributes:
-        possible_values (Optional[List[str]]):
+        possible_values (Union[List[str], None]):
     """
 
-    possible_values: Optional[List[str]]
+    possible_values: Union[List[str], None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        if self.possible_values is None:
-            possible_values = None
+        possible_values: Union[List[str], None]
+        if isinstance(self.possible_values, list):
+            possible_values = self.possible_values
+
         else:
             possible_values = self.possible_values
 
@@ -38,7 +37,21 @@ class CompletionCompletionNodeFieldRes:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        possible_values = cast(List[str], d.pop("possible_values"))
+
+        def _parse_possible_values(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                possible_values_type_0 = cast(List[str], data)
+
+                return possible_values_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        possible_values = _parse_possible_values(d.pop("possible_values"))
 
         completion_completion_node_field_res = cls(
             possible_values=possible_values,

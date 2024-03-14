@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -6,9 +6,9 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.model_registry_add_req_extras import ModelRegistryAddReqExtras
-    from ..models.model_registry_add_req_non_secret import ModelRegistryAddReqNonSecret
-    from ..models.model_registry_add_req_secret import ModelRegistryAddReqSecret
+    from ..models.model_registry_add_req_extras_type_0 import ModelRegistryAddReqExtrasType0
+    from ..models.model_registry_add_req_non_secret_type_0 import ModelRegistryAddReqNonSecretType0
+    from ..models.model_registry_add_req_secret_type_0 import ModelRegistryAddReqSecretType0
 
 
 T = TypeVar("T", bound="ModelRegistryAddReq")
@@ -17,39 +17,53 @@ T = TypeVar("T", bound="ModelRegistryAddReq")
 @_attrs_define
 class ModelRegistryAddReq:
     """
-    Example:
-        {'non_secret': {'key': ''}, 'registry_type': 'registry_type', 'name': 'name', 'extras': {'key': ''}, 'secret':
-            {'key': ''}}
-
     Attributes:
         name (str):
         registry_type (str):
-        extras (Union[Unset, None, ModelRegistryAddReqExtras]):
-        non_secret (Union[Unset, None, ModelRegistryAddReqNonSecret]):
-        secret (Union[Unset, None, ModelRegistryAddReqSecret]):
+        extras (Union['ModelRegistryAddReqExtrasType0', None, Unset]):
+        non_secret (Union['ModelRegistryAddReqNonSecretType0', None, Unset]):
+        secret (Union['ModelRegistryAddReqSecretType0', None, Unset]):
     """
 
     name: str
     registry_type: str
-    extras: Union[Unset, None, "ModelRegistryAddReqExtras"] = UNSET
-    non_secret: Union[Unset, None, "ModelRegistryAddReqNonSecret"] = UNSET
-    secret: Union[Unset, None, "ModelRegistryAddReqSecret"] = UNSET
+    extras: Union["ModelRegistryAddReqExtrasType0", None, Unset] = UNSET
+    non_secret: Union["ModelRegistryAddReqNonSecretType0", None, Unset] = UNSET
+    secret: Union["ModelRegistryAddReqSecretType0", None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        from ..models.model_registry_add_req_extras_type_0 import ModelRegistryAddReqExtrasType0
+        from ..models.model_registry_add_req_non_secret_type_0 import ModelRegistryAddReqNonSecretType0
+        from ..models.model_registry_add_req_secret_type_0 import ModelRegistryAddReqSecretType0
+
         name = self.name
+
         registry_type = self.registry_type
-        extras: Union[Unset, None, Dict[str, Any]] = UNSET
-        if not isinstance(self.extras, Unset):
-            extras = self.extras.to_dict() if self.extras else None
 
-        non_secret: Union[Unset, None, Dict[str, Any]] = UNSET
-        if not isinstance(self.non_secret, Unset):
-            non_secret = self.non_secret.to_dict() if self.non_secret else None
+        extras: Union[Dict[str, Any], None, Unset]
+        if isinstance(self.extras, Unset):
+            extras = UNSET
+        elif isinstance(self.extras, ModelRegistryAddReqExtrasType0):
+            extras = self.extras.to_dict()
+        else:
+            extras = self.extras
 
-        secret: Union[Unset, None, Dict[str, Any]] = UNSET
-        if not isinstance(self.secret, Unset):
-            secret = self.secret.to_dict() if self.secret else None
+        non_secret: Union[Dict[str, Any], None, Unset]
+        if isinstance(self.non_secret, Unset):
+            non_secret = UNSET
+        elif isinstance(self.non_secret, ModelRegistryAddReqNonSecretType0):
+            non_secret = self.non_secret.to_dict()
+        else:
+            non_secret = self.non_secret
+
+        secret: Union[Dict[str, Any], None, Unset]
+        if isinstance(self.secret, Unset):
+            secret = UNSET
+        elif isinstance(self.secret, ModelRegistryAddReqSecretType0):
+            secret = self.secret.to_dict()
+        else:
+            secret = self.secret
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -70,41 +84,65 @@ class ModelRegistryAddReq:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.model_registry_add_req_extras import ModelRegistryAddReqExtras
-        from ..models.model_registry_add_req_non_secret import ModelRegistryAddReqNonSecret
-        from ..models.model_registry_add_req_secret import ModelRegistryAddReqSecret
+        from ..models.model_registry_add_req_extras_type_0 import ModelRegistryAddReqExtrasType0
+        from ..models.model_registry_add_req_non_secret_type_0 import ModelRegistryAddReqNonSecretType0
+        from ..models.model_registry_add_req_secret_type_0 import ModelRegistryAddReqSecretType0
 
         d = src_dict.copy()
         name = d.pop("name")
 
         registry_type = d.pop("registry_type")
 
-        _extras = d.pop("extras", UNSET)
-        extras: Union[Unset, None, ModelRegistryAddReqExtras]
-        if _extras is None:
-            extras = None
-        elif isinstance(_extras, Unset):
-            extras = UNSET
-        else:
-            extras = ModelRegistryAddReqExtras.from_dict(_extras)
+        def _parse_extras(data: object) -> Union["ModelRegistryAddReqExtrasType0", None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                extras_type_0 = ModelRegistryAddReqExtrasType0.from_dict(data)
 
-        _non_secret = d.pop("non_secret", UNSET)
-        non_secret: Union[Unset, None, ModelRegistryAddReqNonSecret]
-        if _non_secret is None:
-            non_secret = None
-        elif isinstance(_non_secret, Unset):
-            non_secret = UNSET
-        else:
-            non_secret = ModelRegistryAddReqNonSecret.from_dict(_non_secret)
+                return extras_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelRegistryAddReqExtrasType0", None, Unset], data)
 
-        _secret = d.pop("secret", UNSET)
-        secret: Union[Unset, None, ModelRegistryAddReqSecret]
-        if _secret is None:
-            secret = None
-        elif isinstance(_secret, Unset):
-            secret = UNSET
-        else:
-            secret = ModelRegistryAddReqSecret.from_dict(_secret)
+        extras = _parse_extras(d.pop("extras", UNSET))
+
+        def _parse_non_secret(data: object) -> Union["ModelRegistryAddReqNonSecretType0", None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                non_secret_type_0 = ModelRegistryAddReqNonSecretType0.from_dict(data)
+
+                return non_secret_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelRegistryAddReqNonSecretType0", None, Unset], data)
+
+        non_secret = _parse_non_secret(d.pop("non_secret", UNSET))
+
+        def _parse_secret(data: object) -> Union["ModelRegistryAddReqSecretType0", None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                secret_type_0 = ModelRegistryAddReqSecretType0.from_dict(data)
+
+                return secret_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ModelRegistryAddReqSecretType0", None, Unset], data)
+
+        secret = _parse_secret(d.pop("secret", UNSET))
 
         model_registry_add_req = cls(
             name=name,

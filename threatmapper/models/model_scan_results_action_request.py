@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar, Union, cast
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,40 +12,40 @@ T = TypeVar("T", bound="ModelScanResultsActionRequest")
 @_attrs_define
 class ModelScanResultsActionRequest:
     """
-    Example:
-        {'notify_individual': True, 'result_ids': ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id':
-            'scan_id'}
-
     Attributes:
+        result_ids (Union[List[str], None]):
         scan_id (str):
         scan_type (ModelScanResultsActionRequestScanType):
         notify_individual (Union[Unset, bool]):
-        result_ids (Optional[List[str]]):
     """
 
+    result_ids: Union[List[str], None]
     scan_id: str
     scan_type: ModelScanResultsActionRequestScanType
-    result_ids: Optional[List[str]]
     notify_individual: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        result_ids: Union[List[str], None]
+        if isinstance(self.result_ids, list):
+            result_ids = self.result_ids
+
+        else:
+            result_ids = self.result_ids
+
         scan_id = self.scan_id
+
         scan_type = self.scan_type.value
 
         notify_individual = self.notify_individual
-        if self.result_ids is None:
-            result_ids = None
-        else:
-            result_ids = self.result_ids
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "result_ids": result_ids,
                 "scan_id": scan_id,
                 "scan_type": scan_type,
-                "result_ids": result_ids,
             }
         )
         if notify_individual is not UNSET:
@@ -56,19 +56,33 @@ class ModelScanResultsActionRequest:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
+
+        def _parse_result_ids(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                result_ids_type_0 = cast(List[str], data)
+
+                return result_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        result_ids = _parse_result_ids(d.pop("result_ids"))
+
         scan_id = d.pop("scan_id")
 
         scan_type = ModelScanResultsActionRequestScanType(d.pop("scan_type"))
 
         notify_individual = d.pop("notify_individual", UNSET)
 
-        result_ids = cast(List[str], d.pop("result_ids"))
-
         model_scan_results_action_request = cls(
+            result_ids=result_ids,
             scan_id=scan_id,
             scan_type=scan_type,
             notify_individual=notify_individual,
-            result_ids=result_ids,
         )
 
         model_scan_results_action_request.additional_properties = d

@@ -11,12 +11,6 @@ T = TypeVar("T", bound="UtilsScanSbomRequest")
 @_attrs_define
 class UtilsScanSbomRequest:
     """
-    Example:
-        {'skip_scan': True, 'kubernetes_cluster_name': 'kubernetes_cluster_name', 'scan_type': 'scan_type',
-            'sbom_file_path': 'sbom_file_path', 'registry_id': 'registry_id', 'mode': 'mode', 'image_name': 'image_name',
-            'node_type': 'node_type', 'container_name': 'container_name', 'sbom': 'sbom', 'scan_id': 'scan_id', 'image_id':
-            'image_id', 'host_name': 'host_name', 'node_id': 'node_id'}
-
     Attributes:
         sbom (str):
         scan_id (str):
@@ -52,18 +46,31 @@ class UtilsScanSbomRequest:
 
     def to_dict(self) -> Dict[str, Any]:
         sbom = self.sbom
+
         scan_id = self.scan_id
+
         container_name = self.container_name
+
         host_name = self.host_name
+
         image_id = self.image_id
+
         image_name = self.image_name
+
         kubernetes_cluster_name = self.kubernetes_cluster_name
+
         mode = self.mode
+
         node_id = self.node_id
+
         node_type = self.node_type
+
         registry_id = self.registry_id
+
         sbom_file_path = self.sbom_file_path
+
         scan_type = self.scan_type
+
         skip_scan = self.skip_scan
 
         field_dict: Dict[str, Any] = {}

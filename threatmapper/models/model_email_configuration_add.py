@@ -11,11 +11,6 @@ T = TypeVar("T", bound="ModelEmailConfigurationAdd")
 @_attrs_define
 class ModelEmailConfigurationAdd:
     """
-    Example:
-        {'email_id': 'email_id', 'password': 'password', 'smtp': 'smtp', 'port': 'port', 'email_provider':
-            'email_provider', 'amazon_secret_key': 'amazon_secret_key', 'amazon_access_key': 'amazon_access_key',
-            'created_by_user_id': 0, 'ses_region': 'ses_region'}
-
     Attributes:
         amazon_access_key (Union[Unset, str]):
         amazon_secret_key (Union[Unset, str]):
@@ -41,13 +36,21 @@ class ModelEmailConfigurationAdd:
 
     def to_dict(self) -> Dict[str, Any]:
         amazon_access_key = self.amazon_access_key
+
         amazon_secret_key = self.amazon_secret_key
+
         created_by_user_id = self.created_by_user_id
+
         email_id = self.email_id
+
         email_provider = self.email_provider
+
         password = self.password
+
         port = self.port
+
         ses_region = self.ses_region
+
         smtp = self.smtp
 
         field_dict: Dict[str, Any] = {}

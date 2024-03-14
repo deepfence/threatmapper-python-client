@@ -13,14 +13,12 @@ from ...types import Response
 def _get_kwargs(
     registry_id: str,
 ) -> Dict[str, Any]:
-    pass
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "delete",
-        "url": "/deepfence/registryaccount/{registry_id}".format(
-            registry_id=registry_id,
-        ),
+        "url": f"/deepfence/registryaccount/{registry_id}",
     }
+
+    return _kwargs
 
 
 def _parse_response(

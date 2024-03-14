@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelInitAgentReq")
 @_attrs_define
 class ModelInitAgentReq:
     """
-    Example:
-        {'available_workload': 0, 'version': 'version', 'node_id': 'node_id'}
-
     Attributes:
         available_workload (int):
         node_id (str):
@@ -25,7 +22,9 @@ class ModelInitAgentReq:
 
     def to_dict(self) -> Dict[str, Any]:
         available_workload = self.available_workload
+
         node_id = self.node_id
+
         version = self.version
 
         field_dict: Dict[str, Any] = {}

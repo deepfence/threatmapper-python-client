@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -6,8 +6,8 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.api_docs_bad_request_response_error_fields import ApiDocsBadRequestResponseErrorFields
-    from ..models.api_docs_bad_request_response_error_index import ApiDocsBadRequestResponseErrorIndex
+    from ..models.api_docs_bad_request_response_error_fields_type_0 import ApiDocsBadRequestResponseErrorFieldsType0
+    from ..models.api_docs_bad_request_response_error_index_type_0 import ApiDocsBadRequestResponseErrorIndexType0
 
 
 T = TypeVar("T", bound="ApiDocsBadRequestResponse")
@@ -17,28 +17,40 @@ T = TypeVar("T", bound="ApiDocsBadRequestResponse")
 class ApiDocsBadRequestResponse:
     """
     Attributes:
-        error_fields (Union[Unset, None, ApiDocsBadRequestResponseErrorFields]):
-        error_index (Union[Unset, None, ApiDocsBadRequestResponseErrorIndex]):
+        error_fields (Union['ApiDocsBadRequestResponseErrorFieldsType0', None, Unset]):
+        error_index (Union['ApiDocsBadRequestResponseErrorIndexType0', None, Unset]):
         message (Union[Unset, str]):
         success (Union[Unset, bool]):
     """
 
-    error_fields: Union[Unset, None, "ApiDocsBadRequestResponseErrorFields"] = UNSET
-    error_index: Union[Unset, None, "ApiDocsBadRequestResponseErrorIndex"] = UNSET
+    error_fields: Union["ApiDocsBadRequestResponseErrorFieldsType0", None, Unset] = UNSET
+    error_index: Union["ApiDocsBadRequestResponseErrorIndexType0", None, Unset] = UNSET
     message: Union[Unset, str] = UNSET
     success: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        error_fields: Union[Unset, None, Dict[str, Any]] = UNSET
-        if not isinstance(self.error_fields, Unset):
-            error_fields = self.error_fields.to_dict() if self.error_fields else None
+        from ..models.api_docs_bad_request_response_error_fields_type_0 import ApiDocsBadRequestResponseErrorFieldsType0
+        from ..models.api_docs_bad_request_response_error_index_type_0 import ApiDocsBadRequestResponseErrorIndexType0
 
-        error_index: Union[Unset, None, Dict[str, Any]] = UNSET
-        if not isinstance(self.error_index, Unset):
-            error_index = self.error_index.to_dict() if self.error_index else None
+        error_fields: Union[Dict[str, Any], None, Unset]
+        if isinstance(self.error_fields, Unset):
+            error_fields = UNSET
+        elif isinstance(self.error_fields, ApiDocsBadRequestResponseErrorFieldsType0):
+            error_fields = self.error_fields.to_dict()
+        else:
+            error_fields = self.error_fields
+
+        error_index: Union[Dict[str, Any], None, Unset]
+        if isinstance(self.error_index, Unset):
+            error_index = UNSET
+        elif isinstance(self.error_index, ApiDocsBadRequestResponseErrorIndexType0):
+            error_index = self.error_index.to_dict()
+        else:
+            error_index = self.error_index
 
         message = self.message
+
         success = self.success
 
         field_dict: Dict[str, Any] = {}
@@ -57,27 +69,44 @@ class ApiDocsBadRequestResponse:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.api_docs_bad_request_response_error_fields import ApiDocsBadRequestResponseErrorFields
-        from ..models.api_docs_bad_request_response_error_index import ApiDocsBadRequestResponseErrorIndex
+        from ..models.api_docs_bad_request_response_error_fields_type_0 import ApiDocsBadRequestResponseErrorFieldsType0
+        from ..models.api_docs_bad_request_response_error_index_type_0 import ApiDocsBadRequestResponseErrorIndexType0
 
         d = src_dict.copy()
-        _error_fields = d.pop("error_fields", UNSET)
-        error_fields: Union[Unset, None, ApiDocsBadRequestResponseErrorFields]
-        if _error_fields is None:
-            error_fields = None
-        elif isinstance(_error_fields, Unset):
-            error_fields = UNSET
-        else:
-            error_fields = ApiDocsBadRequestResponseErrorFields.from_dict(_error_fields)
 
-        _error_index = d.pop("error_index", UNSET)
-        error_index: Union[Unset, None, ApiDocsBadRequestResponseErrorIndex]
-        if _error_index is None:
-            error_index = None
-        elif isinstance(_error_index, Unset):
-            error_index = UNSET
-        else:
-            error_index = ApiDocsBadRequestResponseErrorIndex.from_dict(_error_index)
+        def _parse_error_fields(data: object) -> Union["ApiDocsBadRequestResponseErrorFieldsType0", None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                error_fields_type_0 = ApiDocsBadRequestResponseErrorFieldsType0.from_dict(data)
+
+                return error_fields_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ApiDocsBadRequestResponseErrorFieldsType0", None, Unset], data)
+
+        error_fields = _parse_error_fields(d.pop("error_fields", UNSET))
+
+        def _parse_error_index(data: object) -> Union["ApiDocsBadRequestResponseErrorIndexType0", None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                error_index_type_0 = ApiDocsBadRequestResponseErrorIndexType0.from_dict(data)
+
+                return error_index_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["ApiDocsBadRequestResponseErrorIndexType0", None, Unset], data)
+
+        error_index = _parse_error_index(d.pop("error_index", UNSET))
 
         message = d.pop("message", UNSET)
 

@@ -14,19 +14,22 @@ from ...types import Response
 def _get_kwargs(
     node_id: str,
     *,
-    json_body: DiagnosisDiagnosticLogsStatus,
+    body: DiagnosisDiagnosticLogsStatus,
 ) -> Dict[str, Any]:
-    pass
+    headers: Dict[str, Any] = {}
 
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "put",
-        "url": "/deepfence/diagnosis/agent-logs/status/{node_id}".format(
-            node_id=node_id,
-        ),
-        "json": json_json_body,
+        "url": f"/deepfence/diagnosis/agent-logs/status/{node_id}",
     }
+
+    _body = body.to_dict()
+
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
 
 
 def _parse_response(
@@ -74,7 +77,7 @@ def sync_detailed(
     node_id: str,
     *,
     client: AuthenticatedClient,
-    json_body: DiagnosisDiagnosticLogsStatus,
+    body: DiagnosisDiagnosticLogsStatus,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update Agent Diagnostic Logs Status
 
@@ -82,8 +85,7 @@ def sync_detailed(
 
     Args:
         node_id (str):
-        json_body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
-            'status'}.
+        body (DiagnosisDiagnosticLogsStatus):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -95,7 +97,7 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         node_id=node_id,
-        json_body=json_body,
+        body=body,
     )
 
     response = client.get_httpx_client().request(
@@ -109,7 +111,7 @@ def sync(
     node_id: str,
     *,
     client: AuthenticatedClient,
-    json_body: DiagnosisDiagnosticLogsStatus,
+    body: DiagnosisDiagnosticLogsStatus,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update Agent Diagnostic Logs Status
 
@@ -117,8 +119,7 @@ def sync(
 
     Args:
         node_id (str):
-        json_body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
-            'status'}.
+        body (DiagnosisDiagnosticLogsStatus):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -131,7 +132,7 @@ def sync(
     return sync_detailed(
         node_id=node_id,
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
@@ -139,7 +140,7 @@ async def asyncio_detailed(
     node_id: str,
     *,
     client: AuthenticatedClient,
-    json_body: DiagnosisDiagnosticLogsStatus,
+    body: DiagnosisDiagnosticLogsStatus,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update Agent Diagnostic Logs Status
 
@@ -147,8 +148,7 @@ async def asyncio_detailed(
 
     Args:
         node_id (str):
-        json_body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
-            'status'}.
+        body (DiagnosisDiagnosticLogsStatus):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -160,7 +160,7 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         node_id=node_id,
-        json_body=json_body,
+        body=body,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -172,7 +172,7 @@ async def asyncio(
     node_id: str,
     *,
     client: AuthenticatedClient,
-    json_body: DiagnosisDiagnosticLogsStatus,
+    body: DiagnosisDiagnosticLogsStatus,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update Agent Diagnostic Logs Status
 
@@ -180,8 +180,7 @@ async def asyncio(
 
     Args:
         node_id (str):
-        json_body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
-            'status'}.
+        body (DiagnosisDiagnosticLogsStatus):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -195,6 +194,6 @@ async def asyncio(
         await asyncio_detailed(
             node_id=node_id,
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

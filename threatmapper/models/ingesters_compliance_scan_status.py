@@ -11,9 +11,6 @@ T = TypeVar("T", bound="IngestersComplianceScanStatus")
 @_attrs_define
 class IngestersComplianceScanStatus:
     """
-    Example:
-        {'scan_message': 'scan_message', 'scan_status': 'scan_status', 'scan_id': 'scan_id'}
-
     Attributes:
         scan_id (Union[Unset, str]):
         scan_message (Union[Unset, str]):
@@ -27,7 +24,9 @@ class IngestersComplianceScanStatus:
 
     def to_dict(self) -> Dict[str, Any]:
         scan_id = self.scan_id
+
         scan_message = self.scan_message
+
         scan_status = self.scan_status
 
         field_dict: Dict[str, Any] = {}

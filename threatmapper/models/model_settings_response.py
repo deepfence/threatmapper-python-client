@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelSettingsResponse")
 @_attrs_define
 class ModelSettingsResponse:
     """
-    Example:
-        {'description': 'description', 'id': 0, 'label': 'label', 'value': '', 'key': 'key'}
-
     Attributes:
         description (str):
         id (int):
@@ -29,9 +26,13 @@ class ModelSettingsResponse:
 
     def to_dict(self) -> Dict[str, Any]:
         description = self.description
+
         id = self.id
+
         key = self.key
+
         label = self.label
+
         value = self.value
 
         field_dict: Dict[str, Any] = {}

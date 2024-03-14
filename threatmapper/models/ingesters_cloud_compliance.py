@@ -11,13 +11,6 @@ T = TypeVar("T", bound="IngestersCloudCompliance")
 @_attrs_define
 class IngestersCloudCompliance:
     """
-    Example:
-        {'severity': 'severity', 'reason': 'reason', 'control_id': 'control_id', 'resource': 'resource', 'count': 0,
-            'description': 'description', 'cloud_provider': 'cloud_provider', 'title': 'title', 'type': 'type', 'doc_id':
-            'doc_id', 'compliance_check_type': 'compliance_check_type', '@timestamp': '@timestamp', 'account_id':
-            'account_id', 'service': 'service', 'scan_id': 'scan_id', 'region': 'region', 'group': 'group', 'status':
-            'status'}
-
     Attributes:
         timestamp (Union[Unset, str]):
         account_id (Union[Unset, str]):
@@ -61,22 +54,39 @@ class IngestersCloudCompliance:
 
     def to_dict(self) -> Dict[str, Any]:
         timestamp = self.timestamp
+
         account_id = self.account_id
+
         cloud_provider = self.cloud_provider
+
         compliance_check_type = self.compliance_check_type
+
         control_id = self.control_id
+
         count = self.count
+
         description = self.description
+
         doc_id = self.doc_id
+
         group = self.group
+
         reason = self.reason
+
         region = self.region
+
         resource = self.resource
+
         scan_id = self.scan_id
+
         service = self.service
+
         severity = self.severity
+
         status = self.status
+
         title = self.title
+
         type = self.type
 
         field_dict: Dict[str, Any] = {}

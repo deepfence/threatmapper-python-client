@@ -11,10 +11,6 @@ T = TypeVar("T", bound="ModelGenerativeAiIntegrationListResponse")
 @_attrs_define
 class ModelGenerativeAiIntegrationListResponse:
     """
-    Example:
-        {'default_integration': True, 'id': 0, 'label': 'label', 'integration_type': 'integration_type',
-            'last_error_msg': 'last_error_msg'}
-
     Attributes:
         default_integration (Union[Unset, bool]):
         id (Union[Unset, int]):
@@ -32,9 +28,13 @@ class ModelGenerativeAiIntegrationListResponse:
 
     def to_dict(self) -> Dict[str, Any]:
         default_integration = self.default_integration
+
         id = self.id
+
         integration_type = self.integration_type
+
         label = self.label
+
         last_error_msg = self.last_error_msg
 
         field_dict: Dict[str, Any] = {}

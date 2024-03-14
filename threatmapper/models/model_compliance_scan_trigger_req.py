@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -16,53 +16,47 @@ T = TypeVar("T", bound="ModelComplianceScanTriggerReq")
 @_attrs_define
 class ModelComplianceScanTriggerReq:
     """
-    Example:
-        {'is_priority': True, 'benchmark_types': ['benchmark_types', 'benchmark_types'], 'filters':
-            {'container_scan_filter': {'filter_in': {'key': ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key':
-            ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}}, 'node_ids':
-            [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}]}
-
     Attributes:
-        filters (ModelScanFilter):  Example: {'container_scan_filter': {'filter_in': {'key': ['', '']}},
-            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['',
-            '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in':
-            {'key': ['', '']}}}.
-        benchmark_types (Optional[List[str]]):
+        benchmark_types (Union[List[str], None]):
+        filters (ModelScanFilter):
+        node_ids (Union[List['ModelNodeIdentifier'], None]):
         is_priority (Union[Unset, bool]):
-        node_ids (Optional[List['ModelNodeIdentifier']]):
     """
 
+    benchmark_types: Union[List[str], None]
     filters: "ModelScanFilter"
-    benchmark_types: Optional[List[str]]
-    node_ids: Optional[List["ModelNodeIdentifier"]]
+    node_ids: Union[List["ModelNodeIdentifier"], None]
     is_priority: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        filters = self.filters.to_dict()
+        benchmark_types: Union[List[str], None]
+        if isinstance(self.benchmark_types, list):
+            benchmark_types = self.benchmark_types
 
-        if self.benchmark_types is None:
-            benchmark_types = None
         else:
             benchmark_types = self.benchmark_types
 
-        is_priority = self.is_priority
-        if self.node_ids is None:
-            node_ids = None
-        else:
-            node_ids = []
-            for node_ids_item_data in self.node_ids:
-                node_ids_item = node_ids_item_data.to_dict()
+        filters = self.filters.to_dict()
 
-                node_ids.append(node_ids_item)
+        node_ids: Union[List[Dict[str, Any]], None]
+        if isinstance(self.node_ids, list):
+            node_ids = []
+            for node_ids_type_0_item_data in self.node_ids:
+                node_ids_type_0_item = node_ids_type_0_item_data.to_dict()
+                node_ids.append(node_ids_type_0_item)
+
+        else:
+            node_ids = self.node_ids
+
+        is_priority = self.is_priority
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "filters": filters,
                 "benchmark_types": benchmark_types,
+                "filters": filters,
                 "node_ids": node_ids,
             }
         )
@@ -77,24 +71,51 @@ class ModelComplianceScanTriggerReq:
         from ..models.model_scan_filter import ModelScanFilter
 
         d = src_dict.copy()
+
+        def _parse_benchmark_types(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                benchmark_types_type_0 = cast(List[str], data)
+
+                return benchmark_types_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        benchmark_types = _parse_benchmark_types(d.pop("benchmark_types"))
+
         filters = ModelScanFilter.from_dict(d.pop("filters"))
 
-        benchmark_types = cast(List[str], d.pop("benchmark_types"))
+        def _parse_node_ids(data: object) -> Union[List["ModelNodeIdentifier"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                node_ids_type_0 = []
+                _node_ids_type_0 = data
+                for node_ids_type_0_item_data in _node_ids_type_0:
+                    node_ids_type_0_item = ModelNodeIdentifier.from_dict(node_ids_type_0_item_data)
+
+                    node_ids_type_0.append(node_ids_type_0_item)
+
+                return node_ids_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelNodeIdentifier"], None], data)
+
+        node_ids = _parse_node_ids(d.pop("node_ids"))
 
         is_priority = d.pop("is_priority", UNSET)
 
-        node_ids = []
-        _node_ids = d.pop("node_ids")
-        for node_ids_item_data in _node_ids or []:
-            node_ids_item = ModelNodeIdentifier.from_dict(node_ids_item_data)
-
-            node_ids.append(node_ids_item)
-
         model_compliance_scan_trigger_req = cls(
-            filters=filters,
             benchmark_types=benchmark_types,
-            is_priority=is_priority,
+            filters=filters,
             node_ids=node_ids,
+            is_priority=is_priority,
         )
 
         model_compliance_scan_trigger_req.additional_properties = d

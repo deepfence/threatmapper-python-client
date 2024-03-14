@@ -14,24 +14,25 @@ from ...types import UNSET, Response, Unset
 
 def _get_kwargs(
     *,
-    integration_type: Union[Unset, None, ListGenerativeAiIntegrationIntegrationType] = UNSET,
+    integration_type: Union[Unset, ListGenerativeAiIntegrationIntegrationType] = UNSET,
 ) -> Dict[str, Any]:
-    pass
-
     params: Dict[str, Any] = {}
-    json_integration_type: Union[Unset, None, str] = UNSET
+
+    json_integration_type: Union[Unset, str] = UNSET
     if not isinstance(integration_type, Unset):
-        json_integration_type = integration_type.value if integration_type else None
+        json_integration_type = integration_type.value
 
     params["integration_type"] = json_integration_type
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "get",
         "url": "/deepfence/generative-ai-integration",
         "params": params,
     }
+
+    return _kwargs
 
 
 def _parse_response(
@@ -88,7 +89,7 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    integration_type: Union[Unset, None, ListGenerativeAiIntegrationIntegrationType] = UNSET,
+    integration_type: Union[Unset, ListGenerativeAiIntegrationIntegrationType] = UNSET,
 ) -> Response[
     Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["ModelGenerativeAiIntegrationListResponse"]]
 ]:
@@ -97,7 +98,7 @@ def sync_detailed(
      List all the added Generative AI Integrations
 
     Args:
-        integration_type (Union[Unset, None, ListGenerativeAiIntegrationIntegrationType]):
+        integration_type (Union[Unset, ListGenerativeAiIntegrationIntegrationType]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -121,7 +122,7 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    integration_type: Union[Unset, None, ListGenerativeAiIntegrationIntegrationType] = UNSET,
+    integration_type: Union[Unset, ListGenerativeAiIntegrationIntegrationType] = UNSET,
 ) -> Optional[
     Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["ModelGenerativeAiIntegrationListResponse"]]
 ]:
@@ -130,7 +131,7 @@ def sync(
      List all the added Generative AI Integrations
 
     Args:
-        integration_type (Union[Unset, None, ListGenerativeAiIntegrationIntegrationType]):
+        integration_type (Union[Unset, ListGenerativeAiIntegrationIntegrationType]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -149,7 +150,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    integration_type: Union[Unset, None, ListGenerativeAiIntegrationIntegrationType] = UNSET,
+    integration_type: Union[Unset, ListGenerativeAiIntegrationIntegrationType] = UNSET,
 ) -> Response[
     Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["ModelGenerativeAiIntegrationListResponse"]]
 ]:
@@ -158,7 +159,7 @@ async def asyncio_detailed(
      List all the added Generative AI Integrations
 
     Args:
-        integration_type (Union[Unset, None, ListGenerativeAiIntegrationIntegrationType]):
+        integration_type (Union[Unset, ListGenerativeAiIntegrationIntegrationType]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -180,7 +181,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    integration_type: Union[Unset, None, ListGenerativeAiIntegrationIntegrationType] = UNSET,
+    integration_type: Union[Unset, ListGenerativeAiIntegrationIntegrationType] = UNSET,
 ) -> Optional[
     Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["ModelGenerativeAiIntegrationListResponse"]]
 ]:
@@ -189,7 +190,7 @@ async def asyncio(
      List all the added Generative AI Integrations
 
     Args:
-        integration_type (Union[Unset, None, ListGenerativeAiIntegrationIntegrationType]):
+        integration_type (Union[Unset, ListGenerativeAiIntegrationIntegrationType]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

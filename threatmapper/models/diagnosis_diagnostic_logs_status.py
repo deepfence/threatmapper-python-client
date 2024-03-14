@@ -11,9 +11,6 @@ T = TypeVar("T", bound="DiagnosisDiagnosticLogsStatus")
 @_attrs_define
 class DiagnosisDiagnosticLogsStatus:
     """
-    Example:
-        {'message': 'message', 'status': 'status'}
-
     Attributes:
         status (str):
         message (Union[Unset, str]):
@@ -25,6 +22,7 @@ class DiagnosisDiagnosticLogsStatus:
 
     def to_dict(self) -> Dict[str, Any]:
         status = self.status
+
         message = self.message
 
         field_dict: Dict[str, Any] = {}

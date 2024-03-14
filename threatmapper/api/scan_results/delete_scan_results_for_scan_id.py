@@ -15,15 +15,12 @@ def _get_kwargs(
     scan_type: DeleteScanResultsForScanIDScanType,
     scan_id: str,
 ) -> Dict[str, Any]:
-    pass
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "delete",
-        "url": "/deepfence/scan/{scan_type}/{scan_id}".format(
-            scan_type=scan_type,
-            scan_id=scan_id,
-        ),
+        "url": f"/deepfence/scan/{scan_type}/{scan_id}",
     }
+
+    return _kwargs
 
 
 def _parse_response(

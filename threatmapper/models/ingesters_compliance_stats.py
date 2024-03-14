@@ -11,9 +11,6 @@ T = TypeVar("T", bound="IngestersComplianceStats")
 @_attrs_define
 class IngestersComplianceStats:
     """
-    Example:
-        {'compliance_percentage': 6.027456183070403, 'alarm': 0, 'skip': 2, 'error': 1, 'ok': 5, 'info': 5}
-
     Attributes:
         alarm (Union[Unset, int]):
         compliance_percentage (Union[Unset, float]):
@@ -33,10 +30,15 @@ class IngestersComplianceStats:
 
     def to_dict(self) -> Dict[str, Any]:
         alarm = self.alarm
+
         compliance_percentage = self.compliance_percentage
+
         error = self.error
+
         info = self.info
+
         ok = self.ok
+
         skip = self.skip
 
         field_dict: Dict[str, Any] = {}

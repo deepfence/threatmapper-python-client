@@ -11,51 +11,55 @@ T = TypeVar("T", bound="ModelScanReportFieldsResponse")
 @_attrs_define
 class ModelScanReportFieldsResponse:
     """
-    Example:
-        {'malware': ['malware', 'malware'], 'compliance': ['compliance', 'compliance'], 'secret': ['secret', 'secret'],
-            'vulnerability': ['vulnerability', 'vulnerability']}
-
     Attributes:
-        compliance (Union[Unset, None, List[str]]):
-        malware (Union[Unset, None, List[str]]):
-        secret (Union[Unset, None, List[str]]):
-        vulnerability (Union[Unset, None, List[str]]):
+        compliance (Union[List[str], None, Unset]):
+        malware (Union[List[str], None, Unset]):
+        secret (Union[List[str], None, Unset]):
+        vulnerability (Union[List[str], None, Unset]):
     """
 
-    compliance: Union[Unset, None, List[str]] = UNSET
-    malware: Union[Unset, None, List[str]] = UNSET
-    secret: Union[Unset, None, List[str]] = UNSET
-    vulnerability: Union[Unset, None, List[str]] = UNSET
+    compliance: Union[List[str], None, Unset] = UNSET
+    malware: Union[List[str], None, Unset] = UNSET
+    secret: Union[List[str], None, Unset] = UNSET
+    vulnerability: Union[List[str], None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        compliance: Union[Unset, None, List[str]] = UNSET
-        if not isinstance(self.compliance, Unset):
-            if self.compliance is None:
-                compliance = None
-            else:
-                compliance = self.compliance
+        compliance: Union[List[str], None, Unset]
+        if isinstance(self.compliance, Unset):
+            compliance = UNSET
+        elif isinstance(self.compliance, list):
+            compliance = self.compliance
 
-        malware: Union[Unset, None, List[str]] = UNSET
-        if not isinstance(self.malware, Unset):
-            if self.malware is None:
-                malware = None
-            else:
-                malware = self.malware
+        else:
+            compliance = self.compliance
 
-        secret: Union[Unset, None, List[str]] = UNSET
-        if not isinstance(self.secret, Unset):
-            if self.secret is None:
-                secret = None
-            else:
-                secret = self.secret
+        malware: Union[List[str], None, Unset]
+        if isinstance(self.malware, Unset):
+            malware = UNSET
+        elif isinstance(self.malware, list):
+            malware = self.malware
 
-        vulnerability: Union[Unset, None, List[str]] = UNSET
-        if not isinstance(self.vulnerability, Unset):
-            if self.vulnerability is None:
-                vulnerability = None
-            else:
-                vulnerability = self.vulnerability
+        else:
+            malware = self.malware
+
+        secret: Union[List[str], None, Unset]
+        if isinstance(self.secret, Unset):
+            secret = UNSET
+        elif isinstance(self.secret, list):
+            secret = self.secret
+
+        else:
+            secret = self.secret
+
+        vulnerability: Union[List[str], None, Unset]
+        if isinstance(self.vulnerability, Unset):
+            vulnerability = UNSET
+        elif isinstance(self.vulnerability, list):
+            vulnerability = self.vulnerability
+
+        else:
+            vulnerability = self.vulnerability
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -74,13 +78,74 @@ class ModelScanReportFieldsResponse:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        compliance = cast(List[str], d.pop("compliance", UNSET))
 
-        malware = cast(List[str], d.pop("malware", UNSET))
+        def _parse_compliance(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                compliance_type_0 = cast(List[str], data)
 
-        secret = cast(List[str], d.pop("secret", UNSET))
+                return compliance_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
 
-        vulnerability = cast(List[str], d.pop("vulnerability", UNSET))
+        compliance = _parse_compliance(d.pop("compliance", UNSET))
+
+        def _parse_malware(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                malware_type_0 = cast(List[str], data)
+
+                return malware_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
+
+        malware = _parse_malware(d.pop("malware", UNSET))
+
+        def _parse_secret(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                secret_type_0 = cast(List[str], data)
+
+                return secret_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
+
+        secret = _parse_secret(d.pop("secret", UNSET))
+
+        def _parse_vulnerability(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                vulnerability_type_0 = cast(List[str], data)
+
+                return vulnerability_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
+
+        vulnerability = _parse_vulnerability(d.pop("vulnerability", UNSET))
 
         model_scan_report_fields_response = cls(
             compliance=compliance,

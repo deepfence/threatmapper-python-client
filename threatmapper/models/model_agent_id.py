@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelAgentID")
 @_attrs_define
 class ModelAgentID:
     """
-    Example:
-        {'available_workload': 0, 'node_id': 'node_id'}
-
     Attributes:
         available_workload (int):
         node_id (str):
@@ -23,6 +20,7 @@ class ModelAgentID:
 
     def to_dict(self) -> Dict[str, Any]:
         available_workload = self.available_workload
+
         node_id = self.node_id
 
         field_dict: Dict[str, Any] = {}

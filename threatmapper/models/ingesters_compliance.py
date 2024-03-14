@@ -11,13 +11,6 @@ T = TypeVar("T", bound="IngestersCompliance")
 @_attrs_define
 class IngestersCompliance:
     """
-    Example:
-        {'resource': 'resource', 'description': 'description', 'test_category': 'test_category', 'type': 'type',
-            'remediation_ansible': 'remediation_ansible', 'compliance_check_type': 'compliance_check_type',
-            'test_rationale': 'test_rationale', 'test_severity': 'test_severity', 'node_type': 'node_type',
-            'remediation_puppet': 'remediation_puppet', 'scan_id': 'scan_id', 'remediation_script': 'remediation_script',
-            'node_id': 'node_id', 'status': 'status', 'test_desc': 'test_desc', 'test_number': 'test_number'}
-
     Attributes:
         compliance_check_type (Union[Unset, str]):
         description (Union[Unset, str]):
@@ -57,20 +50,35 @@ class IngestersCompliance:
 
     def to_dict(self) -> Dict[str, Any]:
         compliance_check_type = self.compliance_check_type
+
         description = self.description
+
         node_id = self.node_id
+
         node_type = self.node_type
+
         remediation_ansible = self.remediation_ansible
+
         remediation_puppet = self.remediation_puppet
+
         remediation_script = self.remediation_script
+
         resource = self.resource
+
         scan_id = self.scan_id
+
         status = self.status
+
         test_category = self.test_category
+
         test_desc = self.test_desc
+
         test_number = self.test_number
+
         test_rationale = self.test_rationale
+
         test_severity = self.test_severity
+
         type = self.type
 
         field_dict: Dict[str, Any] = {}

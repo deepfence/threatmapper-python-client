@@ -11,12 +11,8 @@ T = TypeVar("T", bound="ModelCloudNodeComplianceControl")
 @_attrs_define
 class ModelCloudNodeComplianceControl:
     """
-    Example:
-        {'category_hierarchy': ['category_hierarchy', 'category_hierarchy'], 'control_id': 'control_id', 'service':
-            'service', 'description': 'description', 'title': 'title', 'enabled': True}
-
     Attributes:
-        category_hierarchy (Union[Unset, None, List[str]]):
+        category_hierarchy (Union[List[str], None, Unset]):
         control_id (Union[Unset, str]):
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
@@ -24,7 +20,7 @@ class ModelCloudNodeComplianceControl:
         title (Union[Unset, str]):
     """
 
-    category_hierarchy: Union[Unset, None, List[str]] = UNSET
+    category_hierarchy: Union[List[str], None, Unset] = UNSET
     control_id: Union[Unset, str] = UNSET
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
@@ -33,17 +29,23 @@ class ModelCloudNodeComplianceControl:
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        category_hierarchy: Union[Unset, None, List[str]] = UNSET
-        if not isinstance(self.category_hierarchy, Unset):
-            if self.category_hierarchy is None:
-                category_hierarchy = None
-            else:
-                category_hierarchy = self.category_hierarchy
+        category_hierarchy: Union[List[str], None, Unset]
+        if isinstance(self.category_hierarchy, Unset):
+            category_hierarchy = UNSET
+        elif isinstance(self.category_hierarchy, list):
+            category_hierarchy = self.category_hierarchy
+
+        else:
+            category_hierarchy = self.category_hierarchy
 
         control_id = self.control_id
+
         description = self.description
+
         enabled = self.enabled
+
         service = self.service
+
         title = self.title
 
         field_dict: Dict[str, Any] = {}
@@ -67,7 +69,23 @@ class ModelCloudNodeComplianceControl:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        category_hierarchy = cast(List[str], d.pop("category_hierarchy", UNSET))
+
+        def _parse_category_hierarchy(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                category_hierarchy_type_0 = cast(List[str], data)
+
+                return category_hierarchy_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
+
+        category_hierarchy = _parse_category_hierarchy(d.pop("category_hierarchy", UNSET))
 
         control_id = d.pop("control_id", UNSET)
 

@@ -11,10 +11,6 @@ T = TypeVar("T", bound="ModelEmailConfigurationResp")
 @_attrs_define
 class ModelEmailConfigurationResp:
     """
-    Example:
-        {'email_id': 'email_id', 'smtp': 'smtp', 'port': 'port', 'email_provider': 'email_provider', 'id': 6,
-            'created_by_user_id': 0, 'ses_region': 'ses_region'}
-
     Attributes:
         created_by_user_id (Union[Unset, int]):
         email_id (Union[Unset, str]):
@@ -36,11 +32,17 @@ class ModelEmailConfigurationResp:
 
     def to_dict(self) -> Dict[str, Any]:
         created_by_user_id = self.created_by_user_id
+
         email_id = self.email_id
+
         email_provider = self.email_provider
+
         id = self.id
+
         port = self.port
+
         ses_region = self.ses_region
+
         smtp = self.smtp
 
         field_dict: Dict[str, Any] = {}

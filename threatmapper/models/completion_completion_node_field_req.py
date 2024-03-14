@@ -15,14 +15,10 @@ T = TypeVar("T", bound="CompletionCompletionNodeFieldReq")
 @_attrs_define
 class CompletionCompletionNodeFieldReq:
     """
-    Example:
-        {'completion': 'completion', 'scan_id': 'scan_id', 'window': {'offset': 0, 'size': 6}, 'field_name':
-            'field_name'}
-
     Attributes:
         completion (str):
         field_name (str):
-        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
+        window (ModelFetchWindow):
         scan_id (Union[Unset, str]):
     """
 
@@ -34,7 +30,9 @@ class CompletionCompletionNodeFieldReq:
 
     def to_dict(self) -> Dict[str, Any]:
         completion = self.completion
+
         field_name = self.field_name
+
         window = self.window.to_dict()
 
         scan_id = self.scan_id

@@ -17,56 +17,11 @@ T = TypeVar("T", bound="SearchSearchNodeReq")
 @_attrs_define
 class SearchSearchNodeReq:
     """
-    Example:
-        {'node_filter': {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter':
-            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value':
-            '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter':
-            {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
-            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter':
-            {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter':
-            {'filter_in': {'key': ['', '']}}}, 'window': {'offset': 0, 'size': 6}}, 'extended_node_filter':
-            {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
-            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
-            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields':
-            [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
-            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in':
-            {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
-            {'key': ['', '']}}}, 'window': {'offset': 0, 'size': 6}}, 'related_node_filter': {'node_filter':
-            {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
-            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
-            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields':
-            [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
-            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in':
-            {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
-            {'key': ['', '']}}}, 'window': {'offset': 0, 'size': 6}}, 'next_filter': '', 'relation_ship': 'relation_ship'},
-            'window': {'offset': 0, 'size': 6}}
-
     Attributes:
-        node_filter (SearchSearchFilter):  Example: {'in_field_filter': ['in_field_filter', 'in_field_filter'],
-            'filters': {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'},
-            {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True, 'field_name':
-            'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in':
-            {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['', '']}}}, 'window': {'offset': 0, 'size':
-            6}}.
-        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
-        extended_node_filter (Union[Unset, SearchSearchFilter]):  Example: {'in_field_filter': ['in_field_filter',
-            'in_field_filter'], 'filters': {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name':
-            'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
-            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
-            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}, 'contains_filter':
-            {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
-            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['', '']}}}, 'window':
-            {'offset': 0, 'size': 6}}.
-        related_node_filter (Union[Unset, SearchChainedSearchFilter]):  Example: {'node_filter': {'in_field_filter':
-            ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than': True, 'field_value': '',
-            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}],
-            'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
-            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]},
-            'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['',
-            '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
-            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'next_filter': '', 'relation_ship': 'relation_ship'}.
+        node_filter (SearchSearchFilter):
+        window (ModelFetchWindow):
+        extended_node_filter (Union[Unset, SearchSearchFilter]):
+        related_node_filter (Union[Unset, SearchChainedSearchFilter]):
     """
 
     node_filter: "SearchSearchFilter"

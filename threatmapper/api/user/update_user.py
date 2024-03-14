@@ -15,19 +15,22 @@ from ...types import Response
 def _get_kwargs(
     id: int,
     *,
-    json_body: ModelUpdateUserIDRequest,
+    body: ModelUpdateUserIDRequest,
 ) -> Dict[str, Any]:
-    pass
+    headers: Dict[str, Any] = {}
 
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "put",
-        "url": "/deepfence/users/{id}".format(
-            id=id,
-        ),
-        "json": json_json_body,
+        "url": f"/deepfence/users/{id}",
     }
+
+    _body = body.to_dict()
+
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
 
 
 def _parse_response(
@@ -76,7 +79,7 @@ def sync_detailed(
     id: int,
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserIDRequest,
+    body: ModelUpdateUserIDRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelUser]]:
     """Update User by User ID
 
@@ -84,8 +87,7 @@ def sync_detailed(
 
     Args:
         id (int):
-        json_body (ModelUpdateUserIDRequest):  Example: {'is_active': True, 'role': 'admin',
-            'last_name': 'last_name', 'first_name': 'first_name'}.
+        body (ModelUpdateUserIDRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -97,7 +99,7 @@ def sync_detailed(
 
     kwargs = _get_kwargs(
         id=id,
-        json_body=json_body,
+        body=body,
     )
 
     response = client.get_httpx_client().request(
@@ -111,7 +113,7 @@ def sync(
     id: int,
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserIDRequest,
+    body: ModelUpdateUserIDRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelUser]]:
     """Update User by User ID
 
@@ -119,8 +121,7 @@ def sync(
 
     Args:
         id (int):
-        json_body (ModelUpdateUserIDRequest):  Example: {'is_active': True, 'role': 'admin',
-            'last_name': 'last_name', 'first_name': 'first_name'}.
+        body (ModelUpdateUserIDRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -133,7 +134,7 @@ def sync(
     return sync_detailed(
         id=id,
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
@@ -141,7 +142,7 @@ async def asyncio_detailed(
     id: int,
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserIDRequest,
+    body: ModelUpdateUserIDRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelUser]]:
     """Update User by User ID
 
@@ -149,8 +150,7 @@ async def asyncio_detailed(
 
     Args:
         id (int):
-        json_body (ModelUpdateUserIDRequest):  Example: {'is_active': True, 'role': 'admin',
-            'last_name': 'last_name', 'first_name': 'first_name'}.
+        body (ModelUpdateUserIDRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -162,7 +162,7 @@ async def asyncio_detailed(
 
     kwargs = _get_kwargs(
         id=id,
-        json_body=json_body,
+        body=body,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -174,7 +174,7 @@ async def asyncio(
     id: int,
     *,
     client: AuthenticatedClient,
-    json_body: ModelUpdateUserIDRequest,
+    body: ModelUpdateUserIDRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelUser]]:
     """Update User by User ID
 
@@ -182,8 +182,7 @@ async def asyncio(
 
     Args:
         id (int):
-        json_body (ModelUpdateUserIDRequest):  Example: {'is_active': True, 'role': 'admin',
-            'last_name': 'last_name', 'first_name': 'first_name'}.
+        body (ModelUpdateUserIDRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -197,6 +196,6 @@ async def asyncio(
         await asyncio_detailed(
             id=id,
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

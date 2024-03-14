@@ -22,6 +22,7 @@ class ApiDocsFailureResponse:
 
     def to_dict(self) -> Dict[str, Any]:
         message = self.message
+
         success = self.success
 
         field_dict: Dict[str, Any] = {}

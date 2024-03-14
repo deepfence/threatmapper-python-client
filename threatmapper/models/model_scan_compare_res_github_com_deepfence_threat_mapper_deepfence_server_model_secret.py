@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -13,35 +13,23 @@ T = TypeVar("T", bound="ModelScanCompareResGithubComDeepfenceThreatMapperDeepfen
 @_attrs_define
 class ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret:
     """
-    Example:
-        {'new': [{'full_filename': 'full_filename', 'level': 'level', 'masked': True, 'part': 'part',
-            'relative_ending_index': 0, 'starting_index': 5, 'resources': [{'node_type': 'node_type', 'name': 'name',
-            'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name':
-            'host_name', 'node_id': 'node_id'}], 'signature_to_match': 'signature_to_match', 'rule_id': 1, 'score':
-            5.962133916683182, 'matched_content': 'matched_content', 'updated_at': 2, 'name': 'name',
-            'relative_starting_index': 6, 'node_id': 'node_id'}, {'full_filename': 'full_filename', 'level': 'level',
-            'masked': True, 'part': 'part', 'relative_ending_index': 0, 'starting_index': 5, 'resources': [{'node_type':
-            'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name':
-            'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'signature_to_match': 'signature_to_match', 'rule_id':
-            1, 'score': 5.962133916683182, 'matched_content': 'matched_content', 'updated_at': 2, 'name': 'name',
-            'relative_starting_index': 6, 'node_id': 'node_id'}]}
-
     Attributes:
-        new (Optional[List['ModelSecret']]):
+        new (Union[List['ModelSecret'], None]):
     """
 
-    new: Optional[List["ModelSecret"]]
+    new: Union[List["ModelSecret"], None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        if self.new is None:
-            new = None
-        else:
+        new: Union[List[Dict[str, Any]], None]
+        if isinstance(self.new, list):
             new = []
-            for new_item_data in self.new:
-                new_item = new_item_data.to_dict()
+            for new_type_0_item_data in self.new:
+                new_type_0_item = new_type_0_item_data.to_dict()
+                new.append(new_type_0_item)
 
-                new.append(new_item)
+        else:
+            new = self.new
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -58,20 +46,32 @@ class ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecre
         from ..models.model_secret import ModelSecret
 
         d = src_dict.copy()
-        new = []
-        _new = d.pop("new")
-        for new_item_data in _new or []:
-            new_item = ModelSecret.from_dict(new_item_data)
 
-            new.append(new_item)
+        def _parse_new(data: object) -> Union[List["ModelSecret"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                new_type_0 = []
+                _new_type_0 = data
+                for new_type_0_item_data in _new_type_0:
+                    new_type_0_item = ModelSecret.from_dict(new_type_0_item_data)
+
+                    new_type_0.append(new_type_0_item)
+
+                return new_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelSecret"], None], data)
+
+        new = _parse_new(d.pop("new"))
 
         model_scan_compare_res_github_com_deepfence_threat_mapper_deepfence_server_model_secret = cls(
             new=new,
         )
 
-        model_scan_compare_res_github_com_deepfence_threat_mapper_deepfence_server_model_secret.additional_properties = (
-            d
-        )
+        model_scan_compare_res_github_com_deepfence_threat_mapper_deepfence_server_model_secret.additional_properties = d
         return model_scan_compare_res_github_com_deepfence_threat_mapper_deepfence_server_model_secret
 
     @property

@@ -15,10 +15,6 @@ T = TypeVar("T", bound="ModelAddGenerativeAiBedrockIntegration")
 @_attrs_define
 class ModelAddGenerativeAiBedrockIntegration:
     """
-    Example:
-        {'aws_region': 'us-east-1', 'aws_access_key': 'aws_access_key', 'model_id': 'anthropic.claude-v2',
-            'aws_secret_key': 'aws_secret_key', 'use_iam_role': True}
-
     Attributes:
         aws_region (ModelAddGenerativeAiBedrockIntegrationAwsRegion):
         model_id (ModelAddGenerativeAiBedrockIntegrationModelId):
@@ -40,7 +36,9 @@ class ModelAddGenerativeAiBedrockIntegration:
         model_id = self.model_id.value
 
         aws_access_key = self.aws_access_key
+
         aws_secret_key = self.aws_secret_key
+
         use_iam_role = self.use_iam_role
 
         field_dict: Dict[str, Any] = {}

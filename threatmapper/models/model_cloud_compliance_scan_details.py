@@ -15,46 +15,46 @@ T = TypeVar("T", bound="ModelCloudComplianceScanDetails")
 @_attrs_define
 class ModelCloudComplianceScanDetails:
     """
-    Example:
-        {'account_id': 'account_id', 'stop_requested': True, 'benchmarks': [{'controls': ['controls', 'controls'],
-            'compliance_type': 'compliance_type', 'id': 'id'}, {'controls': ['controls', 'controls'], 'compliance_type':
-            'compliance_type', 'id': 'id'}], 'scan_id': 'scan_id', 'scan_types': ['scan_types', 'scan_types']}
-
     Attributes:
         account_id (Union[Unset, str]):
-        benchmarks (Union[Unset, None, List['ModelCloudComplianceBenchmark']]):
+        benchmarks (Union[List['ModelCloudComplianceBenchmark'], None, Unset]):
         scan_id (Union[Unset, str]):
-        scan_types (Union[Unset, None, List[str]]):
+        scan_types (Union[List[str], None, Unset]):
         stop_requested (Union[Unset, bool]):
     """
 
     account_id: Union[Unset, str] = UNSET
-    benchmarks: Union[Unset, None, List["ModelCloudComplianceBenchmark"]] = UNSET
+    benchmarks: Union[List["ModelCloudComplianceBenchmark"], None, Unset] = UNSET
     scan_id: Union[Unset, str] = UNSET
-    scan_types: Union[Unset, None, List[str]] = UNSET
+    scan_types: Union[List[str], None, Unset] = UNSET
     stop_requested: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         account_id = self.account_id
-        benchmarks: Union[Unset, None, List[Dict[str, Any]]] = UNSET
-        if not isinstance(self.benchmarks, Unset):
-            if self.benchmarks is None:
-                benchmarks = None
-            else:
-                benchmarks = []
-                for benchmarks_item_data in self.benchmarks:
-                    benchmarks_item = benchmarks_item_data.to_dict()
 
-                    benchmarks.append(benchmarks_item)
+        benchmarks: Union[List[Dict[str, Any]], None, Unset]
+        if isinstance(self.benchmarks, Unset):
+            benchmarks = UNSET
+        elif isinstance(self.benchmarks, list):
+            benchmarks = []
+            for benchmarks_type_0_item_data in self.benchmarks:
+                benchmarks_type_0_item = benchmarks_type_0_item_data.to_dict()
+                benchmarks.append(benchmarks_type_0_item)
+
+        else:
+            benchmarks = self.benchmarks
 
         scan_id = self.scan_id
-        scan_types: Union[Unset, None, List[str]] = UNSET
-        if not isinstance(self.scan_types, Unset):
-            if self.scan_types is None:
-                scan_types = None
-            else:
-                scan_types = self.scan_types
+
+        scan_types: Union[List[str], None, Unset]
+        if isinstance(self.scan_types, Unset):
+            scan_types = UNSET
+        elif isinstance(self.scan_types, list):
+            scan_types = self.scan_types
+
+        else:
+            scan_types = self.scan_types
 
         stop_requested = self.stop_requested
 
@@ -81,16 +81,46 @@ class ModelCloudComplianceScanDetails:
         d = src_dict.copy()
         account_id = d.pop("account_id", UNSET)
 
-        benchmarks = []
-        _benchmarks = d.pop("benchmarks", UNSET)
-        for benchmarks_item_data in _benchmarks or []:
-            benchmarks_item = ModelCloudComplianceBenchmark.from_dict(benchmarks_item_data)
+        def _parse_benchmarks(data: object) -> Union[List["ModelCloudComplianceBenchmark"], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                benchmarks_type_0 = []
+                _benchmarks_type_0 = data
+                for benchmarks_type_0_item_data in _benchmarks_type_0:
+                    benchmarks_type_0_item = ModelCloudComplianceBenchmark.from_dict(benchmarks_type_0_item_data)
 
-            benchmarks.append(benchmarks_item)
+                    benchmarks_type_0.append(benchmarks_type_0_item)
+
+                return benchmarks_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelCloudComplianceBenchmark"], None, Unset], data)
+
+        benchmarks = _parse_benchmarks(d.pop("benchmarks", UNSET))
 
         scan_id = d.pop("scan_id", UNSET)
 
-        scan_types = cast(List[str], d.pop("scan_types", UNSET))
+        def _parse_scan_types(data: object) -> Union[List[str], None, Unset]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                scan_types_type_0 = cast(List[str], data)
+
+                return scan_types_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None, Unset], data)
+
+        scan_types = _parse_scan_types(d.pop("scan_types", UNSET))
 
         stop_requested = d.pop("stop_requested", UNSET)
 

@@ -7,16 +7,27 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
+from ...models.form_data_model_bin_upload_request import FormDataModelBinUploadRequest
 from ...types import Response
 
 
-def _get_kwargs() -> Dict[str, Any]:
-    pass
+def _get_kwargs(
+    *,
+    body: FormDataModelBinUploadRequest,
+) -> Dict[str, Any]:
+    headers: Dict[str, Any] = {}
 
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "put",
-        "url": "/deepfence/agent/version",
+        "url": "/deepfence/settings/agent/version",
     }
+
+    _body = body.to_multipart()
+
+    _kwargs["files"] = _body
+
+    _kwargs["headers"] = headers
+    return _kwargs
 
 
 def _parse_response(
@@ -63,10 +74,14 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
+    body: FormDataModelBinUploadRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Upload New agent version
 
      Upload Agent version
+
+    Args:
+        body (FormDataModelBinUploadRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -76,7 +91,9 @@ def sync_detailed(
         Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]
     """
 
-    kwargs = _get_kwargs()
+    kwargs = _get_kwargs(
+        body=body,
+    )
 
     response = client.get_httpx_client().request(
         **kwargs,
@@ -88,10 +105,14 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
+    body: FormDataModelBinUploadRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Upload New agent version
 
      Upload Agent version
+
+    Args:
+        body (FormDataModelBinUploadRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -103,16 +124,21 @@ def sync(
 
     return sync_detailed(
         client=client,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
+    body: FormDataModelBinUploadRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Upload New agent version
 
      Upload Agent version
+
+    Args:
+        body (FormDataModelBinUploadRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -122,7 +148,9 @@ async def asyncio_detailed(
         Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]
     """
 
-    kwargs = _get_kwargs()
+    kwargs = _get_kwargs(
+        body=body,
+    )
 
     response = await client.get_async_httpx_client().request(**kwargs)
 
@@ -132,10 +160,14 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
+    body: FormDataModelBinUploadRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Upload New agent version
 
      Upload Agent version
+
+    Args:
+        body (FormDataModelBinUploadRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -148,5 +180,6 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
+            body=body,
         )
     ).parsed

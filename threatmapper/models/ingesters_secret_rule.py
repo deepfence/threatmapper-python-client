@@ -11,9 +11,6 @@ T = TypeVar("T", bound="IngestersSecretRule")
 @_attrs_define
 class IngestersSecretRule:
     """
-    Example:
-        {'part': 'part', 'name': 'name', 'signature_to_match': 'signature_to_match', 'id': 5}
-
     Attributes:
         id (Union[Unset, int]):
         name (Union[Unset, str]):
@@ -29,8 +26,11 @@ class IngestersSecretRule:
 
     def to_dict(self) -> Dict[str, Any]:
         id = self.id
+
         name = self.name
+
         part = self.part
+
         signature_to_match = self.signature_to_match
 
         field_dict: Dict[str, Any] = {}

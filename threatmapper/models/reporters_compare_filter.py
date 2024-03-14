@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ReportersCompareFilter")
 @_attrs_define
 class ReportersCompareFilter:
     """
-    Example:
-        {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}
-
     Attributes:
         field_name (str):
         field_value (Any):
@@ -25,7 +22,9 @@ class ReportersCompareFilter:
 
     def to_dict(self) -> Dict[str, Any]:
         field_name = self.field_name
+
         field_value = self.field_value
+
         greater_than = self.greater_than
 
         field_dict: Dict[str, Any] = {}

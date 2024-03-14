@@ -8,35 +8,49 @@ from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
 from ...models.graph_threat_filters import GraphThreatFilters
-from ...models.graph_threat_graph import GraphThreatGraph
+from ...models.graph_threat_graph_type_0 import GraphThreatGraphType0
 from ...types import Response
 
 
 def _get_kwargs(
     *,
-    json_body: GraphThreatFilters,
+    body: GraphThreatFilters,
 ) -> Dict[str, Any]:
-    pass
+    headers: Dict[str, Any] = {}
 
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "post",
         "url": "/deepfence/graph/threat",
-        "json": json_json_body,
     }
+
+    _body = body.to_dict()
+
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
 
 
 def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Optional[GraphThreatGraph]]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Union["GraphThreatGraphType0", None]]]:
     if response.status_code == HTTPStatus.OK:
-        _response_200 = response.json()
-        response_200: Optional[GraphThreatGraph]
-        if _response_200 is None:
-            response_200 = None
-        else:
-            response_200 = GraphThreatGraph.from_dict(_response_200)
+
+        def _parse_response_200(data: object) -> Union["GraphThreatGraphType0", None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                componentsschemas_graph_threat_graph_type_0 = GraphThreatGraphType0.from_dict(data)
+
+                return componentsschemas_graph_threat_graph_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union["GraphThreatGraphType0", None], data)
+
+        response_200 = _parse_response_200(response.json())
 
         return response_200
     if response.status_code == HTTPStatus.BAD_REQUEST:
@@ -65,7 +79,7 @@ def _parse_response(
 
 def _build_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Optional[GraphThreatGraph]]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Union["GraphThreatGraphType0", None]]]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -77,28 +91,25 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: GraphThreatFilters,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Optional[GraphThreatGraph]]]:
+    body: GraphThreatFilters,
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Union["GraphThreatGraphType0", None]]]:
     """Get Threat Graph
 
      Retrieve the full threat graph associated with the account
 
     Args:
-        json_body (GraphThreatFilters):  Example: {'cloud_resource_only': True, 'aws_filter':
-            {'account_ids': ['account_ids', 'account_ids']}, 'gcp_filter': {'account_ids':
-            ['account_ids', 'account_ids']}, 'type': 'all', 'azure_filter': {'account_ids':
-            ['account_ids', 'account_ids']}}.
+        body (GraphThreatFilters):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Optional[GraphThreatGraph]]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Union['GraphThreatGraphType0', None]]]
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = client.get_httpx_client().request(
@@ -111,57 +122,51 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    json_body: GraphThreatFilters,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Optional[GraphThreatGraph]]]:
+    body: GraphThreatFilters,
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Union["GraphThreatGraphType0", None]]]:
     """Get Threat Graph
 
      Retrieve the full threat graph associated with the account
 
     Args:
-        json_body (GraphThreatFilters):  Example: {'cloud_resource_only': True, 'aws_filter':
-            {'account_ids': ['account_ids', 'account_ids']}, 'gcp_filter': {'account_ids':
-            ['account_ids', 'account_ids']}, 'type': 'all', 'azure_filter': {'account_ids':
-            ['account_ids', 'account_ids']}}.
+        body (GraphThreatFilters):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Optional[GraphThreatGraph]]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Union['GraphThreatGraphType0', None]]
     """
 
     return sync_detailed(
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: GraphThreatFilters,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Optional[GraphThreatGraph]]]:
+    body: GraphThreatFilters,
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Union["GraphThreatGraphType0", None]]]:
     """Get Threat Graph
 
      Retrieve the full threat graph associated with the account
 
     Args:
-        json_body (GraphThreatFilters):  Example: {'cloud_resource_only': True, 'aws_filter':
-            {'account_ids': ['account_ids', 'account_ids']}, 'gcp_filter': {'account_ids':
-            ['account_ids', 'account_ids']}, 'type': 'all', 'azure_filter': {'account_ids':
-            ['account_ids', 'account_ids']}}.
+        body (GraphThreatFilters):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Optional[GraphThreatGraph]]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Union['GraphThreatGraphType0', None]]]
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -172,29 +177,26 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    json_body: GraphThreatFilters,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Optional[GraphThreatGraph]]]:
+    body: GraphThreatFilters,
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Union["GraphThreatGraphType0", None]]]:
     """Get Threat Graph
 
      Retrieve the full threat graph associated with the account
 
     Args:
-        json_body (GraphThreatFilters):  Example: {'cloud_resource_only': True, 'aws_filter':
-            {'account_ids': ['account_ids', 'account_ids']}, 'gcp_filter': {'account_ids':
-            ['account_ids', 'account_ids']}, 'type': 'all', 'azure_filter': {'account_ids':
-            ['account_ids', 'account_ids']}}.
+        body (GraphThreatFilters):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Optional[GraphThreatGraph]]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, Union['GraphThreatGraphType0', None]]
     """
 
     return (
         await asyncio_detailed(
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

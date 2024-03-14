@@ -14,17 +14,22 @@ from ...types import Response
 
 def _get_kwargs(
     *,
-    json_body: ModelScanResultsReq,
+    body: ModelScanResultsReq,
 ) -> Dict[str, Any]:
-    pass
+    headers: Dict[str, Any] = {}
 
-    json_json_body = json_body.to_dict()
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "post",
         "url": "/deepfence/scan/results/count/cloud-compliance",
-        "json": json_json_body,
     }
+
+    _body = body.to_dict()
+
+    _kwargs["json"] = _body
+    headers["Content-Type"] = "application/json"
+
+    _kwargs["headers"] = headers
+    return _kwargs
 
 
 def _parse_response(
@@ -72,22 +77,14 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: ModelScanResultsReq,
+    body: ModelScanResultsReq,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, SearchSearchCountResp]]:
     """Get Cloud Compliance Scan Results
 
      Get Cloud Compliance Scan results for cloud node
 
     Args:
-        json_body (ModelScanResultsReq):  Example: {'scan_id': 'scan_id', 'window': {'offset': 0,
-            'size': 6}, 'fields_filter': {'compare_filter': [{'greater_than': True, 'field_value': '',
-            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
-            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter':
-            {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0,
-            'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}},
-            'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
-            {'key': ['', '']}}}}.
+        body (ModelScanResultsReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -98,7 +95,7 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = client.get_httpx_client().request(
@@ -111,22 +108,14 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    json_body: ModelScanResultsReq,
+    body: ModelScanResultsReq,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, SearchSearchCountResp]]:
     """Get Cloud Compliance Scan Results
 
      Get Cloud Compliance Scan results for cloud node
 
     Args:
-        json_body (ModelScanResultsReq):  Example: {'scan_id': 'scan_id', 'window': {'offset': 0,
-            'size': 6}, 'fields_filter': {'compare_filter': [{'greater_than': True, 'field_value': '',
-            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
-            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter':
-            {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0,
-            'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}},
-            'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
-            {'key': ['', '']}}}}.
+        body (ModelScanResultsReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -138,29 +127,21 @@ def sync(
 
     return sync_detailed(
         client=client,
-        json_body=json_body,
+        body=body,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    json_body: ModelScanResultsReq,
+    body: ModelScanResultsReq,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, SearchSearchCountResp]]:
     """Get Cloud Compliance Scan Results
 
      Get Cloud Compliance Scan results for cloud node
 
     Args:
-        json_body (ModelScanResultsReq):  Example: {'scan_id': 'scan_id', 'window': {'offset': 0,
-            'size': 6}, 'fields_filter': {'compare_filter': [{'greater_than': True, 'field_value': '',
-            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
-            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter':
-            {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0,
-            'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}},
-            'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
-            {'key': ['', '']}}}}.
+        body (ModelScanResultsReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -171,7 +152,7 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        json_body=json_body,
+        body=body,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -182,22 +163,14 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    json_body: ModelScanResultsReq,
+    body: ModelScanResultsReq,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, SearchSearchCountResp]]:
     """Get Cloud Compliance Scan Results
 
      Get Cloud Compliance Scan results for cloud node
 
     Args:
-        json_body (ModelScanResultsReq):  Example: {'scan_id': 'scan_id', 'window': {'offset': 0,
-            'size': 6}, 'fields_filter': {'compare_filter': [{'greater_than': True, 'field_value': '',
-            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
-            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter':
-            {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0,
-            'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
-            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}},
-            'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
-            {'key': ['', '']}}}}.
+        body (ModelScanResultsReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -210,6 +183,6 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
-            json_body=json_body,
+            body=body,
         )
     ).parsed

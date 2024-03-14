@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar, cast
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -9,32 +9,34 @@ T = TypeVar("T", bound="ModelTopologyDeltaReq")
 @_attrs_define
 class ModelTopologyDeltaReq:
     """
-    Example:
-        {'deletion': True, 'entity_types': ['entity_types', 'entity_types'], 'deletion_timestamp': 6,
-            'addition_timestamp': 0, 'addition': True}
-
     Attributes:
         addition (bool):
         addition_timestamp (int):
         deletion (bool):
         deletion_timestamp (int):
-        entity_types (Optional[List[str]]):
+        entity_types (Union[List[str], None]):
     """
 
     addition: bool
     addition_timestamp: int
     deletion: bool
     deletion_timestamp: int
-    entity_types: Optional[List[str]]
+    entity_types: Union[List[str], None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         addition = self.addition
+
         addition_timestamp = self.addition_timestamp
+
         deletion = self.deletion
+
         deletion_timestamp = self.deletion_timestamp
-        if self.entity_types is None:
-            entity_types = None
+
+        entity_types: Union[List[str], None]
+        if isinstance(self.entity_types, list):
+            entity_types = self.entity_types
+
         else:
             entity_types = self.entity_types
 
@@ -63,7 +65,20 @@ class ModelTopologyDeltaReq:
 
         deletion_timestamp = d.pop("deletion_timestamp")
 
-        entity_types = cast(List[str], d.pop("entity_types"))
+        def _parse_entity_types(data: object) -> Union[List[str], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                entity_types_type_0 = cast(List[str], data)
+
+                return entity_types_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List[str], None], data)
+
+        entity_types = _parse_entity_types(d.pop("entity_types"))
 
         model_topology_delta_req = cls(
             addition=addition,

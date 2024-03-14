@@ -11,30 +11,6 @@ T = TypeVar("T", bound="IngestersCloudResource")
 @_attrs_define
 class IngestersCloudResource:
     """
-    Example:
-        {'iam_instance_profile_arn': 'iam_instance_profile_arn', 'allow_blob_public_access': True, 'ingress_settings':
-            'ingress_settings', 'vpc_id': 'vpc_id', 'event_notification_configuration': '', 'ip_configuration': '',
-            'access_level': 'access_level', 'path': 'path', 'connectivity': 'connectivity', 'policy_std': '',
-            'target_health_descriptions': '', 'iam_policy': '', 'action': 'action', 'private_ip_address':
-            'private_ip_address', 'id': 'id', 'create_date': 'create_date', 'resource_vpc_config': '', 'inline_policies':
-            '', 'restrict_public_buckets': True, 'db_cluster_identifier': 'db_cluster_identifier', 'group': 'group',
-            'target_group_arn': 'target_group_arn', 'ignore_public_acls': True, 'storage_account_name':
-            'storage_account_name', 'service_name': 'service_name', 'instance_profile_arns': '', 'users': '',
-            'network_interfaces': '', 'tags': '', 'security_groups': '', 'task_arn': 'task_arn', 'block_public_acls': True,
-            'organization_master_account_email': 'organization_master_account_email', 'instance_id': 'instance_id',
-            'public_access': 'public_access', 'task_definition': '', 'user_id': 'user_id', 'organization_id':
-            'organization_id', 'name': 'name', 'resources_vpc_config': '', 'attached_policy_arns': '',
-            'task_definition_arn': 'task_definition_arn', 'containers': '', 'region': 'region', 'container_definitions': '',
-            'instance_type': 'instance_type', 'scheme': 'scheme', 'instances': '', 'network_mode': 'network_mode',
-            'is_egress': True, 'description': 'description', 'privilege': 'privilege', 'network_configuration': '',
-            'public_network_access': 'public_network_access', 'vpc_options': '', 'vpc_security_group_ids': '', 'arn': 'arn',
-            'private_dns_name': 'private_dns_name', 'policy': '', 'public_ips': '', 'cluster_name': 'cluster_name',
-            'cluster_arn': 'cluster_arn', 'public_ip_address': 'public_ip_address', 'cidr_ipv4': 'cidr_ipv4', 'last_status':
-            'last_status', 'groups': '', 'user-groups': '', 'cloud_provider': 'cloud_provider', 'vpc_security_groups': '',
-            'block_public_policy': True, 'account_id': 'account_id', 'iam_instance_profile_id': 'iam_instance_profile_id',
-            'group_id': 'group_id', 'organization_master_account_arn': 'organization_master_account_arn', 'resource_id':
-            'resource_id', 'bucket_policy_is_public': True, 'host_name': 'host_name'}
-
     Attributes:
         access_level (Union[Unset, str]):
         account_id (Union[Unset, str]):
@@ -196,81 +172,157 @@ class IngestersCloudResource:
 
     def to_dict(self) -> Dict[str, Any]:
         access_level = self.access_level
+
         account_id = self.account_id
+
         action = self.action
+
         allow_blob_public_access = self.allow_blob_public_access
+
         arn = self.arn
+
         attached_policy_arns = self.attached_policy_arns
+
         block_public_acls = self.block_public_acls
+
         block_public_policy = self.block_public_policy
+
         bucket_policy_is_public = self.bucket_policy_is_public
+
         cidr_ipv4 = self.cidr_ipv4
+
         cloud_provider = self.cloud_provider
+
         cluster_arn = self.cluster_arn
+
         cluster_name = self.cluster_name
+
         connectivity = self.connectivity
+
         container_definitions = self.container_definitions
+
         containers = self.containers
+
         create_date = self.create_date
+
         db_cluster_identifier = self.db_cluster_identifier
+
         description = self.description
+
         event_notification_configuration = self.event_notification_configuration
+
         group = self.group
+
         group_id = self.group_id
+
         groups = self.groups
+
         host_name = self.host_name
+
         iam_instance_profile_arn = self.iam_instance_profile_arn
+
         iam_instance_profile_id = self.iam_instance_profile_id
+
         iam_policy = self.iam_policy
+
         id = self.id
+
         ignore_public_acls = self.ignore_public_acls
+
         ingress_settings = self.ingress_settings
+
         inline_policies = self.inline_policies
+
         instance_id = self.instance_id
+
         instance_profile_arns = self.instance_profile_arns
+
         instance_type = self.instance_type
+
         instances = self.instances
+
         ip_configuration = self.ip_configuration
+
         is_egress = self.is_egress
+
         last_status = self.last_status
+
         name = self.name
+
         network_configuration = self.network_configuration
+
         network_interfaces = self.network_interfaces
+
         network_mode = self.network_mode
+
         organization_id = self.organization_id
+
         organization_master_account_arn = self.organization_master_account_arn
+
         organization_master_account_email = self.organization_master_account_email
+
         path = self.path
+
         policy = self.policy
+
         policy_std = self.policy_std
+
         private_dns_name = self.private_dns_name
+
         private_ip_address = self.private_ip_address
+
         privilege = self.privilege
+
         public_access = self.public_access
+
         public_ip_address = self.public_ip_address
+
         public_ips = self.public_ips
+
         public_network_access = self.public_network_access
+
         region = self.region
+
         resource_id = self.resource_id
+
         resource_vpc_config = self.resource_vpc_config
+
         resources_vpc_config = self.resources_vpc_config
+
         restrict_public_buckets = self.restrict_public_buckets
+
         scheme = self.scheme
+
         security_groups = self.security_groups
+
         service_name = self.service_name
+
         storage_account_name = self.storage_account_name
+
         tags = self.tags
+
         target_group_arn = self.target_group_arn
+
         target_health_descriptions = self.target_health_descriptions
+
         task_arn = self.task_arn
+
         task_definition = self.task_definition
+
         task_definition_arn = self.task_definition_arn
+
         user_groups = self.user_groups
+
         user_id = self.user_id
+
         users = self.users
+
         vpc_id = self.vpc_id
+
         vpc_options = self.vpc_options
+
         vpc_security_group_ids = self.vpc_security_group_ids
+
         vpc_security_groups = self.vpc_security_groups
 
         field_dict: Dict[str, Any] = {}

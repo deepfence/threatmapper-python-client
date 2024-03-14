@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelPasswordResetVerifyRequest")
 @_attrs_define
 class ModelPasswordResetVerifyRequest:
     """
-    Example:
-        {'password': 'password', 'code': 'code', 'namespace': 'namespace'}
-
     Attributes:
         code (str):
         namespace (str):
@@ -25,7 +22,9 @@ class ModelPasswordResetVerifyRequest:
 
     def to_dict(self) -> Dict[str, Any]:
         code = self.code
+
         namespace = self.namespace
+
         password = self.password
 
         field_dict: Dict[str, Any] = {}

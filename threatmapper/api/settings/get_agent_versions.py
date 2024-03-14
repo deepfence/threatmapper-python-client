@@ -12,12 +12,12 @@ from ...types import Response
 
 
 def _get_kwargs() -> Dict[str, Any]:
-    pass
-
-    return {
+    _kwargs: Dict[str, Any] = {
         "method": "get",
-        "url": "/deepfence/agent/versions",
+        "url": "/deepfence/settings/agent/versions",
     }
+
+    return _kwargs
 
 
 def _parse_response(

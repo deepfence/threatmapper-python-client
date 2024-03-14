@@ -14,9 +14,6 @@ T = TypeVar("T", bound="ModelGenerativeAiIntegrationSecretRequest")
 @_attrs_define
 class ModelGenerativeAiIntegrationSecretRequest:
     """
-    Example:
-        {'integration_id': 0, 'name': 'name', 'query_type': 'remediation'}
-
     Attributes:
         name (str):
         query_type (ModelGenerativeAiIntegrationSecretRequestQueryType):
@@ -30,6 +27,7 @@ class ModelGenerativeAiIntegrationSecretRequest:
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
+
         query_type = self.query_type.value
 
         integration_id = self.integration_id

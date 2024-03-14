@@ -11,10 +11,6 @@ T = TypeVar("T", bound="DiagnosisDiagnosticNotification")
 @_attrs_define
 class DiagnosisDiagnosticNotification:
     """
-    Example:
-        {'expiry_in_secs': '', 'follow_url': '', 'updated_at': 'updated_at', 'source_application_id':
-            'source_application_id', 'content': 'content'}
-
     Attributes:
         content (Union[Unset, str]):
         expiry_in_secs (Union[Unset, Any]):
@@ -32,9 +28,13 @@ class DiagnosisDiagnosticNotification:
 
     def to_dict(self) -> Dict[str, Any]:
         content = self.content
+
         expiry_in_secs = self.expiry_in_secs
+
         follow_url = self.follow_url
+
         source_application_id = self.source_application_id
+
         updated_at = self.updated_at
 
         field_dict: Dict[str, Any] = {}

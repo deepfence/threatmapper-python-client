@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -13,29 +13,23 @@ T = TypeVar("T", bound="ModelScanListResp")
 @_attrs_define
 class ModelScanListResp:
     """
-    Example:
-        {'scans_info': [{'severity_counts': {'key': 6}, 'status_message': 'status_message', 'node_type': 'node_type',
-            'updated_at': 1, 'node_name': 'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'node_id': 'node_id',
-            'status': 'status'}, {'severity_counts': {'key': 6}, 'status_message': 'status_message', 'node_type':
-            'node_type', 'updated_at': 1, 'node_name': 'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'node_id':
-            'node_id', 'status': 'status'}]}
-
     Attributes:
-        scans_info (Optional[List['ModelScanInfo']]):
+        scans_info (Union[List['ModelScanInfo'], None]):
     """
 
-    scans_info: Optional[List["ModelScanInfo"]]
+    scans_info: Union[List["ModelScanInfo"], None]
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        if self.scans_info is None:
-            scans_info = None
-        else:
+        scans_info: Union[List[Dict[str, Any]], None]
+        if isinstance(self.scans_info, list):
             scans_info = []
-            for scans_info_item_data in self.scans_info:
-                scans_info_item = scans_info_item_data.to_dict()
+            for scans_info_type_0_item_data in self.scans_info:
+                scans_info_type_0_item = scans_info_type_0_item_data.to_dict()
+                scans_info.append(scans_info_type_0_item)
 
-                scans_info.append(scans_info_item)
+        else:
+            scans_info = self.scans_info
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -52,12 +46,26 @@ class ModelScanListResp:
         from ..models.model_scan_info import ModelScanInfo
 
         d = src_dict.copy()
-        scans_info = []
-        _scans_info = d.pop("scans_info")
-        for scans_info_item_data in _scans_info or []:
-            scans_info_item = ModelScanInfo.from_dict(scans_info_item_data)
 
-            scans_info.append(scans_info_item)
+        def _parse_scans_info(data: object) -> Union[List["ModelScanInfo"], None]:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                scans_info_type_0 = []
+                _scans_info_type_0 = data
+                for scans_info_type_0_item_data in _scans_info_type_0:
+                    scans_info_type_0_item = ModelScanInfo.from_dict(scans_info_type_0_item_data)
+
+                    scans_info_type_0.append(scans_info_type_0_item)
+
+                return scans_info_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[List["ModelScanInfo"], None], data)
+
+        scans_info = _parse_scans_info(d.pop("scans_info"))
 
         model_scan_list_resp = cls(
             scans_info=scans_info,
