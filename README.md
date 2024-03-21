@@ -114,14 +114,14 @@ client = Client(base_url="YOUR_CONSOLE_URL", verify_ssl="/path/to/certificate_bu
 
 def get_access_refresh_token_sync():
     try:
-        json_body = ModelApiAuthRequest(
+        body = ModelApiAuthRequest(
             api_token="YOUR_API_KEY"
         )
         #  If we want minified response
-        api_response = auth_token.sync(client=client, json_body=json_body)
+        api_response = auth_token.sync(client=client, body=json_body)
         print(api_response.access_token, api_response.refresh_token)
         #  If we want detailed response
-        api_response = auth_token.sync_detailed(client=client, json_body=json_body)
+        api_response = auth_token.sync_detailed(client=client, body=json_body)
         if api_response.status_code == 200:
            json_response =  json.loads(api_response.content.decode("utf-8"))
            print(json_response["access_token"], json_response["refresh_token"])
@@ -149,14 +149,14 @@ client = Client(base_url="YOUR_CONSOLE_URL", verify_ssl="/path/to/certificate_bu
 
 async def get_access_refresh_token_async():
     try:
-        json_body = ModelApiAuthRequest(
+        body = ModelApiAuthRequest(
             api_token="YOUR_API_KEY"
         )
         #  If we want minified response
-        api_response = await auth_token.asyncio(client=client, json_body=json_body)
+        api_response = await auth_token.asyncio(client=client, body=json_body)
         print(api_response.access_token, api_response.refresh_token)
         #  If we want detailed response
-        api_response = await auth_token.asyncio_detailed(client=client, json_body=json_body)
+        api_response = await auth_token.asyncio_detailed(client=client, body=json_body)
         if api_response.status_code == 200:
            json_response = json.loads(api_response.content.decode("utf-8"))
            print(json_response["access_token"], json_response["refresh_token"])
@@ -304,8 +304,8 @@ def list_hosts():
                          "size": 100
                        }
                      }
-       json_body = SearchSearchNodeReq.from_dict(payload_dict)
-       hosts = search_hosts.sync(client=client,json_body=json_body)
+       body = SearchSearchNodeReq.from_dict(payload_dict)
+       hosts = search_hosts.sync(client=client,body=json_body)
        agent_host_list = []
        discovered_host_list = []
        for host in hosts:
@@ -367,8 +367,8 @@ async def list_containers():
                          "size": 100
                        }
                      }
-       json_body = SearchSearchNodeReq.from_dict(payload_dict)
-       containers = await search_containers.asyncio(client=client,json_body=json_body)
+       body = SearchSearchNodeReq.from_dict(payload_dict)
+       containers = await search_containers.asyncio(client=client,body=json_body)
        for container in containers:
           print(container.node_id, container.node_name)
     except UnexpectedStatus as e:
@@ -426,8 +426,8 @@ def node_config() -> List:
                          "size": 100
                        }
                      }
-       json_body = SearchSearchNodeReq.from_dict(payload_dict)
-       hosts = search_hosts.sync(client=client,json_body=json_body)
+       body = SearchSearchNodeReq.from_dict(payload_dict)
+       hosts = search_hosts.sync(client=client,body=json_body)
        host_list = []
        for host in hosts:
           host_list.append({"node_id":host.node_id, "node_type": "host"})
@@ -487,8 +487,8 @@ async def start_vulnerability_scan_on_hosts():
                          }
                        ]
                      }
-       json_body = ModelVulnerabilityScanTriggerReq.from_dict(payload_dict)
-       response: ModelScanTriggerResp = await start_vulnerability_scan.asyncio(client=client,json_body=json_body)
+       body = ModelVulnerabilityScanTriggerReq.from_dict(payload_dict)
+       response: ModelScanTriggerResp = await start_vulnerability_scan.asyncio(client=client,body=json_body)
        print(response.scan_ids, response.bulk_scan_id)
     except UnexpectedStatus as e:
         print("Exception when calling start_vulnerability_scan_on_hosts-> %s\n" % e)
