@@ -13,6 +13,16 @@ T = TypeVar("T", bound="ModelScanCompareResGithubComDeepfenceThreatMapperDeepfen
 @_attrs_define
 class ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelSecret:
     """
+    Example:
+        {'new': [{'score': 0.8008281904610115, 'full_filename': 'full_filename', 'matched_content': 'matched_content',
+            'updated_at': 1, 'level': 'critical', 'masked': True, 'name': 'name', 'starting_index': 6, 'resources':
+            [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type':
+            'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'node_id': 'node_id'}, {'score':
+            0.8008281904610115, 'full_filename': 'full_filename', 'matched_content': 'matched_content', 'updated_at': 1,
+            'level': 'critical', 'masked': True, 'name': 'name', 'starting_index': 6, 'resources': [{'node_type':
+            'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name':
+            'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'node_id': 'node_id'}]}
+
     Attributes:
         new (Union[List['ModelSecret'], None]):
     """

@@ -82,7 +82,8 @@ def sync_detailed(
      Batch Delete registry
 
     Args:
-        body (ModelDeleteRegistryBulkReq):
+        body (ModelDeleteRegistryBulkReq):  Example: {'registry_ids': ['registry_ids',
+            'registry_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +114,8 @@ def sync(
      Batch Delete registry
 
     Args:
-        body (ModelDeleteRegistryBulkReq):
+        body (ModelDeleteRegistryBulkReq):  Example: {'registry_ids': ['registry_ids',
+            'registry_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +141,8 @@ async def asyncio_detailed(
      Batch Delete registry
 
     Args:
-        body (ModelDeleteRegistryBulkReq):
+        body (ModelDeleteRegistryBulkReq):  Example: {'registry_ids': ['registry_ids',
+            'registry_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +171,8 @@ async def asyncio(
      Batch Delete registry
 
     Args:
-        body (ModelDeleteRegistryBulkReq):
+        body (ModelDeleteRegistryBulkReq):  Example: {'registry_ids': ['registry_ids',
+            'registry_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -7,9 +7,7 @@ from ..models.model_cloud_node_account_register_req_cloud_provider import ModelC
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.model_cloud_node_account_register_req_monitored_account_ids_type_0 import (
-        ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0,
-    )
+    from ..models.model_cloud_node_monitored_account import ModelCloudNodeMonitoredAccount
 
 
 T = TypeVar("T", bound="ModelCloudNodeAccountRegisterReq")
@@ -18,107 +16,142 @@ T = TypeVar("T", bound="ModelCloudNodeAccountRegisterReq")
 @_attrs_define
 class ModelCloudNodeAccountRegisterReq:
     """
+    Example:
+        {'account_id': 'account_id', 'monitored_accounts': [{'account_id': 'account_id', 'account_name': 'account_name',
+            'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name': 'account_name', 'node_id': 'node_id'}],
+            'account_name': 'account_name', 'is_organization_deployment': True, 'cloud_provider': 'aws',
+            'organization_account_id': 'organization_account_id', 'host_node_id': 'host_node_id', 'version': 'version',
+            'node_id': 'node_id'}
+
     Attributes:
-        cloud_account (str):
+        account_id (str):
         cloud_provider (ModelCloudNodeAccountRegisterReqCloudProvider):
+        host_node_id (str):
         node_id (str):
-        monitored_account_ids (Union['ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0', None, Unset]):
-        org_acc_id (Union[Unset, str]):
-        version (Union[Unset, str]):
+        version (str):
+        account_name (Union[Unset, str]):
+        is_organization_deployment (Union[Unset, bool]):
+        monitored_accounts (Union[List['ModelCloudNodeMonitoredAccount'], None, Unset]):
+        organization_account_id (Union[Unset, str]):
     """
 
-    cloud_account: str
+    account_id: str
     cloud_provider: ModelCloudNodeAccountRegisterReqCloudProvider
+    host_node_id: str
     node_id: str
-    monitored_account_ids: Union["ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0", None, Unset] = UNSET
-    org_acc_id: Union[Unset, str] = UNSET
-    version: Union[Unset, str] = UNSET
+    version: str
+    account_name: Union[Unset, str] = UNSET
+    is_organization_deployment: Union[Unset, bool] = UNSET
+    monitored_accounts: Union[List["ModelCloudNodeMonitoredAccount"], None, Unset] = UNSET
+    organization_account_id: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        from ..models.model_cloud_node_account_register_req_monitored_account_ids_type_0 import (
-            ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0,
-        )
-
-        cloud_account = self.cloud_account
+        account_id = self.account_id
 
         cloud_provider = self.cloud_provider.value
 
+        host_node_id = self.host_node_id
+
         node_id = self.node_id
 
-        monitored_account_ids: Union[Dict[str, Any], None, Unset]
-        if isinstance(self.monitored_account_ids, Unset):
-            monitored_account_ids = UNSET
-        elif isinstance(self.monitored_account_ids, ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0):
-            monitored_account_ids = self.monitored_account_ids.to_dict()
-        else:
-            monitored_account_ids = self.monitored_account_ids
-
-        org_acc_id = self.org_acc_id
-
         version = self.version
+
+        account_name = self.account_name
+
+        is_organization_deployment = self.is_organization_deployment
+
+        monitored_accounts: Union[List[Dict[str, Any]], None, Unset]
+        if isinstance(self.monitored_accounts, Unset):
+            monitored_accounts = UNSET
+        elif isinstance(self.monitored_accounts, list):
+            monitored_accounts = []
+            for monitored_accounts_type_0_item_data in self.monitored_accounts:
+                monitored_accounts_type_0_item = monitored_accounts_type_0_item_data.to_dict()
+                monitored_accounts.append(monitored_accounts_type_0_item)
+
+        else:
+            monitored_accounts = self.monitored_accounts
+
+        organization_account_id = self.organization_account_id
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "cloud_account": cloud_account,
+                "account_id": account_id,
                 "cloud_provider": cloud_provider,
+                "host_node_id": host_node_id,
                 "node_id": node_id,
+                "version": version,
             }
         )
-        if monitored_account_ids is not UNSET:
-            field_dict["monitored_account_ids"] = monitored_account_ids
-        if org_acc_id is not UNSET:
-            field_dict["org_acc_id"] = org_acc_id
-        if version is not UNSET:
-            field_dict["version"] = version
+        if account_name is not UNSET:
+            field_dict["account_name"] = account_name
+        if is_organization_deployment is not UNSET:
+            field_dict["is_organization_deployment"] = is_organization_deployment
+        if monitored_accounts is not UNSET:
+            field_dict["monitored_accounts"] = monitored_accounts
+        if organization_account_id is not UNSET:
+            field_dict["organization_account_id"] = organization_account_id
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.model_cloud_node_account_register_req_monitored_account_ids_type_0 import (
-            ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0,
-        )
+        from ..models.model_cloud_node_monitored_account import ModelCloudNodeMonitoredAccount
 
         d = src_dict.copy()
-        cloud_account = d.pop("cloud_account")
+        account_id = d.pop("account_id")
 
         cloud_provider = ModelCloudNodeAccountRegisterReqCloudProvider(d.pop("cloud_provider"))
 
+        host_node_id = d.pop("host_node_id")
+
         node_id = d.pop("node_id")
 
-        def _parse_monitored_account_ids(
-            data: object,
-        ) -> Union["ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0", None, Unset]:
+        version = d.pop("version")
+
+        account_name = d.pop("account_name", UNSET)
+
+        is_organization_deployment = d.pop("is_organization_deployment", UNSET)
+
+        def _parse_monitored_accounts(data: object) -> Union[List["ModelCloudNodeMonitoredAccount"], None, Unset]:
             if data is None:
                 return data
             if isinstance(data, Unset):
                 return data
             try:
-                if not isinstance(data, dict):
+                if not isinstance(data, list):
                     raise TypeError()
-                monitored_account_ids_type_0 = ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0.from_dict(data)
+                monitored_accounts_type_0 = []
+                _monitored_accounts_type_0 = data
+                for monitored_accounts_type_0_item_data in _monitored_accounts_type_0:
+                    monitored_accounts_type_0_item = ModelCloudNodeMonitoredAccount.from_dict(
+                        monitored_accounts_type_0_item_data
+                    )
 
-                return monitored_account_ids_type_0
+                    monitored_accounts_type_0.append(monitored_accounts_type_0_item)
+
+                return monitored_accounts_type_0
             except:  # noqa: E722
                 pass
-            return cast(Union["ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0", None, Unset], data)
+            return cast(Union[List["ModelCloudNodeMonitoredAccount"], None, Unset], data)
 
-        monitored_account_ids = _parse_monitored_account_ids(d.pop("monitored_account_ids", UNSET))
+        monitored_accounts = _parse_monitored_accounts(d.pop("monitored_accounts", UNSET))
 
-        org_acc_id = d.pop("org_acc_id", UNSET)
-
-        version = d.pop("version", UNSET)
+        organization_account_id = d.pop("organization_account_id", UNSET)
 
         model_cloud_node_account_register_req = cls(
-            cloud_account=cloud_account,
+            account_id=account_id,
             cloud_provider=cloud_provider,
+            host_node_id=host_node_id,
             node_id=node_id,
-            monitored_account_ids=monitored_account_ids,
-            org_acc_id=org_acc_id,
             version=version,
+            account_name=account_name,
+            is_organization_deployment=is_organization_deployment,
+            monitored_accounts=monitored_accounts,
+            organization_account_id=organization_account_id,
         )
 
         model_cloud_node_account_register_req.additional_properties = d

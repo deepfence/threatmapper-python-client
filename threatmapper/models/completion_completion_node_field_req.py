@@ -7,6 +7,7 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.model_fetch_window import ModelFetchWindow
+    from ..models.reporters_fields_filters import ReportersFieldsFilters
 
 
 T = TypeVar("T", bound="CompletionCompletionNodeFieldReq")
@@ -15,16 +16,33 @@ T = TypeVar("T", bound="CompletionCompletionNodeFieldReq")
 @_attrs_define
 class CompletionCompletionNodeFieldReq:
     """
+    Example:
+        {'completion': 'completion', 'filters': {'compare_filter': [{'greater_than': True, 'field_value': '',
+            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}],
+            'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]},
+            'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['',
+            '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'scan_id': 'scan_id', 'window': {'offset': 0, 'size': 6}, 'field_name': 'field_name'}
+
     Attributes:
         completion (str):
         field_name (str):
-        window (ModelFetchWindow):
+        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
+        filters (Union[Unset, ReportersFieldsFilters]):  Example: {'compare_filter': [{'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
+            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields':
+            [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in':
+            {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
+            {'key': ['', '']}}}.
         scan_id (Union[Unset, str]):
     """
 
     completion: str
     field_name: str
     window: "ModelFetchWindow"
+    filters: Union[Unset, "ReportersFieldsFilters"] = UNSET
     scan_id: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -34,6 +52,10 @@ class CompletionCompletionNodeFieldReq:
         field_name = self.field_name
 
         window = self.window.to_dict()
+
+        filters: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.filters, Unset):
+            filters = self.filters.to_dict()
 
         scan_id = self.scan_id
 
@@ -46,6 +68,8 @@ class CompletionCompletionNodeFieldReq:
                 "window": window,
             }
         )
+        if filters is not UNSET:
+            field_dict["filters"] = filters
         if scan_id is not UNSET:
             field_dict["scan_id"] = scan_id
 
@@ -54,6 +78,7 @@ class CompletionCompletionNodeFieldReq:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.model_fetch_window import ModelFetchWindow
+        from ..models.reporters_fields_filters import ReportersFieldsFilters
 
         d = src_dict.copy()
         completion = d.pop("completion")
@@ -62,12 +87,20 @@ class CompletionCompletionNodeFieldReq:
 
         window = ModelFetchWindow.from_dict(d.pop("window"))
 
+        _filters = d.pop("filters", UNSET)
+        filters: Union[Unset, ReportersFieldsFilters]
+        if isinstance(_filters, Unset):
+            filters = UNSET
+        else:
+            filters = ReportersFieldsFilters.from_dict(_filters)
+
         scan_id = d.pop("scan_id", UNSET)
 
         completion_completion_node_field_req = cls(
             completion=completion,
             field_name=field_name,
             window=window,
+            filters=filters,
             scan_id=scan_id,
         )
 

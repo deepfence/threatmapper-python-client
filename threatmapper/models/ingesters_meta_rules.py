@@ -11,6 +11,11 @@ T = TypeVar("T", bound="IngestersMetaRules")
 @_attrs_define
 class IngestersMetaRules:
     """
+    Example:
+        {'date': 'date', 'reference': 'reference', 'rule_id': 'rule_id', 'filetype': 'filetype', 'rule_name':
+            'rule_name', 'author': 'author', 'file_severity': 'file_severity', 'description': 'description', 'version':
+            'version', 'info': 'info'}
+
     Attributes:
         author (Union[Unset, str]):
         date (Union[Unset, str]):

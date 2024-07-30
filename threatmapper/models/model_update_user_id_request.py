@@ -12,6 +12,9 @@ T = TypeVar("T", bound="ModelUpdateUserIDRequest")
 @_attrs_define
 class ModelUpdateUserIDRequest:
     """
+    Example:
+        {'is_active': True, 'role': 'admin', 'last_name': 'last_name', 'first_name': 'first_name'}
+
     Attributes:
         first_name (Union[Unset, str]):
         is_active (Union[Unset, bool]):

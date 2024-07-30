@@ -16,6 +16,10 @@ T = TypeVar("T", bound="ApiDocsBadRequestResponse")
 @_attrs_define
 class ApiDocsBadRequestResponse:
     """
+    Example:
+        {'error_index': {'key': [0, 0]}, 'success': False, 'error_fields': {'key': 'error_fields'}, 'message':
+            'message'}
+
     Attributes:
         error_fields (Union['ApiDocsBadRequestResponseErrorFieldsType0', None, Unset]):
         error_index (Union['ApiDocsBadRequestResponseErrorIndexType0', None, Unset]):

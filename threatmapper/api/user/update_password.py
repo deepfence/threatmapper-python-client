@@ -82,7 +82,8 @@ def sync_detailed(
      Update current user's password
 
     Args:
-        body (ModelUpdateUserPasswordRequest):
+        body (ModelUpdateUserPasswordRequest):  Example: {'old_password': 'old_password',
+            'new_password': 'new_password'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +114,8 @@ def sync(
      Update current user's password
 
     Args:
-        body (ModelUpdateUserPasswordRequest):
+        body (ModelUpdateUserPasswordRequest):  Example: {'old_password': 'old_password',
+            'new_password': 'new_password'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +141,8 @@ async def asyncio_detailed(
      Update current user's password
 
     Args:
-        body (ModelUpdateUserPasswordRequest):
+        body (ModelUpdateUserPasswordRequest):  Example: {'old_password': 'old_password',
+            'new_password': 'new_password'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +171,8 @@ async def asyncio(
      Update current user's password
 
     Args:
-        body (ModelUpdateUserPasswordRequest):
+        body (ModelUpdateUserPasswordRequest):  Example: {'old_password': 'old_password',
+            'new_password': 'new_password'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelListAgentVersionResp")
 @_attrs_define
 class ModelListAgentVersionResp:
     """
+    Example:
+        {'versions': ['versions', 'versions']}
+
     Attributes:
         versions (Union[List[str], None]):
     """

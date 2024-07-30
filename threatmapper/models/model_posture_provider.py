@@ -11,6 +11,10 @@ T = TypeVar("T", bound="ModelPostureProvider")
 @_attrs_define
 class ModelPostureProvider:
     """
+    Example:
+        {'node_count_inactive': 1, 'compliance_percentage': 0.8008281904610115, 'node_label': 'node_label', 'name':
+            'name', 'scan_count': 5, 'node_count': 6, 'resource_count': 5}
+
     Attributes:
         compliance_percentage (Union[Unset, float]):
         name (Union[Unset, str]):

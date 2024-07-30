@@ -13,6 +13,10 @@ T = TypeVar("T", bound="ControlsAgentControls")
 @_attrs_define
 class ControlsAgentControls:
     """
+    Example:
+        {'beatrate': 0, 'commands': [{'id': 6, 'request_payload': 'request_payload'}, {'id': 6, 'request_payload':
+            'request_payload'}]}
+
     Attributes:
         beatrate (int):
         commands (Union[List['ControlsAction'], None]):

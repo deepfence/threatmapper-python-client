@@ -3,19 +3,28 @@ from typing import Any, Dict, List, Type, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.model_cloud_resource_cloud_provider import ModelCloudResourceCloudProvider
+
 T = TypeVar("T", bound="ModelCloudResource")
 
 
 @_attrs_define
 class ModelCloudResource:
     """
+    Example:
+        {'cloud_compliances_count': 0, 'account_id': 'account_id', 'cloud_compliance_latest_scan_id':
+            'cloud_compliance_latest_scan_id', 'node_type': 'node_type', 'cloud_compliance_scan_status':
+            'cloud_compliance_scan_status', 'cloud_region': 'cloud_region', 'node_name': 'node_name', 'cloud_provider':
+            'aws', 'type_label': 'type_label', 'cloud_warn_alarm_count': 6, 'node_id': 'node_id'}
+
     Attributes:
         account_id (str):
         cloud_compliance_latest_scan_id (str):
         cloud_compliance_scan_status (str):
         cloud_compliances_count (int):
-        cloud_provider (str):
+        cloud_provider (ModelCloudResourceCloudProvider):
         cloud_region (str):
+        cloud_warn_alarm_count (int):
         node_id (str):
         node_name (str):
         node_type (str):
@@ -26,8 +35,9 @@ class ModelCloudResource:
     cloud_compliance_latest_scan_id: str
     cloud_compliance_scan_status: str
     cloud_compliances_count: int
-    cloud_provider: str
+    cloud_provider: ModelCloudResourceCloudProvider
     cloud_region: str
+    cloud_warn_alarm_count: int
     node_id: str
     node_name: str
     node_type: str
@@ -43,9 +53,11 @@ class ModelCloudResource:
 
         cloud_compliances_count = self.cloud_compliances_count
 
-        cloud_provider = self.cloud_provider
+        cloud_provider = self.cloud_provider.value
 
         cloud_region = self.cloud_region
+
+        cloud_warn_alarm_count = self.cloud_warn_alarm_count
 
         node_id = self.node_id
 
@@ -65,6 +77,7 @@ class ModelCloudResource:
                 "cloud_compliances_count": cloud_compliances_count,
                 "cloud_provider": cloud_provider,
                 "cloud_region": cloud_region,
+                "cloud_warn_alarm_count": cloud_warn_alarm_count,
                 "node_id": node_id,
                 "node_name": node_name,
                 "node_type": node_type,
@@ -85,9 +98,11 @@ class ModelCloudResource:
 
         cloud_compliances_count = d.pop("cloud_compliances_count")
 
-        cloud_provider = d.pop("cloud_provider")
+        cloud_provider = ModelCloudResourceCloudProvider(d.pop("cloud_provider"))
 
         cloud_region = d.pop("cloud_region")
+
+        cloud_warn_alarm_count = d.pop("cloud_warn_alarm_count")
 
         node_id = d.pop("node_id")
 
@@ -104,6 +119,7 @@ class ModelCloudResource:
             cloud_compliances_count=cloud_compliances_count,
             cloud_provider=cloud_provider,
             cloud_region=cloud_region,
+            cloud_warn_alarm_count=cloud_warn_alarm_count,
             node_id=node_id,
             node_name=node_name,
             node_type=node_type,

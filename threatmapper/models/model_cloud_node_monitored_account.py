@@ -5,50 +5,63 @@ from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="ModelCloudNodeCloudtrailTrail")
+T = TypeVar("T", bound="ModelCloudNodeMonitoredAccount")
 
 
 @_attrs_define
-class ModelCloudNodeCloudtrailTrail:
+class ModelCloudNodeMonitoredAccount:
     """
+    Example:
+        {'account_id': 'account_id', 'account_name': 'account_name', 'node_id': 'node_id'}
+
     Attributes:
-        account_id (Union[Unset, str]):
-        trail_name (Union[Unset, str]):
+        account_id (str):
+        node_id (str):
+        account_name (Union[Unset, str]):
     """
 
-    account_id: Union[Unset, str] = UNSET
-    trail_name: Union[Unset, str] = UNSET
+    account_id: str
+    node_id: str
+    account_name: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         account_id = self.account_id
 
-        trail_name = self.trail_name
+        node_id = self.node_id
+
+        account_name = self.account_name
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update({})
-        if account_id is not UNSET:
-            field_dict["account_id"] = account_id
-        if trail_name is not UNSET:
-            field_dict["trail_name"] = trail_name
+        field_dict.update(
+            {
+                "account_id": account_id,
+                "node_id": node_id,
+            }
+        )
+        if account_name is not UNSET:
+            field_dict["account_name"] = account_name
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        account_id = d.pop("account_id", UNSET)
+        account_id = d.pop("account_id")
 
-        trail_name = d.pop("trail_name", UNSET)
+        node_id = d.pop("node_id")
 
-        model_cloud_node_cloudtrail_trail = cls(
+        account_name = d.pop("account_name", UNSET)
+
+        model_cloud_node_monitored_account = cls(
             account_id=account_id,
-            trail_name=trail_name,
+            node_id=node_id,
+            account_name=account_name,
         )
 
-        model_cloud_node_cloudtrail_trail.additional_properties = d
-        return model_cloud_node_cloudtrail_trail
+        model_cloud_node_monitored_account.additional_properties = d
+        return model_cloud_node_monitored_account
 
     @property
     def additional_keys(self) -> List[str]:

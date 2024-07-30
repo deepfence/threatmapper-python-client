@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ModelAddGenerativeAiOpenAIIntegration")
 @_attrs_define
 class ModelAddGenerativeAiOpenAIIntegration:
     """
+    Example:
+        {'api_key': 'api_key', 'model_id': 'gpt-4'}
+
     Attributes:
         api_key (str):
         model_id (ModelAddGenerativeAiOpenAIIntegrationModelId):

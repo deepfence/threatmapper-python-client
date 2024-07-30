@@ -16,17 +16,37 @@ T = TypeVar("T", bound="ModelIntegrationAddReq")
 @_attrs_define
 class ModelIntegrationAddReq:
     """
+    Example:
+        {'notification_type': 'notification_type', 'send_summary': True, 'filters': {'fields_filters':
+            {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}},
+            'order_filter': {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0,
+            'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}},
+            'match_in_array_filter': {'filter_in': {'key': ['', '']}}}, 'container_names': ['container_names',
+            'container_names'], 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id':
+            'node_id'}]}, 'integration_type': 'integration_type', 'config': {'key': ''}}
+
     Attributes:
         integration_type (str):
         notification_type (str):
         config (Union['ModelIntegrationAddReqConfigType0', None, Unset]):
-        filters (Union[Unset, ModelIntegrationFilters]):
+        filters (Union[Unset, ModelIntegrationFilters]):  Example: {'fields_filters': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value':
+            '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter':
+            {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter':
+            {'filter_in': {'key': ['', '']}}}, 'container_names': ['container_names', 'container_names'], 'node_ids':
+            [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}]}.
+        send_summary (Union[Unset, bool]):
     """
 
     integration_type: str
     notification_type: str
     config: Union["ModelIntegrationAddReqConfigType0", None, Unset] = UNSET
     filters: Union[Unset, "ModelIntegrationFilters"] = UNSET
+    send_summary: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -48,6 +68,8 @@ class ModelIntegrationAddReq:
         if not isinstance(self.filters, Unset):
             filters = self.filters.to_dict()
 
+        send_summary = self.send_summary
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -60,6 +82,8 @@ class ModelIntegrationAddReq:
             field_dict["config"] = config
         if filters is not UNSET:
             field_dict["filters"] = filters
+        if send_summary is not UNSET:
+            field_dict["send_summary"] = send_summary
 
         return field_dict
 
@@ -97,11 +121,14 @@ class ModelIntegrationAddReq:
         else:
             filters = ModelIntegrationFilters.from_dict(_filters)
 
+        send_summary = d.pop("send_summary", UNSET)
+
         model_integration_add_req = cls(
             integration_type=integration_type,
             notification_type=notification_type,
             config=config,
             filters=filters,
+            send_summary=send_summary,
         )
 
         model_integration_add_req.additional_properties = d

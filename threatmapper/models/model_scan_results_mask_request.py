@@ -12,6 +12,10 @@ T = TypeVar("T", bound="ModelScanResultsMaskRequest")
 @_attrs_define
 class ModelScanResultsMaskRequest:
     """
+    Example:
+        {'mask_action': 'mask_global', 'result_ids': ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id':
+            'scan_id'}
+
     Attributes:
         mask_action (ModelScanResultsMaskRequestMaskAction):
         result_ids (Union[List[str], None]):

@@ -11,6 +11,10 @@ T = TypeVar("T", bound="GraphIndividualThreatGraph")
 @_attrs_define
 class GraphIndividualThreatGraph:
     """
+    Example:
+        {'cve_id': ['cve_id', 'cve_id'], 'ports': ['', ''], 'attack_path': [['attack_path', 'attack_path'],
+            ['attack_path', 'attack_path']], 'cve_attack_vector': 'cve_attack_vector'}
+
     Attributes:
         attack_path (Union[List[List[str]], None, Unset]):
         cve_attack_vector (Union[Unset, str]):

@@ -11,24 +11,33 @@ T = TypeVar("T", bound="ModelExportReport")
 @_attrs_define
 class ModelExportReport:
     """
+    Example:
+        {'status_message': 'status_message', 'to_timestamp': 1, 'updated_at': 5, 'storage_path': 'storage_path',
+            'report_id': 'report_id', 'created_at': 0, 'from_timestamp': 6, 'filters': 'filters', 'type': 'type', 'url':
+            'url', 'status': 'status'}
+
     Attributes:
         created_at (Union[Unset, int]):
-        duration (Union[Unset, int]):
         filters (Union[Unset, str]):
+        from_timestamp (Union[Unset, int]):
         report_id (Union[Unset, str]):
         status (Union[Unset, str]):
+        status_message (Union[Unset, str]):
         storage_path (Union[Unset, str]):
+        to_timestamp (Union[Unset, int]):
         type (Union[Unset, str]):
         updated_at (Union[Unset, int]):
         url (Union[Unset, str]):
     """
 
     created_at: Union[Unset, int] = UNSET
-    duration: Union[Unset, int] = UNSET
     filters: Union[Unset, str] = UNSET
+    from_timestamp: Union[Unset, int] = UNSET
     report_id: Union[Unset, str] = UNSET
     status: Union[Unset, str] = UNSET
+    status_message: Union[Unset, str] = UNSET
     storage_path: Union[Unset, str] = UNSET
+    to_timestamp: Union[Unset, int] = UNSET
     type: Union[Unset, str] = UNSET
     updated_at: Union[Unset, int] = UNSET
     url: Union[Unset, str] = UNSET
@@ -37,15 +46,19 @@ class ModelExportReport:
     def to_dict(self) -> Dict[str, Any]:
         created_at = self.created_at
 
-        duration = self.duration
-
         filters = self.filters
+
+        from_timestamp = self.from_timestamp
 
         report_id = self.report_id
 
         status = self.status
 
+        status_message = self.status_message
+
         storage_path = self.storage_path
+
+        to_timestamp = self.to_timestamp
 
         type = self.type
 
@@ -58,16 +71,20 @@ class ModelExportReport:
         field_dict.update({})
         if created_at is not UNSET:
             field_dict["created_at"] = created_at
-        if duration is not UNSET:
-            field_dict["duration"] = duration
         if filters is not UNSET:
             field_dict["filters"] = filters
+        if from_timestamp is not UNSET:
+            field_dict["from_timestamp"] = from_timestamp
         if report_id is not UNSET:
             field_dict["report_id"] = report_id
         if status is not UNSET:
             field_dict["status"] = status
+        if status_message is not UNSET:
+            field_dict["status_message"] = status_message
         if storage_path is not UNSET:
             field_dict["storage_path"] = storage_path
+        if to_timestamp is not UNSET:
+            field_dict["to_timestamp"] = to_timestamp
         if type is not UNSET:
             field_dict["type"] = type
         if updated_at is not UNSET:
@@ -82,15 +99,19 @@ class ModelExportReport:
         d = src_dict.copy()
         created_at = d.pop("created_at", UNSET)
 
-        duration = d.pop("duration", UNSET)
-
         filters = d.pop("filters", UNSET)
+
+        from_timestamp = d.pop("from_timestamp", UNSET)
 
         report_id = d.pop("report_id", UNSET)
 
         status = d.pop("status", UNSET)
 
+        status_message = d.pop("status_message", UNSET)
+
         storage_path = d.pop("storage_path", UNSET)
+
+        to_timestamp = d.pop("to_timestamp", UNSET)
 
         type = d.pop("type", UNSET)
 
@@ -100,11 +121,13 @@ class ModelExportReport:
 
         model_export_report = cls(
             created_at=created_at,
-            duration=duration,
             filters=filters,
+            from_timestamp=from_timestamp,
             report_id=report_id,
             status=status,
+            status_message=status_message,
             storage_path=storage_path,
+            to_timestamp=to_timestamp,
             type=type,
             updated_at=updated_at,
             url=url,

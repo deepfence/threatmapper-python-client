@@ -7,20 +7,20 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
-from ...models.diagnosis_diagnostic_logs_status import DiagnosisDiagnosticLogsStatus
+from ...models.model_generate_license_request import ModelGenerateLicenseRequest
+from ...models.model_generate_license_response import ModelGenerateLicenseResponse
 from ...types import Response
 
 
 def _get_kwargs(
-    node_id: str,
     *,
-    body: DiagnosisDiagnosticLogsStatus,
+    body: ModelGenerateLicenseRequest,
 ) -> Dict[str, Any]:
     headers: Dict[str, Any] = {}
 
     _kwargs: Dict[str, Any] = {
-        "method": "put",
-        "url": f"/deepfence/diagnosis/cloud-scanner-logs/status/{node_id}",
+        "method": "post",
+        "url": "/deepfence/license/generate",
     }
 
     _body = body.to_dict()
@@ -34,10 +34,11 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
-    if response.status_code == HTTPStatus.NO_CONTENT:
-        response_204 = cast(Any, None)
-        return response_204
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGenerateLicenseResponse]]:
+    if response.status_code == HTTPStatus.OK:
+        response_200 = ModelGenerateLicenseResponse.from_dict(response.json())
+
+        return response_200
     if response.status_code == HTTPStatus.BAD_REQUEST:
         response_400 = ApiDocsBadRequestResponse.from_dict(response.json())
 
@@ -64,7 +65,7 @@ def _parse_response(
 
 def _build_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGenerateLicenseResponse]]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -74,29 +75,27 @@ def _build_response(
 
 
 def sync_detailed(
-    node_id: str,
     *,
     client: AuthenticatedClient,
-    body: DiagnosisDiagnosticLogsStatus,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
-    """Update Cloud Scanner Diagnostic Logs Status
+    body: ModelGenerateLicenseRequest,
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGenerateLicenseResponse]]:
+    """Generate License Key
 
-     Update cloud scanner diagnostic logs status
+     Generate a new ThreatMapper license key
 
     Args:
-        node_id (str):
-        body (DiagnosisDiagnosticLogsStatus):
+        body (ModelGenerateLicenseRequest):  Example: {'last_name': 'last_name', 'company':
+            'company', 'resend_email': True, 'first_name': 'first_name', 'email': 'email'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGenerateLicenseResponse]]
     """
 
     kwargs = _get_kwargs(
-        node_id=node_id,
         body=body,
     )
 
@@ -108,58 +107,54 @@ def sync_detailed(
 
 
 def sync(
-    node_id: str,
     *,
     client: AuthenticatedClient,
-    body: DiagnosisDiagnosticLogsStatus,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
-    """Update Cloud Scanner Diagnostic Logs Status
+    body: ModelGenerateLicenseRequest,
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGenerateLicenseResponse]]:
+    """Generate License Key
 
-     Update cloud scanner diagnostic logs status
+     Generate a new ThreatMapper license key
 
     Args:
-        node_id (str):
-        body (DiagnosisDiagnosticLogsStatus):
+        body (ModelGenerateLicenseRequest):  Example: {'last_name': 'last_name', 'company':
+            'company', 'resend_email': True, 'first_name': 'first_name', 'email': 'email'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGenerateLicenseResponse]
     """
 
     return sync_detailed(
-        node_id=node_id,
         client=client,
         body=body,
     ).parsed
 
 
 async def asyncio_detailed(
-    node_id: str,
     *,
     client: AuthenticatedClient,
-    body: DiagnosisDiagnosticLogsStatus,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
-    """Update Cloud Scanner Diagnostic Logs Status
+    body: ModelGenerateLicenseRequest,
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGenerateLicenseResponse]]:
+    """Generate License Key
 
-     Update cloud scanner diagnostic logs status
+     Generate a new ThreatMapper license key
 
     Args:
-        node_id (str):
-        body (DiagnosisDiagnosticLogsStatus):
+        body (ModelGenerateLicenseRequest):  Example: {'last_name': 'last_name', 'company':
+            'company', 'resend_email': True, 'first_name': 'first_name', 'email': 'email'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGenerateLicenseResponse]]
     """
 
     kwargs = _get_kwargs(
-        node_id=node_id,
         body=body,
     )
 
@@ -169,30 +164,28 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    node_id: str,
     *,
     client: AuthenticatedClient,
-    body: DiagnosisDiagnosticLogsStatus,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
-    """Update Cloud Scanner Diagnostic Logs Status
+    body: ModelGenerateLicenseRequest,
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGenerateLicenseResponse]]:
+    """Generate License Key
 
-     Update cloud scanner diagnostic logs status
+     Generate a new ThreatMapper license key
 
     Args:
-        node_id (str):
-        body (DiagnosisDiagnosticLogsStatus):
+        body (ModelGenerateLicenseRequest):  Example: {'last_name': 'last_name', 'company':
+            'company', 'resend_email': True, 'first_name': 'first_name', 'email': 'email'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelGenerateLicenseResponse]
     """
 
     return (
         await asyncio_detailed(
-            node_id=node_id,
             client=client,
             body=body,
         )

@@ -11,6 +11,13 @@ T = TypeVar("T", bound="IngestersCloudCompliance")
 @_attrs_define
 class IngestersCloudCompliance:
     """
+    Example:
+        {'severity': 'severity', 'reason': 'reason', 'control_id': 'control_id', 'resource': 'resource', 'count': 0,
+            'description': 'description', 'cloud_provider': 'cloud_provider', 'title': 'title', 'type': 'type', 'doc_id':
+            'doc_id', 'compliance_check_type': 'compliance_check_type', '@timestamp': '@timestamp', 'account_id':
+            'account_id', 'service': 'service', 'scan_id': 'scan_id', 'region': 'region', 'group': 'group', 'status':
+            'status'}
+
     Attributes:
         timestamp (Union[Unset, str]):
         account_id (Union[Unset, str]):

@@ -8,7 +8,6 @@ from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
 from ...models.model_cloud_node_account_register_req import ModelCloudNodeAccountRegisterReq
-from ...models.model_cloud_node_account_register_resp import ModelCloudNodeAccountRegisterResp
 from ...types import Response
 
 
@@ -34,11 +33,10 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelCloudNodeAccountRegisterResp]]:
-    if response.status_code == HTTPStatus.OK:
-        response_200 = ModelCloudNodeAccountRegisterResp.from_dict(response.json())
-
-        return response_200
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
+    if response.status_code == HTTPStatus.NO_CONTENT:
+        response_204 = cast(Any, None)
+        return response_204
     if response.status_code == HTTPStatus.BAD_REQUEST:
         response_400 = ApiDocsBadRequestResponse.from_dict(response.json())
 
@@ -65,7 +63,7 @@ def _parse_response(
 
 def _build_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelCloudNodeAccountRegisterResp]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -78,20 +76,25 @@ def sync_detailed(
     *,
     client: AuthenticatedClient,
     body: ModelCloudNodeAccountRegisterReq,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelCloudNodeAccountRegisterResp]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Register Cloud Node Account
 
-     Register Cloud Node Account and return any pending compliance scans from console
+     Register Cloud Account
 
     Args:
-        body (ModelCloudNodeAccountRegisterReq):
+        body (ModelCloudNodeAccountRegisterReq):  Example: {'account_id': 'account_id',
+            'monitored_accounts': [{'account_id': 'account_id', 'account_name': 'account_name',
+            'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name': 'account_name',
+            'node_id': 'node_id'}], 'account_name': 'account_name', 'is_organization_deployment':
+            True, 'cloud_provider': 'aws', 'organization_account_id': 'organization_account_id',
+            'host_node_id': 'host_node_id', 'version': 'version', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelCloudNodeAccountRegisterResp]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]
     """
 
     kwargs = _get_kwargs(
@@ -109,20 +112,25 @@ def sync(
     *,
     client: AuthenticatedClient,
     body: ModelCloudNodeAccountRegisterReq,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelCloudNodeAccountRegisterResp]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Register Cloud Node Account
 
-     Register Cloud Node Account and return any pending compliance scans from console
+     Register Cloud Account
 
     Args:
-        body (ModelCloudNodeAccountRegisterReq):
+        body (ModelCloudNodeAccountRegisterReq):  Example: {'account_id': 'account_id',
+            'monitored_accounts': [{'account_id': 'account_id', 'account_name': 'account_name',
+            'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name': 'account_name',
+            'node_id': 'node_id'}], 'account_name': 'account_name', 'is_organization_deployment':
+            True, 'cloud_provider': 'aws', 'organization_account_id': 'organization_account_id',
+            'host_node_id': 'host_node_id', 'version': 'version', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelCloudNodeAccountRegisterResp]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]
     """
 
     return sync_detailed(
@@ -135,20 +143,25 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
     body: ModelCloudNodeAccountRegisterReq,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelCloudNodeAccountRegisterResp]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Register Cloud Node Account
 
-     Register Cloud Node Account and return any pending compliance scans from console
+     Register Cloud Account
 
     Args:
-        body (ModelCloudNodeAccountRegisterReq):
+        body (ModelCloudNodeAccountRegisterReq):  Example: {'account_id': 'account_id',
+            'monitored_accounts': [{'account_id': 'account_id', 'account_name': 'account_name',
+            'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name': 'account_name',
+            'node_id': 'node_id'}], 'account_name': 'account_name', 'is_organization_deployment':
+            True, 'cloud_provider': 'aws', 'organization_account_id': 'organization_account_id',
+            'host_node_id': 'host_node_id', 'version': 'version', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelCloudNodeAccountRegisterResp]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]
     """
 
     kwargs = _get_kwargs(
@@ -164,20 +177,25 @@ async def asyncio(
     *,
     client: AuthenticatedClient,
     body: ModelCloudNodeAccountRegisterReq,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelCloudNodeAccountRegisterResp]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Register Cloud Node Account
 
-     Register Cloud Node Account and return any pending compliance scans from console
+     Register Cloud Account
 
     Args:
-        body (ModelCloudNodeAccountRegisterReq):
+        body (ModelCloudNodeAccountRegisterReq):  Example: {'account_id': 'account_id',
+            'monitored_accounts': [{'account_id': 'account_id', 'account_name': 'account_name',
+            'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name': 'account_name',
+            'node_id': 'node_id'}], 'account_name': 'account_name', 'is_organization_deployment':
+            True, 'cloud_provider': 'aws', 'organization_account_id': 'organization_account_id',
+            'host_node_id': 'host_node_id', 'version': 'version', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, ModelCloudNodeAccountRegisterResp]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]
     """
 
     return (

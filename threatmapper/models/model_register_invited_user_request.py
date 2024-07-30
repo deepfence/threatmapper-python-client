@@ -11,6 +11,10 @@ T = TypeVar("T", bound="ModelRegisterInvitedUserRequest")
 @_attrs_define
 class ModelRegisterInvitedUserRequest:
     """
+    Example:
+        {'password': 'password', 'code': 'code', 'namespace': 'namespace', 'last_name': 'last_name', 'first_name':
+            'first_name', 'is_temporary_password': True}
+
     Attributes:
         code (str):
         first_name (str):

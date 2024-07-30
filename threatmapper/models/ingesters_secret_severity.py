@@ -11,6 +11,9 @@ T = TypeVar("T", bound="IngestersSecretSeverity")
 @_attrs_define
 class IngestersSecretSeverity:
     """
+    Example:
+        {'score': 5.637376656633329, 'level': 'level'}
+
     Attributes:
         level (Union[Unset, str]):
         score (Union[Unset, float]):

@@ -3,6 +3,8 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.model_scan_info_status import ModelScanInfoStatus
+
 if TYPE_CHECKING:
     from ..models.model_scan_info_severity_counts_type_0 import ModelScanInfoSeverityCountsType0
 
@@ -13,6 +15,10 @@ T = TypeVar("T", bound="ModelScanInfo")
 @_attrs_define
 class ModelScanInfo:
     """
+    Example:
+        {'severity_counts': {'key': 6}, 'status_message': 'status_message', 'node_type': 'node_type', 'updated_at': 1,
+            'node_name': 'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'node_id': 'node_id', 'status': 'COMPLETE'}
+
     Attributes:
         created_at (int):
         node_id (str):
@@ -20,7 +26,7 @@ class ModelScanInfo:
         node_type (str):
         scan_id (str):
         severity_counts (Union['ModelScanInfoSeverityCountsType0', None]):
-        status (str):
+        status (ModelScanInfoStatus):
         status_message (str):
         updated_at (int):
     """
@@ -31,7 +37,7 @@ class ModelScanInfo:
     node_type: str
     scan_id: str
     severity_counts: Union["ModelScanInfoSeverityCountsType0", None]
-    status: str
+    status: ModelScanInfoStatus
     status_message: str
     updated_at: int
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -55,7 +61,7 @@ class ModelScanInfo:
         else:
             severity_counts = self.severity_counts
 
-        status = self.status
+        status = self.status.value
 
         status_message = self.status_message
 
@@ -109,7 +115,7 @@ class ModelScanInfo:
 
         severity_counts = _parse_severity_counts(d.pop("severity_counts"))
 
-        status = d.pop("status")
+        status = ModelScanInfoStatus(d.pop("status"))
 
         status_message = d.pop("status_message")
 

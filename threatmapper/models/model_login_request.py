@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelLoginRequest")
 @_attrs_define
 class ModelLoginRequest:
     """
+    Example:
+        {'password': 'password', 'email': 'email'}
+
     Attributes:
         email (str):
         password (str):

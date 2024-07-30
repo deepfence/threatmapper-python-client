@@ -11,6 +11,10 @@ T = TypeVar("T", bound="ModelSecretRule")
 @_attrs_define
 class ModelSecretRule:
     """
+    Example:
+        {'updated_at': 6, 'level': 'level', 'masked': True, 'part': 'part', 'name': 'name', 'signature_to_match':
+            'signature_to_match', 'id': 0}
+
     Attributes:
         level (str):
         masked (bool):

@@ -11,19 +11,32 @@ T = TypeVar("T", bound="ModelCloudNodeComplianceControl")
 @_attrs_define
 class ModelCloudNodeComplianceControl:
     """
+    Example:
+        {'category_hierarchy': ['category_hierarchy', 'category_hierarchy'], 'control_id': 'control_id', 'service':
+            'service', 'description': 'description', 'compliance_type': 'compliance_type', 'problem_title': 'problem_title',
+            'title': 'title', 'category_hierarchy_short': 'category_hierarchy_short', 'enabled': True, 'node_id': 'node_id'}
+
     Attributes:
         category_hierarchy (Union[List[str], None, Unset]):
+        category_hierarchy_short (Union[Unset, str]):
+        compliance_type (Union[Unset, str]):
         control_id (Union[Unset, str]):
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
+        node_id (Union[Unset, str]):
+        problem_title (Union[Unset, str]):
         service (Union[Unset, str]):
         title (Union[Unset, str]):
     """
 
     category_hierarchy: Union[List[str], None, Unset] = UNSET
+    category_hierarchy_short: Union[Unset, str] = UNSET
+    compliance_type: Union[Unset, str] = UNSET
     control_id: Union[Unset, str] = UNSET
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
+    node_id: Union[Unset, str] = UNSET
+    problem_title: Union[Unset, str] = UNSET
     service: Union[Unset, str] = UNSET
     title: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -38,11 +51,19 @@ class ModelCloudNodeComplianceControl:
         else:
             category_hierarchy = self.category_hierarchy
 
+        category_hierarchy_short = self.category_hierarchy_short
+
+        compliance_type = self.compliance_type
+
         control_id = self.control_id
 
         description = self.description
 
         enabled = self.enabled
+
+        node_id = self.node_id
+
+        problem_title = self.problem_title
 
         service = self.service
 
@@ -53,12 +74,20 @@ class ModelCloudNodeComplianceControl:
         field_dict.update({})
         if category_hierarchy is not UNSET:
             field_dict["category_hierarchy"] = category_hierarchy
+        if category_hierarchy_short is not UNSET:
+            field_dict["category_hierarchy_short"] = category_hierarchy_short
+        if compliance_type is not UNSET:
+            field_dict["compliance_type"] = compliance_type
         if control_id is not UNSET:
             field_dict["control_id"] = control_id
         if description is not UNSET:
             field_dict["description"] = description
         if enabled is not UNSET:
             field_dict["enabled"] = enabled
+        if node_id is not UNSET:
+            field_dict["node_id"] = node_id
+        if problem_title is not UNSET:
+            field_dict["problem_title"] = problem_title
         if service is not UNSET:
             field_dict["service"] = service
         if title is not UNSET:
@@ -87,11 +116,19 @@ class ModelCloudNodeComplianceControl:
 
         category_hierarchy = _parse_category_hierarchy(d.pop("category_hierarchy", UNSET))
 
+        category_hierarchy_short = d.pop("category_hierarchy_short", UNSET)
+
+        compliance_type = d.pop("compliance_type", UNSET)
+
         control_id = d.pop("control_id", UNSET)
 
         description = d.pop("description", UNSET)
 
         enabled = d.pop("enabled", UNSET)
+
+        node_id = d.pop("node_id", UNSET)
+
+        problem_title = d.pop("problem_title", UNSET)
 
         service = d.pop("service", UNSET)
 
@@ -99,9 +136,13 @@ class ModelCloudNodeComplianceControl:
 
         model_cloud_node_compliance_control = cls(
             category_hierarchy=category_hierarchy,
+            category_hierarchy_short=category_hierarchy_short,
+            compliance_type=compliance_type,
             control_id=control_id,
             description=description,
             enabled=enabled,
+            node_id=node_id,
+            problem_title=problem_title,
             service=service,
             title=title,
         )

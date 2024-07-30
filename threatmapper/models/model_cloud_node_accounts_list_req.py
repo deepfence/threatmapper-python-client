@@ -1,9 +1,9 @@
-from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..types import UNSET, Unset
+from ..models.model_cloud_node_accounts_list_req_cloud_provider import ModelCloudNodeAccountsListReqCloudProvider
 
 if TYPE_CHECKING:
     from ..models.model_fetch_window import ModelFetchWindow
@@ -15,29 +15,31 @@ T = TypeVar("T", bound="ModelCloudNodeAccountsListReq")
 @_attrs_define
 class ModelCloudNodeAccountsListReq:
     """
+    Example:
+        {'cloud_provider': 'aws', 'window': {'offset': 0, 'size': 6}}
+
     Attributes:
-        window (ModelFetchWindow):
-        cloud_provider (Union[Unset, str]):
+        cloud_provider (ModelCloudNodeAccountsListReqCloudProvider):
+        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
     """
 
+    cloud_provider: ModelCloudNodeAccountsListReqCloudProvider
     window: "ModelFetchWindow"
-    cloud_provider: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        window = self.window.to_dict()
+        cloud_provider = self.cloud_provider.value
 
-        cloud_provider = self.cloud_provider
+        window = self.window.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "cloud_provider": cloud_provider,
                 "window": window,
             }
         )
-        if cloud_provider is not UNSET:
-            field_dict["cloud_provider"] = cloud_provider
 
         return field_dict
 
@@ -46,13 +48,13 @@ class ModelCloudNodeAccountsListReq:
         from ..models.model_fetch_window import ModelFetchWindow
 
         d = src_dict.copy()
+        cloud_provider = ModelCloudNodeAccountsListReqCloudProvider(d.pop("cloud_provider"))
+
         window = ModelFetchWindow.from_dict(d.pop("window"))
 
-        cloud_provider = d.pop("cloud_provider", UNSET)
-
         model_cloud_node_accounts_list_req = cls(
-            window=window,
             cloud_provider=cloud_provider,
+            window=window,
         )
 
         model_cloud_node_accounts_list_req.additional_properties = d

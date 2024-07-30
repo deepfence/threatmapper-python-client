@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelBulkDeleteReportReq")
 @_attrs_define
 class ModelBulkDeleteReportReq:
     """
+    Example:
+        {'report_ids': ['report_ids', 'report_ids']}
+
     Attributes:
         report_ids (Union[List[str], None]):
     """

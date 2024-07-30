@@ -11,6 +11,10 @@ T = TypeVar("T", bound="ModelEmailConfigurationResp")
 @_attrs_define
 class ModelEmailConfigurationResp:
     """
+    Example:
+        {'email_id': 'email_id', 'smtp': 'smtp', 'port': 'port', 'email_provider': 'email_provider', 'id': 6,
+            'created_by_user_id': 0, 'ses_region': 'ses_region'}
+
     Attributes:
         created_by_user_id (Union[Unset, int]):
         email_id (Union[Unset, str]):

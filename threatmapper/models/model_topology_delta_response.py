@@ -15,6 +15,11 @@ T = TypeVar("T", bound="ModelTopologyDeltaResponse")
 @_attrs_define
 class ModelTopologyDeltaResponse:
     """
+    Example:
+        {'deletions': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}],
+            'additons': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}],
+            'deletion_timestamp': 6, 'addition_timestamp': 0}
+
     Attributes:
         addition_timestamp (Union[Unset, int]):
         additons (Union[List['ModelNodeIdentifier'], None, Unset]):

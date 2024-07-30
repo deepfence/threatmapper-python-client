@@ -11,6 +11,36 @@ T = TypeVar("T", bound="ReportMetadata")
 @_attrs_define
 class ReportMetadata:
     """
+    Example:
+        {'docker_image_name_with_tag': 'docker_image_name_with_tag', 'kubernetes_ip': 'kubernetes_ip', 'public_ip':
+            ['public_ip', 'public_ip'], 'kubernetes_cluster_name': 'kubernetes_cluster_name', 'docker_container_state':
+            'docker_container_state', 'cpu_max': 6.027456183070403, 'pid': 7, 'kubernetes_created': 'kubernetes_created',
+            'kubernetes_namespace': 'kubernetes_namespace', 'cmdline': 'cmdline', 'node_type': 'node_type',
+            'interface_ip_map': 'interface_ip_map', 'pseudo': True, 'docker_container_name': 'docker_container_name',
+            'docker_container_created': 'docker_container_created', 'kubernetes_cluster_id': 'kubernetes_cluster_id',
+            'docker_container_networks': 'docker_container_networks', 'kubernetes_ports': ['kubernetes_ports',
+            'kubernetes_ports'], 'version': 'version', 'pod_name': 'pod_name', 'ppid': 9, 'tags': ['tags', 'tags'],
+            'docker_container_ports': 'docker_container_ports', 'kubernetes_is_in_host_network': True, 'instance_id':
+            'instance_id', 'kernel_id': 'kernel_id', 'copy_of': 'copy_of', 'open_files': ['open_files', 'open_files'],
+            'docker_env': 'docker_env', 'connection_count': 0, 'docker_image_size': 'docker_image_size', 'short_name':
+            'short_name', 'cpu_usage': 1.4658129805029452, 'pod_id': 'pod_id', 'docker_label': 'docker_label',
+            'instance_type': 'instance_type', 'docker_image_name': 'docker_image_name', 'user_defined_tags':
+            ['user_defined_tags', 'user_defined_tags'], 'local_networks': ['local_networks', 'local_networks'],
+            'cloud_region': 'cloud_region', 'kubernetes_state': 'kubernetes_state', 'interface_names': ['interface_names',
+            'interface_names'], 'memory_usage': 5, 'open_files_count': 2, 'kubernetes_public_ip': 'kubernetes_public_ip',
+            'private_ip': ['private_ip', 'private_ip'], 'docker_container_network_mode': 'docker_container_network_mode',
+            'cloud_account_id': 'cloud_account_id', 'kubernetes_type': 'kubernetes_type', 'resource_group':
+            'resource_group', 'docker_image_tag': 'docker_image_tag', 'kubernetes_labels': 'kubernetes_labels',
+            'docker_container_ips': ['docker_container_ips', 'docker_container_ips'], 'docker_image_id': 'docker_image_id',
+            'timestamp': 'timestamp', 'interface_ips': ['interface_ips', 'interface_ips'], 'is_deepfence_system': True,
+            'availability_zone': 'availability_zone', 'is_console_vm': True, 'os': 'os', 'local_cidr': ['local_cidr',
+            'local_cidr'], 'node_name': 'node_name', 'threads': 3, 'cloud_provider': 'cloud_provider',
+            'docker_container_command': 'docker_container_command', 'agent_running': True, 'uptime': 2, 'memory_max': 5,
+            'docker_image_created_at': 'docker_image_created_at', 'kernel_version': 'kernel_version',
+            'docker_container_state_human': 'docker_container_state_human', 'docker_image_virtual_size':
+            'docker_image_virtual_size', 'kubernetes_ingress_ip': ['kubernetes_ingress_ip', 'kubernetes_ingress_ip'],
+            'host_name': 'host_name', 'node_id': 'node_id'}
+
     Attributes:
         agent_running (Union[Unset, bool]):
         availability_zone (Union[Unset, str]):
@@ -47,6 +77,7 @@ class ReportMetadata:
         interface_ips (Union[Unset, List[str]]):
         interface_names (Union[Unset, List[str]]):
         is_console_vm (Union[Unset, bool]):
+        is_deepfence_system (Union[Unset, bool]):
         kernel_id (Union[Unset, str]):
         kernel_version (Union[Unset, str]):
         kubernetes_cluster_id (Union[Unset, str]):
@@ -123,6 +154,7 @@ class ReportMetadata:
     interface_ips: Union[Unset, List[str]] = UNSET
     interface_names: Union[Unset, List[str]] = UNSET
     is_console_vm: Union[Unset, bool] = UNSET
+    is_deepfence_system: Union[Unset, bool] = UNSET
     kernel_id: Union[Unset, str] = UNSET
     kernel_version: Union[Unset, str] = UNSET
     kubernetes_cluster_id: Union[Unset, str] = UNSET
@@ -240,6 +272,8 @@ class ReportMetadata:
             interface_names = self.interface_names
 
         is_console_vm = self.is_console_vm
+
+        is_deepfence_system = self.is_deepfence_system
 
         kernel_id = self.kernel_id
 
@@ -410,6 +444,8 @@ class ReportMetadata:
             field_dict["interface_names"] = interface_names
         if is_console_vm is not UNSET:
             field_dict["is_console_vm"] = is_console_vm
+        if is_deepfence_system is not UNSET:
+            field_dict["is_deepfence_system"] = is_deepfence_system
         if kernel_id is not UNSET:
             field_dict["kernel_id"] = kernel_id
         if kernel_version is not UNSET:
@@ -564,6 +600,8 @@ class ReportMetadata:
 
         is_console_vm = d.pop("is_console_vm", UNSET)
 
+        is_deepfence_system = d.pop("is_deepfence_system", UNSET)
+
         kernel_id = d.pop("kernel_id", UNSET)
 
         kernel_version = d.pop("kernel_version", UNSET)
@@ -678,6 +716,7 @@ class ReportMetadata:
             interface_ips=interface_ips,
             interface_names=interface_names,
             is_console_vm=is_console_vm,
+            is_deepfence_system=is_deepfence_system,
             kernel_id=kernel_id,
             kernel_version=kernel_version,
             kubernetes_cluster_id=kubernetes_cluster_id,

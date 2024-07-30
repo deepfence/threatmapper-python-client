@@ -84,7 +84,10 @@ def sync_detailed(
      This email configuration is used to send email notifications
 
     Args:
-        body (ModelEmailConfigurationAdd):
+        body (ModelEmailConfigurationAdd):  Example: {'email_id': 'email_id', 'password':
+            'password', 'smtp': 'smtp', 'apikey': 'apikey', 'port': 'port', 'email_provider':
+            'email_provider', 'amazon_secret_key': 'amazon_secret_key', 'amazon_access_key':
+            'amazon_access_key', 'created_by_user_id': 0, 'ses_region': 'ses_region'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +118,10 @@ def sync(
      This email configuration is used to send email notifications
 
     Args:
-        body (ModelEmailConfigurationAdd):
+        body (ModelEmailConfigurationAdd):  Example: {'email_id': 'email_id', 'password':
+            'password', 'smtp': 'smtp', 'apikey': 'apikey', 'port': 'port', 'email_provider':
+            'email_provider', 'amazon_secret_key': 'amazon_secret_key', 'amazon_access_key':
+            'amazon_access_key', 'created_by_user_id': 0, 'ses_region': 'ses_region'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +147,10 @@ async def asyncio_detailed(
      This email configuration is used to send email notifications
 
     Args:
-        body (ModelEmailConfigurationAdd):
+        body (ModelEmailConfigurationAdd):  Example: {'email_id': 'email_id', 'password':
+            'password', 'smtp': 'smtp', 'apikey': 'apikey', 'port': 'port', 'email_provider':
+            'email_provider', 'amazon_secret_key': 'amazon_secret_key', 'amazon_access_key':
+            'amazon_access_key', 'created_by_user_id': 0, 'ses_region': 'ses_region'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +179,10 @@ async def asyncio(
      This email configuration is used to send email notifications
 
     Args:
-        body (ModelEmailConfigurationAdd):
+        body (ModelEmailConfigurationAdd):  Example: {'email_id': 'email_id', 'password':
+            'password', 'smtp': 'smtp', 'apikey': 'apikey', 'port': 'port', 'email_provider':
+            'email_provider', 'amazon_secret_key': 'amazon_secret_key', 'amazon_access_key':
+            'amazon_access_key', 'created_by_user_id': 0, 'ses_region': 'ses_region'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

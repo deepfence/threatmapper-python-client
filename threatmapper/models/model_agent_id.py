@@ -1,7 +1,9 @@
-from typing import Any, Dict, List, Type, TypeVar
+from typing import Any, Dict, List, Type, TypeVar, Union
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ModelAgentID")
 
@@ -9,19 +11,26 @@ T = TypeVar("T", bound="ModelAgentID")
 @_attrs_define
 class ModelAgentID:
     """
+    Example:
+        {'node_type': 'node_type', 'available_workload': 0, 'node_id': 'node_id'}
+
     Attributes:
         available_workload (int):
         node_id (str):
+        node_type (Union[Unset, str]):
     """
 
     available_workload: int
     node_id: str
+    node_type: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         available_workload = self.available_workload
 
         node_id = self.node_id
+
+        node_type = self.node_type
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -31,6 +40,8 @@ class ModelAgentID:
                 "node_id": node_id,
             }
         )
+        if node_type is not UNSET:
+            field_dict["node_type"] = node_type
 
         return field_dict
 
@@ -41,9 +52,12 @@ class ModelAgentID:
 
         node_id = d.pop("node_id")
 
+        node_type = d.pop("node_type", UNSET)
+
         model_agent_id = cls(
             available_workload=available_workload,
             node_id=node_id,
+            node_type=node_type,
         )
 
         model_agent_id.additional_properties = d

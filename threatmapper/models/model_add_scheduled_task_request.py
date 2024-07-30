@@ -4,6 +4,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.model_add_scheduled_task_request_action import ModelAddScheduledTaskRequestAction
+from ..models.model_benchmark_type import ModelBenchmarkType
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
@@ -18,23 +19,37 @@ T = TypeVar("T", bound="ModelAddScheduledTaskRequest")
 @_attrs_define
 class ModelAddScheduledTaskRequest:
     """
+    Example:
+        {'is_priority': True, 'benchmark_types': ['hipaa', 'hipaa'], 'scan_config': [{'language': 'base'}, {'language':
+            'base'}], 'cron_expr': 'cron_expr', 'action': 'SecretScan', 'description': 'description',
+            'deepfence_system_scan': True, 'filters': {'container_scan_filter': {'filter_in': {'key': ['', '']}},
+            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['',
+            '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in':
+            {'key': ['', '']}}}, 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image',
+            'node_id': 'node_id'}]}
+
     Attributes:
         action (ModelAddScheduledTaskRequestAction):
-        benchmark_types (Union[List[str], None]):
-        filters (ModelScanFilter):
+        benchmark_types (Union[List[ModelBenchmarkType], None]):
+        filters (ModelScanFilter):  Example: {'container_scan_filter': {'filter_in': {'key': ['', '']}},
+            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['',
+            '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in':
+            {'key': ['', '']}}}.
         node_ids (Union[List['ModelNodeIdentifier'], None]):
         scan_config (Union[List['ModelVulnerabilityScanConfigLanguage'], None]):
         cron_expr (Union[Unset, str]):
+        deepfence_system_scan (Union[Unset, bool]):
         description (Union[Unset, str]):
         is_priority (Union[Unset, bool]):
     """
 
     action: ModelAddScheduledTaskRequestAction
-    benchmark_types: Union[List[str], None]
+    benchmark_types: Union[List[ModelBenchmarkType], None]
     filters: "ModelScanFilter"
     node_ids: Union[List["ModelNodeIdentifier"], None]
     scan_config: Union[List["ModelVulnerabilityScanConfigLanguage"], None]
     cron_expr: Union[Unset, str] = UNSET
+    deepfence_system_scan: Union[Unset, bool] = UNSET
     description: Union[Unset, str] = UNSET
     is_priority: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -44,7 +59,10 @@ class ModelAddScheduledTaskRequest:
 
         benchmark_types: Union[List[str], None]
         if isinstance(self.benchmark_types, list):
-            benchmark_types = self.benchmark_types
+            benchmark_types = []
+            for benchmark_types_type_0_item_data in self.benchmark_types:
+                benchmark_types_type_0_item = benchmark_types_type_0_item_data.value
+                benchmark_types.append(benchmark_types_type_0_item)
 
         else:
             benchmark_types = self.benchmark_types
@@ -73,6 +91,8 @@ class ModelAddScheduledTaskRequest:
 
         cron_expr = self.cron_expr
 
+        deepfence_system_scan = self.deepfence_system_scan
+
         description = self.description
 
         is_priority = self.is_priority
@@ -90,6 +110,8 @@ class ModelAddScheduledTaskRequest:
         )
         if cron_expr is not UNSET:
             field_dict["cron_expr"] = cron_expr
+        if deepfence_system_scan is not UNSET:
+            field_dict["deepfence_system_scan"] = deepfence_system_scan
         if description is not UNSET:
             field_dict["description"] = description
         if is_priority is not UNSET:
@@ -106,18 +128,23 @@ class ModelAddScheduledTaskRequest:
         d = src_dict.copy()
         action = ModelAddScheduledTaskRequestAction(d.pop("action"))
 
-        def _parse_benchmark_types(data: object) -> Union[List[str], None]:
+        def _parse_benchmark_types(data: object) -> Union[List[ModelBenchmarkType], None]:
             if data is None:
                 return data
             try:
                 if not isinstance(data, list):
                     raise TypeError()
-                benchmark_types_type_0 = cast(List[str], data)
+                benchmark_types_type_0 = []
+                _benchmark_types_type_0 = data
+                for benchmark_types_type_0_item_data in _benchmark_types_type_0:
+                    benchmark_types_type_0_item = ModelBenchmarkType(benchmark_types_type_0_item_data)
+
+                    benchmark_types_type_0.append(benchmark_types_type_0_item)
 
                 return benchmark_types_type_0
             except:  # noqa: E722
                 pass
-            return cast(Union[List[str], None], data)
+            return cast(Union[List[ModelBenchmarkType], None], data)
 
         benchmark_types = _parse_benchmark_types(d.pop("benchmark_types"))
 
@@ -167,6 +194,8 @@ class ModelAddScheduledTaskRequest:
 
         cron_expr = d.pop("cron_expr", UNSET)
 
+        deepfence_system_scan = d.pop("deepfence_system_scan", UNSET)
+
         description = d.pop("description", UNSET)
 
         is_priority = d.pop("is_priority", UNSET)
@@ -178,6 +207,7 @@ class ModelAddScheduledTaskRequest:
             node_ids=node_ids,
             scan_config=scan_config,
             cron_expr=cron_expr,
+            deepfence_system_scan=deepfence_system_scan,
             description=description,
             is_priority=is_priority,
         )

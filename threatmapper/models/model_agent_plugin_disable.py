@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelAgentPluginDisable")
 @_attrs_define
 class ModelAgentPluginDisable:
     """
+    Example:
+        {'plugin_name': 'plugin_name', 'node_id': 'node_id'}
+
     Attributes:
         node_id (str):
         plugin_name (str):

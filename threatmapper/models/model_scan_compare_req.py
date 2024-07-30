@@ -14,11 +14,26 @@ T = TypeVar("T", bound="ModelScanCompareReq")
 @_attrs_define
 class ModelScanCompareReq:
     """
+    Example:
+        {'to_scan_id': 'to_scan_id', 'base_scan_id': 'base_scan_id', 'window': {'offset': 0, 'size': 6},
+            'fields_filter': {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'},
+            {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True, 'field_name':
+            'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in':
+            {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['', '']}}}}
+
     Attributes:
         base_scan_id (str):
-        fields_filter (ReportersFieldsFilters):
+        fields_filter (ReportersFieldsFilters):  Example: {'compare_filter': [{'greater_than': True, 'field_value': '',
+            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}],
+            'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]},
+            'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['',
+            '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}.
         to_scan_id (str):
-        window (ModelFetchWindow):
+        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
     """
 
     base_scan_id: str

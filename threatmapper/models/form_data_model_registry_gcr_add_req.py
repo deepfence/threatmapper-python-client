@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Type, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..types import File, Unset
+from ..types import File
 
 T = TypeVar("T", bound="FormDataModelRegistryGCRAddReq")
 
@@ -43,20 +43,16 @@ class FormDataModelRegistryGCRAddReq:
         return field_dict
 
     def to_multipart(self) -> Dict[str, Any]:
-        name = self.name if isinstance(self.name, Unset) else (None, str(self.name).encode(), "text/plain")
+        name = (None, str(self.name).encode(), "text/plain")
 
-        registry_url = (
-            self.registry_url
-            if isinstance(self.registry_url, Unset)
-            else (None, str(self.registry_url).encode(), "text/plain")
-        )
+        registry_url = (None, str(self.registry_url).encode(), "text/plain")
 
         service_account_json = self.service_account_json.to_tuple()
 
         field_dict: Dict[str, Any] = {}
-        field_dict.update(
-            {key: (None, str(value).encode(), "text/plain") for key, value in self.additional_properties.items()}
-        )
+        for prop_name, prop in self.additional_properties.items():
+            field_dict[prop_name] = (None, str(prop).encode(), "text/plain")
+
         field_dict.update(
             {
                 "name": name,

@@ -89,7 +89,9 @@ def sync_detailed(
      Retrieve the cloud resources
 
     Args:
-        body (LookupLookupFilter):
+        body (LookupLookupFilter):  Example: {'in_field_filter': ['in_field_filter',
+            'in_field_filter'], 'window': {'offset': 0, 'size': 6}, 'node_ids': ['node_ids',
+            'node_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -120,7 +122,9 @@ def sync(
      Retrieve the cloud resources
 
     Args:
-        body (LookupLookupFilter):
+        body (LookupLookupFilter):  Example: {'in_field_filter': ['in_field_filter',
+            'in_field_filter'], 'window': {'offset': 0, 'size': 6}, 'node_ids': ['node_ids',
+            'node_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -146,7 +150,9 @@ async def asyncio_detailed(
      Retrieve the cloud resources
 
     Args:
-        body (LookupLookupFilter):
+        body (LookupLookupFilter):  Example: {'in_field_filter': ['in_field_filter',
+            'in_field_filter'], 'window': {'offset': 0, 'size': 6}, 'node_ids': ['node_ids',
+            'node_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -175,7 +181,9 @@ async def asyncio(
      Retrieve the cloud resources
 
     Args:
-        body (LookupLookupFilter):
+        body (LookupLookupFilter):  Example: {'in_field_filter': ['in_field_filter',
+            'in_field_filter'], 'window': {'offset': 0, 'size': 6}, 'node_ids': ['node_ids',
+            'node_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

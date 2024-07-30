@@ -1,49 +1,47 @@
+from io import BytesIO
 from typing import Any, Dict, List, Type, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-T = TypeVar("T", bound="ModelSettingsResponse")
+from ..types import File
+
+T = TypeVar("T", bound="FormDataThreatintelDBUploadRequest")
 
 
 @_attrs_define
-class ModelSettingsResponse:
+class FormDataThreatintelDBUploadRequest:
     """
     Attributes:
-        description (str):
-        id (int):
-        key (str):
-        label (str):
-        value (Any):
+        database (File):
     """
 
-    description: str
-    id: int
-    key: str
-    label: str
-    value: Any
+    database: File
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        description = self.description
-
-        id = self.id
-
-        key = self.key
-
-        label = self.label
-
-        value = self.value
+        database = self.database.to_tuple()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "description": description,
-                "id": id,
-                "key": key,
-                "label": label,
-                "value": value,
+                "database": database,
+            }
+        )
+
+        return field_dict
+
+    def to_multipart(self) -> Dict[str, Any]:
+        database = self.database.to_tuple()
+
+        field_dict: Dict[str, Any] = {}
+        for prop_name, prop in self.additional_properties.items():
+            field_dict[prop_name] = (None, str(prop).encode(), "text/plain")
+
+        field_dict.update(
+            {
+                "database": database,
             }
         )
 
@@ -52,26 +50,14 @@ class ModelSettingsResponse:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        description = d.pop("description")
+        database = File(payload=BytesIO(d.pop("database")))
 
-        id = d.pop("id")
-
-        key = d.pop("key")
-
-        label = d.pop("label")
-
-        value = d.pop("value")
-
-        model_settings_response = cls(
-            description=description,
-            id=id,
-            key=key,
-            label=label,
-            value=value,
+        form_data_threatintel_db_upload_request = cls(
+            database=database,
         )
 
-        model_settings_response.additional_properties = d
-        return model_settings_response
+        form_data_threatintel_db_upload_request.additional_properties = d
+        return form_data_threatintel_db_upload_request
 
     @property
     def additional_keys(self) -> List[str]:

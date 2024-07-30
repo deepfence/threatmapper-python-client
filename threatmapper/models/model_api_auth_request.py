@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelAPIAuthRequest")
 @_attrs_define
 class ModelAPIAuthRequest:
     """
+    Example:
+        {'api_token': 'api_token'}
+
     Attributes:
         api_token (str):
     """

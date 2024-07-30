@@ -13,6 +13,10 @@ T = TypeVar("T", bound="GraphIndividualThreatGraphRequest")
 @_attrs_define
 class GraphIndividualThreatGraphRequest:
     """
+    Example:
+        {'graph_type': 'most_vulnerable_attack_paths', 'issue_type': 'vulnerability', 'node_ids': ['node_ids',
+            'node_ids']}
+
     Attributes:
         graph_type (GraphIndividualThreatGraphRequestGraphType):
         issue_type (GraphIndividualThreatGraphRequestIssueType):

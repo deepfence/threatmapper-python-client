@@ -9,6 +9,12 @@ T = TypeVar("T", bound="ModelScanResultsCommon")
 @_attrs_define
 class ModelScanResultsCommon:
     """
+    Example:
+        {'cloud_account_id': 'cloud_account_id', 'node_type': 'node_type', 'docker_container_name':
+            'docker_container_name', 'updated_at': 6, 'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name':
+            'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'docker_image_name': 'docker_image_name', 'host_name':
+            'host_name', 'node_id': 'node_id'}
+
     Attributes:
         cloud_account_id (str):
         created_at (int):

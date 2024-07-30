@@ -7,7 +7,7 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
-from ...models.model_settings_response import ModelSettingsResponse
+from ...models.setting_settings_response import SettingSettingsResponse
 from ...types import Response
 
 
@@ -22,12 +22,12 @@ def _get_kwargs() -> Dict[str, Any]:
 
 def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["ModelSettingsResponse"]]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["SettingSettingsResponse"]]]:
     if response.status_code == HTTPStatus.OK:
         response_200 = []
         _response_200 = response.json()
         for response_200_item_data in _response_200:
-            response_200_item = ModelSettingsResponse.from_dict(response_200_item_data)
+            response_200_item = SettingSettingsResponse.from_dict(response_200_item_data)
 
             response_200.append(response_200_item)
 
@@ -58,7 +58,7 @@ def _parse_response(
 
 def _build_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["ModelSettingsResponse"]]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["SettingSettingsResponse"]]]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -70,7 +70,7 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["ModelSettingsResponse"]]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["SettingSettingsResponse"]]]:
     """Get settings
 
      Get all settings
@@ -80,7 +80,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['ModelSettingsResponse']]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['SettingSettingsResponse']]]
     """
 
     kwargs = _get_kwargs()
@@ -95,7 +95,7 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["ModelSettingsResponse"]]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["SettingSettingsResponse"]]]:
     """Get settings
 
      Get all settings
@@ -105,7 +105,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['ModelSettingsResponse']]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['SettingSettingsResponse']]
     """
 
     return sync_detailed(
@@ -116,7 +116,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["ModelSettingsResponse"]]]:
+) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["SettingSettingsResponse"]]]:
     """Get settings
 
      Get all settings
@@ -126,7 +126,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['ModelSettingsResponse']]]
+        Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['SettingSettingsResponse']]]
     """
 
     kwargs = _get_kwargs()
@@ -139,7 +139,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["ModelSettingsResponse"]]]:
+) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List["SettingSettingsResponse"]]]:
     """Get settings
 
      Get all settings
@@ -149,7 +149,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['ModelSettingsResponse']]
+        Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse, List['SettingSettingsResponse']]
     """
 
     return (

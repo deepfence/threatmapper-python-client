@@ -18,14 +18,23 @@ T = TypeVar("T", bound="ReportersFieldsFilters")
 @_attrs_define
 class ReportersFieldsFilters:
     """
+    Example:
+        {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}},
+            'order_filter': {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0,
+            'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}},
+            'match_in_array_filter': {'filter_in': {'key': ['', '']}}}
+
     Attributes:
         compare_filter (Union[List['ReportersCompareFilter'], None]):
-        contains_filter (ReportersContainsFilter):
-        match_filter (ReportersMatchFilter):
-        order_filter (ReportersOrderFilter):
-        contains_in_array_filter (Union[Unset, ReportersContainsFilter]):
-        match_in_array_filter (Union[Unset, ReportersMatchFilter]):
-        not_contains_filter (Union[Unset, ReportersContainsFilter]):
+        contains_filter (ReportersContainsFilter):  Example: {'filter_in': {'key': ['', '']}}.
+        match_filter (ReportersMatchFilter):  Example: {'filter_in': {'key': ['', '']}}.
+        order_filter (ReportersOrderFilter):  Example: {'order_fields': [{'size': 0, 'descending': True, 'field_name':
+            'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}.
+        contains_in_array_filter (Union[Unset, ReportersContainsFilter]):  Example: {'filter_in': {'key': ['', '']}}.
+        match_in_array_filter (Union[Unset, ReportersMatchFilter]):  Example: {'filter_in': {'key': ['', '']}}.
+        not_contains_filter (Union[Unset, ReportersContainsFilter]):  Example: {'filter_in': {'key': ['', '']}}.
     """
 
     compare_filter: Union[List["ReportersCompareFilter"], None]

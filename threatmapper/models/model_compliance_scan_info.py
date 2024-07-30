@@ -3,6 +3,8 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.model_compliance_scan_info_status import ModelComplianceScanInfoStatus
+
 if TYPE_CHECKING:
     from ..models.model_compliance_scan_info_severity_counts_type_0 import ModelComplianceScanInfoSeverityCountsType0
 
@@ -13,27 +15,34 @@ T = TypeVar("T", bound="ModelComplianceScanInfo")
 @_attrs_define
 class ModelComplianceScanInfo:
     """
+    Example:
+        {'severity_counts': {'key': 6}, 'status_message': 'status_message', 'node_type': 'node_type', 'benchmark_types':
+            ['benchmark_types', 'benchmark_types'], 'updated_at': 1, 'node_name': 'node_name', 'created_at': 0,
+            'cloud_provider': 'cloud_provider', 'scan_id': 'scan_id', 'node_id': 'node_id', 'status': 'COMPLETE'}
+
     Attributes:
         benchmark_types (Union[List[str], None]):
+        cloud_provider (str):
         created_at (int):
         node_id (str):
         node_name (str):
         node_type (str):
         scan_id (str):
         severity_counts (Union['ModelComplianceScanInfoSeverityCountsType0', None]):
-        status (str):
+        status (ModelComplianceScanInfoStatus):
         status_message (str):
         updated_at (int):
     """
 
     benchmark_types: Union[List[str], None]
+    cloud_provider: str
     created_at: int
     node_id: str
     node_name: str
     node_type: str
     scan_id: str
     severity_counts: Union["ModelComplianceScanInfoSeverityCountsType0", None]
-    status: str
+    status: ModelComplianceScanInfoStatus
     status_message: str
     updated_at: int
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -49,6 +58,8 @@ class ModelComplianceScanInfo:
 
         else:
             benchmark_types = self.benchmark_types
+
+        cloud_provider = self.cloud_provider
 
         created_at = self.created_at
 
@@ -66,7 +77,7 @@ class ModelComplianceScanInfo:
         else:
             severity_counts = self.severity_counts
 
-        status = self.status
+        status = self.status.value
 
         status_message = self.status_message
 
@@ -77,6 +88,7 @@ class ModelComplianceScanInfo:
         field_dict.update(
             {
                 "benchmark_types": benchmark_types,
+                "cloud_provider": cloud_provider,
                 "created_at": created_at,
                 "node_id": node_id,
                 "node_name": node_name,
@@ -114,6 +126,8 @@ class ModelComplianceScanInfo:
 
         benchmark_types = _parse_benchmark_types(d.pop("benchmark_types"))
 
+        cloud_provider = d.pop("cloud_provider")
+
         created_at = d.pop("created_at")
 
         node_id = d.pop("node_id")
@@ -139,7 +153,7 @@ class ModelComplianceScanInfo:
 
         severity_counts = _parse_severity_counts(d.pop("severity_counts"))
 
-        status = d.pop("status")
+        status = ModelComplianceScanInfoStatus(d.pop("status"))
 
         status_message = d.pop("status_message")
 
@@ -147,6 +161,7 @@ class ModelComplianceScanInfo:
 
         model_compliance_scan_info = cls(
             benchmark_types=benchmark_types,
+            cloud_provider=cloud_provider,
             created_at=created_at,
             node_id=node_id,
             node_name=node_name,

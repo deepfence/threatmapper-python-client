@@ -84,7 +84,7 @@ def sync_detailed(
      Login API
 
     Args:
-        body (ModelLoginRequest):
+        body (ModelLoginRequest):  Example: {'password': 'password', 'email': 'email'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +115,7 @@ def sync(
      Login API
 
     Args:
-        body (ModelLoginRequest):
+        body (ModelLoginRequest):  Example: {'password': 'password', 'email': 'email'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +141,7 @@ async def asyncio_detailed(
      Login API
 
     Args:
-        body (ModelLoginRequest):
+        body (ModelLoginRequest):  Example: {'password': 'password', 'email': 'email'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +170,7 @@ async def asyncio(
      Login API
 
     Args:
-        body (ModelLoginRequest):
+        body (ModelLoginRequest):  Example: {'password': 'password', 'email': 'email'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

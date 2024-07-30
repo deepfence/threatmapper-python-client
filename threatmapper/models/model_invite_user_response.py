@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ModelInviteUserResponse")
 @_attrs_define
 class ModelInviteUserResponse:
     """
+    Example:
+        {'invite_expiry_hours': 0, 'invite_url': 'invite_url', 'message': 'message'}
+
     Attributes:
         invite_expiry_hours (Union[Unset, int]):
         invite_url (Union[Unset, str]):

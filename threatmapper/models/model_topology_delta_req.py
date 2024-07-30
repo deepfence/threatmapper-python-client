@@ -9,6 +9,10 @@ T = TypeVar("T", bound="ModelTopologyDeltaReq")
 @_attrs_define
 class ModelTopologyDeltaReq:
     """
+    Example:
+        {'deletion': True, 'entity_types': ['entity_types', 'entity_types'], 'deletion_timestamp': 6,
+            'addition_timestamp': 0, 'addition': True}
+
     Attributes:
         addition (bool):
         addition_timestamp (int):

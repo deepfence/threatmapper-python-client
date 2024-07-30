@@ -82,7 +82,8 @@ def sync_detailed(
      Verify code and reset the password
 
     Args:
-        body (ModelPasswordResetVerifyRequest):
+        body (ModelPasswordResetVerifyRequest):  Example: {'password': 'password', 'code': 'code',
+            'namespace': 'namespace'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +114,8 @@ def sync(
      Verify code and reset the password
 
     Args:
-        body (ModelPasswordResetVerifyRequest):
+        body (ModelPasswordResetVerifyRequest):  Example: {'password': 'password', 'code': 'code',
+            'namespace': 'namespace'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +141,8 @@ async def asyncio_detailed(
      Verify code and reset the password
 
     Args:
-        body (ModelPasswordResetVerifyRequest):
+        body (ModelPasswordResetVerifyRequest):  Example: {'password': 'password', 'code': 'code',
+            'namespace': 'namespace'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +171,8 @@ async def asyncio(
      Verify code and reset the password
 
     Args:
-        body (ModelPasswordResetVerifyRequest):
+        body (ModelPasswordResetVerifyRequest):  Example: {'password': 'password', 'code': 'code',
+            'namespace': 'namespace'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

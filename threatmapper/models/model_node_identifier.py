@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ModelNodeIdentifier")
 @_attrs_define
 class ModelNodeIdentifier:
     """
+    Example:
+        {'node_type': 'image', 'node_id': 'node_id'}
+
     Attributes:
         node_id (str):
         node_type (ModelNodeIdentifierNodeType):

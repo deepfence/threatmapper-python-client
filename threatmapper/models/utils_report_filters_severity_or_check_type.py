@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class UtilsReportFiltersSeverityOrCheckType(str, Enum):
+    AWS_FOUNDATIONAL_SECURITY = "aws_foundational_security"
     CIS = "cis"
     CRITICAL = "critical"
     GDPR = "gdpr"

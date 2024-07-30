@@ -84,7 +84,8 @@ def sync_detailed(
      Fetch initial actions for a given agent after it started
 
     Args:
-        body (ModelInitAgentReq):
+        body (ModelInitAgentReq):  Example: {'node_type': 'node_type', 'available_workload': 0,
+            'version': 'version', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +116,8 @@ def sync(
      Fetch initial actions for a given agent after it started
 
     Args:
-        body (ModelInitAgentReq):
+        body (ModelInitAgentReq):  Example: {'node_type': 'node_type', 'available_workload': 0,
+            'version': 'version', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +143,8 @@ async def asyncio_detailed(
      Fetch initial actions for a given agent after it started
 
     Args:
-        body (ModelInitAgentReq):
+        body (ModelInitAgentReq):  Example: {'node_type': 'node_type', 'available_workload': 0,
+            'version': 'version', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +173,8 @@ async def asyncio(
      Fetch initial actions for a given agent after it started
 
     Args:
-        body (ModelInitAgentReq):
+        body (ModelInitAgentReq):  Example: {'node_type': 'node_type', 'available_workload': 0,
+            'version': 'version', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

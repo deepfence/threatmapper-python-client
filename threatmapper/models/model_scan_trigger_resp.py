@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelScanTriggerResp")
 @_attrs_define
 class ModelScanTriggerResp:
     """
+    Example:
+        {'bulk_scan_id': 'bulk_scan_id', 'scan_ids': ['scan_ids', 'scan_ids']}
+
     Attributes:
         bulk_scan_id (str):
         scan_ids (Union[List[str], None]):

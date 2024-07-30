@@ -82,7 +82,7 @@ def sync_detailed(
      Delete integrations
 
     Args:
-        body (ModelDeleteIntegrationReq):
+        body (ModelDeleteIntegrationReq):  Example: {'integration_ids': [0, 0]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +113,7 @@ def sync(
      Delete integrations
 
     Args:
-        body (ModelDeleteIntegrationReq):
+        body (ModelDeleteIntegrationReq):  Example: {'integration_ids': [0, 0]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +139,7 @@ async def asyncio_detailed(
      Delete integrations
 
     Args:
-        body (ModelDeleteIntegrationReq):
+        body (ModelDeleteIntegrationReq):  Example: {'integration_ids': [0, 0]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +168,7 @@ async def asyncio(
      Delete integrations
 
     Args:
-        body (ModelDeleteIntegrationReq):
+        body (ModelDeleteIntegrationReq):  Example: {'integration_ids': [0, 0]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

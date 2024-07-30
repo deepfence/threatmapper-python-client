@@ -1,47 +1,37 @@
-from io import BytesIO
 from typing import Any, Dict, List, Type, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..types import File
-
-T = TypeVar("T", bound="FormDataVulnerabilityDbDBUploadRequest")
+T = TypeVar("T", bound="ModelRegisterLicenseResponse")
 
 
 @_attrs_define
-class FormDataVulnerabilityDbDBUploadRequest:
+class ModelRegisterLicenseResponse:
     """
+    Example:
+        {'email_domain': 'email_domain', 'license_key': 'license_key'}
+
     Attributes:
-        database (File):
+        email_domain (str):
+        license_key (str):
     """
 
-    database: File
+    email_domain: str
+    license_key: str
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        database = self.database.to_tuple()
+        email_domain = self.email_domain
+
+        license_key = self.license_key
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "database": database,
-            }
-        )
-
-        return field_dict
-
-    def to_multipart(self) -> Dict[str, Any]:
-        database = self.database.to_tuple()
-
-        field_dict: Dict[str, Any] = {}
-        field_dict.update(
-            {key: (None, str(value).encode(), "text/plain") for key, value in self.additional_properties.items()}
-        )
-        field_dict.update(
-            {
-                "database": database,
+                "email_domain": email_domain,
+                "license_key": license_key,
             }
         )
 
@@ -50,14 +40,17 @@ class FormDataVulnerabilityDbDBUploadRequest:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        database = File(payload=BytesIO(d.pop("database")))
+        email_domain = d.pop("email_domain")
 
-        form_data_vulnerability_db_db_upload_request = cls(
-            database=database,
+        license_key = d.pop("license_key")
+
+        model_register_license_response = cls(
+            email_domain=email_domain,
+            license_key=license_key,
         )
 
-        form_data_vulnerability_db_db_upload_request.additional_properties = d
-        return form_data_vulnerability_db_db_upload_request
+        model_register_license_response.additional_properties = d
+        return model_register_license_response
 
     @property
     def additional_keys(self) -> List[str]:

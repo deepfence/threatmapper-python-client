@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.model_secret_level import ModelSecretLevel
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
@@ -15,36 +16,32 @@ T = TypeVar("T", bound="ModelSecret")
 @_attrs_define
 class ModelSecret:
     """
+    Example:
+        {'score': 0.8008281904610115, 'full_filename': 'full_filename', 'matched_content': 'matched_content',
+            'updated_at': 1, 'level': 'critical', 'masked': True, 'name': 'name', 'starting_index': 6, 'resources':
+            [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type':
+            'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'node_id': 'node_id'}
+
     Attributes:
         full_filename (str):
-        level (str):
+        level (ModelSecretLevel):
         masked (bool):
         matched_content (str):
         name (str):
         node_id (str):
-        part (str):
-        relative_ending_index (int):
-        relative_starting_index (int):
-        rule_id (int):
         score (float):
-        signature_to_match (str):
         starting_index (int):
         updated_at (int):
         resources (Union[List['ModelBasicNode'], None, Unset]):
     """
 
     full_filename: str
-    level: str
+    level: ModelSecretLevel
     masked: bool
     matched_content: str
     name: str
     node_id: str
-    part: str
-    relative_ending_index: int
-    relative_starting_index: int
-    rule_id: int
     score: float
-    signature_to_match: str
     starting_index: int
     updated_at: int
     resources: Union[List["ModelBasicNode"], None, Unset] = UNSET
@@ -53,7 +50,7 @@ class ModelSecret:
     def to_dict(self) -> Dict[str, Any]:
         full_filename = self.full_filename
 
-        level = self.level
+        level = self.level.value
 
         masked = self.masked
 
@@ -63,17 +60,7 @@ class ModelSecret:
 
         node_id = self.node_id
 
-        part = self.part
-
-        relative_ending_index = self.relative_ending_index
-
-        relative_starting_index = self.relative_starting_index
-
-        rule_id = self.rule_id
-
         score = self.score
-
-        signature_to_match = self.signature_to_match
 
         starting_index = self.starting_index
 
@@ -101,12 +88,7 @@ class ModelSecret:
                 "matched_content": matched_content,
                 "name": name,
                 "node_id": node_id,
-                "part": part,
-                "relative_ending_index": relative_ending_index,
-                "relative_starting_index": relative_starting_index,
-                "rule_id": rule_id,
                 "score": score,
-                "signature_to_match": signature_to_match,
                 "starting_index": starting_index,
                 "updated_at": updated_at,
             }
@@ -123,7 +105,7 @@ class ModelSecret:
         d = src_dict.copy()
         full_filename = d.pop("full_filename")
 
-        level = d.pop("level")
+        level = ModelSecretLevel(d.pop("level"))
 
         masked = d.pop("masked")
 
@@ -133,17 +115,7 @@ class ModelSecret:
 
         node_id = d.pop("node_id")
 
-        part = d.pop("part")
-
-        relative_ending_index = d.pop("relative_ending_index")
-
-        relative_starting_index = d.pop("relative_starting_index")
-
-        rule_id = d.pop("rule_id")
-
         score = d.pop("score")
-
-        signature_to_match = d.pop("signature_to_match")
 
         starting_index = d.pop("starting_index")
 
@@ -178,12 +150,7 @@ class ModelSecret:
             matched_content=matched_content,
             name=name,
             node_id=node_id,
-            part=part,
-            relative_ending_index=relative_ending_index,
-            relative_starting_index=relative_starting_index,
-            rule_id=rule_id,
             score=score,
-            signature_to_match=signature_to_match,
             starting_index=starting_index,
             updated_at=updated_at,
             resources=resources,

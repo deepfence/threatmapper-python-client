@@ -11,6 +11,10 @@ T = TypeVar("T", bound="ModelGenerativeAiIntegrationListResponse")
 @_attrs_define
 class ModelGenerativeAiIntegrationListResponse:
     """
+    Example:
+        {'default_integration': True, 'id': 0, 'label': 'label', 'integration_type': 'integration_type',
+            'last_error_msg': 'last_error_msg'}
+
     Attributes:
         default_integration (Union[Unset, bool]):
         id (Union[Unset, int]):

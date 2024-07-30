@@ -4,6 +4,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..models.model_cloud_node_control_req_cloud_provider import ModelCloudNodeControlReqCloudProvider
+from ..models.model_cloud_node_control_req_compliance_type import ModelCloudNodeControlReqComplianceType
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="ModelCloudNodeControlReq")
@@ -12,21 +13,24 @@ T = TypeVar("T", bound="ModelCloudNodeControlReq")
 @_attrs_define
 class ModelCloudNodeControlReq:
     """
+    Example:
+        {'cloud_provider': 'aws', 'compliance_type': 'hipaa', 'node_id': 'node_id'}
+
     Attributes:
         cloud_provider (ModelCloudNodeControlReqCloudProvider):
-        compliance_type (str):
+        compliance_type (ModelCloudNodeControlReqComplianceType):
         node_id (Union[Unset, str]):
     """
 
     cloud_provider: ModelCloudNodeControlReqCloudProvider
-    compliance_type: str
+    compliance_type: ModelCloudNodeControlReqComplianceType
     node_id: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         cloud_provider = self.cloud_provider.value
 
-        compliance_type = self.compliance_type
+        compliance_type = self.compliance_type.value
 
         node_id = self.node_id
 
@@ -48,7 +52,7 @@ class ModelCloudNodeControlReq:
         d = src_dict.copy()
         cloud_provider = ModelCloudNodeControlReqCloudProvider(d.pop("cloud_provider"))
 
-        compliance_type = d.pop("compliance_type")
+        compliance_type = ModelCloudNodeControlReqComplianceType(d.pop("compliance_type"))
 
         node_id = d.pop("node_id", UNSET)
 

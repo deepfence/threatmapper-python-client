@@ -14,6 +14,20 @@ T = TypeVar("T", bound="ModelSecretScanResult")
 @_attrs_define
 class ModelSecretScanResult:
     """
+    Example:
+        {'severity_counts': {'key': 6}, 'docker_container_name': 'docker_container_name', 'kubernetes_cluster_name':
+            'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 0, 'secrets': [{'score': 0.8008281904610115,
+            'full_filename': 'full_filename', 'matched_content': 'matched_content', 'updated_at': 1, 'level': 'critical',
+            'masked': True, 'name': 'name', 'starting_index': 6, 'resources': [{'node_type': 'node_type', 'name': 'name',
+            'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name':
+            'host_name', 'node_id': 'node_id'}], 'node_id': 'node_id'}, {'score': 0.8008281904610115, 'full_filename':
+            'full_filename', 'matched_content': 'matched_content', 'updated_at': 1, 'level': 'critical', 'masked': True,
+            'name': 'name', 'starting_index': 6, 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name':
+            'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name',
+            'node_id': 'node_id'}], 'node_id': 'node_id'}], 'cloud_account_id': 'cloud_account_id', 'node_type':
+            'node_type', 'updated_at': 1, 'scan_id': 'scan_id', 'docker_image_name': 'docker_image_name', 'host_name':
+            'host_name', 'node_id': 'node_id'}
+
     Attributes:
         cloud_account_id (str):
         created_at (int):

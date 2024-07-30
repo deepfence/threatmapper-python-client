@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ModelStopScanRequest")
 @_attrs_define
 class ModelStopScanRequest:
     """
+    Example:
+        {'scan_ids': ['scan_ids', 'scan_ids'], 'scan_type': 'SecretScan'}
+
     Attributes:
         scan_ids (Union[List[str], None]):
         scan_type (ModelStopScanRequestScanType):

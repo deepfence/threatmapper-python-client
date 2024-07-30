@@ -11,6 +11,13 @@ T = TypeVar("T", bound="IngestersCompliance")
 @_attrs_define
 class IngestersCompliance:
     """
+    Example:
+        {'resource': 'resource', 'description': 'description', 'test_category': 'test_category', 'type': 'type',
+            'remediation_ansible': 'remediation_ansible', 'compliance_check_type': 'compliance_check_type',
+            'test_rationale': 'test_rationale', 'test_severity': 'test_severity', 'node_type': 'node_type',
+            'remediation_puppet': 'remediation_puppet', 'scan_id': 'scan_id', 'remediation_script': 'remediation_script',
+            'node_id': 'node_id', 'status': 'status', 'test_desc': 'test_desc', 'test_number': 'test_number'}
+
     Attributes:
         compliance_check_type (Union[Unset, str]):
         description (Union[Unset, str]):

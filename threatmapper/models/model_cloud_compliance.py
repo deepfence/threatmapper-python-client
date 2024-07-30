@@ -3,6 +3,8 @@ from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.model_cloud_compliance_compliance_check_type import ModelCloudComplianceComplianceCheckType
+from ..models.model_cloud_compliance_status import ModelCloudComplianceStatus
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
@@ -15,10 +17,18 @@ T = TypeVar("T", bound="ModelCloudCompliance")
 @_attrs_define
 class ModelCloudCompliance:
     """
+    Example:
+        {'severity': 'severity', 'reason': 'reason', 'control_id': 'control_id', 'resource': 'resource', 'masked': True,
+            'count': 0, 'node_name': 'node_name', 'description': 'description', 'resources': [{'node_type': 'node_type',
+            'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name',
+            'host_name': 'host_name', 'node_id': 'node_id'}], 'cloud_provider': 'cloud_provider', 'title': 'title', 'type':
+            'type', 'compliance_check_type': 'hipaa', 'account_id': 'account_id', 'updated_at': 6, 'service': 'service',
+            'region': 'region', 'group': 'group', 'node_id': 'node_id', 'status': 'alarm'}
+
     Attributes:
         account_id (str):
         cloud_provider (str):
-        compliance_check_type (str):
+        compliance_check_type (ModelCloudComplianceComplianceCheckType):
         control_id (str):
         count (int):
         description (str):
@@ -31,7 +41,7 @@ class ModelCloudCompliance:
         resource (str):
         service (str):
         severity (str):
-        status (str):
+        status (ModelCloudComplianceStatus):
         title (str):
         type (str):
         updated_at (int):
@@ -40,7 +50,7 @@ class ModelCloudCompliance:
 
     account_id: str
     cloud_provider: str
-    compliance_check_type: str
+    compliance_check_type: ModelCloudComplianceComplianceCheckType
     control_id: str
     count: int
     description: str
@@ -53,7 +63,7 @@ class ModelCloudCompliance:
     resource: str
     service: str
     severity: str
-    status: str
+    status: ModelCloudComplianceStatus
     title: str
     type: str
     updated_at: int
@@ -65,7 +75,7 @@ class ModelCloudCompliance:
 
         cloud_provider = self.cloud_provider
 
-        compliance_check_type = self.compliance_check_type
+        compliance_check_type = self.compliance_check_type.value
 
         control_id = self.control_id
 
@@ -91,7 +101,7 @@ class ModelCloudCompliance:
 
         severity = self.severity
 
-        status = self.status
+        status = self.status.value
 
         title = self.title
 
@@ -150,7 +160,7 @@ class ModelCloudCompliance:
 
         cloud_provider = d.pop("cloud_provider")
 
-        compliance_check_type = d.pop("compliance_check_type")
+        compliance_check_type = ModelCloudComplianceComplianceCheckType(d.pop("compliance_check_type"))
 
         control_id = d.pop("control_id")
 
@@ -176,7 +186,7 @@ class ModelCloudCompliance:
 
         severity = d.pop("severity")
 
-        status = d.pop("status")
+        status = ModelCloudComplianceStatus(d.pop("status"))
 
         title = d.pop("title")
 

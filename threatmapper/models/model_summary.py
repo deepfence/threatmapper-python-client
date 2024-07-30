@@ -11,21 +11,24 @@ T = TypeVar("T", bound="ModelSummary")
 @_attrs_define
 class ModelSummary:
     """
+    Example:
+        {'images': 0, 'repositories': 1, 'scans_total': 2, 'registries': 6, 'scans_complete': 5, 'scans_in_progress': 5}
+
     Attributes:
         images (Union[Unset, int]):
         registries (Union[Unset, int]):
+        repositories (Union[Unset, int]):
         scans_complete (Union[Unset, int]):
         scans_in_progress (Union[Unset, int]):
         scans_total (Union[Unset, int]):
-        tags (Union[Unset, int]):
     """
 
     images: Union[Unset, int] = UNSET
     registries: Union[Unset, int] = UNSET
+    repositories: Union[Unset, int] = UNSET
     scans_complete: Union[Unset, int] = UNSET
     scans_in_progress: Union[Unset, int] = UNSET
     scans_total: Union[Unset, int] = UNSET
-    tags: Union[Unset, int] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -33,13 +36,13 @@ class ModelSummary:
 
         registries = self.registries
 
+        repositories = self.repositories
+
         scans_complete = self.scans_complete
 
         scans_in_progress = self.scans_in_progress
 
         scans_total = self.scans_total
-
-        tags = self.tags
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -48,14 +51,14 @@ class ModelSummary:
             field_dict["images"] = images
         if registries is not UNSET:
             field_dict["registries"] = registries
+        if repositories is not UNSET:
+            field_dict["repositories"] = repositories
         if scans_complete is not UNSET:
             field_dict["scans_complete"] = scans_complete
         if scans_in_progress is not UNSET:
             field_dict["scans_in_progress"] = scans_in_progress
         if scans_total is not UNSET:
             field_dict["scans_total"] = scans_total
-        if tags is not UNSET:
-            field_dict["tags"] = tags
 
         return field_dict
 
@@ -66,21 +69,21 @@ class ModelSummary:
 
         registries = d.pop("registries", UNSET)
 
+        repositories = d.pop("repositories", UNSET)
+
         scans_complete = d.pop("scans_complete", UNSET)
 
         scans_in_progress = d.pop("scans_in_progress", UNSET)
 
         scans_total = d.pop("scans_total", UNSET)
 
-        tags = d.pop("tags", UNSET)
-
         model_summary = cls(
             images=images,
             registries=registries,
+            repositories=repositories,
             scans_complete=scans_complete,
             scans_in_progress=scans_in_progress,
             scans_total=scans_total,
-            tags=tags,
         )
 
         model_summary.additional_properties = d

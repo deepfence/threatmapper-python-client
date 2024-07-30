@@ -4,17 +4,17 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
-    from ..models.model_cloud_compliance_scan_details import ModelCloudComplianceScanDetails
+    from ..models.model_compliance_scan_result_control_group import ModelComplianceScanResultControlGroup
 
 
-T = TypeVar("T", bound="ModelCloudNodeAccountRegisterRespDataScansType0")
+T = TypeVar("T", bound="ModelComplianceScanResultsGroupRespGroupsType0")
 
 
 @_attrs_define
-class ModelCloudNodeAccountRegisterRespDataScansType0:
+class ModelComplianceScanResultsGroupRespGroupsType0:
     """ """
 
-    additional_properties: Dict[str, "ModelCloudComplianceScanDetails"] = _attrs_field(init=False, factory=dict)
+    additional_properties: Dict[str, "ModelComplianceScanResultControlGroup"] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         field_dict: Dict[str, Any] = {}
@@ -25,28 +25,28 @@ class ModelCloudNodeAccountRegisterRespDataScansType0:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.model_cloud_compliance_scan_details import ModelCloudComplianceScanDetails
+        from ..models.model_compliance_scan_result_control_group import ModelComplianceScanResultControlGroup
 
         d = src_dict.copy()
-        model_cloud_node_account_register_resp_data_scans_type_0 = cls()
+        model_compliance_scan_results_group_resp_groups_type_0 = cls()
 
         additional_properties = {}
         for prop_name, prop_dict in d.items():
-            additional_property = ModelCloudComplianceScanDetails.from_dict(prop_dict)
+            additional_property = ModelComplianceScanResultControlGroup.from_dict(prop_dict)
 
             additional_properties[prop_name] = additional_property
 
-        model_cloud_node_account_register_resp_data_scans_type_0.additional_properties = additional_properties
-        return model_cloud_node_account_register_resp_data_scans_type_0
+        model_compliance_scan_results_group_resp_groups_type_0.additional_properties = additional_properties
+        return model_compliance_scan_results_group_resp_groups_type_0
 
     @property
     def additional_keys(self) -> List[str]:
         return list(self.additional_properties.keys())
 
-    def __getitem__(self, key: str) -> "ModelCloudComplianceScanDetails":
+    def __getitem__(self, key: str) -> "ModelComplianceScanResultControlGroup":
         return self.additional_properties[key]
 
-    def __setitem__(self, key: str, value: "ModelCloudComplianceScanDetails") -> None:
+    def __setitem__(self, key: str, value: "ModelComplianceScanResultControlGroup") -> None:
         self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:

@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelAgentUpgrade")
 @_attrs_define
 class ModelAgentUpgrade:
     """
+    Example:
+        {'version': 'version', 'node_ids': ['node_ids', 'node_ids']}
+
     Attributes:
         node_ids (Union[List[str], None]):
         version (str):

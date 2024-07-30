@@ -7,14 +7,14 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.api_docs_bad_request_response import ApiDocsBadRequestResponse
 from ...models.api_docs_failure_response import ApiDocsFailureResponse
-from ...models.model_setting_update_request import ModelSettingUpdateRequest
+from ...models.setting_setting_update_request import SettingSettingUpdateRequest
 from ...types import Response
 
 
 def _get_kwargs(
     id: int,
     *,
-    body: ModelSettingUpdateRequest,
+    body: SettingSettingUpdateRequest,
 ) -> Dict[str, Any]:
     headers: Dict[str, Any] = {}
 
@@ -77,7 +77,7 @@ def sync_detailed(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: ModelSettingUpdateRequest,
+    body: SettingSettingUpdateRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update setting
 
@@ -85,7 +85,7 @@ def sync_detailed(
 
     Args:
         id (int):
-        body (ModelSettingUpdateRequest):
+        body (SettingSettingUpdateRequest):  Example: {'value': 'value', 'key': 'console_url'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -111,7 +111,7 @@ def sync(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: ModelSettingUpdateRequest,
+    body: SettingSettingUpdateRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update setting
 
@@ -119,7 +119,7 @@ def sync(
 
     Args:
         id (int):
-        body (ModelSettingUpdateRequest):
+        body (SettingSettingUpdateRequest):  Example: {'value': 'value', 'key': 'console_url'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -140,7 +140,7 @@ async def asyncio_detailed(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: ModelSettingUpdateRequest,
+    body: SettingSettingUpdateRequest,
 ) -> Response[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update setting
 
@@ -148,7 +148,7 @@ async def asyncio_detailed(
 
     Args:
         id (int):
-        body (ModelSettingUpdateRequest):
+        body (SettingSettingUpdateRequest):  Example: {'value': 'value', 'key': 'console_url'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -172,7 +172,7 @@ async def asyncio(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: ModelSettingUpdateRequest,
+    body: SettingSettingUpdateRequest,
 ) -> Optional[Union[Any, ApiDocsBadRequestResponse, ApiDocsFailureResponse]]:
     """Update setting
 
@@ -180,7 +180,7 @@ async def asyncio(
 
     Args:
         id (int):
-        body (ModelSettingUpdateRequest):
+        body (SettingSettingUpdateRequest):  Example: {'value': 'value', 'key': 'console_url'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -109,7 +109,16 @@ def sync_detailed(
      Get Secret Diff between two scans
 
     Args:
-        body (ModelScanCompareReq):
+        body (ModelScanCompareReq):  Example: {'to_scan_id': 'to_scan_id', 'base_scan_id':
+            'base_scan_id', 'window': {'offset': 0, 'size': 6}, 'fields_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -147,7 +156,16 @@ def sync(
      Get Secret Diff between two scans
 
     Args:
-        body (ModelScanCompareReq):
+        body (ModelScanCompareReq):  Example: {'to_scan_id': 'to_scan_id', 'base_scan_id':
+            'base_scan_id', 'window': {'offset': 0, 'size': 6}, 'fields_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -180,7 +198,16 @@ async def asyncio_detailed(
      Get Secret Diff between two scans
 
     Args:
-        body (ModelScanCompareReq):
+        body (ModelScanCompareReq):  Example: {'to_scan_id': 'to_scan_id', 'base_scan_id':
+            'base_scan_id', 'window': {'offset': 0, 'size': 6}, 'fields_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -216,7 +243,16 @@ async def asyncio(
      Get Secret Diff between two scans
 
     Args:
-        body (ModelScanCompareReq):
+        body (ModelScanCompareReq):  Example: {'to_scan_id': 'to_scan_id', 'base_scan_id':
+            'base_scan_id', 'window': {'offset': 0, 'size': 6}, 'fields_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

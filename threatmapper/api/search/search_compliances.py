@@ -89,7 +89,35 @@ def sync_detailed(
      Search across all the data associated with compliances
 
     Args:
-        body (SearchSearchNodeReq):
+        body (SearchSearchNodeReq):  Example: {'node_filter': {'in_field_filter':
+            ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'extended_node_filter': {'in_field_filter':
+            ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'related_node_filter': {'node_filter':
+            {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'next_filter': None, 'relation_ship':
+            'relation_ship'}, 'window': {'offset': 0, 'size': 6}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -120,7 +148,35 @@ def sync(
      Search across all the data associated with compliances
 
     Args:
-        body (SearchSearchNodeReq):
+        body (SearchSearchNodeReq):  Example: {'node_filter': {'in_field_filter':
+            ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'extended_node_filter': {'in_field_filter':
+            ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'related_node_filter': {'node_filter':
+            {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'next_filter': None, 'relation_ship':
+            'relation_ship'}, 'window': {'offset': 0, 'size': 6}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -146,7 +202,35 @@ async def asyncio_detailed(
      Search across all the data associated with compliances
 
     Args:
-        body (SearchSearchNodeReq):
+        body (SearchSearchNodeReq):  Example: {'node_filter': {'in_field_filter':
+            ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'extended_node_filter': {'in_field_filter':
+            ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'related_node_filter': {'node_filter':
+            {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'next_filter': None, 'relation_ship':
+            'relation_ship'}, 'window': {'offset': 0, 'size': 6}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -175,7 +259,35 @@ async def asyncio(
      Search across all the data associated with compliances
 
     Args:
-        body (SearchSearchNodeReq):
+        body (SearchSearchNodeReq):  Example: {'node_filter': {'in_field_filter':
+            ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'extended_node_filter': {'in_field_filter':
+            ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'related_node_filter': {'node_filter':
+            {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}}, 'next_filter': None, 'relation_ship':
+            'relation_ship'}, 'window': {'offset': 0, 'size': 6}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

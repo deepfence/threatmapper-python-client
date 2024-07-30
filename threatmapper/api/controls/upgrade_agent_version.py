@@ -82,7 +82,8 @@ def sync_detailed(
      Schedule new agent version upgrade
 
     Args:
-        body (ModelAgentUpgrade):
+        body (ModelAgentUpgrade):  Example: {'version': 'version', 'node_ids': ['node_ids',
+            'node_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +114,8 @@ def sync(
      Schedule new agent version upgrade
 
     Args:
-        body (ModelAgentUpgrade):
+        body (ModelAgentUpgrade):  Example: {'version': 'version', 'node_ids': ['node_ids',
+            'node_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +141,8 @@ async def asyncio_detailed(
      Schedule new agent version upgrade
 
     Args:
-        body (ModelAgentUpgrade):
+        body (ModelAgentUpgrade):  Example: {'version': 'version', 'node_ids': ['node_ids',
+            'node_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +171,8 @@ async def asyncio(
      Schedule new agent version upgrade
 
     Args:
-        body (ModelAgentUpgrade):
+        body (ModelAgentUpgrade):  Example: {'version': 'version', 'node_ids': ['node_ids',
+            'node_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

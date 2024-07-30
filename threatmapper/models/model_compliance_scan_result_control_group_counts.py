@@ -3,14 +3,14 @@ from typing import Any, Dict, List, Type, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-T = TypeVar("T", bound="ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0")
+T = TypeVar("T", bound="ModelComplianceScanResultControlGroupCounts")
 
 
 @_attrs_define
-class ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0:
+class ModelComplianceScanResultControlGroupCounts:
     """ """
 
-    additional_properties: Dict[str, str] = _attrs_field(init=False, factory=dict)
+    additional_properties: Dict[str, int] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         field_dict: Dict[str, Any] = {}
@@ -21,19 +21,19 @@ class ModelCloudNodeAccountRegisterReqMonitoredAccountIdsType0:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        model_cloud_node_account_register_req_monitored_account_ids_type_0 = cls()
+        model_compliance_scan_result_control_group_counts = cls()
 
-        model_cloud_node_account_register_req_monitored_account_ids_type_0.additional_properties = d
-        return model_cloud_node_account_register_req_monitored_account_ids_type_0
+        model_compliance_scan_result_control_group_counts.additional_properties = d
+        return model_compliance_scan_result_control_group_counts
 
     @property
     def additional_keys(self) -> List[str]:
         return list(self.additional_properties.keys())
 
-    def __getitem__(self, key: str) -> str:
+    def __getitem__(self, key: str) -> int:
         return self.additional_properties[key]
 
-    def __setitem__(self, key: str, value: str) -> None:
+    def __setitem__(self, key: str, value: int) -> None:
         self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:

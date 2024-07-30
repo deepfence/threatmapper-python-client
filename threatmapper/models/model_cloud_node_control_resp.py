@@ -15,6 +15,15 @@ T = TypeVar("T", bound="ModelCloudNodeControlResp")
 @_attrs_define
 class ModelCloudNodeControlResp:
     """
+    Example:
+        {'controls': [{'category_hierarchy': ['category_hierarchy', 'category_hierarchy'], 'control_id': 'control_id',
+            'service': 'service', 'description': 'description', 'compliance_type': 'compliance_type', 'problem_title':
+            'problem_title', 'title': 'title', 'category_hierarchy_short': 'category_hierarchy_short', 'enabled': True,
+            'node_id': 'node_id'}, {'category_hierarchy': ['category_hierarchy', 'category_hierarchy'], 'control_id':
+            'control_id', 'service': 'service', 'description': 'description', 'compliance_type': 'compliance_type',
+            'problem_title': 'problem_title', 'title': 'title', 'category_hierarchy_short': 'category_hierarchy_short',
+            'enabled': True, 'node_id': 'node_id'}]}
+
     Attributes:
         controls (Union[List['ModelCloudNodeComplianceControl'], None, Unset]):
     """

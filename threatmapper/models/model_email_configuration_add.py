@@ -11,9 +11,15 @@ T = TypeVar("T", bound="ModelEmailConfigurationAdd")
 @_attrs_define
 class ModelEmailConfigurationAdd:
     """
+    Example:
+        {'email_id': 'email_id', 'password': 'password', 'smtp': 'smtp', 'apikey': 'apikey', 'port': 'port',
+            'email_provider': 'email_provider', 'amazon_secret_key': 'amazon_secret_key', 'amazon_access_key':
+            'amazon_access_key', 'created_by_user_id': 0, 'ses_region': 'ses_region'}
+
     Attributes:
         amazon_access_key (Union[Unset, str]):
         amazon_secret_key (Union[Unset, str]):
+        apikey (Union[Unset, str]):
         created_by_user_id (Union[Unset, int]):
         email_id (Union[Unset, str]):
         email_provider (Union[Unset, str]):
@@ -25,6 +31,7 @@ class ModelEmailConfigurationAdd:
 
     amazon_access_key: Union[Unset, str] = UNSET
     amazon_secret_key: Union[Unset, str] = UNSET
+    apikey: Union[Unset, str] = UNSET
     created_by_user_id: Union[Unset, int] = UNSET
     email_id: Union[Unset, str] = UNSET
     email_provider: Union[Unset, str] = UNSET
@@ -38,6 +45,8 @@ class ModelEmailConfigurationAdd:
         amazon_access_key = self.amazon_access_key
 
         amazon_secret_key = self.amazon_secret_key
+
+        apikey = self.apikey
 
         created_by_user_id = self.created_by_user_id
 
@@ -60,6 +69,8 @@ class ModelEmailConfigurationAdd:
             field_dict["amazon_access_key"] = amazon_access_key
         if amazon_secret_key is not UNSET:
             field_dict["amazon_secret_key"] = amazon_secret_key
+        if apikey is not UNSET:
+            field_dict["apikey"] = apikey
         if created_by_user_id is not UNSET:
             field_dict["created_by_user_id"] = created_by_user_id
         if email_id is not UNSET:
@@ -84,6 +95,8 @@ class ModelEmailConfigurationAdd:
 
         amazon_secret_key = d.pop("amazon_secret_key", UNSET)
 
+        apikey = d.pop("apikey", UNSET)
+
         created_by_user_id = d.pop("created_by_user_id", UNSET)
 
         email_id = d.pop("email_id", UNSET)
@@ -101,6 +114,7 @@ class ModelEmailConfigurationAdd:
         model_email_configuration_add = cls(
             amazon_access_key=amazon_access_key,
             amazon_secret_key=amazon_secret_key,
+            apikey=apikey,
             created_by_user_id=created_by_user_id,
             email_id=email_id,
             email_provider=email_provider,

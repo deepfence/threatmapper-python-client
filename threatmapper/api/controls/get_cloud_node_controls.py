@@ -84,7 +84,8 @@ def sync_detailed(
      Fetch controls for a cloud node
 
     Args:
-        body (ModelCloudNodeControlReq):
+        body (ModelCloudNodeControlReq):  Example: {'cloud_provider': 'aws', 'compliance_type':
+            'hipaa', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +116,8 @@ def sync(
      Fetch controls for a cloud node
 
     Args:
-        body (ModelCloudNodeControlReq):
+        body (ModelCloudNodeControlReq):  Example: {'cloud_provider': 'aws', 'compliance_type':
+            'hipaa', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +143,8 @@ async def asyncio_detailed(
      Fetch controls for a cloud node
 
     Args:
-        body (ModelCloudNodeControlReq):
+        body (ModelCloudNodeControlReq):  Example: {'cloud_provider': 'aws', 'compliance_type':
+            'hipaa', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +173,8 @@ async def asyncio(
      Fetch controls for a cloud node
 
     Args:
-        body (ModelCloudNodeControlReq):
+        body (ModelCloudNodeControlReq):  Example: {'cloud_provider': 'aws', 'compliance_type':
+            'hipaa', 'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

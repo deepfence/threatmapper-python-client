@@ -84,7 +84,8 @@ def sync_detailed(
      Get Cloud Compliance Scan Status on cloud node
 
     Args:
-        body (ModelScanStatusReq):
+        body (ModelScanStatusReq):  Example: {'bulk_scan_id': 'bulk_scan_id', 'scan_ids':
+            ['scan_ids', 'scan_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +116,8 @@ def sync(
      Get Cloud Compliance Scan Status on cloud node
 
     Args:
-        body (ModelScanStatusReq):
+        body (ModelScanStatusReq):  Example: {'bulk_scan_id': 'bulk_scan_id', 'scan_ids':
+            ['scan_ids', 'scan_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +143,8 @@ async def asyncio_detailed(
      Get Cloud Compliance Scan Status on cloud node
 
     Args:
-        body (ModelScanStatusReq):
+        body (ModelScanStatusReq):  Example: {'bulk_scan_id': 'bulk_scan_id', 'scan_ids':
+            ['scan_ids', 'scan_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +173,8 @@ async def asyncio(
      Get Cloud Compliance Scan Status on cloud node
 
     Args:
-        body (ModelScanStatusReq):
+        body (ModelScanStatusReq):  Example: {'bulk_scan_id': 'bulk_scan_id', 'scan_ids':
+            ['scan_ids', 'scan_ids']}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

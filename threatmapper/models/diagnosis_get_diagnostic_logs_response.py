@@ -15,14 +15,19 @@ T = TypeVar("T", bound="DiagnosisGetDiagnosticLogsResponse")
 @_attrs_define
 class DiagnosisGetDiagnosticLogsResponse:
     """
+    Example:
+        {'console_logs': [{'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message',
+            'type': 'type'}, {'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message',
+            'type': 'type'}], 'agent_logs': [{'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label',
+            'message': 'message', 'type': 'type'}, {'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label',
+            'message': 'message', 'type': 'type'}]}
+
     Attributes:
         agent_logs (Union[List['DiagnosisDiagnosticLogsLink'], None, Unset]):
-        cloud_scanner_logs (Union[List['DiagnosisDiagnosticLogsLink'], None, Unset]):
         console_logs (Union[List['DiagnosisDiagnosticLogsLink'], None, Unset]):
     """
 
     agent_logs: Union[List["DiagnosisDiagnosticLogsLink"], None, Unset] = UNSET
-    cloud_scanner_logs: Union[List["DiagnosisDiagnosticLogsLink"], None, Unset] = UNSET
     console_logs: Union[List["DiagnosisDiagnosticLogsLink"], None, Unset] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -38,18 +43,6 @@ class DiagnosisGetDiagnosticLogsResponse:
 
         else:
             agent_logs = self.agent_logs
-
-        cloud_scanner_logs: Union[List[Dict[str, Any]], None, Unset]
-        if isinstance(self.cloud_scanner_logs, Unset):
-            cloud_scanner_logs = UNSET
-        elif isinstance(self.cloud_scanner_logs, list):
-            cloud_scanner_logs = []
-            for cloud_scanner_logs_type_0_item_data in self.cloud_scanner_logs:
-                cloud_scanner_logs_type_0_item = cloud_scanner_logs_type_0_item_data.to_dict()
-                cloud_scanner_logs.append(cloud_scanner_logs_type_0_item)
-
-        else:
-            cloud_scanner_logs = self.cloud_scanner_logs
 
         console_logs: Union[List[Dict[str, Any]], None, Unset]
         if isinstance(self.console_logs, Unset):
@@ -68,8 +61,6 @@ class DiagnosisGetDiagnosticLogsResponse:
         field_dict.update({})
         if agent_logs is not UNSET:
             field_dict["agent_logs"] = agent_logs
-        if cloud_scanner_logs is not UNSET:
-            field_dict["cloud_scanner_logs"] = cloud_scanner_logs
         if console_logs is not UNSET:
             field_dict["console_logs"] = console_logs
 
@@ -103,30 +94,6 @@ class DiagnosisGetDiagnosticLogsResponse:
 
         agent_logs = _parse_agent_logs(d.pop("agent_logs", UNSET))
 
-        def _parse_cloud_scanner_logs(data: object) -> Union[List["DiagnosisDiagnosticLogsLink"], None, Unset]:
-            if data is None:
-                return data
-            if isinstance(data, Unset):
-                return data
-            try:
-                if not isinstance(data, list):
-                    raise TypeError()
-                cloud_scanner_logs_type_0 = []
-                _cloud_scanner_logs_type_0 = data
-                for cloud_scanner_logs_type_0_item_data in _cloud_scanner_logs_type_0:
-                    cloud_scanner_logs_type_0_item = DiagnosisDiagnosticLogsLink.from_dict(
-                        cloud_scanner_logs_type_0_item_data
-                    )
-
-                    cloud_scanner_logs_type_0.append(cloud_scanner_logs_type_0_item)
-
-                return cloud_scanner_logs_type_0
-            except:  # noqa: E722
-                pass
-            return cast(Union[List["DiagnosisDiagnosticLogsLink"], None, Unset], data)
-
-        cloud_scanner_logs = _parse_cloud_scanner_logs(d.pop("cloud_scanner_logs", UNSET))
-
         def _parse_console_logs(data: object) -> Union[List["DiagnosisDiagnosticLogsLink"], None, Unset]:
             if data is None:
                 return data
@@ -151,7 +118,6 @@ class DiagnosisGetDiagnosticLogsResponse:
 
         diagnosis_get_diagnostic_logs_response = cls(
             agent_logs=agent_logs,
-            cloud_scanner_logs=cloud_scanner_logs,
             console_logs=console_logs,
         )
 
