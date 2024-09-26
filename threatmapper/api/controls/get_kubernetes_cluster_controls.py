@@ -84,8 +84,7 @@ def sync_detailed(
      Fetch actions for a given Kubernetes Cluster
 
     Args:
-        body (ModelAgentID):  Example: {'node_type': 'node_type', 'available_workload': 0,
-            'node_id': 'node_id'}.
+        body (ModelAgentID):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -116,8 +115,7 @@ def sync(
      Fetch actions for a given Kubernetes Cluster
 
     Args:
-        body (ModelAgentID):  Example: {'node_type': 'node_type', 'available_workload': 0,
-            'node_id': 'node_id'}.
+        body (ModelAgentID):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -143,8 +141,7 @@ async def asyncio_detailed(
      Fetch actions for a given Kubernetes Cluster
 
     Args:
-        body (ModelAgentID):  Example: {'node_type': 'node_type', 'available_workload': 0,
-            'node_id': 'node_id'}.
+        body (ModelAgentID):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -173,8 +170,7 @@ async def asyncio(
      Fetch actions for a given Kubernetes Cluster
 
     Args:
-        body (ModelAgentID):  Example: {'node_type': 'node_type', 'available_workload': 0,
-            'node_id': 'node_id'}.
+        body (ModelAgentID):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -85,8 +85,7 @@ def sync_detailed(
 
     Args:
         node_id (str):
-        body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
-            'status'}.
+        body (DiagnosisDiagnosticLogsStatus):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -120,8 +119,7 @@ def sync(
 
     Args:
         node_id (str):
-        body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
-            'status'}.
+        body (DiagnosisDiagnosticLogsStatus):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -150,8 +148,7 @@ async def asyncio_detailed(
 
     Args:
         node_id (str):
-        body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
-            'status'}.
+        body (DiagnosisDiagnosticLogsStatus):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -183,8 +180,7 @@ async def asyncio(
 
     Args:
         node_id (str):
-        body (DiagnosisDiagnosticLogsStatus):  Example: {'message': 'message', 'status':
-            'status'}.
+        body (DiagnosisDiagnosticLogsStatus):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

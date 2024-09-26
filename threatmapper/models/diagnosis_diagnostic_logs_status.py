@@ -11,9 +11,6 @@ T = TypeVar("T", bound="DiagnosisDiagnosticLogsStatus")
 @_attrs_define
 class DiagnosisDiagnosticLogsStatus:
     """
-    Example:
-        {'message': 'message', 'status': 'status'}
-
     Attributes:
         status (str):
         message (Union[Unset, str]):

@@ -84,10 +84,7 @@ def sync_detailed(
      Send Cloud Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationCloudPostureRequest):  Example: {'integration_id': 0,
-            'remediation_format': 'all', 'service': 'service', 'cloud_provider': 'cloud_provider',
-            'query_type': 'remediation', 'title': 'title', 'compliance_check_type':
-            'compliance_check_type', 'group': 'group'}.
+        body (ModelGenerativeAiIntegrationCloudPostureRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -118,10 +115,7 @@ def sync(
      Send Cloud Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationCloudPostureRequest):  Example: {'integration_id': 0,
-            'remediation_format': 'all', 'service': 'service', 'cloud_provider': 'cloud_provider',
-            'query_type': 'remediation', 'title': 'title', 'compliance_check_type':
-            'compliance_check_type', 'group': 'group'}.
+        body (ModelGenerativeAiIntegrationCloudPostureRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -147,10 +141,7 @@ async def asyncio_detailed(
      Send Cloud Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationCloudPostureRequest):  Example: {'integration_id': 0,
-            'remediation_format': 'all', 'service': 'service', 'cloud_provider': 'cloud_provider',
-            'query_type': 'remediation', 'title': 'title', 'compliance_check_type':
-            'compliance_check_type', 'group': 'group'}.
+        body (ModelGenerativeAiIntegrationCloudPostureRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -179,10 +170,7 @@ async def asyncio(
      Send Cloud Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationCloudPostureRequest):  Example: {'integration_id': 0,
-            'remediation_format': 'all', 'service': 'service', 'cloud_provider': 'cloud_provider',
-            'query_type': 'remediation', 'title': 'title', 'compliance_check_type':
-            'compliance_check_type', 'group': 'group'}.
+        body (ModelGenerativeAiIntegrationCloudPostureRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

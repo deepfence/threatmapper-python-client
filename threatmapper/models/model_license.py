@@ -15,14 +15,6 @@ T = TypeVar("T", bound="ModelLicense")
 @_attrs_define
 class ModelLicense:
     """
-    Example:
-        {'end_date': 'end_date', 'no_of_registries': 5, 'notification_threshold_percentage': 2, 'current_hosts': 0,
-            'is_active': True, 'license_type': 'license_type', 'notification_threshold_updated_at': 7,
-            'registry_credentials': {'registry_url': 'registry_url', 'password': 'password', 'username': 'username'},
-            'description': 'description', 'no_of_hosts': 1, 'no_of_images_in_registry': 5, 'message': 'message',
-            'deepfence_support_email': 'deepfence_support_email', 'license_email': 'license_email', 'no_of_cloud_accounts':
-            6, 'license_email_domain': 'license_email_domain', 'key': 'key', 'start_date': 'start_date'}
-
     Attributes:
         current_hosts (Union[Unset, int]):
         deepfence_support_email (Union[Unset, str]):
@@ -40,8 +32,7 @@ class ModelLicense:
         no_of_registries (Union[Unset, int]):
         notification_threshold_percentage (Union[Unset, int]):
         notification_threshold_updated_at (Union[Unset, int]):
-        registry_credentials (Union[Unset, ModelRegistryCredentials]):  Example: {'registry_url': 'registry_url',
-            'password': 'password', 'username': 'username'}.
+        registry_credentials (Union[Unset, ModelRegistryCredentials]):
         start_date (Union[Unset, str]):
     """
 

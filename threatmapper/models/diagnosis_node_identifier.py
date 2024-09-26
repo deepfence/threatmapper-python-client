@@ -11,9 +11,6 @@ T = TypeVar("T", bound="DiagnosisNodeIdentifier")
 @_attrs_define
 class DiagnosisNodeIdentifier:
     """
-    Example:
-        {'node_type': 'host', 'node_id': 'node_id'}
-
     Attributes:
         node_id (str):
         node_type (DiagnosisNodeIdentifierNodeType):

@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelImageStub")
 @_attrs_define
 class ModelImageStub:
     """
-    Example:
-        {'images': 0, 'name': 'name', 'id': 'id', 'tags': ['tags', 'tags']}
-
     Attributes:
         id (Union[Unset, str]):
         images (Union[Unset, int]):

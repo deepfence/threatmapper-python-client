@@ -84,13 +84,7 @@ def sync_detailed(
      Start Secret Scan on agent or registry
 
     Args:
-        body (ModelSecretScanTriggerReq):  Example: {'is_priority': True, 'deepfence_system_scan':
-            True, 'filters': {'container_scan_filter': {'filter_in': {'key': ['', '']}},
-            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key':
-            ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}}, 'node_ids':
-            [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id':
-            'node_id'}]}.
+        body (ModelSecretScanTriggerReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -121,13 +115,7 @@ def sync(
      Start Secret Scan on agent or registry
 
     Args:
-        body (ModelSecretScanTriggerReq):  Example: {'is_priority': True, 'deepfence_system_scan':
-            True, 'filters': {'container_scan_filter': {'filter_in': {'key': ['', '']}},
-            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key':
-            ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}}, 'node_ids':
-            [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id':
-            'node_id'}]}.
+        body (ModelSecretScanTriggerReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -153,13 +141,7 @@ async def asyncio_detailed(
      Start Secret Scan on agent or registry
 
     Args:
-        body (ModelSecretScanTriggerReq):  Example: {'is_priority': True, 'deepfence_system_scan':
-            True, 'filters': {'container_scan_filter': {'filter_in': {'key': ['', '']}},
-            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key':
-            ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}}, 'node_ids':
-            [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id':
-            'node_id'}]}.
+        body (ModelSecretScanTriggerReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -188,13 +170,7 @@ async def asyncio(
      Start Secret Scan on agent or registry
 
     Args:
-        body (ModelSecretScanTriggerReq):  Example: {'is_priority': True, 'deepfence_system_scan':
-            True, 'filters': {'container_scan_filter': {'filter_in': {'key': ['', '']}},
-            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter':
-            {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key':
-            ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}}, 'node_ids':
-            [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id':
-            'node_id'}]}.
+        body (ModelSecretScanTriggerReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -11,9 +11,6 @@ T = TypeVar("T", bound="DiagnosisDiagnosticLogsLink")
 @_attrs_define
 class DiagnosisDiagnosticLogsLink:
     """
-    Example:
-        {'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message', 'type': 'type'}
-
     Attributes:
         created_at (Union[Unset, str]):
         label (Union[Unset, str]):

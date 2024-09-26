@@ -13,14 +13,10 @@ T = TypeVar("T", bound="LookupLookupFilter")
 @_attrs_define
 class LookupLookupFilter:
     """
-    Example:
-        {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'window': {'offset': 0, 'size': 6}, 'node_ids':
-            ['node_ids', 'node_ids']}
-
     Attributes:
         in_field_filter (Union[List[str], None]):
         node_ids (Union[List[str], None]):
-        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
+        window (ModelFetchWindow):
     """
 
     in_field_filter: Union[List[str], None]

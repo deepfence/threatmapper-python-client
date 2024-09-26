@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelDownloadReportResponse")
 @_attrs_define
 class ModelDownloadReportResponse:
     """
-    Example:
-        {'url_link': 'url_link'}
-
     Attributes:
         url_link (Union[Unset, str]):
     """

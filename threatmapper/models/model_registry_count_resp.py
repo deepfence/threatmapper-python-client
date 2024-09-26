@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelRegistryCountResp")
 @_attrs_define
 class ModelRegistryCountResp:
     """
-    Example:
-        {'count': 0}
-
     Attributes:
         count (Union[Unset, int]):
     """

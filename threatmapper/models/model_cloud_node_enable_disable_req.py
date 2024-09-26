@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelCloudNodeEnableDisableReq")
 @_attrs_define
 class ModelCloudNodeEnableDisableReq:
     """
-    Example:
-        {'control_ids': ['control_ids', 'control_ids'], 'node_id': 'node_id'}
-
     Attributes:
         control_ids (Union[List[str], None, Unset]):
         node_id (Union[Unset, str]):

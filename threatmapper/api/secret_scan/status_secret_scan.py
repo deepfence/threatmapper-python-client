@@ -84,8 +84,7 @@ def sync_detailed(
      Get Secret Scan Status on agent or registry
 
     Args:
-        body (ModelScanStatusReq):  Example: {'bulk_scan_id': 'bulk_scan_id', 'scan_ids':
-            ['scan_ids', 'scan_ids']}.
+        body (ModelScanStatusReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -116,8 +115,7 @@ def sync(
      Get Secret Scan Status on agent or registry
 
     Args:
-        body (ModelScanStatusReq):  Example: {'bulk_scan_id': 'bulk_scan_id', 'scan_ids':
-            ['scan_ids', 'scan_ids']}.
+        body (ModelScanStatusReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -143,8 +141,7 @@ async def asyncio_detailed(
      Get Secret Scan Status on agent or registry
 
     Args:
-        body (ModelScanStatusReq):  Example: {'bulk_scan_id': 'bulk_scan_id', 'scan_ids':
-            ['scan_ids', 'scan_ids']}.
+        body (ModelScanStatusReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -173,8 +170,7 @@ async def asyncio(
      Get Secret Scan Status on agent or registry
 
     Args:
-        body (ModelScanStatusReq):  Example: {'bulk_scan_id': 'bulk_scan_id', 'scan_ids':
-            ['scan_ids', 'scan_ids']}.
+        body (ModelScanStatusReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

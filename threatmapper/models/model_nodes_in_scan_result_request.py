@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelNodesInScanResultRequest")
 @_attrs_define
 class ModelNodesInScanResultRequest:
     """
-    Example:
-        {'result_ids': ['result_ids', 'result_ids'], 'scan_type': 'SecretScan'}
-
     Attributes:
         result_ids (Union[List[str], None]):
         scan_type (ModelNodesInScanResultRequestScanType):

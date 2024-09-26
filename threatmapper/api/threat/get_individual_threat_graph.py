@@ -89,9 +89,7 @@ def sync_detailed(
      Retrieve threat graph associated with vulnerabilities
 
     Args:
-        body (GraphIndividualThreatGraphRequest):  Example: {'graph_type':
-            'most_vulnerable_attack_paths', 'issue_type': 'vulnerability', 'node_ids': ['node_ids',
-            'node_ids']}.
+        body (GraphIndividualThreatGraphRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -122,9 +120,7 @@ def sync(
      Retrieve threat graph associated with vulnerabilities
 
     Args:
-        body (GraphIndividualThreatGraphRequest):  Example: {'graph_type':
-            'most_vulnerable_attack_paths', 'issue_type': 'vulnerability', 'node_ids': ['node_ids',
-            'node_ids']}.
+        body (GraphIndividualThreatGraphRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -150,9 +146,7 @@ async def asyncio_detailed(
      Retrieve threat graph associated with vulnerabilities
 
     Args:
-        body (GraphIndividualThreatGraphRequest):  Example: {'graph_type':
-            'most_vulnerable_attack_paths', 'issue_type': 'vulnerability', 'node_ids': ['node_ids',
-            'node_ids']}.
+        body (GraphIndividualThreatGraphRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -181,9 +175,7 @@ async def asyncio(
      Retrieve threat graph associated with vulnerabilities
 
     Args:
-        body (GraphIndividualThreatGraphRequest):  Example: {'graph_type':
-            'most_vulnerable_attack_paths', 'issue_type': 'vulnerability', 'node_ids': ['node_ids',
-            'node_ids']}.
+        body (GraphIndividualThreatGraphRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

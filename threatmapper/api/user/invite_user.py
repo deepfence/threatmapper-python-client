@@ -84,8 +84,7 @@ def sync_detailed(
      Invite a user
 
     Args:
-        body (ModelInviteUserRequest):  Example: {'role': 'admin', 'action': 'send-invite-email',
-            'email': 'email'}.
+        body (ModelInviteUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -116,8 +115,7 @@ def sync(
      Invite a user
 
     Args:
-        body (ModelInviteUserRequest):  Example: {'role': 'admin', 'action': 'send-invite-email',
-            'email': 'email'}.
+        body (ModelInviteUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -143,8 +141,7 @@ async def asyncio_detailed(
      Invite a user
 
     Args:
-        body (ModelInviteUserRequest):  Example: {'role': 'admin', 'action': 'send-invite-email',
-            'email': 'email'}.
+        body (ModelInviteUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -173,8 +170,7 @@ async def asyncio(
      Invite a user
 
     Args:
-        body (ModelInviteUserRequest):  Example: {'role': 'admin', 'action': 'send-invite-email',
-            'email': 'email'}.
+        body (ModelInviteUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

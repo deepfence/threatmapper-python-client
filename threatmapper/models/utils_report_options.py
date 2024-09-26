@@ -12,9 +12,6 @@ T = TypeVar("T", bound="UtilsReportOptions")
 @_attrs_define
 class UtilsReportOptions:
     """
-    Example:
-        {'sbom_format': 'syft-json'}
-
     Attributes:
         sbom_format (Union[Unset, UtilsReportOptionsSbomFormat]):
     """

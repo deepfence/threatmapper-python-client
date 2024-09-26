@@ -13,9 +13,6 @@ T = TypeVar("T", bound="SearchSearchCountResp")
 @_attrs_define
 class SearchSearchCountResp:
     """
-    Example:
-        {'count': 6, 'categories': {'key': 0}}
-
     Attributes:
         categories (Union['SearchSearchCountRespCategoriesType0', None]):
         count (int):

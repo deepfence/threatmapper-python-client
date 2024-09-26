@@ -17,27 +17,11 @@ T = TypeVar("T", bound="ModelGenerateReportReq")
 @_attrs_define
 class ModelGenerateReportReq:
     """
-    Example:
-        {'to_timestamp': 6, 'options': {'sbom_format': 'syft-json'}, 'from_timestamp': 0, 'filters':
-            {'include_dead_nodes': True, 'node_type': 'host', 'most_exploitable_report': True, 'advanced_report_filters':
-            {'image_name': ['image_name', 'image_name'], 'container_name': ['container_name', 'container_name'],
-            'scan_status': ['scan_status', 'scan_status'], 'kubernetes_cluster_name': ['kubernetes_cluster_name',
-            'kubernetes_cluster_name'], 'masked': [True, True], 'host_name': ['host_name', 'host_name'], 'node_id':
-            ['node_id', 'node_id'], 'pod_name': ['pod_name', 'pod_name']}, 'scan_type': 'vulnerability', 'scan_id':
-            'scan_id', 'severity_or_check_type': ['severity_or_check_type', 'severity_or_check_type']}, 'report_type':
-            'pdf'}
-
     Attributes:
         report_type (ModelGenerateReportReqReportType):
-        filters (Union[Unset, UtilsReportFilters]):  Example: {'include_dead_nodes': True, 'node_type': 'host',
-            'most_exploitable_report': True, 'advanced_report_filters': {'image_name': ['image_name', 'image_name'],
-            'container_name': ['container_name', 'container_name'], 'scan_status': ['scan_status', 'scan_status'],
-            'kubernetes_cluster_name': ['kubernetes_cluster_name', 'kubernetes_cluster_name'], 'masked': [True, True],
-            'host_name': ['host_name', 'host_name'], 'node_id': ['node_id', 'node_id'], 'pod_name': ['pod_name',
-            'pod_name']}, 'scan_type': 'vulnerability', 'scan_id': 'scan_id', 'severity_or_check_type':
-            ['severity_or_check_type', 'severity_or_check_type']}.
+        filters (Union[Unset, UtilsReportFilters]):
         from_timestamp (Union[Unset, int]):
-        options (Union[Unset, UtilsReportOptions]):  Example: {'sbom_format': 'syft-json'}.
+        options (Union[Unset, UtilsReportOptions]):
         to_timestamp (Union[Unset, int]):
     """
 

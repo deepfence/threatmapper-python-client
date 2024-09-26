@@ -84,9 +84,7 @@ def sync_detailed(
      Register invited user
 
     Args:
-        body (ModelRegisterInvitedUserRequest):  Example: {'password': 'password', 'code': 'code',
-            'namespace': 'namespace', 'last_name': 'last_name', 'first_name': 'first_name',
-            'is_temporary_password': True}.
+        body (ModelRegisterInvitedUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -117,9 +115,7 @@ def sync(
      Register invited user
 
     Args:
-        body (ModelRegisterInvitedUserRequest):  Example: {'password': 'password', 'code': 'code',
-            'namespace': 'namespace', 'last_name': 'last_name', 'first_name': 'first_name',
-            'is_temporary_password': True}.
+        body (ModelRegisterInvitedUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -145,9 +141,7 @@ async def asyncio_detailed(
      Register invited user
 
     Args:
-        body (ModelRegisterInvitedUserRequest):  Example: {'password': 'password', 'code': 'code',
-            'namespace': 'namespace', 'last_name': 'last_name', 'first_name': 'first_name',
-            'is_temporary_password': True}.
+        body (ModelRegisterInvitedUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -176,9 +170,7 @@ async def asyncio(
      Register invited user
 
     Args:
-        body (ModelRegisterInvitedUserRequest):  Example: {'password': 'password', 'code': 'code',
-            'namespace': 'namespace', 'last_name': 'last_name', 'first_name': 'first_name',
-            'is_temporary_password': True}.
+        body (ModelRegisterInvitedUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

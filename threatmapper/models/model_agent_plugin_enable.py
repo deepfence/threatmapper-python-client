@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelAgentPluginEnable")
 @_attrs_define
 class ModelAgentPluginEnable:
     """
-    Example:
-        {'plugin_name': 'plugin_name', 'version': 'version', 'node_id': 'node_id'}
-
     Attributes:
         node_id (str):
         plugin_name (str):

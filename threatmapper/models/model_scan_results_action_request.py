@@ -12,10 +12,6 @@ T = TypeVar("T", bound="ModelScanResultsActionRequest")
 @_attrs_define
 class ModelScanResultsActionRequest:
     """
-    Example:
-        {'notify_individual': True, 'result_ids': ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id':
-            'scan_id', 'integration_ids': [0, 0]}
-
     Attributes:
         result_ids (Union[List[str], None]):
         scan_id (str):

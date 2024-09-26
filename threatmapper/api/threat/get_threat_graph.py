@@ -98,10 +98,7 @@ def sync_detailed(
      Retrieve the full threat graph associated with the account
 
     Args:
-        body (GraphThreatFilters):  Example: {'cloud_resource_only': True, 'aws_filter':
-            {'account_ids': ['account_ids', 'account_ids']}, 'gcp_filter': {'account_ids':
-            ['account_ids', 'account_ids']}, 'type': 'all', 'azure_filter': {'account_ids':
-            ['account_ids', 'account_ids']}}.
+        body (GraphThreatFilters):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -132,10 +129,7 @@ def sync(
      Retrieve the full threat graph associated with the account
 
     Args:
-        body (GraphThreatFilters):  Example: {'cloud_resource_only': True, 'aws_filter':
-            {'account_ids': ['account_ids', 'account_ids']}, 'gcp_filter': {'account_ids':
-            ['account_ids', 'account_ids']}, 'type': 'all', 'azure_filter': {'account_ids':
-            ['account_ids', 'account_ids']}}.
+        body (GraphThreatFilters):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -161,10 +155,7 @@ async def asyncio_detailed(
      Retrieve the full threat graph associated with the account
 
     Args:
-        body (GraphThreatFilters):  Example: {'cloud_resource_only': True, 'aws_filter':
-            {'account_ids': ['account_ids', 'account_ids']}, 'gcp_filter': {'account_ids':
-            ['account_ids', 'account_ids']}, 'type': 'all', 'azure_filter': {'account_ids':
-            ['account_ids', 'account_ids']}}.
+        body (GraphThreatFilters):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -193,10 +184,7 @@ async def asyncio(
      Retrieve the full threat graph associated with the account
 
     Args:
-        body (GraphThreatFilters):  Example: {'cloud_resource_only': True, 'aws_filter':
-            {'account_ids': ['account_ids', 'account_ids']}, 'gcp_filter': {'account_ids':
-            ['account_ids', 'account_ids']}, 'type': 'all', 'azure_filter': {'account_ids':
-            ['account_ids', 'account_ids']}}.
+        body (GraphThreatFilters):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

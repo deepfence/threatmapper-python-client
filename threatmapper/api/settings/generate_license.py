@@ -84,8 +84,7 @@ def sync_detailed(
      Generate a new ThreatMapper license key
 
     Args:
-        body (ModelGenerateLicenseRequest):  Example: {'last_name': 'last_name', 'company':
-            'company', 'resend_email': True, 'first_name': 'first_name', 'email': 'email'}.
+        body (ModelGenerateLicenseRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -116,8 +115,7 @@ def sync(
      Generate a new ThreatMapper license key
 
     Args:
-        body (ModelGenerateLicenseRequest):  Example: {'last_name': 'last_name', 'company':
-            'company', 'resend_email': True, 'first_name': 'first_name', 'email': 'email'}.
+        body (ModelGenerateLicenseRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -143,8 +141,7 @@ async def asyncio_detailed(
      Generate a new ThreatMapper license key
 
     Args:
-        body (ModelGenerateLicenseRequest):  Example: {'last_name': 'last_name', 'company':
-            'company', 'resend_email': True, 'first_name': 'first_name', 'email': 'email'}.
+        body (ModelGenerateLicenseRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -173,8 +170,7 @@ async def asyncio(
      Generate a new ThreatMapper license key
 
     Args:
-        body (ModelGenerateLicenseRequest):  Example: {'last_name': 'last_name', 'company':
-            'company', 'resend_email': True, 'first_name': 'first_name', 'email': 'email'}.
+        body (ModelGenerateLicenseRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

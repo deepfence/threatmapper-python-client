@@ -82,9 +82,7 @@ def sync_detailed(
      Delete selected scan results
 
     Args:
-        body (ModelScanResultsActionRequest):  Example: {'notify_individual': True, 'result_ids':
-            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id',
-            'integration_ids': [0, 0]}.
+        body (ModelScanResultsActionRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,9 +113,7 @@ def sync(
      Delete selected scan results
 
     Args:
-        body (ModelScanResultsActionRequest):  Example: {'notify_individual': True, 'result_ids':
-            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id',
-            'integration_ids': [0, 0]}.
+        body (ModelScanResultsActionRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -143,9 +139,7 @@ async def asyncio_detailed(
      Delete selected scan results
 
     Args:
-        body (ModelScanResultsActionRequest):  Example: {'notify_individual': True, 'result_ids':
-            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id',
-            'integration_ids': [0, 0]}.
+        body (ModelScanResultsActionRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -174,9 +168,7 @@ async def asyncio(
      Delete selected scan results
 
     Args:
-        body (ModelScanResultsActionRequest):  Example: {'notify_individual': True, 'result_ids':
-            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id',
-            'integration_ids': [0, 0]}.
+        body (ModelScanResultsActionRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

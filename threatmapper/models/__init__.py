@@ -221,8 +221,6 @@ from .model_generative_ai_integration_vulnerability_request_remediation_format i
 from .model_get_agent_binary_download_url_response import ModelGetAgentBinaryDownloadURLResponse
 from .model_get_audit_logs_request import ModelGetAuditLogsRequest
 from .model_graph_result import ModelGraphResult
-from .model_graph_result_edges import ModelGraphResultEdges
-from .model_graph_result_nodes import ModelGraphResultNodes
 from .model_host import ModelHost
 from .model_image_stub import ModelImageStub
 from .model_init_agent_req import ModelInitAgentReq
@@ -349,7 +347,6 @@ from .model_vulnerability_scan_result_severity_counts_type_0 import ModelVulnera
 from .model_vulnerability_scan_trigger_req import ModelVulnerabilityScanTriggerReq
 from .postgresql_db_get_audit_logs_row import PostgresqlDbGetAuditLogsRow
 from .postgresql_db_scheduler import PostgresqlDbScheduler
-from .postgresql_db_scheduler_last_ran_at import PostgresqlDbSchedulerLastRanAt
 from .report_metadata import ReportMetadata
 from .report_raw_report import ReportRawReport
 from .reporters_compare_filter import ReportersCompareFilter
@@ -560,8 +557,6 @@ __all__ = (
     "ModelGetAgentBinaryDownloadURLResponse",
     "ModelGetAuditLogsRequest",
     "ModelGraphResult",
-    "ModelGraphResultEdges",
-    "ModelGraphResultNodes",
     "ModelHost",
     "ModelImageStub",
     "ModelInitAgentReq",
@@ -678,7 +673,6 @@ __all__ = (
     "ModelVulnerabilityScanTriggerReq",
     "PostgresqlDbGetAuditLogsRow",
     "PostgresqlDbScheduler",
-    "PostgresqlDbSchedulerLastRanAt",
     "ReportersCompareFilter",
     "ReportersContainsFilter",
     "ReportersContainsFilterFilterInType0",

@@ -16,25 +16,6 @@ T = TypeVar("T", bound="ModelCloudComplianceScanResult")
 @_attrs_define
 class ModelCloudComplianceScanResult:
     """
-    Example:
-        {'benchmark_type': ['benchmark_type', 'benchmark_type'], 'docker_container_name': 'docker_container_name',
-            'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 6,
-            'cloud_account_id': 'cloud_account_id', 'compliances': [{'severity': 'severity', 'reason': 'reason',
-            'control_id': 'control_id', 'resource': 'resource', 'masked': True, 'count': 0, 'node_name': 'node_name',
-            'description': 'description', 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name',
-            'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id':
-            'node_id'}], 'cloud_provider': 'cloud_provider', 'title': 'title', 'type': 'type', 'compliance_check_type':
-            'hipaa', 'account_id': 'account_id', 'updated_at': 6, 'service': 'service', 'region': 'region', 'group':
-            'group', 'node_id': 'node_id', 'status': 'alarm'}, {'severity': 'severity', 'reason': 'reason', 'control_id':
-            'control_id', 'resource': 'resource', 'masked': True, 'count': 0, 'node_name': 'node_name', 'description':
-            'description', 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id':
-            'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}],
-            'cloud_provider': 'cloud_provider', 'title': 'title', 'type': 'type', 'compliance_check_type': 'hipaa',
-            'account_id': 'account_id', 'updated_at': 6, 'service': 'service', 'region': 'region', 'group': 'group',
-            'node_id': 'node_id', 'status': 'alarm'}], 'compliance_percentage': 0.8008281904610115, 'node_type':
-            'node_type', 'updated_at': 5, 'scan_id': 'scan_id', 'status_counts': {'key': 1}, 'docker_image_name':
-            'docker_image_name', 'host_name': 'host_name', 'node_id': 'node_id'}
-
     Attributes:
         benchmark_type (Union[List[str], None]):
         cloud_account_id (str):

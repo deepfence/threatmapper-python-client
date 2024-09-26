@@ -9,10 +9,6 @@ T = TypeVar("T", bound="ModelGenerateLicenseRequest")
 @_attrs_define
 class ModelGenerateLicenseRequest:
     """
-    Example:
-        {'last_name': 'last_name', 'company': 'company', 'resend_email': True, 'first_name': 'first_name', 'email':
-            'email'}
-
     Attributes:
         company (str):
         email (str):

@@ -87,8 +87,7 @@ def sync_detailed(
 
     Args:
         registry_id (str):
-        body (ModelRegistryUpdateReq):  Example: {'non_secret': {'key': ''}, 'registry_type':
-            'registry_type', 'name': 'name', 'extras': {'key': ''}, 'secret': {'key': ''}}.
+        body (ModelRegistryUpdateReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -122,8 +121,7 @@ def sync(
 
     Args:
         registry_id (str):
-        body (ModelRegistryUpdateReq):  Example: {'non_secret': {'key': ''}, 'registry_type':
-            'registry_type', 'name': 'name', 'extras': {'key': ''}, 'secret': {'key': ''}}.
+        body (ModelRegistryUpdateReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -152,8 +150,7 @@ async def asyncio_detailed(
 
     Args:
         registry_id (str):
-        body (ModelRegistryUpdateReq):  Example: {'non_secret': {'key': ''}, 'registry_type':
-            'registry_type', 'name': 'name', 'extras': {'key': ''}, 'secret': {'key': ''}}.
+        body (ModelRegistryUpdateReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -185,8 +182,7 @@ async def asyncio(
 
     Args:
         registry_id (str):
-        body (ModelRegistryUpdateReq):  Example: {'non_secret': {'key': ''}, 'registry_type':
-            'registry_type', 'name': 'name', 'extras': {'key': ''}, 'secret': {'key': ''}}.
+        body (ModelRegistryUpdateReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

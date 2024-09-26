@@ -13,22 +13,6 @@ T = TypeVar("T", bound="ModelScanCompareResGithubComDeepfenceThreatMapperDeepfen
 @_attrs_define
 class ModelScanCompareResGithubComDeepfenceThreatMapperDeepfenceServerModelCompliance:
     """
-    Example:
-        {'new': [{'resource': 'resource', 'masked': True, 'description': 'description', 'resources': [{'node_type':
-            'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name':
-            'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'test_category': 'test_category',
-            'remediation_ansible': 'remediation_ansible', 'compliance_check_type': 'hipaa', 'rule_id': 'rule_id',
-            'test_rationale': 'test_rationale', 'test_severity': 'test_severity', 'node_type': 'node_type', 'updated_at': 0,
-            'remediation_puppet': 'remediation_puppet', 'remediation_script': 'remediation_script', 'node_id': 'node_id',
-            'status': 'pass', 'test_desc': 'test_desc', 'test_number': 'test_number'}, {'resource': 'resource', 'masked':
-            True, 'description': 'description', 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name':
-            'host_name', 'node_id': 'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name',
-            'node_id': 'node_id'}], 'test_category': 'test_category', 'remediation_ansible': 'remediation_ansible',
-            'compliance_check_type': 'hipaa', 'rule_id': 'rule_id', 'test_rationale': 'test_rationale', 'test_severity':
-            'test_severity', 'node_type': 'node_type', 'updated_at': 0, 'remediation_puppet': 'remediation_puppet',
-            'remediation_script': 'remediation_script', 'node_id': 'node_id', 'status': 'pass', 'test_desc': 'test_desc',
-            'test_number': 'test_number'}]}
-
     Attributes:
         new (Union[List['ModelCompliance'], None]):
     """

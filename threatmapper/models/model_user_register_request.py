@@ -11,10 +11,6 @@ T = TypeVar("T", bound="ModelUserRegisterRequest")
 @_attrs_define
 class ModelUserRegisterRequest:
     """
-    Example:
-        {'password': 'password', 'console_url': 'console_url', 'last_name': 'last_name', 'company': 'company',
-            'first_name': 'first_name', 'is_temporary_password': True, 'email': 'email'}
-
     Attributes:
         company (str):
         console_url (str):

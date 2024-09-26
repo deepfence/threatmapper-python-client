@@ -84,9 +84,7 @@ def sync_detailed(
      Retrieve addition or deletion toplogy deltas
 
     Args:
-        body (ModelTopologyDeltaReq):  Example: {'deletion': True, 'entity_types':
-            ['entity_types', 'entity_types'], 'deletion_timestamp': 6, 'addition_timestamp': 0,
-            'addition': True}.
+        body (ModelTopologyDeltaReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -117,9 +115,7 @@ def sync(
      Retrieve addition or deletion toplogy deltas
 
     Args:
-        body (ModelTopologyDeltaReq):  Example: {'deletion': True, 'entity_types':
-            ['entity_types', 'entity_types'], 'deletion_timestamp': 6, 'addition_timestamp': 0,
-            'addition': True}.
+        body (ModelTopologyDeltaReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -145,9 +141,7 @@ async def asyncio_detailed(
      Retrieve addition or deletion toplogy deltas
 
     Args:
-        body (ModelTopologyDeltaReq):  Example: {'deletion': True, 'entity_types':
-            ['entity_types', 'entity_types'], 'deletion_timestamp': 6, 'addition_timestamp': 0,
-            'addition': True}.
+        body (ModelTopologyDeltaReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -176,9 +170,7 @@ async def asyncio(
      Retrieve addition or deletion toplogy deltas
 
     Args:
-        body (ModelTopologyDeltaReq):  Example: {'deletion': True, 'entity_types':
-            ['entity_types', 'entity_types'], 'deletion_timestamp': 6, 'addition_timestamp': 0,
-            'addition': True}.
+        body (ModelTopologyDeltaReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

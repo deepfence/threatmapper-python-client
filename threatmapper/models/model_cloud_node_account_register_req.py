@@ -16,13 +16,6 @@ T = TypeVar("T", bound="ModelCloudNodeAccountRegisterReq")
 @_attrs_define
 class ModelCloudNodeAccountRegisterReq:
     """
-    Example:
-        {'account_id': 'account_id', 'monitored_accounts': [{'account_id': 'account_id', 'account_name': 'account_name',
-            'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name': 'account_name', 'node_id': 'node_id'}],
-            'account_name': 'account_name', 'is_organization_deployment': True, 'cloud_provider': 'aws',
-            'organization_account_id': 'organization_account_id', 'host_node_id': 'host_node_id', 'version': 'version',
-            'node_id': 'node_id'}
-
     Attributes:
         account_id (str):
         cloud_provider (ModelCloudNodeAccountRegisterReqCloudProvider):

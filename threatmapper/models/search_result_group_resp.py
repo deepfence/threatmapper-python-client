@@ -15,10 +15,6 @@ T = TypeVar("T", bound="SearchResultGroupResp")
 @_attrs_define
 class SearchResultGroupResp:
     """
-    Example:
-        {'groups': [{'severity': 'severity', 'count': 0, 'name': 'name'}, {'severity': 'severity', 'count': 0, 'name':
-            'name'}]}
-
     Attributes:
         groups (Union[List['SearchResultGroup'], None, Unset]):
     """

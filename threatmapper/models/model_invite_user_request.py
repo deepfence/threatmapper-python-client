@@ -12,9 +12,6 @@ T = TypeVar("T", bound="ModelInviteUserRequest")
 @_attrs_define
 class ModelInviteUserRequest:
     """
-    Example:
-        {'role': 'admin', 'action': 'send-invite-email', 'email': 'email'}
-
     Attributes:
         action (ModelInviteUserRequestAction):
         email (str):

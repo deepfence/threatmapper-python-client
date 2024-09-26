@@ -9,9 +9,6 @@ T = TypeVar("T", bound="CompletionCompletionNodeFieldRes")
 @_attrs_define
 class CompletionCompletionNodeFieldRes:
     """
-    Example:
-        {'possible_values': ['possible_values', 'possible_values']}
-
     Attributes:
         possible_values (Union[List[str], None]):
     """

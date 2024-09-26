@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelPasswordResetVerifyRequest")
 @_attrs_define
 class ModelPasswordResetVerifyRequest:
     """
-    Example:
-        {'password': 'password', 'code': 'code', 'namespace': 'namespace'}
-
     Attributes:
         code (str):
         namespace (str):

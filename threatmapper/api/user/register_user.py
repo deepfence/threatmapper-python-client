@@ -84,9 +84,7 @@ def sync_detailed(
      First user registration. Further users needs to be invited.
 
     Args:
-        body (ModelUserRegisterRequest):  Example: {'password': 'password', 'console_url':
-            'console_url', 'last_name': 'last_name', 'company': 'company', 'first_name': 'first_name',
-            'is_temporary_password': True, 'email': 'email'}.
+        body (ModelUserRegisterRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -117,9 +115,7 @@ def sync(
      First user registration. Further users needs to be invited.
 
     Args:
-        body (ModelUserRegisterRequest):  Example: {'password': 'password', 'console_url':
-            'console_url', 'last_name': 'last_name', 'company': 'company', 'first_name': 'first_name',
-            'is_temporary_password': True, 'email': 'email'}.
+        body (ModelUserRegisterRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -145,9 +141,7 @@ async def asyncio_detailed(
      First user registration. Further users needs to be invited.
 
     Args:
-        body (ModelUserRegisterRequest):  Example: {'password': 'password', 'console_url':
-            'console_url', 'last_name': 'last_name', 'company': 'company', 'first_name': 'first_name',
-            'is_temporary_password': True, 'email': 'email'}.
+        body (ModelUserRegisterRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -176,9 +170,7 @@ async def asyncio(
      First user registration. Further users needs to be invited.
 
     Args:
-        body (ModelUserRegisterRequest):  Example: {'password': 'password', 'console_url':
-            'console_url', 'last_name': 'last_name', 'company': 'company', 'first_name': 'first_name',
-            'is_temporary_password': True, 'email': 'email'}.
+        body (ModelUserRegisterRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

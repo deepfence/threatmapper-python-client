@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ControlsAgentBeat")
 @_attrs_define
 class ControlsAgentBeat:
     """
-    Example:
-        {'beatrate': 0}
-
     Attributes:
         beatrate (int):
     """

@@ -55,15 +55,6 @@ T = TypeVar("T", bound="IngestersReportIngestionData")
 @_attrs_define
 class IngestersReportIngestionData:
     """
-    Example:
-        {'hosts': [{'key': ''}, {'key': ''}], 'host_batch': [{'key': ''}, {'key': ''}], 'kubernetes_cluster_edge_batch':
-            [{'key': ''}, {'key': ''}], 'process_batch': [{'key': ''}, {'key': ''}], 'container_image_edge_batch': [{'key':
-            ''}, {'key': ''}], 'num_merged': 0, 'container_process_edge_batch': [{'key': ''}, {'key': ''}], 'pod_batch':
-            [{'key': ''}, {'key': ''}], 'process_edges_batch': [{'key': ''}, {'key': ''}], 'container_edges_batch': [{'key':
-            ''}, {'key': ''}], 'container_batch': [{'key': ''}, {'key': ''}], 'container_image_batch': [{'key': ''}, {'key':
-            ''}], 'kubernetes_cluster_batch': [{'key': ''}, {'key': ''}], 'pod_edges_batch': [{'key': ''}, {'key': ''}],
-            'endpoint_edges_batch': [{'key': ''}, {'key': ''}], 'pod_host_edges_batch': [{'key': ''}, {'key': ''}]}
-
     Attributes:
         container_batch (Union[List['IngestersReportIngestionDataContainerBatchType0Item'], None]):
         container_edges_batch (Union[List['IngestersReportIngestionDataContainerEdgesBatchType0Item'], None]):

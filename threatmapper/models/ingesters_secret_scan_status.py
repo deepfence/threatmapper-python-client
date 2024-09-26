@@ -11,9 +11,6 @@ T = TypeVar("T", bound="IngestersSecretScanStatus")
 @_attrs_define
 class IngestersSecretScanStatus:
     """
-    Example:
-        {'scan_message': 'scan_message', 'scan_status': 'scan_status', 'scan_id': 'scan_id'}
-
     Attributes:
         scan_id (Union[Unset, str]):
         scan_message (Union[Unset, str]):

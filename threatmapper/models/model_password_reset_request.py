@@ -9,9 +9,6 @@ T = TypeVar("T", bound="ModelPasswordResetRequest")
 @_attrs_define
 class ModelPasswordResetRequest:
     """
-    Example:
-        {'email': 'email'}
-
     Attributes:
         email (str):
     """

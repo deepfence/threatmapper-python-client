@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelConnection")
 @_attrs_define
 class ModelConnection:
     """
-    Example:
-        {'count': 9, 'node_name': 'node_name', 'ips': ['', ''], 'node_id': 'node_id'}
-
     Attributes:
         count (Union[Unset, int]):
         ips (Union[List[Any], None, Unset]):

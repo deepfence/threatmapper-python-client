@@ -84,9 +84,7 @@ def sync_detailed(
      Send Linux Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationLinuxPostureRequest):  Example: {'integration_id': 0,
-            'remediation_format': 'all', 'description': 'description', 'query_type': 'remediation',
-            'compliance_check_type': 'compliance_check_type', 'test_number': 'test_number'}.
+        body (ModelGenerativeAiIntegrationLinuxPostureRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -117,9 +115,7 @@ def sync(
      Send Linux Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationLinuxPostureRequest):  Example: {'integration_id': 0,
-            'remediation_format': 'all', 'description': 'description', 'query_type': 'remediation',
-            'compliance_check_type': 'compliance_check_type', 'test_number': 'test_number'}.
+        body (ModelGenerativeAiIntegrationLinuxPostureRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -145,9 +141,7 @@ async def asyncio_detailed(
      Send Linux Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationLinuxPostureRequest):  Example: {'integration_id': 0,
-            'remediation_format': 'all', 'description': 'description', 'query_type': 'remediation',
-            'compliance_check_type': 'compliance_check_type', 'test_number': 'test_number'}.
+        body (ModelGenerativeAiIntegrationLinuxPostureRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -176,9 +170,7 @@ async def asyncio(
      Send Linux Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationLinuxPostureRequest):  Example: {'integration_id': 0,
-            'remediation_format': 'all', 'description': 'description', 'query_type': 'remediation',
-            'compliance_check_type': 'compliance_check_type', 'test_number': 'test_number'}.
+        body (ModelGenerativeAiIntegrationLinuxPostureRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

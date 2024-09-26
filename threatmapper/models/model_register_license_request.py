@@ -11,9 +11,6 @@ T = TypeVar("T", bound="ModelRegisterLicenseRequest")
 @_attrs_define
 class ModelRegisterLicenseRequest:
     """
-    Example:
-        {'email': 'email', 'license_key': 'license_key'}
-
     Attributes:
         license_key (str):
         email (Union[Unset, str]):

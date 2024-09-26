@@ -82,8 +82,7 @@ def sync_detailed(
      Send Secret query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationSecretRequest):  Example: {'integration_id': 0, 'name':
-            'name', 'query_type': 'remediation'}.
+        body (ModelGenerativeAiIntegrationSecretRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -114,8 +113,7 @@ def sync(
      Send Secret query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationSecretRequest):  Example: {'integration_id': 0, 'name':
-            'name', 'query_type': 'remediation'}.
+        body (ModelGenerativeAiIntegrationSecretRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,8 +139,7 @@ async def asyncio_detailed(
      Send Secret query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationSecretRequest):  Example: {'integration_id': 0, 'name':
-            'name', 'query_type': 'remediation'}.
+        body (ModelGenerativeAiIntegrationSecretRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -171,8 +168,7 @@ async def asyncio(
      Send Secret query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationSecretRequest):  Example: {'integration_id': 0, 'name':
-            'name', 'query_type': 'remediation'}.
+        body (ModelGenerativeAiIntegrationSecretRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

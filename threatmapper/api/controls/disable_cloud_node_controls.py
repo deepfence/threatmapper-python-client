@@ -82,8 +82,7 @@ def sync_detailed(
      Disable controls for a cloud node
 
     Args:
-        body (ModelCloudNodeEnableDisableReq):  Example: {'control_ids': ['control_ids',
-            'control_ids'], 'node_id': 'node_id'}.
+        body (ModelCloudNodeEnableDisableReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -114,8 +113,7 @@ def sync(
      Disable controls for a cloud node
 
     Args:
-        body (ModelCloudNodeEnableDisableReq):  Example: {'control_ids': ['control_ids',
-            'control_ids'], 'node_id': 'node_id'}.
+        body (ModelCloudNodeEnableDisableReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,8 +139,7 @@ async def asyncio_detailed(
      Disable controls for a cloud node
 
     Args:
-        body (ModelCloudNodeEnableDisableReq):  Example: {'control_ids': ['control_ids',
-            'control_ids'], 'node_id': 'node_id'}.
+        body (ModelCloudNodeEnableDisableReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -171,8 +168,7 @@ async def asyncio(
      Disable controls for a cloud node
 
     Args:
-        body (ModelCloudNodeEnableDisableReq):  Example: {'control_ids': ['control_ids',
-            'control_ids'], 'node_id': 'node_id'}.
+        body (ModelCloudNodeEnableDisableReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -82,8 +82,7 @@ def sync_detailed(
      Schedule agent plugin enable
 
     Args:
-        body (ModelAgentPluginEnable):  Example: {'plugin_name': 'plugin_name', 'version':
-            'version', 'node_id': 'node_id'}.
+        body (ModelAgentPluginEnable):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -114,8 +113,7 @@ def sync(
      Schedule agent plugin enable
 
     Args:
-        body (ModelAgentPluginEnable):  Example: {'plugin_name': 'plugin_name', 'version':
-            'version', 'node_id': 'node_id'}.
+        body (ModelAgentPluginEnable):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,8 +139,7 @@ async def asyncio_detailed(
      Schedule agent plugin enable
 
     Args:
-        body (ModelAgentPluginEnable):  Example: {'plugin_name': 'plugin_name', 'version':
-            'version', 'node_id': 'node_id'}.
+        body (ModelAgentPluginEnable):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -171,8 +168,7 @@ async def asyncio(
      Schedule agent plugin enable
 
     Args:
-        body (ModelAgentPluginEnable):  Example: {'plugin_name': 'plugin_name', 'version':
-            'version', 'node_id': 'node_id'}.
+        body (ModelAgentPluginEnable):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

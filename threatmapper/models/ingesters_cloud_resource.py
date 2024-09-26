@@ -11,30 +11,6 @@ T = TypeVar("T", bound="IngestersCloudResource")
 @_attrs_define
 class IngestersCloudResource:
     """
-    Example:
-        {'iam_instance_profile_arn': 'iam_instance_profile_arn', 'allow_blob_public_access': True, 'ingress_settings':
-            'ingress_settings', 'vpc_id': 'vpc_id', 'event_notification_configuration': '', 'ip_configuration': '',
-            'access_level': 'access_level', 'path': 'path', 'connectivity': 'connectivity', 'policy_std': '',
-            'target_health_descriptions': '', 'iam_policy': '', 'action': 'action', 'private_ip_address':
-            'private_ip_address', 'id': 'id', 'create_date': 'create_date', 'resource_vpc_config': '', 'inline_policies':
-            '', 'restrict_public_buckets': True, 'db_cluster_identifier': 'db_cluster_identifier', 'group': 'group',
-            'target_group_arn': 'target_group_arn', 'ignore_public_acls': True, 'storage_account_name':
-            'storage_account_name', 'service_name': 'service_name', 'instance_profile_arns': '', 'users': '',
-            'network_interfaces': '', 'tags': '', 'security_groups': '', 'task_arn': 'task_arn', 'block_public_acls': True,
-            'organization_master_account_email': 'organization_master_account_email', 'instance_id': 'instance_id',
-            'public_access': 'public_access', 'task_definition': '', 'user_id': 'user_id', 'organization_id':
-            'organization_id', 'name': 'name', 'resources_vpc_config': '', 'attached_policy_arns': '',
-            'task_definition_arn': 'task_definition_arn', 'containers': '', 'region': 'region', 'container_definitions': '',
-            'instance_type': 'instance_type', 'scheme': 'scheme', 'instances': '', 'network_mode': 'network_mode',
-            'is_egress': True, 'description': 'description', 'privilege': 'privilege', 'network_configuration': '',
-            'public_network_access': 'public_network_access', 'vpc_options': '', 'vpc_security_group_ids': '', 'arn': 'arn',
-            'private_dns_name': 'private_dns_name', 'policy': '', 'public_ips': '', 'cluster_name': 'cluster_name',
-            'cluster_arn': 'cluster_arn', 'public_ip_address': 'public_ip_address', 'cidr_ipv4': 'cidr_ipv4', 'last_status':
-            'last_status', 'groups': '', 'user-groups': '', 'cloud_provider': 'cloud_provider', 'vpc_security_groups': '',
-            'block_public_policy': True, 'account_id': 'account_id', 'iam_instance_profile_id': 'iam_instance_profile_id',
-            'group_id': 'group_id', 'organization_master_account_arn': 'organization_master_account_arn', 'resource_id':
-            'resource_id', 'bucket_policy_is_public': True, 'host_name': 'host_name'}
-
     Attributes:
         access_level (Union[Unset, str]):
         account_id (Union[Unset, str]):

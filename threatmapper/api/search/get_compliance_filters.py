@@ -84,8 +84,7 @@ def sync_detailed(
      Get all applicable filter values for compliance
 
     Args:
-        body (ModelFiltersReq):  Example: {'having': {'key': ''}, 'filters': ['filters',
-            'filters']}.
+        body (ModelFiltersReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -116,8 +115,7 @@ def sync(
      Get all applicable filter values for compliance
 
     Args:
-        body (ModelFiltersReq):  Example: {'having': {'key': ''}, 'filters': ['filters',
-            'filters']}.
+        body (ModelFiltersReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -143,8 +141,7 @@ async def asyncio_detailed(
      Get all applicable filter values for compliance
 
     Args:
-        body (ModelFiltersReq):  Example: {'having': {'key': ''}, 'filters': ['filters',
-            'filters']}.
+        body (ModelFiltersReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -173,8 +170,7 @@ async def asyncio(
      Get all applicable filter values for compliance
 
     Args:
-        body (ModelFiltersReq):  Example: {'having': {'key': ''}, 'filters': ['filters',
-            'filters']}.
+        body (ModelFiltersReq):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

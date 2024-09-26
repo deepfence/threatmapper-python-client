@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "threatmapper"
-version = "2.3.0"
+version = "2.3.1"
 description = "A client library for accessing Deepfence ThreatMapper"
 authors = []
 readme = "README.md"

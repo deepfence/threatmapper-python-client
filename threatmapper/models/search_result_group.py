@@ -11,9 +11,6 @@ T = TypeVar("T", bound="SearchResultGroup")
 @_attrs_define
 class SearchResultGroup:
     """
-    Example:
-        {'severity': 'severity', 'count': 0, 'name': 'name'}
-
     Attributes:
         count (Union[Unset, int]):
         name (Union[Unset, str]):
