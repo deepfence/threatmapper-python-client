@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ApiDocsFailureResponse")
 @_attrs_define
 class ApiDocsFailureResponse:
     """
+    Example:
+        {'success': False, 'message': 'message'}
+
     Attributes:
         message (Union[Unset, str]):
         success (Union[Unset, bool]):

@@ -82,7 +82,9 @@ def sync_detailed(
      Generate Agent Diagnostic Logs
 
     Args:
-        body (DiagnosisGenerateAgentDiagnosticLogsRequest):
+        body (DiagnosisGenerateAgentDiagnosticLogsRequest):  Example: {'tail': 0, 'node_ids':
+            [{'node_type': 'host', 'node_id': 'node_id'}, {'node_type': 'host', 'node_id':
+            'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +115,9 @@ def sync(
      Generate Agent Diagnostic Logs
 
     Args:
-        body (DiagnosisGenerateAgentDiagnosticLogsRequest):
+        body (DiagnosisGenerateAgentDiagnosticLogsRequest):  Example: {'tail': 0, 'node_ids':
+            [{'node_type': 'host', 'node_id': 'node_id'}, {'node_type': 'host', 'node_id':
+            'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +143,9 @@ async def asyncio_detailed(
      Generate Agent Diagnostic Logs
 
     Args:
-        body (DiagnosisGenerateAgentDiagnosticLogsRequest):
+        body (DiagnosisGenerateAgentDiagnosticLogsRequest):  Example: {'tail': 0, 'node_ids':
+            [{'node_type': 'host', 'node_id': 'node_id'}, {'node_type': 'host', 'node_id':
+            'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +174,9 @@ async def asyncio(
      Generate Agent Diagnostic Logs
 
     Args:
-        body (DiagnosisGenerateAgentDiagnosticLogsRequest):
+        body (DiagnosisGenerateAgentDiagnosticLogsRequest):  Example: {'tail': 0, 'node_ids':
+            [{'node_type': 'host', 'node_id': 'node_id'}, {'node_type': 'host', 'node_id':
+            'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

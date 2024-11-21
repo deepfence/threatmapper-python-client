@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ModelGenerateReportResp")
 @_attrs_define
 class ModelGenerateReportResp:
     """
+    Example:
+        {'report_id': 'report_id'}
+
     Attributes:
         report_id (Union[Unset, str]):
     """

@@ -13,6 +13,10 @@ T = TypeVar("T", bound="DiagnosisGenerateCloudScannerDiagnosticLogsRequest")
 @_attrs_define
 class DiagnosisGenerateCloudScannerDiagnosticLogsRequest:
     """
+    Example:
+        {'tail': 0, 'node_ids': [{'node_type': 'host', 'node_id': 'node_id'}, {'node_type': 'host', 'node_id':
+            'node_id'}]}
+
     Attributes:
         node_ids (Union[List['DiagnosisNodeIdentifier'], None]):
         tail (int):

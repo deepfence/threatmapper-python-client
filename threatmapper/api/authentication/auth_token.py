@@ -84,7 +84,7 @@ def sync_detailed(
      Get access token for programmatic API access, by providing API Token
 
     Args:
-        body (ModelAPIAuthRequest):
+        body (ModelAPIAuthRequest):  Example: {'api_token': 'api_token'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +115,7 @@ def sync(
      Get access token for programmatic API access, by providing API Token
 
     Args:
-        body (ModelAPIAuthRequest):
+        body (ModelAPIAuthRequest):  Example: {'api_token': 'api_token'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +141,7 @@ async def asyncio_detailed(
      Get access token for programmatic API access, by providing API Token
 
     Args:
-        body (ModelAPIAuthRequest):
+        body (ModelAPIAuthRequest):  Example: {'api_token': 'api_token'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +170,7 @@ async def asyncio(
      Get access token for programmatic API access, by providing API Token
 
     Args:
-        body (ModelAPIAuthRequest):
+        body (ModelAPIAuthRequest):  Example: {'api_token': 'api_token'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

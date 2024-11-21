@@ -16,8 +16,18 @@ T = TypeVar("T", bound="ModelSecretScanTriggerReq")
 @_attrs_define
 class ModelSecretScanTriggerReq:
     """
+    Example:
+        {'is_priority': True, 'deepfence_system_scan': True, 'filters': {'container_scan_filter': {'filter_in': {'key':
+            ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in':
+            {'key': ['', '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter':
+            {'filter_in': {'key': ['', '']}}}, 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type':
+            'image', 'node_id': 'node_id'}]}
+
     Attributes:
-        filters (ModelScanFilter):
+        filters (ModelScanFilter):  Example: {'container_scan_filter': {'filter_in': {'key': ['', '']}},
+            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['',
+            '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in':
+            {'key': ['', '']}}}.
         node_ids (Union[List['ModelNodeIdentifier'], None]):
         deepfence_system_scan (Union[Unset, bool]):
         is_priority (Union[Unset, bool]):

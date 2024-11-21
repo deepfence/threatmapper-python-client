@@ -11,6 +11,10 @@ T = TypeVar("T", bound="IngestersSecretMatch")
 @_attrs_define
 class IngestersSecretMatch:
     """
+    Example:
+        {'full_filename': 'full_filename', 'matched_content': 'matched_content', 'relative_ending_index': 0,
+            'starting_index': 1, 'relative_starting_index': 6}
+
     Attributes:
         full_filename (Union[Unset, str]):
         matched_content (Union[Unset, str]):

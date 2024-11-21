@@ -82,7 +82,9 @@ def sync_detailed(
      Notify scan results in connected integration channels
 
     Args:
-        body (ModelScanResultsActionRequest):
+        body (ModelScanResultsActionRequest):  Example: {'notify_individual': True, 'result_ids':
+            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id',
+            'integration_ids': [0, 0]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +115,9 @@ def sync(
      Notify scan results in connected integration channels
 
     Args:
-        body (ModelScanResultsActionRequest):
+        body (ModelScanResultsActionRequest):  Example: {'notify_individual': True, 'result_ids':
+            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id',
+            'integration_ids': [0, 0]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +143,9 @@ async def asyncio_detailed(
      Notify scan results in connected integration channels
 
     Args:
-        body (ModelScanResultsActionRequest):
+        body (ModelScanResultsActionRequest):  Example: {'notify_individual': True, 'result_ids':
+            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id',
+            'integration_ids': [0, 0]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +174,9 @@ async def asyncio(
      Notify scan results in connected integration channels
 
     Args:
-        body (ModelScanResultsActionRequest):
+        body (ModelScanResultsActionRequest):  Example: {'notify_individual': True, 'result_ids':
+            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id',
+            'integration_ids': [0, 0]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

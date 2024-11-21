@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelDeleteIntegrationReq")
 @_attrs_define
 class ModelDeleteIntegrationReq:
     """
+    Example:
+        {'integration_ids': [0, 0]}
+
     Attributes:
         integration_ids (Union[List[int], None]):
     """

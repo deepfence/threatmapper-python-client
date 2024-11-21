@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelSbomRequest")
 @_attrs_define
 class ModelSbomRequest:
     """
+    Example:
+        {'scan_id': 'scan_id'}
+
     Attributes:
         scan_id (str):
     """

@@ -11,6 +11,9 @@ T = TypeVar("T", bound="IngestersSecretRule")
 @_attrs_define
 class IngestersSecretRule:
     """
+    Example:
+        {'part': 'part', 'name': 'name', 'signature_to_match': 'signature_to_match', 'id': 5}
+
     Attributes:
         id (Union[Unset, int]):
         name (Union[Unset, str]):

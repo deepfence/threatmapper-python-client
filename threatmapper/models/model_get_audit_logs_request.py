@@ -13,8 +13,11 @@ T = TypeVar("T", bound="ModelGetAuditLogsRequest")
 @_attrs_define
 class ModelGetAuditLogsRequest:
     """
+    Example:
+        {'window': {'offset': 0, 'size': 6}}
+
     Attributes:
-        window (ModelFetchWindow):
+        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
     """
 
     window: "ModelFetchWindow"

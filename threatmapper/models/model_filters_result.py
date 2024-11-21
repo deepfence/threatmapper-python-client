@@ -13,6 +13,9 @@ T = TypeVar("T", bound="ModelFiltersResult")
 @_attrs_define
 class ModelFiltersResult:
     """
+    Example:
+        {'filters': {'key': ['filters', 'filters']}}
+
     Attributes:
         filters (Union['ModelFiltersResultFiltersType0', None]):
     """

@@ -84,7 +84,8 @@ def sync_detailed(
      Register new license key to the console and activate
 
     Args:
-        body (ModelRegisterLicenseRequest):
+        body (ModelRegisterLicenseRequest):  Example: {'email': 'email', 'license_key':
+            'license_key'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +116,8 @@ def sync(
      Register new license key to the console and activate
 
     Args:
-        body (ModelRegisterLicenseRequest):
+        body (ModelRegisterLicenseRequest):  Example: {'email': 'email', 'license_key':
+            'license_key'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +143,8 @@ async def asyncio_detailed(
      Register new license key to the console and activate
 
     Args:
-        body (ModelRegisterLicenseRequest):
+        body (ModelRegisterLicenseRequest):  Example: {'email': 'email', 'license_key':
+            'license_key'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +173,8 @@ async def asyncio(
      Register new license key to the console and activate
 
     Args:
-        body (ModelRegisterLicenseRequest):
+        body (ModelRegisterLicenseRequest):  Example: {'email': 'email', 'license_key':
+            'license_key'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

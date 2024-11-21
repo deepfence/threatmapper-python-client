@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ModelCloudNodeMonitoredAccount")
 @_attrs_define
 class ModelCloudNodeMonitoredAccount:
     """
+    Example:
+        {'account_id': 'account_id', 'account_name': 'account_name', 'node_id': 'node_id'}
+
     Attributes:
         account_id (str):
         node_id (str):

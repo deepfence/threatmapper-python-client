@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ReportersCompareFilter")
 @_attrs_define
 class ReportersCompareFilter:
     """
+    Example:
+        {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}
+
     Attributes:
         field_name (str):
         field_value (Any):

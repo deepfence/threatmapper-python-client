@@ -82,7 +82,15 @@ def sync_detailed(
      Add scheduled task
 
     Args:
-        body (ModelAddScheduledTaskRequest):
+        body (ModelAddScheduledTaskRequest):  Example: {'is_priority': True, 'benchmark_types':
+            ['hipaa', 'hipaa'], 'scan_config': [{'language': 'base'}, {'language': 'base'}],
+            'cron_expr': 'cron_expr', 'action': 'SecretScan', 'description': 'description',
+            'deepfence_system_scan': True, 'filters': {'container_scan_filter': {'filter_in': {'key':
+            ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}},
+            'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
+            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}},
+            'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image',
+            'node_id': 'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +121,15 @@ def sync(
      Add scheduled task
 
     Args:
-        body (ModelAddScheduledTaskRequest):
+        body (ModelAddScheduledTaskRequest):  Example: {'is_priority': True, 'benchmark_types':
+            ['hipaa', 'hipaa'], 'scan_config': [{'language': 'base'}, {'language': 'base'}],
+            'cron_expr': 'cron_expr', 'action': 'SecretScan', 'description': 'description',
+            'deepfence_system_scan': True, 'filters': {'container_scan_filter': {'filter_in': {'key':
+            ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}},
+            'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
+            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}},
+            'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image',
+            'node_id': 'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +155,15 @@ async def asyncio_detailed(
      Add scheduled task
 
     Args:
-        body (ModelAddScheduledTaskRequest):
+        body (ModelAddScheduledTaskRequest):  Example: {'is_priority': True, 'benchmark_types':
+            ['hipaa', 'hipaa'], 'scan_config': [{'language': 'base'}, {'language': 'base'}],
+            'cron_expr': 'cron_expr', 'action': 'SecretScan', 'description': 'description',
+            'deepfence_system_scan': True, 'filters': {'container_scan_filter': {'filter_in': {'key':
+            ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}},
+            'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
+            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}},
+            'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image',
+            'node_id': 'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +192,15 @@ async def asyncio(
      Add scheduled task
 
     Args:
-        body (ModelAddScheduledTaskRequest):
+        body (ModelAddScheduledTaskRequest):  Example: {'is_priority': True, 'benchmark_types':
+            ['hipaa', 'hipaa'], 'scan_config': [{'language': 'base'}, {'language': 'base'}],
+            'cron_expr': 'cron_expr', 'action': 'SecretScan', 'description': 'description',
+            'deepfence_system_scan': True, 'filters': {'container_scan_filter': {'filter_in': {'key':
+            ['', '']}}, 'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}},
+            'image_scan_filter': {'filter_in': {'key': ['', '']}}, 'kubernetes_cluster_scan_filter':
+            {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in': {'key': ['', '']}}},
+            'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image',
+            'node_id': 'node_id'}]}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

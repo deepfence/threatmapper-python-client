@@ -11,22 +11,30 @@ T = TypeVar("T", bound="ModelSecretRule")
 @_attrs_define
 class ModelSecretRule:
     """
+    Example:
+        {'rule_id': 'rule_id', 'severity': 'severity', 'summary': 'summary', 'updated_at': 0, 'level': 'level',
+            'payload': 'payload', 'masked': True, 'part': 'part', 'signature_to_match': 'signature_to_match'}
+
     Attributes:
         level (str):
         masked (bool):
+        payload (str):
+        severity (str):
+        summary (str):
         updated_at (int):
-        id (Union[Unset, int]):
-        name (Union[Unset, str]):
         part (Union[Unset, str]):
+        rule_id (Union[Unset, str]):
         signature_to_match (Union[Unset, str]):
     """
 
     level: str
     masked: bool
+    payload: str
+    severity: str
+    summary: str
     updated_at: int
-    id: Union[Unset, int] = UNSET
-    name: Union[Unset, str] = UNSET
     part: Union[Unset, str] = UNSET
+    rule_id: Union[Unset, str] = UNSET
     signature_to_match: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -35,13 +43,17 @@ class ModelSecretRule:
 
         masked = self.masked
 
+        payload = self.payload
+
+        severity = self.severity
+
+        summary = self.summary
+
         updated_at = self.updated_at
 
-        id = self.id
-
-        name = self.name
-
         part = self.part
+
+        rule_id = self.rule_id
 
         signature_to_match = self.signature_to_match
 
@@ -51,15 +63,16 @@ class ModelSecretRule:
             {
                 "level": level,
                 "masked": masked,
+                "payload": payload,
+                "severity": severity,
+                "summary": summary,
                 "updated_at": updated_at,
             }
         )
-        if id is not UNSET:
-            field_dict["id"] = id
-        if name is not UNSET:
-            field_dict["name"] = name
         if part is not UNSET:
             field_dict["part"] = part
+        if rule_id is not UNSET:
+            field_dict["rule_id"] = rule_id
         if signature_to_match is not UNSET:
             field_dict["signature_to_match"] = signature_to_match
 
@@ -72,23 +85,29 @@ class ModelSecretRule:
 
         masked = d.pop("masked")
 
+        payload = d.pop("payload")
+
+        severity = d.pop("severity")
+
+        summary = d.pop("summary")
+
         updated_at = d.pop("updated_at")
 
-        id = d.pop("id", UNSET)
-
-        name = d.pop("name", UNSET)
-
         part = d.pop("part", UNSET)
+
+        rule_id = d.pop("rule_id", UNSET)
 
         signature_to_match = d.pop("signature_to_match", UNSET)
 
         model_secret_rule = cls(
             level=level,
             masked=masked,
+            payload=payload,
+            severity=severity,
+            summary=summary,
             updated_at=updated_at,
-            id=id,
-            name=name,
             part=part,
+            rule_id=rule_id,
             signature_to_match=signature_to_match,
         )
 

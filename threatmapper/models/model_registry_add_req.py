@@ -17,6 +17,10 @@ T = TypeVar("T", bound="ModelRegistryAddReq")
 @_attrs_define
 class ModelRegistryAddReq:
     """
+    Example:
+        {'non_secret': {'key': ''}, 'registry_type': 'registry_type', 'name': 'name', 'extras': {'key': ''}, 'secret':
+            {'key': ''}}
+
     Attributes:
         name (str):
         registry_type (str):

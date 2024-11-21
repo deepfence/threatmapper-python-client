@@ -84,7 +84,9 @@ def sync_detailed(
      Send Kubernetes Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationKubernetesPostureRequest):
+        body (ModelGenerativeAiIntegrationKubernetesPostureRequest):  Example: {'integration_id':
+            0, 'remediation_format': 'all', 'description': 'description', 'query_type': 'remediation',
+            'compliance_check_type': 'compliance_check_type'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +117,9 @@ def sync(
      Send Kubernetes Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationKubernetesPostureRequest):
+        body (ModelGenerativeAiIntegrationKubernetesPostureRequest):  Example: {'integration_id':
+            0, 'remediation_format': 'all', 'description': 'description', 'query_type': 'remediation',
+            'compliance_check_type': 'compliance_check_type'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +145,9 @@ async def asyncio_detailed(
      Send Kubernetes Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationKubernetesPostureRequest):
+        body (ModelGenerativeAiIntegrationKubernetesPostureRequest):  Example: {'integration_id':
+            0, 'remediation_format': 'all', 'description': 'description', 'query_type': 'remediation',
+            'compliance_check_type': 'compliance_check_type'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +176,9 @@ async def asyncio(
      Send Kubernetes Posture query to Generative AI Integration
 
     Args:
-        body (ModelGenerativeAiIntegrationKubernetesPostureRequest):
+        body (ModelGenerativeAiIntegrationKubernetesPostureRequest):  Example: {'integration_id':
+            0, 'remediation_format': 'all', 'description': 'description', 'query_type': 'remediation',
+            'compliance_check_type': 'compliance_check_type'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

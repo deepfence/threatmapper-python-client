@@ -19,10 +19,22 @@ T = TypeVar("T", bound="ModelAddScheduledTaskRequest")
 @_attrs_define
 class ModelAddScheduledTaskRequest:
     """
+    Example:
+        {'is_priority': True, 'benchmark_types': ['hipaa', 'hipaa'], 'scan_config': [{'language': 'base'}, {'language':
+            'base'}], 'cron_expr': 'cron_expr', 'action': 'SecretScan', 'description': 'description',
+            'deepfence_system_scan': True, 'filters': {'container_scan_filter': {'filter_in': {'key': ['', '']}},
+            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['',
+            '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in':
+            {'key': ['', '']}}}, 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image',
+            'node_id': 'node_id'}]}
+
     Attributes:
         action (ModelAddScheduledTaskRequestAction):
         benchmark_types (Union[List[ModelBenchmarkType], None]):
-        filters (ModelScanFilter):
+        filters (ModelScanFilter):  Example: {'container_scan_filter': {'filter_in': {'key': ['', '']}},
+            'cloud_account_scan_filter': {'filter_in': {'key': ['', '']}}, 'image_scan_filter': {'filter_in': {'key': ['',
+            '']}}, 'kubernetes_cluster_scan_filter': {'filter_in': {'key': ['', '']}}, 'host_scan_filter': {'filter_in':
+            {'key': ['', '']}}}.
         node_ids (Union[List['ModelNodeIdentifier'], None]):
         scan_config (Union[List['ModelVulnerabilityScanConfigLanguage'], None]):
         cron_expr (Union[Unset, str]):

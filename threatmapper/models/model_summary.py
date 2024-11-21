@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ModelSummary")
 @_attrs_define
 class ModelSummary:
     """
+    Example:
+        {'images': 0, 'repositories': 1, 'scans_total': 2, 'registries': 6, 'scans_complete': 5, 'scans_in_progress': 5}
+
     Attributes:
         images (Union[Unset, int]):
         registries (Union[Unset, int]):

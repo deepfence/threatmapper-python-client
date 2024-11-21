@@ -11,6 +11,13 @@ T = TypeVar("T", bound="ModelCloudComplianceControl")
 @_attrs_define
 class ModelCloudComplianceControl:
     """
+    Example:
+        {'control_id': 'control_id', 'documentation': 'documentation', 'active': True, 'description': 'description',
+            'cloud_provider': 'cloud_provider', 'title': 'title', 'category_hierarchy_short': 'category_hierarchy_short',
+            'executable': True, 'category_hierarchy': ['category_hierarchy', 'category_hierarchy'], 'service': 'service',
+            'parent_control_hierarchy': ['parent_control_hierarchy', 'parent_control_hierarchy'], 'compliance_type':
+            'compliance_type', 'disabled': True, 'category': 'category', 'node_id': 'node_id'}
+
     Attributes:
         active (Union[Unset, bool]):
         category (Union[Unset, str]):

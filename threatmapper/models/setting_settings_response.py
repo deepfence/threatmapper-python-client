@@ -9,6 +9,9 @@ T = TypeVar("T", bound="SettingSettingsResponse")
 @_attrs_define
 class SettingSettingsResponse:
     """
+    Example:
+        {'description': 'description', 'id': 0, 'label': 'label', 'value': '', 'key': 'key'}
+
     Attributes:
         description (str):
         id (int):

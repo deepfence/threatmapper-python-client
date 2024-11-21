@@ -15,6 +15,10 @@ T = TypeVar("T", bound="ModelComplianceScanResultControlGroup")
 @_attrs_define
 class ModelComplianceScanResultControlGroup:
     """
+    Example:
+        {'benchmark_types': ['benchmark_types', 'benchmark_types'], 'counts': {'key': 0}, 'problem_title':
+            'problem_title'}
+
     Attributes:
         benchmark_types (Union[Unset, List[str]]):
         counts (Union[Unset, ModelComplianceScanResultControlGroupCounts]):

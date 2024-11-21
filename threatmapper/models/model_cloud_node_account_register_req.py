@@ -16,27 +16,41 @@ T = TypeVar("T", bound="ModelCloudNodeAccountRegisterReq")
 @_attrs_define
 class ModelCloudNodeAccountRegisterReq:
     """
+    Example:
+        {'initial_request': True, 'account_id': 'account_id', 'monitored_accounts': [{'account_id': 'account_id',
+            'account_name': 'account_name', 'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name':
+            'account_name', 'node_id': 'node_id'}], 'account_name': 'account_name', 'is_organization_deployment': True,
+            'installation_id': 'installation_id', 'cloud_provider': 'aws', 'persistent_volume_supported': True,
+            'organization_account_id': 'organization_account_id', 'host_node_id': 'host_node_id', 'version': 'version',
+            'node_id': 'node_id'}
+
     Attributes:
         account_id (str):
         cloud_provider (ModelCloudNodeAccountRegisterReqCloudProvider):
         host_node_id (str):
+        installation_id (str):
         node_id (str):
         version (str):
         account_name (Union[Unset, str]):
+        initial_request (Union[Unset, bool]):
         is_organization_deployment (Union[Unset, bool]):
         monitored_accounts (Union[List['ModelCloudNodeMonitoredAccount'], None, Unset]):
         organization_account_id (Union[Unset, str]):
+        persistent_volume_supported (Union[Unset, bool]):
     """
 
     account_id: str
     cloud_provider: ModelCloudNodeAccountRegisterReqCloudProvider
     host_node_id: str
+    installation_id: str
     node_id: str
     version: str
     account_name: Union[Unset, str] = UNSET
+    initial_request: Union[Unset, bool] = UNSET
     is_organization_deployment: Union[Unset, bool] = UNSET
     monitored_accounts: Union[List["ModelCloudNodeMonitoredAccount"], None, Unset] = UNSET
     organization_account_id: Union[Unset, str] = UNSET
+    persistent_volume_supported: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -46,11 +60,15 @@ class ModelCloudNodeAccountRegisterReq:
 
         host_node_id = self.host_node_id
 
+        installation_id = self.installation_id
+
         node_id = self.node_id
 
         version = self.version
 
         account_name = self.account_name
+
+        initial_request = self.initial_request
 
         is_organization_deployment = self.is_organization_deployment
 
@@ -68,6 +86,8 @@ class ModelCloudNodeAccountRegisterReq:
 
         organization_account_id = self.organization_account_id
 
+        persistent_volume_supported = self.persistent_volume_supported
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -75,18 +95,23 @@ class ModelCloudNodeAccountRegisterReq:
                 "account_id": account_id,
                 "cloud_provider": cloud_provider,
                 "host_node_id": host_node_id,
+                "installation_id": installation_id,
                 "node_id": node_id,
                 "version": version,
             }
         )
         if account_name is not UNSET:
             field_dict["account_name"] = account_name
+        if initial_request is not UNSET:
+            field_dict["initial_request"] = initial_request
         if is_organization_deployment is not UNSET:
             field_dict["is_organization_deployment"] = is_organization_deployment
         if monitored_accounts is not UNSET:
             field_dict["monitored_accounts"] = monitored_accounts
         if organization_account_id is not UNSET:
             field_dict["organization_account_id"] = organization_account_id
+        if persistent_volume_supported is not UNSET:
+            field_dict["persistent_volume_supported"] = persistent_volume_supported
 
         return field_dict
 
@@ -101,11 +126,15 @@ class ModelCloudNodeAccountRegisterReq:
 
         host_node_id = d.pop("host_node_id")
 
+        installation_id = d.pop("installation_id")
+
         node_id = d.pop("node_id")
 
         version = d.pop("version")
 
         account_name = d.pop("account_name", UNSET)
+
+        initial_request = d.pop("initial_request", UNSET)
 
         is_organization_deployment = d.pop("is_organization_deployment", UNSET)
 
@@ -135,16 +164,21 @@ class ModelCloudNodeAccountRegisterReq:
 
         organization_account_id = d.pop("organization_account_id", UNSET)
 
+        persistent_volume_supported = d.pop("persistent_volume_supported", UNSET)
+
         model_cloud_node_account_register_req = cls(
             account_id=account_id,
             cloud_provider=cloud_provider,
             host_node_id=host_node_id,
+            installation_id=installation_id,
             node_id=node_id,
             version=version,
             account_name=account_name,
+            initial_request=initial_request,
             is_organization_deployment=is_organization_deployment,
             monitored_accounts=monitored_accounts,
             organization_account_id=organization_account_id,
+            persistent_volume_supported=persistent_volume_supported,
         )
 
         model_cloud_node_account_register_req.additional_properties = d

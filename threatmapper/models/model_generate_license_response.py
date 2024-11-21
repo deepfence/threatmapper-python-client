@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ModelGenerateLicenseResponse")
 @_attrs_define
 class ModelGenerateLicenseResponse:
     """
+    Example:
+        {'success': True, 'generate_license_link': 'generate_license_link', 'message': 'message'}
+
     Attributes:
         message (str):
         success (bool):

@@ -14,6 +14,26 @@ T = TypeVar("T", bound="ModelComplianceScanResult")
 @_attrs_define
 class ModelComplianceScanResult:
     """
+    Example:
+        {'benchmark_type': ['benchmark_type', 'benchmark_type'], 'docker_container_name': 'docker_container_name',
+            'kubernetes_cluster_name': 'kubernetes_cluster_name', 'node_name': 'node_name', 'created_at': 6,
+            'cloud_account_id': 'cloud_account_id', 'compliances': [{'resource': 'resource', 'masked': True, 'description':
+            'description', 'resources': [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id':
+            'node_id'}, {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}],
+            'test_category': 'test_category', 'remediation_ansible': 'remediation_ansible', 'compliance_check_type':
+            'hipaa', 'rule_id': 'rule_id', 'test_rationale': 'test_rationale', 'test_severity': 'test_severity',
+            'node_type': 'node_type', 'updated_at': 0, 'remediation_puppet': 'remediation_puppet', 'remediation_script':
+            'remediation_script', 'node_id': 'node_id', 'status': 'pass', 'test_desc': 'test_desc', 'test_number':
+            'test_number'}, {'resource': 'resource', 'masked': True, 'description': 'description', 'resources':
+            [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type':
+            'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'test_category': 'test_category',
+            'remediation_ansible': 'remediation_ansible', 'compliance_check_type': 'hipaa', 'rule_id': 'rule_id',
+            'test_rationale': 'test_rationale', 'test_severity': 'test_severity', 'node_type': 'node_type', 'updated_at': 0,
+            'remediation_puppet': 'remediation_puppet', 'remediation_script': 'remediation_script', 'node_id': 'node_id',
+            'status': 'pass', 'test_desc': 'test_desc', 'test_number': 'test_number'}], 'compliance_percentage':
+            0.8008281904610115, 'node_type': 'node_type', 'updated_at': 5, 'scan_id': 'scan_id', 'status_counts': {'key':
+            1}, 'docker_image_name': 'docker_image_name', 'host_name': 'host_name', 'node_id': 'node_id'}
+
     Attributes:
         benchmark_type (Union[List[str], None]):
         cloud_account_id (str):

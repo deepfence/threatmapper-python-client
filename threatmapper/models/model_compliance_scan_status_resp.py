@@ -13,6 +13,15 @@ T = TypeVar("T", bound="ModelComplianceScanStatusResp")
 @_attrs_define
 class ModelComplianceScanStatusResp:
     """
+    Example:
+        {'statuses': [{'severity_counts': {'key': 6}, 'status_message': 'status_message', 'node_type': 'node_type',
+            'benchmark_types': ['benchmark_types', 'benchmark_types'], 'updated_at': 1, 'node_name': 'node_name',
+            'created_at': 0, 'cloud_provider': 'cloud_provider', 'scan_id': 'scan_id', 'node_id': 'node_id', 'status':
+            'COMPLETE'}, {'severity_counts': {'key': 6}, 'status_message': 'status_message', 'node_type': 'node_type',
+            'benchmark_types': ['benchmark_types', 'benchmark_types'], 'updated_at': 1, 'node_name': 'node_name',
+            'created_at': 0, 'cloud_provider': 'cloud_provider', 'scan_id': 'scan_id', 'node_id': 'node_id', 'status':
+            'COMPLETE'}]}
+
     Attributes:
         statuses (Union[List['ModelComplianceScanInfo'], None]):
     """

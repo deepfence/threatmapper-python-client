@@ -84,7 +84,9 @@ def sync_detailed(
      Add a new AWS Bedrock Generative AI Integration
 
     Args:
-        body (ModelAddGenerativeAiBedrockIntegration):
+        body (ModelAddGenerativeAiBedrockIntegration):  Example: {'aws_region': 'us-east-1',
+            'aws_access_key': 'aws_access_key', 'model_id': 'anthropic.claude-v2', 'aws_secret_key':
+            'aws_secret_key', 'use_iam_role': True}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +117,9 @@ def sync(
      Add a new AWS Bedrock Generative AI Integration
 
     Args:
-        body (ModelAddGenerativeAiBedrockIntegration):
+        body (ModelAddGenerativeAiBedrockIntegration):  Example: {'aws_region': 'us-east-1',
+            'aws_access_key': 'aws_access_key', 'model_id': 'anthropic.claude-v2', 'aws_secret_key':
+            'aws_secret_key', 'use_iam_role': True}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +145,9 @@ async def asyncio_detailed(
      Add a new AWS Bedrock Generative AI Integration
 
     Args:
-        body (ModelAddGenerativeAiBedrockIntegration):
+        body (ModelAddGenerativeAiBedrockIntegration):  Example: {'aws_region': 'us-east-1',
+            'aws_access_key': 'aws_access_key', 'model_id': 'anthropic.claude-v2', 'aws_secret_key':
+            'aws_secret_key', 'use_iam_role': True}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +176,9 @@ async def asyncio(
      Add a new AWS Bedrock Generative AI Integration
 
     Args:
-        body (ModelAddGenerativeAiBedrockIntegration):
+        body (ModelAddGenerativeAiBedrockIntegration):  Example: {'aws_region': 'us-east-1',
+            'aws_access_key': 'aws_access_key', 'model_id': 'anthropic.claude-v2', 'aws_secret_key':
+            'aws_secret_key', 'use_iam_role': True}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

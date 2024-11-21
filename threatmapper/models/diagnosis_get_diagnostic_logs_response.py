@@ -15,6 +15,13 @@ T = TypeVar("T", bound="DiagnosisGetDiagnosticLogsResponse")
 @_attrs_define
 class DiagnosisGetDiagnosticLogsResponse:
     """
+    Example:
+        {'console_logs': [{'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message',
+            'type': 'type'}, {'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label', 'message': 'message',
+            'type': 'type'}], 'agent_logs': [{'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label',
+            'message': 'message', 'type': 'type'}, {'url_link': 'url_link', 'created_at': 'created_at', 'label': 'label',
+            'message': 'message', 'type': 'type'}]}
+
     Attributes:
         agent_logs (Union[List['DiagnosisDiagnosticLogsLink'], None, Unset]):
         console_logs (Union[List['DiagnosisDiagnosticLogsLink'], None, Unset]):

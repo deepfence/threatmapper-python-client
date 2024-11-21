@@ -17,6 +17,11 @@ T = TypeVar("T", bound="ModelGenerativeAiIntegrationCloudPostureRequest")
 @_attrs_define
 class ModelGenerativeAiIntegrationCloudPostureRequest:
     """
+    Example:
+        {'integration_id': 0, 'remediation_format': 'all', 'service': 'service', 'cloud_provider': 'cloud_provider',
+            'query_type': 'remediation', 'title': 'title', 'compliance_check_type': 'compliance_check_type', 'group':
+            'group'}
+
     Attributes:
         cloud_provider (str):
         compliance_check_type (str):

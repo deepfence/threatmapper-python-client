@@ -17,6 +17,10 @@ T = TypeVar("T", bound="ModelComplianceScanResultsGroupResp")
 @_attrs_define
 class ModelComplianceScanResultsGroupResp:
     """
+    Example:
+        {'groups': {'key': {'benchmark_types': ['benchmark_types', 'benchmark_types'], 'counts': {'key': 0},
+            'problem_title': 'problem_title'}}}
+
     Attributes:
         groups (Union['ModelComplianceScanResultsGroupRespGroupsType0', None, Unset]):
     """

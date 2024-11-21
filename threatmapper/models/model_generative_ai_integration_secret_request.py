@@ -14,6 +14,9 @@ T = TypeVar("T", bound="ModelGenerativeAiIntegrationSecretRequest")
 @_attrs_define
 class ModelGenerativeAiIntegrationSecretRequest:
     """
+    Example:
+        {'integration_id': 0, 'name': 'name', 'query_type': 'remediation'}
+
     Attributes:
         name (str):
         query_type (ModelGenerativeAiIntegrationSecretRequestQueryType):

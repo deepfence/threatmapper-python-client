@@ -13,6 +13,12 @@ T = TypeVar("T", bound="ModelCloudNodeProvidersListResp")
 @_attrs_define
 class ModelCloudNodeProvidersListResp:
     """
+    Example:
+        {'providers': [{'node_count_inactive': 1, 'compliance_percentage': 0.8008281904610115, 'node_label':
+            'node_label', 'name': 'name', 'scan_count': 5, 'node_count': 6, 'resource_count': 5}, {'node_count_inactive': 1,
+            'compliance_percentage': 0.8008281904610115, 'node_label': 'node_label', 'name': 'name', 'scan_count': 5,
+            'node_count': 6, 'resource_count': 5}]}
+
     Attributes:
         providers (Union[List['ModelPostureProvider'], None]):
     """

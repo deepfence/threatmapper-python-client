@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelDeleteRegistryBulkReq")
 @_attrs_define
 class ModelDeleteRegistryBulkReq:
     """
+    Example:
+        {'registry_ids': ['registry_ids', 'registry_ids']}
+
     Attributes:
         registry_ids (Union[List[str], None]):
     """

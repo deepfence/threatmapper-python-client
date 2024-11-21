@@ -17,6 +17,10 @@ T = TypeVar("T", bound="ModelGenerativeAiIntegrationKubernetesPostureRequest")
 @_attrs_define
 class ModelGenerativeAiIntegrationKubernetesPostureRequest:
     """
+    Example:
+        {'integration_id': 0, 'remediation_format': 'all', 'description': 'description', 'query_type': 'remediation',
+            'compliance_check_type': 'compliance_check_type'}
+
     Attributes:
         compliance_check_type (str):
         description (str):

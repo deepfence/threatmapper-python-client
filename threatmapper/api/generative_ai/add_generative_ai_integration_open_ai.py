@@ -84,7 +84,8 @@ def sync_detailed(
      Add a new OpenAI Generative AI Integration
 
     Args:
-        body (ModelAddGenerativeAiOpenAIIntegration):
+        body (ModelAddGenerativeAiOpenAIIntegration):  Example: {'api_key': 'api_key', 'model_id':
+            'gpt-4'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +116,8 @@ def sync(
      Add a new OpenAI Generative AI Integration
 
     Args:
-        body (ModelAddGenerativeAiOpenAIIntegration):
+        body (ModelAddGenerativeAiOpenAIIntegration):  Example: {'api_key': 'api_key', 'model_id':
+            'gpt-4'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +143,8 @@ async def asyncio_detailed(
      Add a new OpenAI Generative AI Integration
 
     Args:
-        body (ModelAddGenerativeAiOpenAIIntegration):
+        body (ModelAddGenerativeAiOpenAIIntegration):  Example: {'api_key': 'api_key', 'model_id':
+            'gpt-4'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +173,8 @@ async def asyncio(
      Add a new OpenAI Generative AI Integration
 
     Args:
-        body (ModelAddGenerativeAiOpenAIIntegration):
+        body (ModelAddGenerativeAiOpenAIIntegration):  Example: {'api_key': 'api_key', 'model_id':
+            'gpt-4'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

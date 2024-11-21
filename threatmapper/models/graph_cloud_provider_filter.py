@@ -9,6 +9,9 @@ T = TypeVar("T", bound="GraphCloudProviderFilter")
 @_attrs_define
 class GraphCloudProviderFilter:
     """
+    Example:
+        {'account_ids': ['account_ids', 'account_ids']}
+
     Attributes:
         account_ids (Union[List[str], None]):
     """

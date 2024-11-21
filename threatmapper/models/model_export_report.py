@@ -11,6 +11,11 @@ T = TypeVar("T", bound="ModelExportReport")
 @_attrs_define
 class ModelExportReport:
     """
+    Example:
+        {'status_message': 'status_message', 'to_timestamp': 1, 'updated_at': 5, 'storage_path': 'storage_path',
+            'report_id': 'report_id', 'created_at': 0, 'from_timestamp': 6, 'filters': 'filters', 'type': 'type', 'url':
+            'url', 'status': 'status'}
+
     Attributes:
         created_at (Union[Unset, int]):
         filters (Union[Unset, str]):

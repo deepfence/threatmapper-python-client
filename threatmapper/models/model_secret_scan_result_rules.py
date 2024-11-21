@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelSecretScanResultRules")
 @_attrs_define
 class ModelSecretScanResultRules:
     """
+    Example:
+        {'rules': ['rules', 'rules']}
+
     Attributes:
         rules (Union[List[str], None]):
     """

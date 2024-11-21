@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ModelAgentID")
 @_attrs_define
 class ModelAgentID:
     """
+    Example:
+        {'node_type': 'node_type', 'available_workload': 0, 'node_id': 'node_id'}
+
     Attributes:
         available_workload (int):
         node_id (str):

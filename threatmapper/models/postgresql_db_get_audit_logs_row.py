@@ -13,6 +13,11 @@ T = TypeVar("T", bound="PostgresqlDbGetAuditLogsRow")
 @_attrs_define
 class PostgresqlDbGetAuditLogsRow:
     """
+    Example:
+        {'role': 'role', 'success': True, 'action': 'action', 'created_at': datetime.datetime(2000, 1, 23, 4, 56, 7,
+            tzinfo=datetime.timezone(datetime.timedelta(0), '+00:00')), 'resources': 'resources', 'event': 'event', 'email':
+            'email'}
+
     Attributes:
         action (Union[Unset, str]):
         created_at (Union[Unset, datetime.datetime]):

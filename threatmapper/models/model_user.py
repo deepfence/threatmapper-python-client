@@ -16,6 +16,11 @@ T = TypeVar("T", bound="ModelUser")
 @_attrs_define
 class ModelUser:
     """
+    Example:
+        {'is_active': True, 'role': 'admin', 'company_id': 0, 'role_id': 1, 'groups': {'key': 'groups'}, 'last_name':
+            'last_name', 'company': 'company', 'id': 6, 'password_invalidated': True, 'first_name': 'first_name', 'email':
+            'email', 'current_user': True}
+
     Attributes:
         company (str):
         email (str):

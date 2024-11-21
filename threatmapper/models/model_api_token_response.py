@@ -13,6 +13,10 @@ T = TypeVar("T", bound="ModelAPITokenResponse")
 @_attrs_define
 class ModelAPITokenResponse:
     """
+    Example:
+        {'company_id': 0, 'api_token': 'api_token', 'name': 'name', 'created_at': datetime.datetime(2000, 1, 23, 4, 56,
+            7, tzinfo=datetime.timezone(datetime.timedelta(0), '+00:00')), 'id': 1, 'created_by_user_id': 6}
+
     Attributes:
         api_token (Union[Unset, str]):
         company_id (Union[Unset, int]):

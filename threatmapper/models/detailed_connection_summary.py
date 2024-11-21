@@ -11,6 +11,9 @@ T = TypeVar("T", bound="DetailedConnectionSummary")
 @_attrs_define
 class DetailedConnectionSummary:
     """
+    Example:
+        {'source': 'source', 'target': 'target'}
+
     Attributes:
         source (Union[Unset, str]):
         target (Union[Unset, str]):

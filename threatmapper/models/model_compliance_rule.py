@@ -9,6 +9,11 @@ T = TypeVar("T", bound="ModelComplianceRule")
 @_attrs_define
 class ModelComplianceRule:
     """
+    Example:
+        {'test_rationale': 'test_rationale', 'test_severity': 'test_severity', 'updated_at': 0, 'masked': True,
+            'description': 'description', 'test_category': 'test_category', 'test_desc': 'test_desc', 'test_number':
+            'test_number'}
+
     Attributes:
         description (str):
         masked (bool):

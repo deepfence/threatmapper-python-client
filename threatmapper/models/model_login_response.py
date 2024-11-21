@@ -9,6 +9,11 @@ T = TypeVar("T", bound="ModelLoginResponse")
 @_attrs_define
 class ModelLoginResponse:
     """
+    Example:
+        {'access_token': 'access_token', 'refresh_token': 'refresh_token', 'email_domain': 'email_domain',
+            'license_registered': True, 'onboarding_required': True, 'password_invalidated': True, 'license_key':
+            'license_key'}
+
     Attributes:
         access_token (str):
         email_domain (str):

@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelResponseAccessToken")
 @_attrs_define
 class ModelResponseAccessToken:
     """
+    Example:
+        {'access_token': 'access_token', 'refresh_token': 'refresh_token'}
+
     Attributes:
         access_token (str):
         refresh_token (str):

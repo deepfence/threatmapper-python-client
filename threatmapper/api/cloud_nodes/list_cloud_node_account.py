@@ -84,7 +84,8 @@ def sync_detailed(
      List Cloud Node Accounts registered with the console
 
     Args:
-        body (ModelCloudNodeAccountsListReq):
+        body (ModelCloudNodeAccountsListReq):  Example: {'cloud_provider': 'aws', 'window':
+            {'offset': 0, 'size': 6}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +116,8 @@ def sync(
      List Cloud Node Accounts registered with the console
 
     Args:
-        body (ModelCloudNodeAccountsListReq):
+        body (ModelCloudNodeAccountsListReq):  Example: {'cloud_provider': 'aws', 'window':
+            {'offset': 0, 'size': 6}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +143,8 @@ async def asyncio_detailed(
      List Cloud Node Accounts registered with the console
 
     Args:
-        body (ModelCloudNodeAccountsListReq):
+        body (ModelCloudNodeAccountsListReq):  Example: {'cloud_provider': 'aws', 'window':
+            {'offset': 0, 'size': 6}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +173,8 @@ async def asyncio(
      List Cloud Node Accounts registered with the console
 
     Args:
-        body (ModelCloudNodeAccountsListReq):
+        body (ModelCloudNodeAccountsListReq):  Example: {'cloud_provider': 'aws', 'window':
+            {'offset': 0, 'size': 6}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

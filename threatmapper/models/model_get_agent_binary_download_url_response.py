@@ -11,6 +11,11 @@ T = TypeVar("T", bound="ModelGetAgentBinaryDownloadURLResponse")
 @_attrs_define
 class ModelGetAgentBinaryDownloadURLResponse:
     """
+    Example:
+        {'agent_binary_arm64_download_url': 'agent_binary_arm64_download_url', 'agent_binary_amd64_download_url':
+            'agent_binary_amd64_download_url', 'start_agent_script_download_url': 'start_agent_script_download_url',
+            'uninstall_agent_script_download_url': 'uninstall_agent_script_download_url'}
+
     Attributes:
         agent_binary_amd64_download_url (Union[Unset, str]):
         agent_binary_arm64_download_url (Union[Unset, str]):

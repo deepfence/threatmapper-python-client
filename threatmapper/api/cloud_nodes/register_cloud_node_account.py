@@ -82,7 +82,14 @@ def sync_detailed(
      Register Cloud Account
 
     Args:
-        body (ModelCloudNodeAccountRegisterReq):
+        body (ModelCloudNodeAccountRegisterReq):  Example: {'initial_request': True, 'account_id':
+            'account_id', 'monitored_accounts': [{'account_id': 'account_id', 'account_name':
+            'account_name', 'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name':
+            'account_name', 'node_id': 'node_id'}], 'account_name': 'account_name',
+            'is_organization_deployment': True, 'installation_id': 'installation_id',
+            'cloud_provider': 'aws', 'persistent_volume_supported': True, 'organization_account_id':
+            'organization_account_id', 'host_node_id': 'host_node_id', 'version': 'version',
+            'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +120,14 @@ def sync(
      Register Cloud Account
 
     Args:
-        body (ModelCloudNodeAccountRegisterReq):
+        body (ModelCloudNodeAccountRegisterReq):  Example: {'initial_request': True, 'account_id':
+            'account_id', 'monitored_accounts': [{'account_id': 'account_id', 'account_name':
+            'account_name', 'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name':
+            'account_name', 'node_id': 'node_id'}], 'account_name': 'account_name',
+            'is_organization_deployment': True, 'installation_id': 'installation_id',
+            'cloud_provider': 'aws', 'persistent_volume_supported': True, 'organization_account_id':
+            'organization_account_id', 'host_node_id': 'host_node_id', 'version': 'version',
+            'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +153,14 @@ async def asyncio_detailed(
      Register Cloud Account
 
     Args:
-        body (ModelCloudNodeAccountRegisterReq):
+        body (ModelCloudNodeAccountRegisterReq):  Example: {'initial_request': True, 'account_id':
+            'account_id', 'monitored_accounts': [{'account_id': 'account_id', 'account_name':
+            'account_name', 'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name':
+            'account_name', 'node_id': 'node_id'}], 'account_name': 'account_name',
+            'is_organization_deployment': True, 'installation_id': 'installation_id',
+            'cloud_provider': 'aws', 'persistent_volume_supported': True, 'organization_account_id':
+            'organization_account_id', 'host_node_id': 'host_node_id', 'version': 'version',
+            'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +189,14 @@ async def asyncio(
      Register Cloud Account
 
     Args:
-        body (ModelCloudNodeAccountRegisterReq):
+        body (ModelCloudNodeAccountRegisterReq):  Example: {'initial_request': True, 'account_id':
+            'account_id', 'monitored_accounts': [{'account_id': 'account_id', 'account_name':
+            'account_name', 'node_id': 'node_id'}, {'account_id': 'account_id', 'account_name':
+            'account_name', 'node_id': 'node_id'}], 'account_name': 'account_name',
+            'is_organization_deployment': True, 'installation_id': 'installation_id',
+            'cloud_provider': 'aws', 'persistent_volume_supported': True, 'organization_account_id':
+            'organization_account_id', 'host_node_id': 'host_node_id', 'version': 'version',
+            'node_id': 'node_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelBasicNode")
 @_attrs_define
 class ModelBasicNode:
     """
+    Example:
+        {'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}
+
     Attributes:
         host_name (str):
         name (str):

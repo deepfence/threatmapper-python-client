@@ -82,7 +82,7 @@ def sync_detailed(
      Generate Console Diagnostic Logs
 
     Args:
-        body (DiagnosisGenerateConsoleDiagnosticLogsRequest):
+        body (DiagnosisGenerateConsoleDiagnosticLogsRequest):  Example: {'tail': 0}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +113,7 @@ def sync(
      Generate Console Diagnostic Logs
 
     Args:
-        body (DiagnosisGenerateConsoleDiagnosticLogsRequest):
+        body (DiagnosisGenerateConsoleDiagnosticLogsRequest):  Example: {'tail': 0}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +139,7 @@ async def asyncio_detailed(
      Generate Console Diagnostic Logs
 
     Args:
-        body (DiagnosisGenerateConsoleDiagnosticLogsRequest):
+        body (DiagnosisGenerateConsoleDiagnosticLogsRequest):  Example: {'tail': 0}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +168,7 @@ async def asyncio(
      Generate Console Diagnostic Logs
 
     Args:
-        body (DiagnosisGenerateConsoleDiagnosticLogsRequest):
+        body (DiagnosisGenerateConsoleDiagnosticLogsRequest):  Example: {'tail': 0}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

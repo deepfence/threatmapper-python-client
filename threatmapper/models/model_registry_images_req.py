@@ -14,11 +14,38 @@ T = TypeVar("T", bound="ModelRegistryImagesReq")
 @_attrs_define
 class ModelRegistryImagesReq:
     """
+    Example:
+        {'image_filter': {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'},
+            {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True, 'field_name':
+            'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in':
+            {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['', '']}}}, 'window': {'offset': 0, 'size':
+            6}, 'image_stub_filter': {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name':
+            'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}, 'contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['', '']}}}, 'registry_id':
+            'registry_id'}
+
     Attributes:
-        image_filter (ReportersFieldsFilters):
-        image_stub_filter (ReportersFieldsFilters):
+        image_filter (ReportersFieldsFilters):  Example: {'compare_filter': [{'greater_than': True, 'field_value': '',
+            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}],
+            'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]},
+            'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['',
+            '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}.
+        image_stub_filter (ReportersFieldsFilters):  Example: {'compare_filter': [{'greater_than': True, 'field_value':
+            '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}],
+            'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]},
+            'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['',
+            '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}.
         registry_id (str):
-        window (ModelFetchWindow):
+        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
     """
 
     image_filter: "ReportersFieldsFilters"

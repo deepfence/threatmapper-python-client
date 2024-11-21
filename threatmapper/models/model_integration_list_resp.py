@@ -16,9 +16,29 @@ T = TypeVar("T", bound="ModelIntegrationListResp")
 @_attrs_define
 class ModelIntegrationListResp:
     """
+    Example:
+        {'notification_type': 'notification_type', 'filters': {'fields_filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
+            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields':
+            [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in':
+            {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
+            {'key': ['', '']}}}, 'cloud_provider': 'cloud_provider', 'container_names': ['container_names',
+            'container_names'], 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id':
+            'node_id'}]}, 'id': 0, 'integration_type': 'integration_type', 'config': {'key': ''}, 'last_error_msg':
+            'last_error_msg'}
+
     Attributes:
         config (Union['ModelIntegrationListRespConfigType0', None, Unset]):
-        filters (Union[Unset, ModelIntegrationFilters]):
+        filters (Union[Unset, ModelIntegrationFilters]):  Example: {'fields_filters': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value':
+            '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter':
+            {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter':
+            {'filter_in': {'key': ['', '']}}}, 'cloud_provider': 'cloud_provider', 'container_names': ['container_names',
+            'container_names'], 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'}, {'node_type': 'image', 'node_id':
+            'node_id'}]}.
         id (Union[Unset, int]):
         integration_type (Union[Unset, str]):
         last_error_msg (Union[Unset, str]):

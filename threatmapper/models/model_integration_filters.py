@@ -16,13 +16,31 @@ T = TypeVar("T", bound="ModelIntegrationFilters")
 @_attrs_define
 class ModelIntegrationFilters:
     """
+    Example:
+        {'fields_filters': {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'},
+            {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True, 'field_name':
+            'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}, 'contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter': {'filter_in':
+            {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['', '']}}}, 'cloud_provider':
+            'cloud_provider', 'container_names': ['container_names', 'container_names'], 'node_ids': [{'node_type': 'image',
+            'node_id': 'node_id'}, {'node_type': 'image', 'node_id': 'node_id'}]}
+
     Attributes:
         node_ids (Union[List['ModelNodeIdentifier'], None]):
+        cloud_provider (Union[Unset, str]):
         container_names (Union[List[str], None, Unset]):
-        fields_filters (Union[Unset, ReportersFieldsFilters]):
+        fields_filters (Union[Unset, ReportersFieldsFilters]):  Example: {'compare_filter': [{'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
+            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields':
+            [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in':
+            {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
+            {'key': ['', '']}}}.
     """
 
     node_ids: Union[List["ModelNodeIdentifier"], None]
+    cloud_provider: Union[Unset, str] = UNSET
     container_names: Union[List[str], None, Unset] = UNSET
     fields_filters: Union[Unset, "ReportersFieldsFilters"] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -37,6 +55,8 @@ class ModelIntegrationFilters:
 
         else:
             node_ids = self.node_ids
+
+        cloud_provider = self.cloud_provider
 
         container_names: Union[List[str], None, Unset]
         if isinstance(self.container_names, Unset):
@@ -58,6 +78,8 @@ class ModelIntegrationFilters:
                 "node_ids": node_ids,
             }
         )
+        if cloud_provider is not UNSET:
+            field_dict["cloud_provider"] = cloud_provider
         if container_names is not UNSET:
             field_dict["container_names"] = container_names
         if fields_filters is not UNSET:
@@ -92,6 +114,8 @@ class ModelIntegrationFilters:
 
         node_ids = _parse_node_ids(d.pop("node_ids"))
 
+        cloud_provider = d.pop("cloud_provider", UNSET)
+
         def _parse_container_names(data: object) -> Union[List[str], None, Unset]:
             if data is None:
                 return data
@@ -118,6 +142,7 @@ class ModelIntegrationFilters:
 
         model_integration_filters = cls(
             node_ids=node_ids,
+            cloud_provider=cloud_provider,
             container_names=container_names,
             fields_filters=fields_filters,
         )

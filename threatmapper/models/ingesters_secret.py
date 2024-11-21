@@ -17,11 +17,19 @@ T = TypeVar("T", bound="IngestersSecret")
 @_attrs_define
 class IngestersSecret:
     """
+    Example:
+        {'ImageLayerId': 'ImageLayerId', 'Severity': {'score': 5.637376656633329, 'level': 'level'}, 'Rule': {'part':
+            'part', 'name': 'name', 'signature_to_match': 'signature_to_match', 'id': 5}, 'scan_id': 'scan_id', 'Match':
+            {'full_filename': 'full_filename', 'matched_content': 'matched_content', 'relative_ending_index': 0,
+            'starting_index': 1, 'relative_starting_index': 6}}
+
     Attributes:
         image_layer_id (Union[Unset, str]):
-        match (Union[Unset, IngestersSecretMatch]):
-        rule (Union[Unset, IngestersSecretRule]):
-        severity (Union[Unset, IngestersSecretSeverity]):
+        match (Union[Unset, IngestersSecretMatch]):  Example: {'full_filename': 'full_filename', 'matched_content':
+            'matched_content', 'relative_ending_index': 0, 'starting_index': 1, 'relative_starting_index': 6}.
+        rule (Union[Unset, IngestersSecretRule]):  Example: {'part': 'part', 'name': 'name', 'signature_to_match':
+            'signature_to_match', 'id': 5}.
+        severity (Union[Unset, IngestersSecretSeverity]):  Example: {'score': 5.637376656633329, 'level': 'level'}.
         scan_id (Union[Unset, str]):
     """
 

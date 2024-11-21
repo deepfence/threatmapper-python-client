@@ -13,6 +13,11 @@ T = TypeVar("T", bound="ModelScanStatusResp")
 @_attrs_define
 class ModelScanStatusResp:
     """
+    Example:
+        {'statuses': {'key': {'severity_counts': {'key': 6}, 'status_message': 'status_message', 'node_type':
+            'node_type', 'updated_at': 1, 'node_name': 'node_name', 'created_at': 0, 'scan_id': 'scan_id', 'node_id':
+            'node_id', 'status': 'COMPLETE'}}}
+
     Attributes:
         statuses (Union['ModelScanStatusRespStatusesType0', None]):
     """

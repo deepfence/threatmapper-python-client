@@ -11,6 +11,11 @@ T = TypeVar("T", bound="ModelEmailConfigurationAdd")
 @_attrs_define
 class ModelEmailConfigurationAdd:
     """
+    Example:
+        {'email_id': 'email_id', 'password': 'password', 'smtp': 'smtp', 'apikey': 'apikey', 'port': 'port',
+            'email_provider': 'email_provider', 'amazon_secret_key': 'amazon_secret_key', 'amazon_access_key':
+            'amazon_access_key', 'created_by_user_id': 0, 'ses_region': 'ses_region'}
+
     Attributes:
         amazon_access_key (Union[Unset, str]):
         amazon_secret_key (Union[Unset, str]):

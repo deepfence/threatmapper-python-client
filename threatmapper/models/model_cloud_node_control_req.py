@@ -13,6 +13,9 @@ T = TypeVar("T", bound="ModelCloudNodeControlReq")
 @_attrs_define
 class ModelCloudNodeControlReq:
     """
+    Example:
+        {'cloud_provider': 'aws', 'compliance_type': 'hipaa', 'node_id': 'node_id'}
+
     Attributes:
         cloud_provider (ModelCloudNodeControlReqCloudProvider):
         compliance_type (ModelCloudNodeControlReqComplianceType):

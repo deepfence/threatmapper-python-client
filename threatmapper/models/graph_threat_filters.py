@@ -15,11 +15,16 @@ T = TypeVar("T", bound="GraphThreatFilters")
 @_attrs_define
 class GraphThreatFilters:
     """
+    Example:
+        {'cloud_resource_only': True, 'aws_filter': {'account_ids': ['account_ids', 'account_ids']}, 'gcp_filter':
+            {'account_ids': ['account_ids', 'account_ids']}, 'type': 'all', 'azure_filter': {'account_ids': ['account_ids',
+            'account_ids']}}
+
     Attributes:
-        aws_filter (GraphCloudProviderFilter):
-        azure_filter (GraphCloudProviderFilter):
+        aws_filter (GraphCloudProviderFilter):  Example: {'account_ids': ['account_ids', 'account_ids']}.
+        azure_filter (GraphCloudProviderFilter):  Example: {'account_ids': ['account_ids', 'account_ids']}.
         cloud_resource_only (bool):
-        gcp_filter (GraphCloudProviderFilter):
+        gcp_filter (GraphCloudProviderFilter):  Example: {'account_ids': ['account_ids', 'account_ids']}.
         type (GraphThreatFiltersType):
     """
 

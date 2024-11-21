@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelFetchWindow")
 @_attrs_define
 class ModelFetchWindow:
     """
+    Example:
+        {'offset': 0, 'size': 6}
+
     Attributes:
         offset (int):
         size (int):

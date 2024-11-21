@@ -21,6 +21,13 @@ T = TypeVar("T", bound="ModelCloudNodeAccountInfo")
 @_attrs_define
 class ModelCloudNodeAccountInfo:
     """
+    Example:
+        {'last_scan_status': 'last_scan_status', 'last_scan_id': 'last_scan_id', 'refresh_message': 'refresh_message',
+            'node_name': 'node_name', 'active': True, 'cloud_provider': 'aws', 'scan_status_map': {'key': 1},
+            'refresh_metadata': 'refresh_metadata', 'host_node_id': 'host_node_id', 'version': 'version',
+            'refresh_status_map': {'key': 6}, 'refresh_status': 'refresh_status', 'compliance_percentage':
+            0.8008281904610115, 'account_name': 'account_name', 'node_id': 'node_id'}
+
     Attributes:
         account_name (Union[Unset, str]):
         active (Union[Unset, bool]):
@@ -32,6 +39,7 @@ class ModelCloudNodeAccountInfo:
         node_id (Union[Unset, str]):
         node_name (Union[Unset, str]):
         refresh_message (Union[Unset, str]):
+        refresh_metadata (Union[Unset, str]):
         refresh_status (Union[Unset, str]):
         refresh_status_map (Union['ModelCloudNodeAccountInfoRefreshStatusMapType0', None, Unset]):
         scan_status_map (Union['ModelCloudNodeAccountInfoScanStatusMapType0', None, Unset]):
@@ -48,6 +56,7 @@ class ModelCloudNodeAccountInfo:
     node_id: Union[Unset, str] = UNSET
     node_name: Union[Unset, str] = UNSET
     refresh_message: Union[Unset, str] = UNSET
+    refresh_metadata: Union[Unset, str] = UNSET
     refresh_status: Union[Unset, str] = UNSET
     refresh_status_map: Union["ModelCloudNodeAccountInfoRefreshStatusMapType0", None, Unset] = UNSET
     scan_status_map: Union["ModelCloudNodeAccountInfoScanStatusMapType0", None, Unset] = UNSET
@@ -83,6 +92,8 @@ class ModelCloudNodeAccountInfo:
         node_name = self.node_name
 
         refresh_message = self.refresh_message
+
+        refresh_metadata = self.refresh_metadata
 
         refresh_status = self.refresh_status
 
@@ -127,6 +138,8 @@ class ModelCloudNodeAccountInfo:
             field_dict["node_name"] = node_name
         if refresh_message is not UNSET:
             field_dict["refresh_message"] = refresh_message
+        if refresh_metadata is not UNSET:
+            field_dict["refresh_metadata"] = refresh_metadata
         if refresh_status is not UNSET:
             field_dict["refresh_status"] = refresh_status
         if refresh_status_map is not UNSET:
@@ -172,6 +185,8 @@ class ModelCloudNodeAccountInfo:
         node_name = d.pop("node_name", UNSET)
 
         refresh_message = d.pop("refresh_message", UNSET)
+
+        refresh_metadata = d.pop("refresh_metadata", UNSET)
 
         refresh_status = d.pop("refresh_status", UNSET)
 
@@ -224,6 +239,7 @@ class ModelCloudNodeAccountInfo:
             node_id=node_id,
             node_name=node_name,
             refresh_message=refresh_message,
+            refresh_metadata=refresh_metadata,
             refresh_status=refresh_status,
             refresh_status_map=refresh_status_map,
             scan_status_map=scan_status_map,

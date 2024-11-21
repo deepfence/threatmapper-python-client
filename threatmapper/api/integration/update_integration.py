@@ -87,7 +87,19 @@ def sync_detailed(
 
     Args:
         integration_id (str):
-        body (ModelIntegrationUpdateReq):
+        body (ModelIntegrationUpdateReq):  Example: {'notification_type': 'notification_type',
+            'send_summary': True, 'filters': {'fields_filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'cloud_provider': 'cloud_provider', 'container_names': ['container_names',
+            'container_names'], 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'},
+            {'node_type': 'image', 'node_id': 'node_id'}]}, 'id': 0, 'integration_type':
+            'integration_type', 'config': {'key': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -121,7 +133,19 @@ def sync(
 
     Args:
         integration_id (str):
-        body (ModelIntegrationUpdateReq):
+        body (ModelIntegrationUpdateReq):  Example: {'notification_type': 'notification_type',
+            'send_summary': True, 'filters': {'fields_filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'cloud_provider': 'cloud_provider', 'container_names': ['container_names',
+            'container_names'], 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'},
+            {'node_type': 'image', 'node_id': 'node_id'}]}, 'id': 0, 'integration_type':
+            'integration_type', 'config': {'key': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -150,7 +174,19 @@ async def asyncio_detailed(
 
     Args:
         integration_id (str):
-        body (ModelIntegrationUpdateReq):
+        body (ModelIntegrationUpdateReq):  Example: {'notification_type': 'notification_type',
+            'send_summary': True, 'filters': {'fields_filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'cloud_provider': 'cloud_provider', 'container_names': ['container_names',
+            'container_names'], 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'},
+            {'node_type': 'image', 'node_id': 'node_id'}]}, 'id': 0, 'integration_type':
+            'integration_type', 'config': {'key': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -182,7 +218,19 @@ async def asyncio(
 
     Args:
         integration_id (str):
-        body (ModelIntegrationUpdateReq):
+        body (ModelIntegrationUpdateReq):  Example: {'notification_type': 'notification_type',
+            'send_summary': True, 'filters': {'fields_filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True,
+            'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter': {'filter_in':
+            {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'cloud_provider': 'cloud_provider', 'container_names': ['container_names',
+            'container_names'], 'node_ids': [{'node_type': 'image', 'node_id': 'node_id'},
+            {'node_type': 'image', 'node_id': 'node_id'}]}, 'id': 0, 'integration_type':
+            'integration_type', 'config': {'key': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

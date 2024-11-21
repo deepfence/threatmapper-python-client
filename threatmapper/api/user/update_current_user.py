@@ -84,7 +84,8 @@ def sync_detailed(
      Update logged in user information
 
     Args:
-        body (ModelUpdateUserRequest):
+        body (ModelUpdateUserRequest):  Example: {'is_active': True, 'role': 'admin', 'last_name':
+            'last_name', 'first_name': 'first_name'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +116,8 @@ def sync(
      Update logged in user information
 
     Args:
-        body (ModelUpdateUserRequest):
+        body (ModelUpdateUserRequest):  Example: {'is_active': True, 'role': 'admin', 'last_name':
+            'last_name', 'first_name': 'first_name'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +143,8 @@ async def asyncio_detailed(
      Update logged in user information
 
     Args:
-        body (ModelUpdateUserRequest):
+        body (ModelUpdateUserRequest):  Example: {'is_active': True, 'role': 'admin', 'last_name':
+            'last_name', 'first_name': 'first_name'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +173,8 @@ async def asyncio(
      Update logged in user information
 
     Args:
-        body (ModelUpdateUserRequest):
+        body (ModelUpdateUserRequest):  Example: {'is_active': True, 'role': 'admin', 'last_name':
+            'last_name', 'first_name': 'first_name'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

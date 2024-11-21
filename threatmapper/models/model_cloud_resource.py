@@ -11,6 +11,12 @@ T = TypeVar("T", bound="ModelCloudResource")
 @_attrs_define
 class ModelCloudResource:
     """
+    Example:
+        {'cloud_compliances_count': 0, 'account_id': 'account_id', 'cloud_compliance_latest_scan_id':
+            'cloud_compliance_latest_scan_id', 'node_type': 'node_type', 'cloud_compliance_scan_status':
+            'cloud_compliance_scan_status', 'cloud_region': 'cloud_region', 'node_name': 'node_name', 'cloud_provider':
+            'aws', 'type_label': 'type_label', 'cloud_warn_alarm_count': 6, 'node_id': 'node_id'}
+
     Attributes:
         account_id (str):
         cloud_compliance_latest_scan_id (str):

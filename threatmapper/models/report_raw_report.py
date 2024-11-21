@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ReportRawReport")
 @_attrs_define
 class ReportRawReport:
     """
+    Example:
+        {'payload': 'payload'}
+
     Attributes:
         payload (str):
     """

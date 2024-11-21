@@ -11,6 +11,10 @@ T = TypeVar("T", bound="ModelScanReportFieldsResponse")
 @_attrs_define
 class ModelScanReportFieldsResponse:
     """
+    Example:
+        {'malware': ['malware', 'malware'], 'compliance': ['compliance', 'compliance'], 'secret': ['secret', 'secret'],
+            'vulnerability': ['vulnerability', 'vulnerability']}
+
     Attributes:
         compliance (Union[List[str], None, Unset]):
         malware (Union[List[str], None, Unset]):

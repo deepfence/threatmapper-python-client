@@ -15,6 +15,9 @@ T = TypeVar("T", bound="ModelFiltersReq")
 @_attrs_define
 class ModelFiltersReq:
     """
+    Example:
+        {'having': {'key': ''}, 'filters': ['filters', 'filters']}
+
     Attributes:
         filters (Union[List[str], None]):
         having (Union['ModelFiltersReqHavingType0', None, Unset]):

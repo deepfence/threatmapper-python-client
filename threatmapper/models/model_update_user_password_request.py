@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelUpdateUserPasswordRequest")
 @_attrs_define
 class ModelUpdateUserPasswordRequest:
     """
+    Example:
+        {'old_password': 'old_password', 'new_password': 'new_password'}
+
     Attributes:
         new_password (str):
         old_password (str):

@@ -82,7 +82,8 @@ def sync_detailed(
      Unmask scan results
 
     Args:
-        body (ModelScanResultsMaskRequest):
+        body (ModelScanResultsMaskRequest):  Example: {'mask_action': 'mask_global', 'result_ids':
+            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,7 +114,8 @@ def sync(
      Unmask scan results
 
     Args:
-        body (ModelScanResultsMaskRequest):
+        body (ModelScanResultsMaskRequest):  Example: {'mask_action': 'mask_global', 'result_ids':
+            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,7 +141,8 @@ async def asyncio_detailed(
      Unmask scan results
 
     Args:
-        body (ModelScanResultsMaskRequest):
+        body (ModelScanResultsMaskRequest):  Example: {'mask_action': 'mask_global', 'result_ids':
+            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -168,7 +171,8 @@ async def asyncio(
      Unmask scan results
 
     Args:
-        body (ModelScanResultsMaskRequest):
+        body (ModelScanResultsMaskRequest):  Example: {'mask_action': 'mask_global', 'result_ids':
+            ['result_ids', 'result_ids'], 'scan_type': 'SecretScan', 'scan_id': 'scan_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -13,6 +13,10 @@ T = TypeVar("T", bound="ReportersOrderFilter")
 @_attrs_define
 class ReportersOrderFilter:
     """
+    Example:
+        {'order_fields': [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}
+
     Attributes:
         order_fields (Union[List['ReportersOrderSpec'], None]):
     """

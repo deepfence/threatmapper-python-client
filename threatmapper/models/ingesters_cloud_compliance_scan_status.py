@@ -17,10 +17,18 @@ T = TypeVar("T", bound="IngestersCloudComplianceScanStatus")
 @_attrs_define
 class IngestersCloudComplianceScanStatus:
     """
+    Example:
+        {'result': {'compliance_percentage': 6.027456183070403, 'alarm': 0, 'skip': 2, 'error': 1, 'ok': 5, 'info': 5},
+            'scan_message': 'scan_message', '@timestamp': datetime.datetime(2000, 1, 23, 4, 56, 7,
+            tzinfo=datetime.timezone(datetime.timedelta(0), '+00:00')), 'total_checks': 7, 'scan_status': 'scan_status',
+            'scan_id': 'scan_id', 'type': 'type', 'compliance_check_types': ['compliance_check_types',
+            'compliance_check_types']}
+
     Attributes:
         timestamp (Union[Unset, datetime.datetime]):
         compliance_check_types (Union[List[str], None, Unset]):
-        result (Union[Unset, IngestersComplianceStats]):
+        result (Union[Unset, IngestersComplianceStats]):  Example: {'compliance_percentage': 6.027456183070403, 'alarm':
+            0, 'skip': 2, 'error': 1, 'ok': 5, 'info': 5}.
         scan_id (Union[Unset, str]):
         scan_message (Union[Unset, str]):
         scan_status (Union[Unset, str]):

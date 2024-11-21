@@ -15,9 +15,12 @@ T = TypeVar("T", bound="ModelCloudNodeAccountsListReq")
 @_attrs_define
 class ModelCloudNodeAccountsListReq:
     """
+    Example:
+        {'cloud_provider': 'aws', 'window': {'offset': 0, 'size': 6}}
+
     Attributes:
         cloud_provider (ModelCloudNodeAccountsListReqCloudProvider):
-        window (ModelFetchWindow):
+        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
     """
 
     cloud_provider: ModelCloudNodeAccountsListReqCloudProvider

@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelRegisterLicenseResponse")
 @_attrs_define
 class ModelRegisterLicenseResponse:
     """
+    Example:
+        {'email_domain': 'email_domain', 'license_key': 'license_key'}
+
     Attributes:
         email_domain (str):
         license_key (str):

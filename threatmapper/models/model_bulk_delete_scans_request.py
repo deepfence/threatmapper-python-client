@@ -15,8 +15,22 @@ T = TypeVar("T", bound="ModelBulkDeleteScansRequest")
 @_attrs_define
 class ModelBulkDeleteScansRequest:
     """
+    Example:
+        {'scan_type': 'Secret', 'filters': {'compare_filter': [{'greater_than': True, 'field_value': '', 'field_name':
+            'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0, 'descending': True,
+            'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]}, 'contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['', '']}}}}
+
     Attributes:
-        filters (ReportersFieldsFilters):
+        filters (ReportersFieldsFilters):  Example: {'compare_filter': [{'greater_than': True, 'field_value': '',
+            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}],
+            'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]},
+            'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['',
+            '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}.
         scan_type (ModelBulkDeleteScansRequestScanType):
     """
 

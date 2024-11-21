@@ -11,6 +11,9 @@ T = TypeVar("T", bound="ReportersOrderSpec")
 @_attrs_define
 class ReportersOrderSpec:
     """
+    Example:
+        {'size': 0, 'descending': True, 'field_name': 'field_name'}
+
     Attributes:
         descending (bool):
         field_name (str):

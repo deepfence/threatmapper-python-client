@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ModelMessageResponse")
 @_attrs_define
 class ModelMessageResponse:
     """
+    Example:
+        {'message': 'message'}
+
     Attributes:
         message (str):
     """

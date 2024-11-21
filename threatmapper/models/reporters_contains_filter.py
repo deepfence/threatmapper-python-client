@@ -13,6 +13,9 @@ T = TypeVar("T", bound="ReportersContainsFilter")
 @_attrs_define
 class ReportersContainsFilter:
     """
+    Example:
+        {'filter_in': {'key': ['', '']}}
+
     Attributes:
         filter_in (Union['ReportersContainsFilterFilterInType0', None]):
     """

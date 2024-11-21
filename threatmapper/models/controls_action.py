@@ -9,6 +9,9 @@ T = TypeVar("T", bound="ControlsAction")
 @_attrs_define
 class ControlsAction:
     """
+    Example:
+        {'id': 6, 'request_payload': 'request_payload'}
+
     Attributes:
         id (int):
         request_payload (str):

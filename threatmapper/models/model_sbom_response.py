@@ -11,6 +11,10 @@ T = TypeVar("T", bound="ModelSbomResponse")
 @_attrs_define
 class ModelSbomResponse:
     """
+    Example:
+        {'severity': 'severity', 'licenses': ['licenses', 'licenses'], 'cve_id': 'cve_id', 'package_name':
+            'package_name', 'cve_node_id': 'cve_node_id', 'locations': ['locations', 'locations'], 'version': 'version'}
+
     Attributes:
         cve_id (Union[Unset, str]):
         cve_node_id (Union[Unset, str]):

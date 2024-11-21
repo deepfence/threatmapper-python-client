@@ -16,13 +16,19 @@ T = TypeVar("T", bound="ModelSecret")
 @_attrs_define
 class ModelSecret:
     """
+    Example:
+        {'rule_id': 'rule_id', 'score': 0.8008281904610115, 'full_filename': 'full_filename', 'matched_content':
+            'matched_content', 'updated_at': 1, 'level': 'critical', 'masked': True, 'starting_index': 6, 'resources':
+            [{'node_type': 'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}, {'node_type':
+            'node_type', 'name': 'name', 'host_name': 'host_name', 'node_id': 'node_id'}], 'node_id': 'node_id'}
+
     Attributes:
         full_filename (str):
         level (ModelSecretLevel):
         masked (bool):
         matched_content (str):
-        name (str):
         node_id (str):
+        rule_id (str):
         score (float):
         starting_index (int):
         updated_at (int):
@@ -33,8 +39,8 @@ class ModelSecret:
     level: ModelSecretLevel
     masked: bool
     matched_content: str
-    name: str
     node_id: str
+    rule_id: str
     score: float
     starting_index: int
     updated_at: int
@@ -50,9 +56,9 @@ class ModelSecret:
 
         matched_content = self.matched_content
 
-        name = self.name
-
         node_id = self.node_id
+
+        rule_id = self.rule_id
 
         score = self.score
 
@@ -80,8 +86,8 @@ class ModelSecret:
                 "level": level,
                 "masked": masked,
                 "matched_content": matched_content,
-                "name": name,
                 "node_id": node_id,
+                "rule_id": rule_id,
                 "score": score,
                 "starting_index": starting_index,
                 "updated_at": updated_at,
@@ -105,9 +111,9 @@ class ModelSecret:
 
         matched_content = d.pop("matched_content")
 
-        name = d.pop("name")
-
         node_id = d.pop("node_id")
+
+        rule_id = d.pop("rule_id")
 
         score = d.pop("score")
 
@@ -142,8 +148,8 @@ class ModelSecret:
             level=level,
             masked=masked,
             matched_content=matched_content,
-            name=name,
             node_id=node_id,
+            rule_id=rule_id,
             score=score,
             starting_index=starting_index,
             updated_at=updated_at,

@@ -17,12 +17,29 @@ T = TypeVar("T", bound="ModelGenerateReportReq")
 @_attrs_define
 class ModelGenerateReportReq:
     """
+    Example:
+        {'to_timestamp': 6, 'options': {'sbom_format': 'syft-json'}, 'from_timestamp': 0, 'zipped_report': True,
+            'filters': {'include_dead_nodes': True, 'node_type': ['node_type', 'node_type'], 'most_exploitable_report':
+            True, 'advanced_report_filters': {'image_name': ['image_name', 'image_name'], 'container_name':
+            ['container_name', 'container_name'], 'scan_status': ['scan_status', 'scan_status'], 'kubernetes_cluster_name':
+            ['kubernetes_cluster_name', 'kubernetes_cluster_name'], 'masked': [True, True], 'host_name': ['host_name',
+            'host_name'], 'node_id': ['node_id', 'node_id'], 'pod_name': ['pod_name', 'pod_name']}, 'scan_type':
+            'vulnerability', 'scan_id': 'scan_id', 'severity_or_check_type': ['severity_or_check_type',
+            'severity_or_check_type']}, 'report_type': 'pdf'}
+
     Attributes:
         report_type (ModelGenerateReportReqReportType):
-        filters (Union[Unset, UtilsReportFilters]):
+        filters (Union[Unset, UtilsReportFilters]):  Example: {'include_dead_nodes': True, 'node_type': ['node_type',
+            'node_type'], 'most_exploitable_report': True, 'advanced_report_filters': {'image_name': ['image_name',
+            'image_name'], 'container_name': ['container_name', 'container_name'], 'scan_status': ['scan_status',
+            'scan_status'], 'kubernetes_cluster_name': ['kubernetes_cluster_name', 'kubernetes_cluster_name'], 'masked':
+            [True, True], 'host_name': ['host_name', 'host_name'], 'node_id': ['node_id', 'node_id'], 'pod_name':
+            ['pod_name', 'pod_name']}, 'scan_type': 'vulnerability', 'scan_id': 'scan_id', 'severity_or_check_type':
+            ['severity_or_check_type', 'severity_or_check_type']}.
         from_timestamp (Union[Unset, int]):
-        options (Union[Unset, UtilsReportOptions]):
+        options (Union[Unset, UtilsReportOptions]):  Example: {'sbom_format': 'syft-json'}.
         to_timestamp (Union[Unset, int]):
+        zipped_report (Union[Unset, bool]):
     """
 
     report_type: ModelGenerateReportReqReportType
@@ -30,6 +47,7 @@ class ModelGenerateReportReq:
     from_timestamp: Union[Unset, int] = UNSET
     options: Union[Unset, "UtilsReportOptions"] = UNSET
     to_timestamp: Union[Unset, int] = UNSET
+    zipped_report: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -47,6 +65,8 @@ class ModelGenerateReportReq:
 
         to_timestamp = self.to_timestamp
 
+        zipped_report = self.zipped_report
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -62,6 +82,8 @@ class ModelGenerateReportReq:
             field_dict["options"] = options
         if to_timestamp is not UNSET:
             field_dict["to_timestamp"] = to_timestamp
+        if zipped_report is not UNSET:
+            field_dict["zipped_report"] = zipped_report
 
         return field_dict
 
@@ -91,12 +113,15 @@ class ModelGenerateReportReq:
 
         to_timestamp = d.pop("to_timestamp", UNSET)
 
+        zipped_report = d.pop("zipped_report", UNSET)
+
         model_generate_report_req = cls(
             report_type=report_type,
             filters=filters,
             from_timestamp=from_timestamp,
             options=options,
             to_timestamp=to_timestamp,
+            zipped_report=zipped_report,
         )
 
         model_generate_report_req.additional_properties = d

@@ -84,7 +84,23 @@ def sync_detailed(
      count of images from a given registry
 
     Args:
-        body (ModelRegistryImagesReq):
+        body (ModelRegistryImagesReq):  Example: {'image_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}, 'image_stub_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'registry_id': 'registry_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,7 +131,23 @@ def sync(
      count of images from a given registry
 
     Args:
-        body (ModelRegistryImagesReq):
+        body (ModelRegistryImagesReq):  Example: {'image_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}, 'image_stub_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'registry_id': 'registry_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,7 +173,23 @@ async def asyncio_detailed(
      count of images from a given registry
 
     Args:
-        body (ModelRegistryImagesReq):
+        body (ModelRegistryImagesReq):  Example: {'image_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}, 'image_stub_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'registry_id': 'registry_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +218,23 @@ async def asyncio(
      count of images from a given registry
 
     Args:
-        body (ModelRegistryImagesReq):
+        body (ModelRegistryImagesReq):  Example: {'image_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'window': {'offset': 0, 'size': 6}, 'image_stub_filter': {'compare_filter':
+            [{'greater_than': True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}], 'not_contains_filter':
+            {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True,
+            'field_name': 'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}},
+            'contains_in_array_filter': {'filter_in': {'key': ['', '']}}, 'match_filter':
+            {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}, 'registry_id': 'registry_id'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

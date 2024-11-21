@@ -9,6 +9,10 @@ T = TypeVar("T", bound="SearchNodeCountResp")
 @_attrs_define
 class SearchNodeCountResp:
     """
+    Example:
+        {'container': 6, 'pod': 7, 'host': 5, 'namespace': 2, 'cloud_provider': 0, 'kubernetes_cluster': 5,
+            'container_image': 1}
+
     Attributes:
         cloud_provider (int):
         container (int):

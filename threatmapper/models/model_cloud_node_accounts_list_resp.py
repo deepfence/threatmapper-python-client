@@ -13,6 +13,18 @@ T = TypeVar("T", bound="ModelCloudNodeAccountsListResp")
 @_attrs_define
 class ModelCloudNodeAccountsListResp:
     """
+    Example:
+        {'total': 5, 'cloud_node_accounts_info': [{'last_scan_status': 'last_scan_status', 'last_scan_id':
+            'last_scan_id', 'refresh_message': 'refresh_message', 'node_name': 'node_name', 'active': True,
+            'cloud_provider': 'aws', 'scan_status_map': {'key': 1}, 'refresh_metadata': 'refresh_metadata', 'host_node_id':
+            'host_node_id', 'version': 'version', 'refresh_status_map': {'key': 6}, 'refresh_status': 'refresh_status',
+            'compliance_percentage': 0.8008281904610115, 'account_name': 'account_name', 'node_id': 'node_id'},
+            {'last_scan_status': 'last_scan_status', 'last_scan_id': 'last_scan_id', 'refresh_message': 'refresh_message',
+            'node_name': 'node_name', 'active': True, 'cloud_provider': 'aws', 'scan_status_map': {'key': 1},
+            'refresh_metadata': 'refresh_metadata', 'host_node_id': 'host_node_id', 'version': 'version',
+            'refresh_status_map': {'key': 6}, 'refresh_status': 'refresh_status', 'compliance_percentage':
+            0.8008281904610115, 'account_name': 'account_name', 'node_id': 'node_id'}]}
+
     Attributes:
         cloud_node_accounts_info (Union[List['ModelCloudNodeAccountInfo'], None]):
         total (int):

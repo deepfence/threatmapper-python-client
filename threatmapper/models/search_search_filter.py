@@ -14,10 +14,25 @@ T = TypeVar("T", bound="SearchSearchFilter")
 @_attrs_define
 class SearchSearchFilter:
     """
+    Example:
+        {'in_field_filter': ['in_field_filter', 'in_field_filter'], 'filters': {'compare_filter': [{'greater_than':
+            True, 'field_value': '', 'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name':
+            'field_name'}], 'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields':
+            [{'size': 0, 'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name':
+            'field_name'}]}, 'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in':
+            {'key': ['', '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in':
+            {'key': ['', '']}}}, 'window': {'offset': 0, 'size': 6}}
+
     Attributes:
-        filters (ReportersFieldsFilters):
+        filters (ReportersFieldsFilters):  Example: {'compare_filter': [{'greater_than': True, 'field_value': '',
+            'field_name': 'field_name'}, {'greater_than': True, 'field_value': '', 'field_name': 'field_name'}],
+            'not_contains_filter': {'filter_in': {'key': ['', '']}}, 'order_filter': {'order_fields': [{'size': 0,
+            'descending': True, 'field_name': 'field_name'}, {'size': 0, 'descending': True, 'field_name': 'field_name'}]},
+            'contains_filter': {'filter_in': {'key': ['', '']}}, 'contains_in_array_filter': {'filter_in': {'key': ['',
+            '']}}, 'match_filter': {'filter_in': {'key': ['', '']}}, 'match_in_array_filter': {'filter_in': {'key': ['',
+            '']}}}.
         in_field_filter (Union[List[str], None]):
-        window (ModelFetchWindow):
+        window (ModelFetchWindow):  Example: {'offset': 0, 'size': 6}.
     """
 
     filters: "ReportersFieldsFilters"

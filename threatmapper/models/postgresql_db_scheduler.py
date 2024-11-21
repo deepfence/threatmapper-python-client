@@ -8,7 +8,7 @@ from dateutil.parser import isoparse
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.sql_null_time import SqlNullTime
+    from ..models.postgresql_db_scheduler_last_ran_at import PostgresqlDbSchedulerLastRanAt
 
 
 T = TypeVar("T", bound="PostgresqlDbScheduler")
@@ -17,6 +17,13 @@ T = TypeVar("T", bound="PostgresqlDbScheduler")
 @_attrs_define
 class PostgresqlDbScheduler:
     """
+    Example:
+        {'is_enabled': True, 'is_system': True, 'last_ran_at': '{}', 'updated_at': datetime.datetime(2000, 1, 23, 4, 56,
+            7, tzinfo=datetime.timezone(datetime.timedelta(0), '+00:00')), 'payload': '', 'cron_expr': 'cron_expr',
+            'action': 'action', 'created_at': datetime.datetime(2000, 1, 23, 4, 56, 7,
+            tzinfo=datetime.timezone(datetime.timedelta(0), '+00:00')), 'description': 'description', 'id': 0, 'status':
+            'status'}
+
     Attributes:
         action (Union[Unset, str]):
         created_at (Union[Unset, datetime.datetime]):
@@ -25,7 +32,7 @@ class PostgresqlDbScheduler:
         id (Union[Unset, int]):
         is_enabled (Union[Unset, bool]):
         is_system (Union[Unset, bool]):
-        last_ran_at (Union[Unset, SqlNullTime]):
+        last_ran_at (Union[Unset, PostgresqlDbSchedulerLastRanAt]):
         payload (Union[Unset, Any]):
         status (Union[Unset, str]):
         updated_at (Union[Unset, datetime.datetime]):
@@ -38,7 +45,7 @@ class PostgresqlDbScheduler:
     id: Union[Unset, int] = UNSET
     is_enabled: Union[Unset, bool] = UNSET
     is_system: Union[Unset, bool] = UNSET
-    last_ran_at: Union[Unset, "SqlNullTime"] = UNSET
+    last_ran_at: Union[Unset, "PostgresqlDbSchedulerLastRanAt"] = UNSET
     payload: Union[Unset, Any] = UNSET
     status: Union[Unset, str] = UNSET
     updated_at: Union[Unset, datetime.datetime] = UNSET
@@ -103,7 +110,7 @@ class PostgresqlDbScheduler:
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
-        from ..models.sql_null_time import SqlNullTime
+        from ..models.postgresql_db_scheduler_last_ran_at import PostgresqlDbSchedulerLastRanAt
 
         d = src_dict.copy()
         action = d.pop("action", UNSET)
@@ -126,11 +133,11 @@ class PostgresqlDbScheduler:
         is_system = d.pop("is_system", UNSET)
 
         _last_ran_at = d.pop("last_ran_at", UNSET)
-        last_ran_at: Union[Unset, SqlNullTime]
+        last_ran_at: Union[Unset, PostgresqlDbSchedulerLastRanAt]
         if isinstance(_last_ran_at, Unset):
             last_ran_at = UNSET
         else:
-            last_ran_at = SqlNullTime.from_dict(_last_ran_at)
+            last_ran_at = PostgresqlDbSchedulerLastRanAt.from_dict(_last_ran_at)
 
         payload = d.pop("payload", UNSET)
 
